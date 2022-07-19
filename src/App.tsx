@@ -4,7 +4,7 @@ import {StatusBar, Text, TextInput} from 'react-native';
 import {ThemeProvider} from 'styled-components/native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {Routes} from '@/routes/Routes';
+import {Routes} from '@/routes';
 import {store} from '@/store';
 import {theme} from '@/styles';
 
