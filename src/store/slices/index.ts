@@ -1,6 +1,6 @@
 import {combineReducers} from '@reduxjs/toolkit';
 
-export const globalState = {};
+export const globalState = {user: {}};
 
 export const globalReducer = {};
 
