@@ -8,19 +8,35 @@ global.ReanimatedDataMock = {
   now: () => 0,
 };
 
-jest.mock('react-hook-form', () => ({
-  useForm: () => ({
-    control: jest.fn(),
-    handleSubmit: jest.fn(),
-  }),
+jest.mock('react-hook-form', () => {
+  const originalModule = jest.requireActual('@react-navigation/native');
+  return {
+    ...originalModule,
+    useController: () => ({
+      field: {
+        onChange: jest.fn(),
+        value: '',
+      },
+    }),
+  };
+});
 
-  useController: () => ({
-    field: {
-      onChange: jest.fn(),
-      value: 'test',
-    },
-    fieldState: {
-      error: 'somithing went wrong',
-    },
-  }),
-}));
+jest.mock('@react-navigation/native', () => {
+  const originalModule = jest.requireActual('@react-navigation/native');
+
+  return {
+    __esModule: true,
+    ...originalModule,
+    useFocusEffect: jest.fn(),
+    useIsFocused: jest.fn().mockReturnValue(true),
+    useNavigation: () => ({
+      pop: jest.fn(),
+      popToTop: jest.fn(),
+      navigate: jest.fn(),
+      dispatch: jest.fn(),
+      addListener: jest.fn(),
+      goBack: jest.fn(),
+      canGoBack: jest.fn().mockReturnValue(true),
+    }),
+  };
+});
