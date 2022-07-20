@@ -14,6 +14,10 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 
+interface InputProps {
+  error: boolean;
+}
+
 interface Props extends TextInputProps {
   name: string;
   control: any;
@@ -68,7 +72,7 @@ const InputForm = ({
 
   return (
     <StyledContainer>
-      <StyledContainerInput>
+      <StyledContainerInput error={!!error}>
         <StyledLabel style={animatedStylePlaceholder}>{label}</StyledLabel>
         {type ? (
           <StyledInputMask
@@ -124,14 +128,15 @@ const StyledContainer = styled.View`
   margin-bottom: 10px;
 `;
 
-const StyledContainerInput = styled.View`
+const StyledContainerInput = styled.View<InputProps>`
   width: 100%;
   height: 56px;
   flex-direction: row;
   align-items: center;
   border-bottom-width: 1px;
   background-color: ${({theme}) => theme.colors.SUCCESS_100};
-  border-color: ${({theme}) => theme.colors.GRAY_700};
+  border-color: ${({theme, error}) =>
+    error ? theme.colors.ERROR_600 : theme.colors.GRAY_700};
   padding: 0 16px;
 `;
 

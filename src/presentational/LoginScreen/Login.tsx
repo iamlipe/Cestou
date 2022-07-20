@@ -30,8 +30,8 @@ type NavProps = NativeStackNavigationProp<RoutesParamList, 'Register'>;
 export const Login = () => {
   const userReducer = useReduxSelector(({user}) => user);
   const {navigate} = useNavigation<NavProps>();
-
   const dispatch = useReduxDispatch();
+
   const {
     control,
     handleSubmit,
@@ -121,6 +121,7 @@ export const Login = () => {
 const StyledContainer = styled.SafeAreaView``;
 
 const StyledContainerScroll = styled.ScrollView`
+  min-height: 100%;
   background-color: ${({theme}) => theme.colors.BACKGROUND};
 `;
 
