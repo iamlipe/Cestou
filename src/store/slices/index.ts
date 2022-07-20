@@ -1,8 +1,10 @@
 import {combineReducers} from '@reduxjs/toolkit';
 
-export const globalState = {user: {}};
+import user, {userState} from './userSlice';
 
-export const globalReducer = {};
+export const globalState = {user: userState};
+
+export const globalReducer = {user};
 
 const rootReducer = combineReducers(globalReducer);
 
