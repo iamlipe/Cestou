@@ -22,14 +22,13 @@ describe('Login', () => {
     const emailInput = getByTestId('input-text-phoneOrEmail');
     const passwordInput = getByTestId('input-text-password');
 
-    // TODO: reevaluate mock react-hook-form
-    fireEvent.changeText(emailInput, 'caguei');
-    fireEvent.changeText(passwordInput, 'caguei');
+    fireEvent.changeText(emailInput, 'test@email.com');
+    fireEvent.changeText(passwordInput, 'passowrd');
 
     await act(() => fireEvent.press(getByText(/entrar/i)));
 
-    expect(emailInput.props.value).toEqual('caguei');
-    expect(passwordInput.props.value).toEqual('caguei');
+    expect(emailInput.props.value).toEqual('test@email.com');
+    expect(passwordInput.props.value).toEqual('passowrd');
   });
 
   test('should render Logo', () => {

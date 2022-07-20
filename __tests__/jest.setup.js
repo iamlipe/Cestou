@@ -8,19 +8,6 @@ global.ReanimatedDataMock = {
   now: () => 0,
 };
 
-jest.mock('react-hook-form', () => {
-  const originalModule = jest.requireActual('@react-navigation/native');
-  return {
-    ...originalModule,
-    useController: () => ({
-      field: {
-        onChange: jest.fn(),
-        value: '',
-      },
-    }),
-  };
-});
-
 jest.mock('@react-navigation/native', () => {
   const originalModule = jest.requireActual('@react-navigation/native');
 
@@ -40,3 +27,5 @@ jest.mock('@react-navigation/native', () => {
     }),
   };
 });
+
+jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');

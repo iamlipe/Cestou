@@ -7,6 +7,14 @@ import {
 
 import CheckboxForm from '@/components/CheckboxForm';
 
+jest.mock('react-hook-form', () => ({
+  useController: () => ({
+    field: {
+      onChange: jest.fn(),
+    },
+  }),
+}));
+
 describe('CheckboxForm', () => {
   const options = ['check-me', 'check-me-too'];
 
