@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Info should matches snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "borderColor": "#00843F",
+        "borderRadius": 5,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "justifyContent": "space-between",
+        "marginBottom": 50,
+        "paddingBottom": 24,
+        "paddingLeft": 24,
+        "paddingRight": 24,
+        "paddingTop": 24,
+        "width": "90%",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#1A1A1A",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 27,
+          "marginBottom": 20,
+        },
+      ]
+    }
+  >
+    Para saber mais sobre os projetos e instituições que estamos ajudando, acesse o nosso site.
+  </Text>
+  <View
+    accessibilityState={
+      Object {
+        "disabled": false,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "transparent",
+        "borderColor": "#00843F",
+        "borderRadius": 4,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 38,
+        "justifyContent": "center",
+        "marginBottom": 10,
+        "opacity": 1,
+        "width": 90,
+      }
+    }
+    testID="button"
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#00843F",
+            "fontFamily": "SourceSansPro-SemiBold",
+            "fontSize": 27,
+          },
+        ]
+      }
+      textColor="primary"
+    >
+      Ir para o site
+    </Text>
+  </View>
+</View>
+`;

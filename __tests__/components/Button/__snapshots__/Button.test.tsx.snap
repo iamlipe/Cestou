@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buttom should matches snapshot 1`] = `
+<View
+  accessibilityState={
+    Object {
+      "disabled": false,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "alignSelf": "center",
+      "backgroundColor": "#00843F",
+      "borderRadius": 4,
+      "flexDirection": "row",
+      "height": 49,
+      "justifyContent": "center",
+      "marginBottom": 10,
+      "opacity": 1,
+      "width": 200,
+    }
+  }
+  testID="button"
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#FFFFFF",
+          "fontFamily": "SourceSansPro-SemiBold",
+          "fontSize": 27,
+        },
+      ]
+    }
+    textColor="white"
+  >
+    press-me
+  </Text>
+</View>
+`;

@@ -7,6 +7,14 @@ import {
 
 import InputForm from '@/components/InputForm';
 
+jest.mock('react-hook-form', () => ({
+  useController: () => ({
+    field: {
+      onChange: jest.fn(),
+    },
+  }),
+}));
+
 describe('InputForm', () => {
   const name = 'default';
   const errorMessage = 'someting went wrong';

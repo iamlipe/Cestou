@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputForm should matches snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "marginBottom": 10,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#f3fbf5",
+          "borderBottomWidth": 1,
+          "borderColor": "#3A3A3A",
+          "flexDirection": "row",
+          "height": 56,
+          "paddingBottom": 0,
+          "paddingLeft": 16,
+          "paddingRight": 16,
+          "paddingTop": 0,
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <Text
+      animatedStyle={
+        Object {
+          "value": Object {
+            "fontSize": 14,
+            "opacity": 1,
+            "transform": Array [
+              Object {
+                "translateY": 0,
+              },
+            ],
+          },
+        }
+      }
+      collapsable={false}
+      style={
+        Object {
+          "color": "#1A1A1A",
+          "fontSize": 14,
+          "opacity": 1,
+          "paddingLeft": 16,
+          "position": "absolute",
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        }
+      }
+    />
+    <TextInput
+      onBlur={[Function]}
+      onChangeText={[MockFunction]}
+      onFocus={[Function]}
+      secureTextEntry={false}
+      style={
+        Array [
+          Object {
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "fontSize": 27,
+            "marginTop": 15,
+          },
+        ]
+      }
+      testID="input-text-default"
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Object {
+          "alignSelf": "flex-end",
+          "color": "#781B1C",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 24,
+          "marginBottom": 3,
+        },
+      ]
+    }
+  />
+</View>
+`;
