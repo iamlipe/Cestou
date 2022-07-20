@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import * as Yup from 'yup';
 import {SubmitHandler, useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
-import {LOGIN, REGISTER, RegisterRequest} from '@/store/slices/userSlice';
+import {LOGIN, REGISTER, RegisterForm} from '@/store/slices/userSlice';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {Keyboard} from 'react-native';
@@ -33,12 +33,23 @@ export const Register = () => {
     control,
     handleSubmit,
     formState: {errors, isSubmitted},
-  } = useForm<RegisterRequest>({
+  } = useForm<RegisterForm>({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<RegisterRequest> = async data => {
-    dispatch(REGISTER(data));
+  const onSubmit: SubmitHandler<RegisterForm> = async data => {
+    const firstName = data.name.split(' ')[0];
+    const lastName = data.name.split(' ')[1];
+
+    dispatch(
+      REGISTER({
+        firstName,
+        lastName,
+        userType: data.userType === 'Sou consumidor' ? 'consumer' : 'producer',
+        email: data.email,
+        password: data.password,
+      }),
+    );
     dispatch(
       LOGIN({
         phoneOrEmail: data.email,
@@ -66,7 +77,7 @@ export const Register = () => {
 
         <InputForm
           name="name"
-          label="Nome"
+          label="Nome completo"
           error={isSubmitted ? errors.name?.message : ''}
           control={control}
         />
