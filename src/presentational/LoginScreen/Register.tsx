@@ -6,6 +6,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import {LOGIN, REGISTER, RegisterForm} from '@/store/slices/userSlice';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
+import {useNavigation} from '@react-navigation/native';
 import {Keyboard} from 'react-native';
 
 import RadioForm from '@/components/RadioForm';
@@ -27,6 +28,7 @@ const schema = Yup.object().shape({
 
 export const Register = () => {
   const userReducer = useReduxSelector(({user}) => user);
+  const {goBack} = useNavigation();
   const dispatch = useReduxDispatch();
 
   const {
@@ -118,7 +120,7 @@ export const Register = () => {
           textColor="primary"
           title="Faça Login"
           noMargin
-          onPress={() => null}
+          onPress={() => goBack()}
         />
       </StyledRowLogin>
     </StyledContainer>

@@ -9,7 +9,7 @@ import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {RoutesParamList} from '@/routes';
+import {AuthStackParamList} from '@/routes/stacks/AuthStack';
 
 import Logo from '@/assets/svgs/logo.svg';
 
@@ -25,7 +25,7 @@ const schema = Yup.object().shape({
   password: Yup.string().required('Preenchimento obrigatório'),
 });
 
-type NavProps = NativeStackNavigationProp<RoutesParamList, 'Register'>;
+type NavProps = NativeStackNavigationProp<AuthStackParamList, 'Register'>;
 
 export const Login = () => {
   const userReducer = useReduxSelector(({user}) => user);

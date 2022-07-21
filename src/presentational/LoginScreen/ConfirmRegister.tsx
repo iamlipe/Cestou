@@ -3,14 +3,14 @@ import styled from 'styled-components/native';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {RoutesParamList} from '@/routes';
+import {AuthStackParamList} from '@/routes/stacks/AuthStack';
 
 import Producer from '@/assets/svgs/welcome-producer.svg';
 import Consumer from '@/assets/svgs/welcome-consumer.svg';
 
 import Button from '@/components/Button';
 
-type NavProps = NativeStackNavigationProp<RoutesParamList, 'Onboarding'>;
+type NavProps = NativeStackNavigationProp<AuthStackParamList, 'Onboarding'>;
 
 export const ConfirmRegister = () => {
   const user = useReduxSelector(({user}) => user);
