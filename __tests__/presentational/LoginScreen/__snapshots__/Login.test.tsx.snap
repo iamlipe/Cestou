@@ -634,7 +634,6 @@ exports[`Login should matches snapshot 1`] = `
               "width": 90,
             }
           }
-          testID="button"
         >
           <Text
             style={
