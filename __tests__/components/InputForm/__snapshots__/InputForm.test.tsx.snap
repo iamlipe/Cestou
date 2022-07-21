@@ -11,6 +11,7 @@ exports[`InputForm should matches snapshot 1`] = `
   }
 >
   <View
+    error={false}
     style={
       Array [
         Object {

@@ -60,10 +60,12 @@ interface Props {
   size?: keyof typeof buttonSize;
   noMargin?: boolean;
   loading?: boolean;
+  testID?: string;
 }
 
 const ButtonForm = ({
   title,
+  testID,
   textColor = 'white',
   buttonColor = 'primary',
   size = 'large',
@@ -74,7 +76,7 @@ const ButtonForm = ({
 }: Props) => {
   return (
     <StyledContainerButton
-      testID="button"
+      testID={testID}
       style={constainerStyle}
       backgroundColor={buttonColor}
       sizing={size}
