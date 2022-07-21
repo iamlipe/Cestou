@@ -1,16 +1,16 @@
-import React, { memo } from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
-import styled, { css } from 'styled-components/native';
+import React, {memo} from 'react';
+import {StyleProp, ViewStyle} from 'react-native';
+import styled, {css} from 'styled-components/native';
 
 const buttonTextColor = {
   white: css`
-    color: ${({ theme }) => theme.colors.WHITE};
+    color: ${({theme}) => theme.colors.WHITE};
   `,
   black: css`
-    color: ${({ theme }) => theme.colors.GRAY_900};
+    color: ${({theme}) => theme.colors.GRAY_900};
   `,
   primary: css`
-    color: ${({ theme }) => theme.colors.PRIMARY_800};
+    color: ${({theme}) => theme.colors.PRIMARY_800};
   `,
 };
 
@@ -28,16 +28,16 @@ const buttonSize = {
 const buttonBackgroundColor = {
   transparent: css`
     background-color: transparent;
-    border: 1px solid ${({ theme }) => theme.colors.PRIMARY_800};
+    border: 1px solid ${({theme}) => theme.colors.PRIMARY_800};
   `,
   text_only: css`
     background-color: transparent;
   `,
   primary: css`
-    background-color: ${({ theme }) => theme.colors.PRIMARY_800};
+    background-color: ${({theme}) => theme.colors.PRIMARY_800};
   `,
   disabled: css`
-    background-color: ${({ theme }) => theme.colors.GRAY_600};
+    background-color: ${({theme}) => theme.colors.GRAY_600};
   `,
 };
 
@@ -80,8 +80,7 @@ const ButtonForm = ({
       sizing={size}
       noMargin={noMargin}
       disabled={buttonColor === 'disabled'}
-      {...rest}
-    >
+      {...rest}>
       {loading ? (
         <StyledLoading testID="loading" color="white" size="small" />
       ) : (
@@ -92,7 +91,7 @@ const ButtonForm = ({
 };
 
 const StyledContainerButton = styled.TouchableOpacity<ButtonProps>`
-  ${({ backgroundColor, sizing }) => css`
+  ${({backgroundColor, sizing}) => css`
     ${buttonSize[sizing]}
     ${buttonBackgroundColor[backgroundColor]}
   `}
@@ -101,16 +100,16 @@ const StyledContainerButton = styled.TouchableOpacity<ButtonProps>`
   justify-content: center;
   align-self: center;
   border-radius: 4px;
-  margin-bottom: ${({ noMargin }) => (noMargin ? 0 : 10)}px;
+  margin-bottom: ${({noMargin}) => (noMargin ? 0 : 10)}px;
 `;
 
 const StyledTitleButton = styled.Text<ButtonTextProps>`
-  ${({ textColor }) =>
+  ${({textColor}) =>
     css`
       ${buttonTextColor[textColor]}
     `};
-  font-family: ${({ theme }) => theme.fonts.SEMIBOLD_SOURCESANSPRO};
-  font-size: ${({ theme }) => theme.sizing.SMALLER};
+  font-family: ${({theme}) => theme.fonts.SEMIBOLD_SOURCESANSPRO};
+  font-size: ${({theme}) => theme.sizing.SMALLER};
 `;
 
 const StyledLoading = styled.ActivityIndicator``;

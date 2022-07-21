@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {AxiosError} from 'axios';
 
@@ -23,10 +22,18 @@ export interface LoginResponse {
   deleted_at: string | null;
 }
 
+export interface RegisterRequest {
+  name: string;
+  userType: string;
+  email: string;
+  password: string;
+}
+
 export interface User {
   id?: string;
   firstName?: string;
   lastName?: string;
+  userType?: string;
   email?: string | null;
   phone?: string | null;
   token?: string;
@@ -57,15 +64,40 @@ const userSlice = createSlice({
       error: null,
       statusCode: null,
     }),
-    LOGIN_SUCCESS: (state, {payload: {data}}: PayloadAction<{data: User}>) => ({
+    LOGIN_SUCCESS: (
+      state,
+      {payload: {data, status}}: PayloadAction<{data: User; status: number}>,
+    ) => ({
       ...state,
       isLoading: false,
       auth: data,
+      statusCode: status,
     }),
     LOGIN_FAILURE: (state, {payload: {error}}) => ({
       ...state,
       isLoading: false,
       error,
+      statusCode: error.response.data.status,
+    }),
+    REGISTER: (state, _: PayloadAction<RegisterRequest>) => ({
+      ...state,
+      isLoading: true,
+      error: null,
+      statusCode: null,
+    }),
+    REGISTER_SUCCESS: (
+      state,
+      {payload: {status}}: PayloadAction<{status: number}>,
+    ) => ({
+      ...state,
+      isLoading: false,
+      statusCode: status,
+    }),
+    REGISTER_FAILURE: (state, {payload: {error}}) => ({
+      ...state,
+      isLoading: false,
+      error,
+      statusCode: error.response.data.status,
     }),
   },
 });
@@ -74,5 +106,12 @@ const {actions, reducer} = userSlice;
 
 export const userState = initialState;
 
-export const {LOGIN, LOGIN_FAILURE, LOGIN_SUCCESS} = actions;
+export const {
+  LOGIN,
+  LOGIN_FAILURE,
+  LOGIN_SUCCESS,
+  REGISTER,
+  REGISTER_SUCCESS,
+  REGISTER_FAILURE,
+} = actions;
 export default reducer;

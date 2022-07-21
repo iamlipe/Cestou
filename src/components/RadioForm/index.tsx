@@ -10,7 +10,7 @@ interface Props {
 }
 
 const CheckBox = ({name, control, options}: Props) => {
-  const [checkeds, setCheckeds] = useState<string[]>([]);
+  const [checkeds, setCheckeds] = useState<string>('');
   const theme = useTheme();
 
   const {
@@ -18,35 +18,28 @@ const CheckBox = ({name, control, options}: Props) => {
   } = useController({name, control});
 
   const renderOptions = (option: string, index: number) => (
-    <StyledContainerChecked
+    <StyledContainerRadio
       key={index}
       onPress={() => {
-        if (checkeds.includes(option)) {
-          const newCheckeds = checkeds.filter(item => item !== option);
-
-          setCheckeds(newCheckeds);
-          onChange(newCheckeds);
-        } else {
-          const newCheckeds = checkeds.concat(option);
-
-          setCheckeds(newCheckeds);
-          onChange(newCheckeds);
-        }
+        setCheckeds(option);
+        onChange(option);
       }}>
       <Icon
         name={
-          checkeds.includes(option) ? 'check-box' : 'check-box-outline-blank'
+          checkeds.includes(option)
+            ? 'radio-button-checked'
+            : 'radio-button-unchecked'
         }
         testID={
           checkeds.includes(option)
-            ? `checkbox-icon-checked-${index}`
-            : `checkbox-icon-not-checked-${index}`
+            ? `radio-icon-checked-${index}`
+            : `radio-icon-not-checked-${index}`
         }
         color={theme.colors.PRIMARY_800}
         size={24}
       />
-      <StyledText>{option}</StyledText>
-    </StyledContainerChecked>
+      <StyledTitle>{option}</StyledTitle>
+    </StyledContainerRadio>
   );
 
   return (
@@ -58,13 +51,13 @@ const CheckBox = ({name, control, options}: Props) => {
   );
 };
 
-const StyledContainerChecked = styled.TouchableOpacity`
+const StyledContainerRadio = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   margin-bottom: 10px;
 `;
 
-const StyledText = styled.Text`
+const StyledTitle = styled.Text`
   font-family: ${({theme}) => theme.fonts.REGULAR_SOURCESANSPRO};
   font-size: ${({theme}) => theme.sizing.SMALLER};
   color: ${({theme}) => theme.colors.GRAY_900};
