@@ -2,8 +2,15 @@ import reducer, {
   LOGIN,
   LOGIN_FAILURE,
   LOGIN_SUCCESS,
+  REGISTER,
+  REGISTER_FAILURE,
+  REGISTER_SUCCESS,
 } from '@/store/slices/userSlice';
-import {apiReturnSuccessMock} from '../../../__mocks__/mockLogin';
+import {registerValidPayload} from '@__mocks__/mockRegister';
+import {
+  loginValidPayload,
+  apiReturnSuccessMock,
+} from '../../../__mocks__/mockLogin';
 
 describe('userSlice', () => {
   test('should return the initial state', () => {
@@ -20,10 +27,7 @@ describe('userSlice', () => {
   });
 
   test('should handle LOGIN', () => {
-    const reducerLogin = reducer(
-      undefined,
-      LOGIN({phoneOrEmail: 'test@email.com', password: '123456'}),
-    );
+    const reducerLogin = reducer(undefined, LOGIN(loginValidPayload));
 
     expect(reducerLogin).toEqual({
       isLoading: true,
@@ -36,14 +40,14 @@ describe('userSlice', () => {
   test('should handle LOGIN_SUCCESS', () => {
     const reducerLoginSuccess = reducer(
       undefined,
-      LOGIN_SUCCESS(apiReturnSuccessMock),
+      LOGIN_SUCCESS({...apiReturnSuccessMock, status: 200}),
     );
 
     expect(reducerLoginSuccess).toEqual({
       isLoading: false,
       auth: apiReturnSuccessMock.data,
       error: null,
-      statusCode: null,
+      statusCode: 200,
     });
   });
 
@@ -54,6 +58,43 @@ describe('userSlice', () => {
     );
 
     expect(reducerLoginSuccess).toEqual({
+      isLoading: false,
+      auth: null,
+      error: 'something went wrong',
+      statusCode: null,
+    });
+  });
+
+  test('should handle REGISTER', () => {
+    const reducerRegister = reducer(undefined, REGISTER(registerValidPayload));
+
+    expect(reducerRegister).toEqual({
+      isLoading: true,
+      auth: null,
+      error: null,
+      statusCode: null,
+    });
+  });
+
+  test('should handle REGISTER_SUCCESS', () => {
+    const reducerRegisterSuccess = reducer(
+      undefined,
+      REGISTER_SUCCESS({status: 200}),
+    );
+    expect(reducerRegisterSuccess).toEqual({
+      isLoading: false,
+      auth: null,
+      error: null,
+      statusCode: 200,
+    });
+  });
+
+  test('should handle REGISTER_FAILURE', () => {
+    const reducerRegisterFailure = reducer(
+      undefined,
+      REGISTER_FAILURE({error: 'something went wrong'}),
+    );
+    expect(reducerRegisterFailure).toEqual({
       isLoading: false,
       auth: null,
       error: 'something went wrong',

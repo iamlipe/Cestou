@@ -42,19 +42,8 @@ export function* login({payload}: PayloadAction<LoginRequest>) {
 }
 
 export function* register({payload}: PayloadAction<RegisterRequest>) {
-  console.log(payload);
-
   try {
-    const firstName = payload.name.split(' ')[0];
-    const lastName = payload.name.split(' ')[1];
-
-    yield call(api.post, '/users/new-user/', {
-      firstName,
-      lastName,
-      userType: payload.userType === 'Sou consumidor' ? 'consumer' : 'producer',
-      email: payload.email,
-      password: payload.password,
-    });
+    yield call(api.post, '/users/new-user/', {...payload});
 
     yield put(REGISTER_SUCCESS({status: 200}));
   } catch (error) {

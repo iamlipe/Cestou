@@ -22,8 +22,16 @@ export interface LoginResponse {
   deleted_at: string | null;
 }
 
-export interface RegisterRequest {
+export interface RegisterForm {
   name: string;
+  userType: string;
+  email: string;
+  password: string;
+}
+
+export interface RegisterRequest {
+  firstName: string;
+  lastName: string;
   userType: string;
   email: string;
   password: string;
@@ -77,7 +85,6 @@ const userSlice = createSlice({
       ...state,
       isLoading: false,
       error,
-      statusCode: error.response.data.status,
     }),
     REGISTER: (state, _: PayloadAction<RegisterRequest>) => ({
       ...state,
@@ -97,7 +104,6 @@ const userSlice = createSlice({
       ...state,
       isLoading: false,
       error,
-      statusCode: error.response.data.status,
     }),
   },
 });

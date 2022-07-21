@@ -6,8 +6,8 @@ export const loginValidPayload: LoginRequest = {
 };
 
 export const loginInvalidPayload: LoginRequest = {
-  phoneOrEmail: 'noemailvalid@email.com',
-  password: 'notvalidpassword',
+  phoneOrEmail: 'emailnotvalid@email.com',
+  password: 'passwordnotvalid',
 };
 
 export const apiReturnSuccessMock: {data: LoginResponse} = {
