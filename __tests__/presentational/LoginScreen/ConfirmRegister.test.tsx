@@ -3,6 +3,7 @@ import {
   matchSnapshotWithProvider,
   renderWithThemeProvider,
 } from '@/config/functions/Testing';
+import {mockUseParams} from '@__mocks__/mockUseRoute';
 
 import {ConfirmRegister} from '@/presentational/LoginScreen/ConfirmRegister';
 
@@ -16,9 +17,9 @@ describe('ConfirmRegister', () => {
   });
 
   test('should render image welcome producer when loged with producer account', () => {
-    const {getByTestId} = renderWithThemeProvider(<ConfirmRegister />, {
-      user: {auth: {userType: 'producer'}},
-    });
+    mockUseParams.mockReturnValueOnce({userType: 'producer'});
+
+    const {getByTestId} = renderWithThemeProvider(<ConfirmRegister />);
 
     const welcome = getByTestId('welcome-producer');
 
@@ -26,9 +27,9 @@ describe('ConfirmRegister', () => {
   });
 
   test('should render image welcome consumer when loged with consumer account', () => {
-    const {getByTestId} = renderWithThemeProvider(<ConfirmRegister />, {
-      user: {auth: {userType: 'consumer'}},
-    });
+    mockUseParams.mockReturnValueOnce({userType: 'consumer'});
+
+    const {getByTestId} = renderWithThemeProvider(<ConfirmRegister />);
 
     const welcome = getByTestId('welcome-consumer');
 
