@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useCallback, useEffect} from 'react';
 import styled from 'styled-components/native';
 import * as Yup from 'yup';
 import {Keyboard} from 'react-native';
-import {SubmitHandler, useForm} from 'react-hook-form';
-import {LOGIN, LoginRequest} from '@/store/slices/userSlice';
+import {useForm} from 'react-hook-form';
+import {LOGIN, LoginRequest, REMEMBER_USER} from '@/store/slices/userSlice';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
@@ -17,6 +17,7 @@ import InputForm from '@/components/InputForm/index';
 import Button from '@/components/Button';
 import CheckboxForm from '@/components/CheckboxForm';
 import Info from '@/components/Info';
+import {useAsyncStorage} from '@react-native-async-storage/async-storage';
 
 const schema = Yup.object().shape({
   phoneOrEmail: Yup.string()
@@ -29,6 +30,7 @@ type NavProps = NativeStackNavigationProp<AuthStackParamList, 'Register'>;
 
 export const Login = () => {
   const userReducer = useReduxSelector(({user}) => user);
+  const userStorage = useAsyncStorage('@user');
   const {navigate} = useNavigation<NavProps>();
   const dispatch = useReduxDispatch();
 
@@ -40,16 +42,31 @@ export const Login = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<LoginRequest> = async data => {
+  async function onSubmit(data: LoginRequest) {
+    await handleLogin(data);
+    Keyboard.dismiss();
+  }
+
+  async function handleLogin(data: LoginRequest) {
     dispatch(
       LOGIN({
         phoneOrEmail: data.phoneOrEmail,
         password: data.password,
+        remember: data.remember,
       }),
     );
+  }
 
-    Keyboard.dismiss();
-  };
+  async function handleRemember() {
+    const user = await userStorage.getItem();
+
+    if (user) dispatch(REMEMBER_USER(JSON.parse(user)));
+  }
+
+  useEffect(() => {
+    handleRemember();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <StyledContainer>
@@ -90,7 +107,7 @@ export const Login = () => {
 
           <CheckboxForm
             control={control}
-            name="remember_me"
+            name="remember"
             options={['Lembrar minha senha']}
           />
         </StyledContainerForm>
