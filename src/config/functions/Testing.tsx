@@ -4,9 +4,15 @@ import {theme} from '@/styles';
 import {Provider} from 'react-redux';
 import {ThemeProvider} from 'styled-components/native';
 import {render} from '@testing-library/react-native';
-import {store} from '@/store';
+import {configureStore} from '@reduxjs/toolkit';
+import reducers from '@/store/slices';
 
-const wraperWithProvider = (children: ReactNode) => {
+const wraperWithProvider = (children: ReactNode, mockedStore: object) => {
+  const store = configureStore({
+    reducer: reducers,
+    preloadedState: mockedStore,
+  });
+
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
@@ -14,11 +20,19 @@ const wraperWithProvider = (children: ReactNode) => {
   );
 };
 
-export const renderWithThemeProvider = (component: ReactNode) => {
-  return render(wraperWithProvider(component));
+export const renderWithThemeProvider = (
+  component: ReactNode,
+  mockedStore = {},
+) => {
+  return render(wraperWithProvider(component, mockedStore));
 };
 
-export const matchSnapshotWithProvider = (component: ReactNode) => {
-  const tree = renderer.create(wraperWithProvider(component)).toJSON();
+export const matchSnapshotWithProvider = (
+  component: ReactNode,
+  mockedStore = {},
+) => {
+  const tree = renderer
+    .create(wraperWithProvider(component, mockedStore))
+    .toJSON();
   expect(tree).toMatchSnapshot();
 };

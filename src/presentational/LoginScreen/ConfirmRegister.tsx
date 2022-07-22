@@ -21,9 +21,9 @@ export const ConfirmRegister = () => {
       contentContainerStyle={{alignItems: 'center'}}
       showsVerticalScrollIndicator={false}>
       {user.auth?.userType === 'producer' ? (
-        <StyledProducer />
+        <StyledProducer testID="welcome-producer" />
       ) : (
-        <StyledConsumer />
+        <StyledConsumer testID="welcome-consumer" />
       )}
       <StyledTitle>Cadastro realizado com sucesso!</StyledTitle>
       <StyledSubtitle>

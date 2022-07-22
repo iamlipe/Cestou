@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmRegister should matches snapshot 1`] = `
+<RCTScrollView
+  contentContainerStyle={
+    Object {
+      "alignItems": "center",
+    }
+  }
+  showsVerticalScrollIndicator={false}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "minHeight": "100%",
+      },
+    ]
+  }
+>
+  <View>
+    <SvgMock
+      style={
+        Array [
+          Object {
+            "marginTop": 40,
+          },
+        ]
+      }
+      testID="welcome-consumer"
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#00843F",
+            "fontFamily": "SourceSansPro-SemiBold",
+            "fontSize": 43,
+            "marginTop": 40,
+          },
+        ]
+      }
+    >
+      Cadastro realizado com sucesso!
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#1A1A1A",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 27,
+            "marginTop": 40,
+            "textAlign": "center",
+            "width": "90%",
+          },
+        ]
+      }
+    >
+      Valide seu cadastro e aproveite toda a experiência de Cestar e ajudar no combate a fome.
+    </Text>
+    <View
+      accessibilityState={
+        Object {
+          "disabled": false,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "backgroundColor": "#00843F",
+          "borderRadius": 4,
+          "flexDirection": "row",
+          "height": 49,
+          "justifyContent": "center",
+          "marginBottom": 10,
+          "marginTop": 40,
+          "opacity": 1,
+          "width": 200,
+        }
+      }
+      testID="confirm-button"
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#FFFFFF",
+              "fontFamily": "SourceSansPro-SemiBold",
+              "fontSize": 27,
+            },
+          ]
+        }
+        textColor="white"
+      >
+        Começar
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
