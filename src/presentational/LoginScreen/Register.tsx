@@ -3,10 +3,12 @@ import styled from 'styled-components/native';
 import * as Yup from 'yup';
 import {SubmitHandler, useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
-import {LOGIN, REGISTER, RegisterForm} from '@/store/slices/userSlice';
+import {REGISTER, RegisterForm} from '@/store/slices/userSlice';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '@/routes/stacks/AuthStack';
 import {Keyboard} from 'react-native';
 
 import RadioForm from '@/components/RadioForm';
@@ -26,9 +28,14 @@ const schema = Yup.object().shape({
   terms: Yup.array().min(1, 'Você precisa aceitar os termos de uso').required(),
 });
 
+type NavProps = NativeStackNavigationProp<
+  AuthStackParamList,
+  'ConfirmRegister'
+>;
+
 export const Register = () => {
   const userReducer = useReduxSelector(({user}) => user);
-  const {goBack} = useNavigation();
+  const {goBack, navigate} = useNavigation<NavProps>();
   const dispatch = useReduxDispatch();
 
   const {
@@ -42,24 +49,26 @@ export const Register = () => {
   const onSubmit: SubmitHandler<RegisterForm> = async data => {
     const firstName = data.name.split(' ')[0];
     const lastName = data.name.split(' ')[1];
+    const userType =
+      data.userType === 'Sou consumidor' ? 'consumer' : 'producer';
 
     dispatch(
       REGISTER({
         firstName,
         lastName,
-        userType: data.userType === 'Sou consumidor' ? 'consumer' : 'producer',
+        userType,
         email: data.email,
-        password: data.password,
-      }),
-    );
-    dispatch(
-      LOGIN({
-        phoneOrEmail: data.email,
         password: data.password,
       }),
     );
 
     Keyboard.dismiss();
+
+    navigate('ConfirmRegister', {
+      phoneOrEmail: data.email,
+      password: data.password,
+      userType,
+    });
   };
 
   return (

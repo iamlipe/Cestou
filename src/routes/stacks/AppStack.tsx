@@ -15,15 +15,17 @@ export type AppStackParamList = {
 const App = createNativeStackNavigator<AppStackParamList>();
 
 export const AppStack = () => {
-  const {auth} = useReduxSelector(({user}) => user);
+  const userReducer = useReduxSelector(({user}) => user);
+
+  console.log(userReducer.auth);
 
   return (
     <App.Navigator screenOptions={{headerShown: false}}>
-      {!auth ? (
+      {!userReducer.auth ? (
         <App.Screen name="AuthStack" component={AuthStack} />
       ) : (
         <>
-          {auth.userType === 'producer' ? (
+          {userReducer.auth.userType === 'producer' ? (
             <App.Screen
               name="LoggedProducerStack"
               component={LoggedProducerStack}

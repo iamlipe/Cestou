@@ -12,15 +12,24 @@ import Button from '@/components/Button';
 
 type NavProps = NativeStackNavigationProp<AuthStackParamList, 'Onboarding'>;
 
-export const ConfirmRegister = () => {
-  const user = useReduxSelector(({user}) => user);
+interface Props {
+  route: {
+    params: {
+      userType: 'producer' | 'consumer';
+      phoneOrEmail: string;
+      password: string;
+    };
+  };
+}
+
+export const ConfirmRegister = ({route}: Props) => {
   const {navigate} = useNavigation<NavProps>();
 
   return (
     <StyledContainerScroll
       contentContainerStyle={{alignItems: 'center'}}
       showsVerticalScrollIndicator={false}>
-      {user.auth?.userType === 'producer' ? (
+      {route.params.userType === 'producer' ? (
         <StyledProducer testID="welcome-producer" />
       ) : (
         <StyledConsumer testID="welcome-consumer" />
@@ -33,7 +42,12 @@ export const ConfirmRegister = () => {
       <StyledConfirmButton
         testID="confirm-button"
         title="Começar"
-        onPress={() => navigate('Onboarding')}
+        onPress={() =>
+          navigate('Onboarding', {
+            phoneOrEmail: route.params.phoneOrEmail,
+            password: route.params.password,
+          })
+        }
       />
     </StyledContainerScroll>
   );

@@ -9,8 +9,15 @@ import {Onboarding} from '@/presentational/OnboardingScreen/Onboarding';
 export type AuthStackParamList = {
   Login: undefined;
   Register: undefined;
-  ConfirmRegister: undefined;
-  Onboarding: undefined;
+  ConfirmRegister: {
+    phoneOrEmail: string;
+    password: string;
+    userType: 'producer' | 'consumer';
+  };
+  Onboarding: {
+    phoneOrEmail: string;
+    password: string;
+  };
 };
 
 const Auth = createNativeStackNavigator<AuthStackParamList>();
