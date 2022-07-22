@@ -30,6 +30,7 @@ export function* login({payload}: PayloadAction<LoginRequest>) {
       firstName: data.first_name,
       lastName: data.last_name,
       email: data.email,
+      userType: data.user_type,
       phone: data.phone,
       token: data.token,
       refreshToken: data.refresh_token,
