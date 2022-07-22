@@ -4,6 +4,7 @@ import AppIntroSlider from 'react-native-app-intro-slider';
 import {ImageSourcePropType} from 'react-native';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
+import {useRoute} from '@react-navigation/native';
 
 import imgOnboardinOne from '@/assets/images/onboarding-1.png';
 import imgOnboardinTwo from '@/assets/images/onboarding-2.png';
@@ -40,19 +41,13 @@ const slides: SlideProps[] = [
   },
 ];
 
-interface Props {
-  route: {
-    params: {
-      phoneOrEmail: string;
-      password: string;
-    };
-  };
-}
-
-export const Onboarding = ({route}: Props) => {
+export const Onboarding = () => {
   const userReducer = useReduxSelector(({user}) => user);
   const theme = useTheme();
   const dispatch = useReduxDispatch();
+  const route = useRoute() as {
+    params: {phoneOrEmail: string; password: string};
+  };
 
   const renderSlide = ({item}: {item: SlideProps}) => (
     <StyledContainer key={item.key} showsVerticalScrollIndicator={false}>

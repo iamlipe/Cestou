@@ -17,8 +17,6 @@ const App = createNativeStackNavigator<AppStackParamList>();
 export const AppStack = () => {
   const userReducer = useReduxSelector(({user}) => user);
 
-  console.log(userReducer.auth);
-
   return (
     <App.Navigator screenOptions={{headerShown: false}}>
       {!userReducer.auth ? (

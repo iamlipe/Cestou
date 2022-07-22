@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '@/routes/stacks/AuthStack';
 
@@ -12,18 +12,15 @@ import Button from '@/components/Button';
 
 type NavProps = NativeStackNavigationProp<AuthStackParamList, 'Onboarding'>;
 
-interface Props {
-  route: {
+export const ConfirmRegister = () => {
+  const {navigate} = useNavigation<NavProps>();
+  const route = useRoute() as {
     params: {
       userType: 'producer' | 'consumer';
       phoneOrEmail: string;
       password: string;
     };
   };
-}
-
-export const ConfirmRegister = ({route}: Props) => {
-  const {navigate} = useNavigation<NavProps>();
 
   return (
     <StyledContainerScroll
