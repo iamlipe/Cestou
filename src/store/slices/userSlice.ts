@@ -4,6 +4,7 @@ import {AxiosError} from 'axios';
 export interface LoginRequest {
   phoneOrEmail: string;
   password: string;
+  remember: string[];
 }
 
 export interface LoginResponse {
@@ -86,6 +87,7 @@ const userSlice = createSlice({
       isLoading: false,
       error,
     }),
+
     REGISTER: (state, _: PayloadAction<RegisterRequest>) => ({
       ...state,
       isLoading: true,
@@ -105,6 +107,25 @@ const userSlice = createSlice({
       isLoading: false,
       error,
     }),
+
+    LOGOUT: (state, _: PayloadAction) => ({
+      ...state,
+      isLoading: true,
+      error: null,
+    }),
+    LOGOUT_SUCCESS: () => ({
+      ...initialState,
+    }),
+    LOGOUT_FAILURE: (state, {payload: {error}}) => ({
+      ...state,
+      isLoading: false,
+      error,
+    }),
+
+    REMEMBER_USER: (state, {payload}: PayloadAction<User>) => ({
+      ...state,
+      auth: payload,
+    }),
   },
 });
 
@@ -119,5 +140,9 @@ export const {
   REGISTER,
   REGISTER_SUCCESS,
   REGISTER_FAILURE,
+  LOGOUT,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAILURE,
+  REMEMBER_USER,
 } = actions;
 export default reducer;

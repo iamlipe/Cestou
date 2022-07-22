@@ -54,8 +54,6 @@ export const Onboarding = ({route}: Props) => {
   const theme = useTheme();
   const dispatch = useReduxDispatch();
 
-  console.log(userReducer);
-
   const renderSlide = ({item}: {item: SlideProps}) => (
     <StyledContainer key={item.key} showsVerticalScrollIndicator={false}>
       <StyledImage
@@ -78,6 +76,7 @@ export const Onboarding = ({route}: Props) => {
           LOGIN({
             phoneOrEmail: route.params.phoneOrEmail,
             password: route.params.password,
+            remember: ['Lembrar minha senha'],
           }),
         );
       }}
