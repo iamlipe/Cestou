@@ -2,12 +2,15 @@ import React from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {ImageSourcePropType} from 'react-native';
+import {useReduxDispatch} from '@/hooks/useReduxDispatch';
+import {useReduxSelector} from '@/hooks/useReduxSelector';
 
 import imgOnboardinOne from '@/assets/images/onboarding-1.png';
 import imgOnboardinTwo from '@/assets/images/onboarding-2.png';
 import imgOnboardinThree from '@/assets/images/onboarding-3.png';
 
 import Button from '@/components/Button';
+import {LOGIN} from '@/store/slices/userSlice';
 
 interface SlideProps {
   key: string;
@@ -37,8 +40,21 @@ const slides: SlideProps[] = [
   },
 ];
 
-export const Onboarding = () => {
+interface Props {
+  route: {
+    params: {
+      phoneOrEmail: string;
+      password: string;
+    };
+  };
+}
+
+export const Onboarding = ({route}: Props) => {
+  const userReducer = useReduxSelector(({user}) => user);
   const theme = useTheme();
+  const dispatch = useReduxDispatch();
+
+  console.log(userReducer);
 
   const renderSlide = ({item}: {item: SlideProps}) => (
     <StyledContainer key={item.key} showsVerticalScrollIndicator={false}>
@@ -53,7 +69,19 @@ export const Onboarding = () => {
   );
 
   const renderDone = () => (
-    <Button title="Finalizar" size="medium" onPress={() => null} />
+    <Button
+      title="Finalizar"
+      size="medium"
+      loading={userReducer.isLoading}
+      onPress={() => {
+        dispatch(
+          LOGIN({
+            phoneOrEmail: route.params.phoneOrEmail,
+            password: route.params.password,
+          }),
+        );
+      }}
+    />
   );
 
   const renderNext = () => (
