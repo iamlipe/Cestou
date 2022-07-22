@@ -1,0 +1,538 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Onboarding should matches snapshot 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    bottomButton={false}
+    bounces={false}
+    data={
+      Array [
+        Object {
+          "image": Object {
+            "testUri": "../../../src/assets/images/onboarding-1.png",
+          },
+          "key": "one",
+          "text": "Alimentação é direito básico e a sua partilha é fundamental à quem tem fome. Através da assinatura mensal, você garante alimentação saudável democratizada pra sua família e ainda possibilita o mesmo consumo pra uma família em vulnerabilidade.",
+          "title": "Tire a fome do caminho",
+        },
+        Object {
+          "image": Object {
+            "testUri": "../../../src/assets/images/onboarding-2.png",
+          },
+          "key": "two",
+          "text": "Conecte-se com produtores familiares da sua região. Você fortalece a produção de pequenos produtores locais e recebe alimentos frescos e cultivados com muito carinho e cuidado.",
+          "title": "Agricultura familiar presente",
+        },
+        Object {
+          "image": Object {
+            "testUri": "../../../src/assets/images/onboarding-3.png",
+          },
+          "key": "three",
+          "text": "Aqui você encontra alimentos totalmente livres de agrotóxicos e perto de você!",
+          "title": "Alimentação saudável ao seu alcance",
+        },
+      ]
+    }
+    dotClickEnabled={true}
+    extraData={1}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={true}
+    initialNumToRender={3}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    pagingEnabled={true}
+    removeClippedSubviews={false}
+    renderDoneButton={[Function]}
+    renderItem={[Function]}
+    renderNextButton={[Function]}
+    renderPrevButton={[Function]}
+    renderSkipButton={[Function]}
+    scrollEventThrottle={50}
+    showDoneButton={true}
+    showNextButton={true}
+    showPrevButton={true}
+    showSkipButton={true}
+    showsHorizontalScrollIndicator={false}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+      }
+    }
+    viewabilityConfigCallbackPairs={Array []}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "width": 0,
+            }
+          }
+        >
+          <RCTScrollView
+            showsVerticalScrollIndicator={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#FFFFFF",
+                  "minHeight": "100%",
+                },
+              ]
+            }
+          >
+            <View>
+              <Image
+                resizeMode="stretch"
+                source={
+                  Object {
+                    "testUri": "../../../src/assets/images/onboarding-1.png",
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      "width": "100%",
+                    },
+                  ]
+                }
+                testID="image-onbording-one"
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#00843F",
+                      "fontFamily": "SourceSansPro-SemiBold",
+                      "fontSize": 43,
+                      "marginTop": 72,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                Tire a fome do caminho
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "alignSelf": "center",
+                      "color": "#1A1A1A",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 27,
+                      "marginBottom": 120,
+                      "marginTop": 24,
+                      "textAlign": "center",
+                      "width": "90%",
+                    },
+                  ]
+                }
+              >
+                Alimentação é direito básico e a sua partilha é fundamental à quem tem fome. Através da assinatura mensal, você garante alimentação saudável democratizada pra sua família e ainda possibilita o mesmo consumo pra uma família em vulnerabilidade.
+              </Text>
+            </View>
+          </RCTScrollView>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "width": 0,
+            }
+          }
+        >
+          <RCTScrollView
+            showsVerticalScrollIndicator={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#FFFFFF",
+                  "minHeight": "100%",
+                },
+              ]
+            }
+          >
+            <View>
+              <Image
+                resizeMode="stretch"
+                source={
+                  Object {
+                    "testUri": "../../../src/assets/images/onboarding-2.png",
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      "width": "100%",
+                    },
+                  ]
+                }
+                testID="image-onbording-two"
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#00843F",
+                      "fontFamily": "SourceSansPro-SemiBold",
+                      "fontSize": 43,
+                      "marginTop": 72,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                Agricultura familiar presente
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "alignSelf": "center",
+                      "color": "#1A1A1A",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 27,
+                      "marginBottom": 120,
+                      "marginTop": 24,
+                      "textAlign": "center",
+                      "width": "90%",
+                    },
+                  ]
+                }
+              >
+                Conecte-se com produtores familiares da sua região. Você fortalece a produção de pequenos produtores locais e recebe alimentos frescos e cultivados com muito carinho e cuidado.
+              </Text>
+            </View>
+          </RCTScrollView>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "width": 0,
+            }
+          }
+        >
+          <RCTScrollView
+            showsVerticalScrollIndicator={false}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#FFFFFF",
+                  "minHeight": "100%",
+                },
+              ]
+            }
+          >
+            <View>
+              <Image
+                resizeMode="stretch"
+                source={
+                  Object {
+                    "testUri": "../../../src/assets/images/onboarding-3.png",
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      "width": "100%",
+                    },
+                  ]
+                }
+                testID="image-onbording-three"
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#00843F",
+                      "fontFamily": "SourceSansPro-SemiBold",
+                      "fontSize": 43,
+                      "marginTop": 72,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                Alimentação saudável ao seu alcance
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "alignSelf": "center",
+                      "color": "#1A1A1A",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 27,
+                      "marginBottom": 120,
+                      "marginTop": 24,
+                      "textAlign": "center",
+                      "width": "90%",
+                    },
+                  ]
+                }
+              >
+                Aqui você encontra alimentos totalmente livres de agrotóxicos e perto de você!
+              </Text>
+            </View>
+          </RCTScrollView>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "bottom": 16,
+        "justifyContent": "center",
+        "left": 16,
+        "position": "absolute",
+        "right": 16,
+      }
+    }
+  >
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "height": 16,
+            "justifyContent": "center",
+            "margin": 16,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#00843F",
+              "borderRadius": 5,
+              "height": 6,
+              "marginHorizontal": 4,
+              "opacity": 1,
+              "width": 6,
+            }
+          }
+        />
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#45C259",
+              "borderRadius": 5,
+              "height": 6,
+              "marginHorizontal": 4,
+              "opacity": 1,
+              "width": 6,
+            }
+          }
+        />
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#45C259",
+              "borderRadius": 5,
+              "height": 6,
+              "marginHorizontal": 4,
+              "opacity": 1,
+              "width": 6,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "position": "absolute",
+            "right": 0,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#00843F",
+                  "borderRadius": 5,
+                  "height": 38,
+                  "justifyContent": "center",
+                  "width": 90,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 27,
+                  },
+                ]
+              }
+            >
+              Próximo
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "left": 0,
+            "position": "absolute",
+          }
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#FFFFFF",
+                  "borderRadius": 5,
+                  "height": 38,
+                  "justifyContent": "center",
+                  "width": 90,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#00843F",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 27,
+                  },
+                ]
+              }
+            >
+              Pular
+            </Text>
+          </View>
+        </View>
+      </View>
+    </RCTSafeAreaView>
+  </View>
+</View>
+`;

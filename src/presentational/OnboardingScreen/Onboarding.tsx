@@ -42,7 +42,11 @@ export const Onboarding = () => {
 
   const renderSlide = ({item}: {item: SlideProps}) => (
     <StyledContainer key={item.key} showsVerticalScrollIndicator={false}>
-      <StyledImage source={item.image} resizeMode="stretch" />
+      <StyledImage
+        testID={`image-onbording-${item.key}`}
+        source={item.image}
+        resizeMode="stretch"
+      />
       <StyledTitle>{item.title}</StyledTitle>
       <StyledText>{item.text}</StyledText>
     </StyledContainer>
