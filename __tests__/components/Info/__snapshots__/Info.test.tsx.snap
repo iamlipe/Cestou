@@ -13,10 +13,10 @@ exports[`Info should matches snapshot 1`] = `
         "borderWidth": 1,
         "justifyContent": "space-between",
         "marginBottom": 50,
-        "paddingBottom": 24,
-        "paddingLeft": 24,
-        "paddingRight": 24,
-        "paddingTop": 24,
+        "paddingBottom": 8,
+        "paddingLeft": 8,
+        "paddingRight": 8,
+        "paddingTop": 8,
         "width": "90%",
       },
     ]
@@ -29,12 +29,12 @@ exports[`Info should matches snapshot 1`] = `
           "color": "#1A1A1A",
           "fontFamily": "SourceSansPro-Regular",
           "fontSize": 27,
-          "marginBottom": 20,
+          "marginBottom": 16,
         },
       ]
     }
   >
-    Para saber mais sobre os projetos e instituições que estamos ajudando, acesse o nosso site.
+    Se você é uma instituição que atua no combate a fome e deseja solicitar seu cadastro, visite nosso site e saiba mais.
   </Text>
   <View
     accessibilityState={
@@ -57,14 +57,11 @@ exports[`Info should matches snapshot 1`] = `
         "alignItems": "center",
         "alignSelf": "center",
         "backgroundColor": "transparent",
-        "borderColor": "#00843F",
         "borderRadius": 4,
-        "borderStyle": "solid",
-        "borderWidth": 1,
         "flexDirection": "row",
         "height": 38,
         "justifyContent": "center",
-        "marginBottom": 10,
+        "marginBottom": 0,
         "opacity": 1,
         "width": 90,
       }
