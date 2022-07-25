@@ -11,7 +11,7 @@ import TabFinacial from '@/assets/svgs/tab-financial.svg';
 import TabProfileIcon from '@/assets/svgs/tab-profile.svg';
 
 import {
-  StyledBottomTabContainer,
+  StyledBottonTabContainer,
   StyledButtonInactive,
   StyledTextActive,
   StyledTextInactive,
@@ -44,7 +44,7 @@ export const ButtonTabProducer: React.FC<BottomTabBarProps> = ({state}) => {
   );
 
   return (
-    <StyledBottomTabContainer>
+    <StyledBottonTabContainer>
       <StyledButtonTabRow>
         {renderInactiveTab(
           <TabHomeIcon
@@ -85,6 +85,6 @@ export const ButtonTabProducer: React.FC<BottomTabBarProps> = ({state}) => {
           'ProfileProducer',
         )}
       </StyledButtonTabRow>
-    </StyledBottomTabContainer>
+    </StyledBottonTabContainer>
   );
 };
