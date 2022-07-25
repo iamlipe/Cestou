@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonTabConsumer should matches snapshot 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#F2F2F8",
+        "height": 49,
+        "shadowColor": "rgba(0, 0, 0, 0.12)",
+        "shadowOffset": Object {
+          "height": -2,
+          "width": 0,
+        },
+        "shadowOpacity": 1,
+        "shadowRadius": 4,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignSelf": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "width": "85%",
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "justifyContent": "flex-end",
+          "opacity": 1,
+          "width": "25%",
+        }
+      }
+    >
+      <SvgMock
+        fill="#00A857"
+        testID="icon-tab-home"
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#C1E9CF",
+              "borderRadius": 10,
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "marginTop": 5,
+              "paddingBottom": 0,
+              "paddingLeft": 10,
+              "paddingRight": 10,
+              "paddingTop": 0,
+            },
+          ]
+        }
+      >
+        Início
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "justifyContent": "flex-end",
+          "opacity": 1,
+          "width": "25%",
+        }
+      }
+    >
+      <SvgMock
+        fill="#3A3A3A"
+        testID="icon-tab-basket"
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "marginTop": 5,
+            },
+          ]
+        }
+      >
+        Minha cesta
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "justifyContent": "flex-end",
+          "opacity": 1,
+          "width": "25%",
+        }
+      }
+    >
+      <SvgMock
+        fill="#3A3A3A"
+        testID="icon-tab-donation"
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "marginTop": 5,
+            },
+          ]
+        }
+      >
+        Doações
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "justifyContent": "flex-end",
+          "opacity": 1,
+          "width": "25%",
+        }
+      }
+    >
+      <SvgMock
+        fill="#3A3A3A"
+        testID="icon-tab-profile"
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "marginTop": 5,
+            },
+          ]
+        }
+      >
+        Perfil
+      </Text>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;

@@ -16,7 +16,7 @@ import {
   StyledTextActive,
   StyledTextInactive,
   StyledButtonTabRow,
-} from './BottomTabConsumer';
+} from './BottonTabConsumer';
 
 type NavPropsProducer = NativeStackNavigationProp<
   LoggedProducerStackParamList,
@@ -48,8 +48,9 @@ export const ButtonTabProducer: React.FC<BottomTabBarProps> = ({state}) => {
       <StyledButtonTabRow>
         {renderInactiveTab(
           <TabHomeIcon
+            testID="icon-tab-home"
             fill={
-              activeTab === 'HomeConsumer'
+              activeTab === 'HomeProducer'
                 ? theme.colors.PRIMARY_600
                 : theme.colors.GRAY_700
             }
@@ -60,8 +61,9 @@ export const ButtonTabProducer: React.FC<BottomTabBarProps> = ({state}) => {
 
         {renderInactiveTab(
           <TabFinacial
+            testID="icon-tab-financial"
             fill={
-              activeTab === 'HomeConsumer'
+              activeTab === 'FinancialProducer'
                 ? theme.colors.PRIMARY_600
                 : theme.colors.GRAY_700
             }
@@ -72,8 +74,9 @@ export const ButtonTabProducer: React.FC<BottomTabBarProps> = ({state}) => {
 
         {renderInactiveTab(
           <TabProfileIcon
+            testID="icon-tab-profile"
             fill={
-              activeTab === 'HomeConsumer'
+              activeTab === 'ProfileProducer'
                 ? theme.colors.PRIMARY_600
                 : theme.colors.GRAY_700
             }

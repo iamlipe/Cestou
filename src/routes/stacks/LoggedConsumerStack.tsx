@@ -4,7 +4,7 @@ import {
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 
-import {ButtonTabConsumer} from '../BottomTab/BottomTabConsumer';
+import {ButtonTabConsumer} from '../BottonTab/BottonTabConsumer';
 
 import {HomeConsumer} from '@/presentational/HomeScreen/HomeConsumer';
 import {DonationConsumer} from '@/presentational/DonationScreen/DonationConsumer';

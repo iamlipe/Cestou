@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useNavigationState} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {LoggedConsumerStackParamList} from '../stacks/LoggedConsumerStack';
 
@@ -41,6 +41,7 @@ export const ButtonTabConsumer: React.FC<BottomTabBarProps> = ({state}) => {
       <StyledButtonTabRow>
         {renderTab(
           <TabHomeIcon
+            testID="icon-tab-home"
             fill={
               activeTab === 'HomeConsumer'
                 ? theme.colors.PRIMARY_600
@@ -53,6 +54,7 @@ export const ButtonTabConsumer: React.FC<BottomTabBarProps> = ({state}) => {
 
         {renderTab(
           <TabBasketIcon
+            testID="icon-tab-basket"
             fill={
               activeTab === 'BasketConsumer'
                 ? theme.colors.PRIMARY_600
@@ -65,6 +67,7 @@ export const ButtonTabConsumer: React.FC<BottomTabBarProps> = ({state}) => {
 
         {renderTab(
           <TabFinacial
+            testID="icon-tab-donation"
             fill={
               activeTab === 'DonationConsumer'
                 ? theme.colors.PRIMARY_600
@@ -77,6 +80,7 @@ export const ButtonTabConsumer: React.FC<BottomTabBarProps> = ({state}) => {
 
         {renderTab(
           <TabProfileIcon
+            testID="icon-tab-profile"
             fill={
               activeTab === 'ProfileConsumer'
                 ? theme.colors.PRIMARY_600

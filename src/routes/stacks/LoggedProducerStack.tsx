@@ -4,7 +4,7 @@ import {
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 
-import {ButtonTabProducer} from '../BottomTab/BottomTabProducer';
+import {ButtonTabProducer} from '../BottonTab/BottonTabProducer';
 
 import {HomeProducer} from '@/presentational/HomeScreen/HomeProducer';
 import {FinancialProducer} from '@/presentational/FinancialScreen/FinancialProducer';
