@@ -37,7 +37,7 @@ export const ButtonTabConsumer: React.FC<BottomTabBarProps> = ({state}) => {
   );
 
   return (
-    <StyledBottomTabContainer>
+    <StyledBottonTabContainer>
       <StyledButtonTabRow>
         {renderTab(
           <TabHomeIcon
@@ -87,11 +87,11 @@ export const ButtonTabConsumer: React.FC<BottomTabBarProps> = ({state}) => {
           'ProfileConsumer',
         )}
       </StyledButtonTabRow>
-    </StyledBottomTabContainer>
+    </StyledBottonTabContainer>
   );
 };
 
-export const StyledBottomTabContainer = styled.SafeAreaView`
+export const StyledBottonTabContainer = styled.SafeAreaView`
   height: 49px;
   background-color: ${({theme}) => theme.colors.GRAY_100};
 
