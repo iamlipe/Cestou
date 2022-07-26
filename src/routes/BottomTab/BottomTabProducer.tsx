@@ -1,14 +1,10 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useTheme} from 'styled-components/native';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {LoggedProducerStackParamList} from '../stacks/LoggedProducerStack';
-
-// icons
-import TabHomeIcon from '@/assets/svgs/tab-home.svg';
-import TabFinacial from '@/assets/svgs/tab-financial.svg';
-import TabProfileIcon from '@/assets/svgs/tab-profile.svg';
 
 import {
   StyledBottonTabContainer,
@@ -16,7 +12,7 @@ import {
   StyledTextActive,
   StyledTextInactive,
   StyledButtonTabRow,
-} from './BottonTabConsumer';
+} from './BottomTabConsumer';
 
 type NavPropsProducer = NativeStackNavigationProp<
   LoggedProducerStackParamList,
@@ -29,12 +25,20 @@ export const ButtonTabProducer: React.FC<BottomTabBarProps> = ({state}) => {
   const theme = useTheme();
 
   const renderInactiveTab = (
-    icon: JSX.Element,
+    name: string,
     title: string,
     route: keyof LoggedProducerStackParamList,
+    testID: string,
   ) => (
     <StyledButtonInactive onPress={() => navigate(route)}>
-      {icon}
+      <Icon
+        testID={testID}
+        name={name}
+        size={24}
+        color={
+          activeTab === route ? theme.colors.PRIMARY_600 : theme.colors.GRAY_700
+        }
+      />
       {activeTab === route ? (
         <StyledTextActive>{title}</StyledTextActive>
       ) : (
@@ -46,43 +50,18 @@ export const ButtonTabProducer: React.FC<BottomTabBarProps> = ({state}) => {
   return (
     <StyledBottonTabContainer>
       <StyledButtonTabRow>
+        {renderInactiveTab('home', 'Início', 'HomeProducer', 'icon-tab-home')}
         {renderInactiveTab(
-          <TabHomeIcon
-            testID="icon-tab-home"
-            fill={
-              activeTab === 'HomeProducer'
-                ? theme.colors.PRIMARY_600
-                : theme.colors.GRAY_700
-            }
-          />,
-          'Início',
-          'HomeProducer',
-        )}
-
-        {renderInactiveTab(
-          <TabFinacial
-            testID="icon-tab-financial"
-            fill={
-              activeTab === 'FinancialProducer'
-                ? theme.colors.PRIMARY_600
-                : theme.colors.GRAY_700
-            }
-          />,
+          'attach-money',
           'Financeiro',
           'FinancialProducer',
+          'icon-tab-financial',
         )}
-
         {renderInactiveTab(
-          <TabProfileIcon
-            testID="icon-tab-profile"
-            fill={
-              activeTab === 'ProfileProducer'
-                ? theme.colors.PRIMARY_600
-                : theme.colors.GRAY_700
-            }
-          />,
+          'person',
           'Perfil',
           'ProfileProducer',
+          'icon-tab-profile',
         )}
       </StyledButtonTabRow>
     </StyledBottonTabContainer>

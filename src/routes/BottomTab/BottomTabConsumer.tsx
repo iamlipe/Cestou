@@ -1,15 +1,10 @@
 import React from 'react';
 import styled, {useTheme} from 'styled-components/native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import {useNavigation, useNavigationState} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {LoggedConsumerStackParamList} from '../stacks/LoggedConsumerStack';
-
-// icons
-import TabHomeIcon from '@/assets/svgs/tab-home.svg';
-import TabBasketIcon from '@/assets/svgs/tab-basket.svg';
-import TabFinacial from '@/assets/svgs/tab-financial.svg';
-import TabProfileIcon from '@/assets/svgs/tab-profile.svg';
 
 type NavPropsProducer = NativeStackNavigationProp<
   LoggedConsumerStackParamList,
@@ -22,12 +17,20 @@ export const ButtonTabConsumer: React.FC<BottomTabBarProps> = ({state}) => {
   const theme = useTheme();
 
   const renderTab = (
-    icon: JSX.Element,
+    name: string,
     title: string,
     route: keyof LoggedConsumerStackParamList,
+    testID: string,
   ) => (
     <StyledButtonInactive onPress={() => navigate(route)}>
-      {icon}
+      <Icon
+        testID={testID}
+        name={name}
+        size={24}
+        color={
+          activeTab === route ? theme.colors.PRIMARY_600 : theme.colors.GRAY_700
+        }
+      />
       {activeTab === route ? (
         <StyledTextActive>{title}</StyledTextActive>
       ) : (
@@ -39,57 +42,20 @@ export const ButtonTabConsumer: React.FC<BottomTabBarProps> = ({state}) => {
   return (
     <StyledBottonTabContainer>
       <StyledButtonTabRow>
+        {renderTab('home', 'Início', 'HomeConsumer', 'icon-tab-home')}
         {renderTab(
-          <TabHomeIcon
-            testID="icon-tab-home"
-            fill={
-              activeTab === 'HomeConsumer'
-                ? theme.colors.PRIMARY_600
-                : theme.colors.GRAY_700
-            }
-          />,
-          'Início',
-          'HomeConsumer',
-        )}
-
-        {renderTab(
-          <TabBasketIcon
-            testID="icon-tab-basket"
-            fill={
-              activeTab === 'BasketConsumer'
-                ? theme.colors.PRIMARY_600
-                : theme.colors.GRAY_700
-            }
-          />,
+          'shopping-basket',
           'Minha cesta',
           'BasketConsumer',
+          'icon-tab-basket',
         )}
-
         {renderTab(
-          <TabFinacial
-            testID="icon-tab-donation"
-            fill={
-              activeTab === 'DonationConsumer'
-                ? theme.colors.PRIMARY_600
-                : theme.colors.GRAY_700
-            }
-          />,
+          'attach-money',
           'Doações',
           'DonationConsumer',
+          'icon-tab-donation',
         )}
-
-        {renderTab(
-          <TabProfileIcon
-            testID="icon-tab-profile"
-            fill={
-              activeTab === 'ProfileConsumer'
-                ? theme.colors.PRIMARY_600
-                : theme.colors.GRAY_700
-            }
-          />,
-          'Perfil',
-          'ProfileConsumer',
-        )}
+        {renderTab('person', 'Perfil', 'ProfileConsumer', 'icon-tab-profile')}
       </StyledButtonTabRow>
     </StyledBottonTabContainer>
   );

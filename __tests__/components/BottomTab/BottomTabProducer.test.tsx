@@ -5,7 +5,7 @@ import {
 } from '@/config/functions/testing';
 import {mockStackTabNavigatorProducer} from '@__mocks__/mockStackTabNavigator';
 
-import {ButtonTabProducer} from '@/routes/BottonTab/BottonTabProducer';
+import {ButtonTabProducer} from '@/routes/BottomTab/BottomTabProducer';
 import {fireEvent} from '@testing-library/react-native';
 
 describe('ButtonTabProducer', () => {
@@ -28,7 +28,7 @@ describe('ButtonTabProducer', () => {
 
     const tabIconHome = buttonTab.getByTestId('icon-tab-home');
 
-    expect(tabIconHome.props.fill).toBe('#00A857');
+    expect(tabIconHome.props.style[0].color).toBe('#00A857');
   });
 
   test('should select tab financial', () => {
@@ -44,7 +44,7 @@ describe('ButtonTabProducer', () => {
 
     const newTabIconFinancial = buttonTab.getByTestId('icon-tab-financial');
 
-    expect(newTabIconFinancial.props.fill).toBe('#00A857');
+    expect(newTabIconFinancial.props.style[0].color).toBe('#00A857');
   });
 
   test('should select tab profile', () => {
@@ -60,6 +60,6 @@ describe('ButtonTabProducer', () => {
 
     const newTabIconProfile = buttonTab.getByTestId('icon-tab-profile');
 
-    expect(newTabIconProfile.props.fill).toBe('#00A857');
+    expect(newTabIconProfile.props.style[0].color).toBe('#00A857');
   });
 });

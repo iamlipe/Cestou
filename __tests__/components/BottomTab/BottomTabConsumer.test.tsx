@@ -5,7 +5,7 @@ import {
 } from '@/config/functions/testing';
 import {mockStackTabNavigatorConsumer} from '@__mocks__/mockStackTabNavigator';
 
-import {ButtonTabConsumer} from '@/routes/BottonTab/BottonTabConsumer';
+import {ButtonTabConsumer} from '@/routes/BottomTab/BottomTabConsumer';
 import {fireEvent} from '@testing-library/react-native';
 
 describe('ButtonTabConsumer', () => {
@@ -28,7 +28,7 @@ describe('ButtonTabConsumer', () => {
 
     const tabIconHome = buttonTab.getByTestId('icon-tab-home');
 
-    expect(tabIconHome.props.fill).toBe('#00A857');
+    expect(tabIconHome.props.style[0].color).toBe('#00A857');
   });
 
   test('should select tab basket', () => {
@@ -44,7 +44,7 @@ describe('ButtonTabConsumer', () => {
 
     const newTabIconBasket = buttonTab.getByTestId('icon-tab-basket');
 
-    expect(newTabIconBasket.props.fill).toBe('#00A857');
+    expect(newTabIconBasket.props.style[0].color).toBe('#00A857');
   });
 
   test('should select tab donation', () => {
@@ -60,7 +60,7 @@ describe('ButtonTabConsumer', () => {
 
     const newTabIconDonation = buttonTab.getByTestId('icon-tab-donation');
 
-    expect(newTabIconDonation.props.fill).toBe('#00A857');
+    expect(newTabIconDonation.props.style[0].color).toBe('#00A857');
   });
 
   test('should select tab profile', () => {
@@ -76,6 +76,6 @@ describe('ButtonTabConsumer', () => {
 
     const newTabIconProfile = buttonTab.getByTestId('icon-tab-profile');
 
-    expect(newTabIconProfile.props.fill).toBe('#00A857');
+    expect(newTabIconProfile.props.style[0].color).toBe('#00A857');
   });
 });
