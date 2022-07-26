@@ -2,7 +2,11 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useTheme} from 'styled-components/native';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
-import {useNavigation} from '@react-navigation/native';
+import {
+  ParamListBase,
+  TabNavigationState,
+  useNavigation,
+} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {LoggedProducerStackParamList} from '../stacks/LoggedProducerStack';
 
@@ -19,7 +23,11 @@ type NavPropsProducer = NativeStackNavigationProp<
   'HomeProducer' | 'FinancialProducer' | 'ProfileProducer'
 >;
 
-export const ButtonTabProducer: React.FC<BottomTabBarProps> = ({state}) => {
+interface Props {
+  state: TabNavigationState<ParamListBase>;
+}
+
+export const ButtonTabProducer: React.FC<Props> = ({state}) => {
   const {navigate} = useNavigation<NavPropsProducer>();
   const activeTab = state.routes[state.index].name;
   const theme = useTheme();

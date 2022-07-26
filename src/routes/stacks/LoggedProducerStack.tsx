@@ -15,7 +15,9 @@ export type LoggedProducerStackParamList = {
   FinancialProducer: undefined;
   ProfileProducer: undefined;
 };
-const TabBar = (props: BottomTabBarProps) => <ButtonTabProducer {...props} />;
+const TabBar = (props: BottomTabBarProps) => (
+  <ButtonTabProducer state={props.state} />
+);
 
 const LoggedProducer = createBottomTabNavigator<LoggedProducerStackParamList>();
 

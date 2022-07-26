@@ -18,7 +18,9 @@ export type LoggedConsumerStackParamList = {
   ProfileConsumer: undefined;
 };
 
-const TabBar = (props: BottomTabBarProps) => <ButtonTabConsumer {...props} />;
+const TabBar = (props: BottomTabBarProps) => (
+  <ButtonTabConsumer state={props.state} />
+);
 
 const LoggedConsumer = createBottomTabNavigator<LoggedConsumerStackParamList>();
 

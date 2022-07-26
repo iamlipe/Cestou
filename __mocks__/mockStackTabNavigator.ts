@@ -1,31 +1,26 @@
 export const mockStackTabNavigatorConsumer = {
-  history: [{key: 'HomeConsumer-3mz50PoeKzkHEmDaDEl_6', type: 'route'}],
+  key: '',
   index: 0,
-  key: 'tab-HII1jl0jnLMHBME3g5oFN',
-  routeNames: [
-    'HomeConsumer',
-    'DonationConsumer',
-    'ProfileConsumer',
-    'BasketConsumer',
-  ],
+  routeNames: [],
+  history: [],
   routes: [
     {
-      key: 'HomeConsumer-3mz50PoeKzkHEmDaDEl_6',
+      key: '',
       name: 'HomeConsumer',
       params: undefined,
     },
     {
-      key: 'DonationConsumer-uC7lla6nCBUVycI3-5Kky',
+      key: '',
       name: 'DonationConsumer',
       params: undefined,
     },
     {
-      key: 'ProfileConsumer-2MDJ28FjuwTLQFWsOzlWI',
+      key: '',
       name: 'ProfileConsumer',
       params: undefined,
     },
     {
-      key: 'BasketConsumer-Ks6cPrCPj5uEmNRiV8zXP',
+      key: '',
       name: 'BasketConsumer',
       params: undefined,
     },
@@ -35,26 +30,23 @@ export const mockStackTabNavigatorConsumer = {
 };
 
 export const mockStackTabNavigatorProducer = {
-  history: [
-    {key: 'HomeProducer-_24Eivhu-k7Bqc1Zaj8eT', type: 'route'},
-    {key: 'FinancialProducer-KQLkYF76It-15cxlkr4m9', type: 'route'},
-  ],
+  history: [],
   index: 0,
-  key: 'tab-kFooeS9wnUvHh0x0B3M28',
+  key: '',
   routeNames: ['HomeProducer', 'FinancialProducer', 'ProfileProducer'],
   routes: [
     {
-      key: 'HomeProducer-_24Eivhu-k7Bqc1Zaj8eT',
+      key: '',
       name: 'HomeProducer',
       params: undefined,
     },
     {
-      key: 'FinancialProducer-KQLkYF76It-15cxlkr4m9',
+      key: '',
       name: 'FinancialProducer',
       params: undefined,
     },
     {
-      key: 'ProfileProducer-KiSDPiLhFdgU1oOZAgvyp',
+      key: '',
       name: 'ProfileProducer',
       params: undefined,
     },
