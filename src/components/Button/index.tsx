@@ -110,7 +110,7 @@ const StyledTitleButton = styled.Text<ButtonTextProps>`
     css`
       ${buttonTextColor[textColor]}
     `};
-  font-family: ${({theme}) => theme.fonts.REGULAR_SOURCESANSPRO};
+  font-family: ${({theme}) => theme.fonts.SEMIBOLD_SOURCESANSPRO};
   font-size: ${({theme}) => theme.sizing.SMALLER};
 `;
 
