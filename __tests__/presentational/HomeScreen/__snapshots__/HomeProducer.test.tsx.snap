@@ -1,0 +1,250 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeProducer should matches snapshot 1`] = `
+<RCTScrollView
+  showsVerticalScrollIndicator={false}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "minHeight": "100%",
+      },
+    ]
+  }
+>
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#6CCD91",
+            "flexDirection": "row",
+            "height": 64,
+            "paddingBottom": 0,
+            "paddingLeft": "5%",
+            "paddingRight": "5%",
+            "paddingTop": 0,
+            "width": "100%",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-SemiBold",
+              "fontSize": 47,
+            },
+          ]
+        }
+      >
+        Olá undefined!
+      </Text>
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#1A1A1A",
+            "fontFamily": "SourceSansPro-SemiBold",
+            "fontSize": 31,
+            "marginBottom": 16,
+            "marginLeft": "5%",
+            "marginRight": "5%",
+            "marginTop": 24,
+          },
+        ]
+      }
+    >
+      Minhas cestas
+    </Text>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "backgroundColor": "#FFFFFF",
+            "borderColor": "#F2F2F8",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "height": 130,
+            "justifyContent": "space-evenly",
+            "paddingBottom": 0,
+            "paddingLeft": 8,
+            "paddingRight": 8,
+            "paddingTop": 0,
+            "width": "90%",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "marginBottom": 8,
+            },
+          ]
+        }
+      >
+        Configure quais os tipos e tamanhos de cesta de alimentos você deseja fornecer.
+      </Text>
+      <View
+        accessibilityState={
+          Object {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "backgroundColor": "#00843F",
+            "borderRadius": 4,
+            "flexDirection": "row",
+            "height": 49,
+            "justifyContent": "center",
+            "marginBottom": 10,
+            "opacity": 1,
+            "width": 200,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#FFFFFF",
+                "fontFamily": "SourceSansPro-SemiBold",
+                "fontSize": 27,
+              },
+            ]
+          }
+          textColor="white"
+        >
+          Minhas cestas
+        </Text>
+      </View>
+    </View>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#1A1A1A",
+            "fontFamily": "SourceSansPro-SemiBold",
+            "fontSize": 31,
+            "marginBottom": 16,
+            "marginLeft": "5%",
+            "marginRight": "5%",
+            "marginTop": 24,
+          },
+        ]
+      }
+    >
+      Minhas finanças
+    </Text>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "backgroundColor": "#C1E9CF",
+          "borderColor": "#6CCD91",
+          "borderRadius": 4,
+          "borderStyle": "solid",
+          "borderWidth": 1,
+          "height": 100,
+          "justifyContent": "center",
+          "marginBottom": 16,
+          "opacity": 1,
+          "width": "90%",
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-SemiBold",
+              "fontSize": 27,
+            },
+          ]
+        }
+      >
+        Ver meus rendimentos
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "backgroundColor": "#C1E9CF",
+          "borderColor": "#6CCD91",
+          "borderRadius": 4,
+          "borderStyle": "solid",
+          "borderWidth": 1,
+          "height": 100,
+          "justifyContent": "center",
+          "marginBottom": 16,
+          "opacity": 1,
+          "width": "90%",
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-SemiBold",
+              "fontSize": 27,
+            },
+          ]
+        }
+      >
+        Cadastrar chave Pix
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
