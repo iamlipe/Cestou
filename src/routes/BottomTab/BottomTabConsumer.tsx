@@ -2,7 +2,12 @@ import React from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
-import {useNavigation} from '@react-navigation/native';
+import {
+  ParamListBase,
+  TabNavigationState,
+  useNavigation,
+  useNavigationState,
+} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {LoggedConsumerStackParamList} from '../stacks/LoggedConsumerStack';
 
@@ -11,7 +16,11 @@ type NavPropsProducer = NativeStackNavigationProp<
   'HomeConsumer' | 'BasketConsumer' | 'DonationConsumer' | 'ProfileConsumer'
 >;
 
-export const ButtonTabConsumer: React.FC<BottomTabBarProps> = ({state}) => {
+interface Props {
+  state: TabNavigationState<ParamListBase>;
+}
+
+export const ButtonTabConsumer: React.FC<Props> = ({state}) => {
   const {navigate} = useNavigation<NavPropsProducer>();
   const activeTab = state.routes[state.index].name;
   const theme = useTheme();
@@ -20,9 +29,11 @@ export const ButtonTabConsumer: React.FC<BottomTabBarProps> = ({state}) => {
     name: string,
     title: string,
     route: keyof LoggedConsumerStackParamList,
+    testID: string,
   ) => (
     <StyledButtonInactive onPress={() => navigate(route)}>
       <Icon
+        testID={testID}
         name={name}
         size={24}
         color={
@@ -40,10 +51,20 @@ export const ButtonTabConsumer: React.FC<BottomTabBarProps> = ({state}) => {
   return (
     <StyledBottonTabContainer>
       <StyledButtonTabRow>
-        {renderTab('home', 'Início', 'HomeConsumer')}
-        {renderTab('shopping-basket', 'Minha cesta', 'BasketConsumer')}
-        {renderTab('attach-money', 'Doações', 'DonationConsumer')}
-        {renderTab('person', 'Perfil', 'ProfileConsumer')}
+        {renderTab('home', 'Início', 'HomeConsumer', 'icon-tab-home')}
+        {renderTab(
+          'shopping-basket',
+          'Minha cesta',
+          'BasketConsumer',
+          'icon-tab-basket',
+        )}
+        {renderTab(
+          'attach-money',
+          'Doações',
+          'DonationConsumer',
+          'icon-tab-donation',
+        )}
+        {renderTab('person', 'Perfil', 'ProfileConsumer', 'icon-tab-profile')}
       </StyledButtonTabRow>
     </StyledBottonTabContainer>
   );

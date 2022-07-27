@@ -4,7 +4,7 @@ import {
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 
-import {ButtonTabProducer} from '../BottonTab/BottonTabProducer';
+import {ButtonTabProducer} from '../BottomTab/BottomTabProducer';
 
 import {HomeProducer} from '@/presentational/HomeScreen/HomeProducer';
 import {FinancialProducer} from '@/presentational/FinancialScreen/FinancialProducer';
@@ -15,7 +15,9 @@ export type LoggedProducerStackParamList = {
   FinancialProducer: undefined;
   ProfileProducer: undefined;
 };
-const TabBar = (props: BottomTabBarProps) => <ButtonTabProducer {...props} />;
+const TabBar = (props: BottomTabBarProps) => (
+  <ButtonTabProducer state={props.state} />
+);
 
 const LoggedProducer = createBottomTabNavigator<LoggedProducerStackParamList>();
 

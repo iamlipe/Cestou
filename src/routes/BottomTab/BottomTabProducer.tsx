@@ -2,7 +2,11 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useTheme} from 'styled-components/native';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
-import {useNavigation} from '@react-navigation/native';
+import {
+  ParamListBase,
+  TabNavigationState,
+  useNavigation,
+} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {LoggedProducerStackParamList} from '../stacks/LoggedProducerStack';
 
@@ -12,14 +16,18 @@ import {
   StyledTextActive,
   StyledTextInactive,
   StyledButtonTabRow,
-} from './BottonTabConsumer';
+} from './BottomTabConsumer';
 
 type NavPropsProducer = NativeStackNavigationProp<
   LoggedProducerStackParamList,
   'HomeProducer' | 'FinancialProducer' | 'ProfileProducer'
 >;
 
-export const ButtonTabProducer: React.FC<BottomTabBarProps> = ({state}) => {
+interface Props {
+  state: TabNavigationState<ParamListBase>;
+}
+
+export const ButtonTabProducer: React.FC<Props> = ({state}) => {
   const {navigate} = useNavigation<NavPropsProducer>();
   const activeTab = state.routes[state.index].name;
   const theme = useTheme();
@@ -28,9 +36,11 @@ export const ButtonTabProducer: React.FC<BottomTabBarProps> = ({state}) => {
     name: string,
     title: string,
     route: keyof LoggedProducerStackParamList,
+    testID: string,
   ) => (
     <StyledButtonInactive onPress={() => navigate(route)}>
       <Icon
+        testID={testID}
         name={name}
         size={24}
         color={
@@ -48,9 +58,19 @@ export const ButtonTabProducer: React.FC<BottomTabBarProps> = ({state}) => {
   return (
     <StyledBottonTabContainer>
       <StyledButtonTabRow>
-        {renderInactiveTab('home', 'Início', 'HomeProducer')}
-        {renderInactiveTab('attach-money', 'Financeiro', 'FinancialProducer')}
-        {renderInactiveTab('person', 'Perfil', 'ProfileProducer')}
+        {renderInactiveTab('home', 'Início', 'HomeProducer', 'icon-tab-home')}
+        {renderInactiveTab(
+          'attach-money',
+          'Financeiro',
+          'FinancialProducer',
+          'icon-tab-financial',
+        )}
+        {renderInactiveTab(
+          'person',
+          'Perfil',
+          'ProfileProducer',
+          'icon-tab-profile',
+        )}
       </StyledButtonTabRow>
     </StyledBottonTabContainer>
   );
