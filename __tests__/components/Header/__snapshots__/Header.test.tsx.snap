@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should matches snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#6CCD91",
+        "flexDirection": "row",
+        "height": 64,
+        "paddingBottom": 0,
+        "paddingLeft": "5%",
+        "paddingRight": "5%",
+        "paddingTop": 0,
+        "width": "100%",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#1A1A1A",
+          "fontFamily": "SourceSansPro-SemiBold",
+          "fontSize": 47,
+        },
+      ]
+    }
+  >
+    Olá undefined!
+  </Text>
+</View>
+`;
