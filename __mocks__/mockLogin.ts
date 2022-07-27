@@ -38,6 +38,7 @@ export const userMock: User = {
   firstName: apiReturnSuccessMock.data.first_name,
   lastName: apiReturnSuccessMock.data.last_name,
   email: apiReturnSuccessMock.data.email,
+  userType: apiReturnSuccessMock.data.user_type,
   phone: apiReturnSuccessMock.data.phone,
   token: apiReturnSuccessMock.data.token,
   refreshToken: apiReturnSuccessMock.data.refresh_token,

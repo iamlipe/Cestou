@@ -1,10 +1,13 @@
 import api from '@/config/services/api';
-import {login, register} from '@/store/sagas/userSaga';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {login, logout, register} from '@/store/sagas/userSaga';
 import {PayloadAction} from '@reduxjs/toolkit';
 import {
   LoginRequest,
   LOGIN_FAILURE,
   LOGIN_SUCCESS,
+  LOGOUT_FAILURE,
+  LOGOUT_SUCCESS,
   RegisterRequest,
   REGISTER_FAILURE,
   REGISTER_SUCCESS,
@@ -29,7 +32,9 @@ describe('userSaga', () => {
   const dispatchedActions: PayloadAction<User>[] = [];
 
   test('should make login with valid credentials', async () => {
-    (api.post as jest.Mock).mockResolvedValueOnce(apiReturnSuccessMock);
+    const post = api.post as jest.Mock;
+
+    post.mockResolvedValueOnce(apiReturnSuccessMock);
 
     await runSaga(
       {
@@ -51,7 +56,9 @@ describe('userSaga', () => {
   });
 
   test('should not make login with invalid credentials', async () => {
-    (api.post as jest.Mock).mockRejectedValueOnce(apiReturnErrorMock);
+    const post = api.post as jest.Mock;
+
+    post.mockRejectedValueOnce(apiReturnErrorMock);
 
     await runSaga(
       {
@@ -70,7 +77,9 @@ describe('userSaga', () => {
   });
 
   test('should make register with valid credentials', async () => {
-    (api.post as jest.Mock).mockResolvedValueOnce(apiReturnSuccessRegisterMock);
+    const post = api.post as jest.Mock;
+
+    post.mockResolvedValueOnce(apiReturnSuccessRegisterMock);
 
     await runSaga(
       {
@@ -89,7 +98,9 @@ describe('userSaga', () => {
   });
 
   test('should not make register with invalid credentials', async () => {
-    (api.post as jest.Mock).mockRejectedValueOnce(apiReturnErrorRegisterMock);
+    const post = api.post as jest.Mock;
+
+    post.mockRejectedValueOnce(apiReturnErrorRegisterMock);
 
     await runSaga(
       {
@@ -107,5 +118,48 @@ describe('userSaga', () => {
     expect(dispatchedActions).toContainEqual(
       REGISTER_FAILURE({error: apiReturnErrorRegisterMock}),
     );
+  });
+
+  test('should make logout', async () => {
+    const storage = AsyncStorage.removeItem as jest.Mock;
+    let storageUser: {user?: User} | undefined = {
+      user: userMock,
+    };
+
+    storage.mockImplementation(() => (storageUser = undefined));
+
+    await runSaga(
+      {
+        dispatch: (action: PayloadAction<User>) =>
+          dispatchedActions.push(action),
+      },
+      logout as unknown as Saga,
+      {
+        payload: undefined,
+      },
+    ).toPromise();
+
+    expect(dispatchedActions).toContainEqual(LOGOUT_SUCCESS());
+    expect(storageUser).toEqual(undefined);
+  });
+
+  test('should not make logout', async () => {
+    const storage = AsyncStorage.removeItem as jest.Mock;
+    const error = 'logout error';
+
+    storage.mockRejectedValueOnce(error);
+
+    await runSaga(
+      {
+        dispatch: (action: PayloadAction<User>) =>
+          dispatchedActions.push(action),
+      },
+      logout as unknown as Saga,
+      {
+        payload: undefined,
+      },
+    ).toPromise();
+
+    expect(dispatchedActions).toContainEqual(LOGOUT_FAILURE({error}));
   });
 });

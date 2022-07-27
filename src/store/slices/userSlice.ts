@@ -4,7 +4,7 @@ import {AxiosError} from 'axios';
 export interface LoginRequest {
   phoneOrEmail: string;
   password: string;
-  remember: string[];
+  remember?: string[];
 }
 
 export interface LoginResponse {
