@@ -1,10 +1,20 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import {useNavigation} from '@react-navigation/native';
+import {HomeProducerStackParamList} from '@/routes/stacks/HomeProducerStack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import Header from '@/components/Header';
 import Button from '@/components/Button';
 
+type NavProps = NativeStackNavigationProp<
+  HomeProducerStackParamList,
+  'HomeMyBasketsProducer'
+>;
+
 export const HomeProducer = () => {
+  const {navigate} = useNavigation<NavProps>();
+
   const renderLargeButton = (title: string) => (
     <StyledContainerLargeButton>
       <StyledTitleLargeButton>{title}</StyledTitleLargeButton>
@@ -21,7 +31,10 @@ export const HomeProducer = () => {
           fornecer.
         </StyledTitleAboutMyBasket>
 
-        <ButtonAboutMyBasket title="Minhas cestas" onPress={() => null} />
+        <ButtonAboutMyBasket
+          title="Minhas cestas"
+          onPress={() => navigate('HomeMyBasketsProducer')}
+        />
       </StyledContainerAboutMyBasket>
 
       <StyledTitle>Minhas finanças</StyledTitle>
