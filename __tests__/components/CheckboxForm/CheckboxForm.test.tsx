@@ -17,6 +17,7 @@ jest.mock('react-hook-form', () => ({
 
 describe('CheckboxForm', () => {
   const options = ['check-me', 'check-me-too'];
+  const detailsOptions = ['check-me-details', 'check-me-too-details'];
 
   test('should render correctly', () => {
     renderWithThemeProvider(
@@ -71,6 +72,21 @@ describe('CheckboxForm', () => {
         `checkbox-icon-checked-${index}`,
       );
       expect(checkedIcon).toBeTruthy();
+    });
+  });
+
+  test('should render with details', () => {
+    const checkbox = renderWithThemeProvider(
+      <CheckboxForm
+        name="check"
+        control={jest.fn()}
+        options={options}
+        detailsOptions={detailsOptions}
+      />,
+    );
+
+    detailsOptions.forEach(detail => {
+      expect(checkbox.getByText(detail)).toBeTruthy();
     });
   });
 });
