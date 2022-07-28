@@ -1,6 +1,8 @@
 import React, {memo} from 'react';
-import styled from 'styled-components/native';
+import styled, {useTheme} from 'styled-components/native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
+import {useNavigation} from '@react-navigation/native';
 
 interface Props {
   welcome?: boolean;
@@ -9,13 +11,26 @@ interface Props {
 
 const Header = ({welcome = true, title}: Props) => {
   const user = useReduxSelector(state => state.user.auth);
+  const theme = useTheme();
+  const {goBack} = useNavigation();
 
   return (
     <StyledContainer>
       {welcome ? (
         <StyledTitle>{`Olá ${user?.firstName}!`}</StyledTitle>
       ) : (
-        <StyledTitle>{title}</StyledTitle>
+        <>
+          <Icon.Button
+            name="arrow-back"
+            size={24}
+            color={theme.colors.GRAY_900}
+            backgroundColor={theme.colors.PRIMARY_300}
+            style={{padding: 0}}
+            activeOpacity={1}
+            onPress={() => goBack()}
+          />
+          <StyledTitle>{title}</StyledTitle>
+        </>
       )}
     </StyledContainer>
   );
