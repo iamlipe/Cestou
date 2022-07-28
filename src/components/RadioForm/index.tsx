@@ -35,7 +35,11 @@ const CheckBox = ({name, control, options}: Props) => {
             ? `radio-icon-checked-${index}`
             : `radio-icon-not-checked-${index}`
         }
-        color={theme.colors.PRIMARY_800}
+        color={
+          checkeds.includes(option)
+            ? theme.colors.PRIMARY_800
+            : theme.colors.GRAY_700
+        }
         size={24}
       />
       <StyledTitle>{option}</StyledTitle>
