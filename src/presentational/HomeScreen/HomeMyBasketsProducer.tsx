@@ -57,8 +57,6 @@ export const HomeMyBasketsProducer = () => {
     setModalVisible(true);
   }
 
-  console.log(baskets.error);
-
   useEffect(() => {
     dispatch(GET_BASKET());
   }, [dispatch]);
