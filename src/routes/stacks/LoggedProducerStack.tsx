@@ -6,12 +6,13 @@ import {
 
 import {ButtonTabProducer} from '../BottomTab/BottomTabProducer';
 
-import {HomeProducer} from '@/presentational/HomeScreen/HomeProducer';
+// import {HomeProducerTopTab} from '../topTabs/HomeProducerTopTab';
+import {HomeProducerStack} from '../stacks/HomeProducerStack';
 import {FinancialProducer} from '@/presentational/FinancialScreen/FinancialProducer';
 import {Profile} from '@/presentational/ProfileScreen/Profile';
 
 export type LoggedProducerStackParamList = {
-  HomeProducer: undefined;
+  HomeProducerStack: undefined;
   FinancialProducer: undefined;
   ProfileProducer: undefined;
 };
@@ -23,10 +24,13 @@ const LoggedProducer = createBottomTabNavigator<LoggedProducerStackParamList>();
 
 export const LoggedProducerStack = () => (
   <LoggedProducer.Navigator
-    initialRouteName="HomeProducer"
+    initialRouteName="HomeProducerStack"
     tabBar={props => TabBar(props)}
     screenOptions={{headerShown: false}}>
-    <LoggedProducer.Screen name="HomeProducer" component={HomeProducer} />
+    <LoggedProducer.Screen
+      name="HomeProducerStack"
+      component={HomeProducerStack}
+    />
     <LoggedProducer.Screen
       name="FinancialProducer"
       component={FinancialProducer}
