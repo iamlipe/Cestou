@@ -28,7 +28,7 @@ Array [
       style={
         Array [
           Object {
-            "color": "#00843F",
+            "color": "#3A3A3A",
             "fontSize": 24,
           },
           undefined,
@@ -85,7 +85,7 @@ Array [
       style={
         Array [
           Object {
-            "color": "#00843F",
+            "color": "#3A3A3A",
             "fontSize": 24,
           },
           undefined,

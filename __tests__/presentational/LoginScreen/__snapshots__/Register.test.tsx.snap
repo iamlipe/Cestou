@@ -92,7 +92,7 @@ exports[`Register should matches snapshot 1`] = `
           style={
             Array [
               Object {
-                "color": "#00843F",
+                "color": "#3A3A3A",
                 "fontSize": 24,
               },
               undefined,
@@ -149,7 +149,7 @@ exports[`Register should matches snapshot 1`] = `
           style={
             Array [
               Object {
-                "color": "#00843F",
+                "color": "#3A3A3A",
                 "fontSize": 24,
               },
               undefined,
@@ -562,9 +562,19 @@ exports[`Register should matches snapshot 1`] = `
         style={
           Object {
             "alignItems": "center",
+            "borderColor": "black",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 0,
             "flexDirection": "row",
+            "height": "auto",
             "marginBottom": 10,
             "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "width": "auto",
           }
         }
       >
@@ -574,7 +584,7 @@ exports[`Register should matches snapshot 1`] = `
           style={
             Array [
               Object {
-                "color": "#00843F",
+                "color": "#3A3A3A",
                 "fontSize": 24,
               },
               undefined,
@@ -590,20 +600,33 @@ exports[`Register should matches snapshot 1`] = `
         >
           
         </Text>
-        <Text
+        <View
           style={
             Array [
               Object {
-                "color": "#1A1A1A",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 27,
-                "marginLeft": 5,
+                "alignItems": "flex-start",
+                "flexDirection": "column",
               },
             ]
           }
         >
-          Concordo com a Política de Privacidade e Termos de uso
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 27,
+                  "marginBottom": 0,
+                  "marginLeft": 5,
+                },
+              ]
+            }
+            withDetails={false}
+          >
+            Concordo com a Política de Privacidade e Termos de uso
+          </Text>
+        </View>
       </View>
     </View>
     <View
@@ -642,7 +665,7 @@ exports[`Register should matches snapshot 1`] = `
           Array [
             Object {
               "color": "#FFFFFF",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-SemiBold",
               "fontSize": 27,
             },
           ]
@@ -716,7 +739,7 @@ exports[`Register should matches snapshot 1`] = `
             Array [
               Object {
                 "color": "#00843F",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-SemiBold",
                 "fontSize": 27,
               },
             ]

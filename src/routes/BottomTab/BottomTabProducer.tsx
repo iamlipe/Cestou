@@ -32,7 +32,7 @@ export const ButtonTabProducer: React.FC<Props> = ({state}) => {
   const activeTab = state.routes[state.index].name;
   const theme = useTheme();
 
-  const renderInactiveTab = (
+  const renderTab = (
     name: string,
     title: string,
     route: keyof LoggedProducerStackParamList,
@@ -58,24 +58,14 @@ export const ButtonTabProducer: React.FC<Props> = ({state}) => {
   return (
     <StyledBottonTabContainer>
       <StyledButtonTabRow>
-        {renderInactiveTab(
-          'home',
-          'Início',
-          'HomeProducerStack',
-          'icon-tab-home',
-        )}
-        {renderInactiveTab(
+        {renderTab('home', 'Início', 'HomeProducerStack', 'icon-tab-home')}
+        {renderTab(
           'attach-money',
           'Financeiro',
           'FinancialProducer',
           'icon-tab-financial',
         )}
-        {renderInactiveTab(
-          'person',
-          'Perfil',
-          'ProfileProducer',
-          'icon-tab-profile',
-        )}
+        {renderTab('person', 'Perfil', 'ProfileProducer', 'icon-tab-profile')}
       </StyledButtonTabRow>
     </StyledBottonTabContainer>
   );
