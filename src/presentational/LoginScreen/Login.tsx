@@ -10,6 +10,7 @@ import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '@/routes/stacks/AuthStack';
+import {useAsyncStorage} from '@react-native-async-storage/async-storage';
 
 import Logo from '@/assets/svgs/logo.svg';
 
@@ -17,7 +18,6 @@ import InputForm from '@/components/InputForm/index';
 import Button from '@/components/Button';
 import CheckboxForm from '@/components/CheckboxForm';
 import Info from '@/components/Info';
-import {useAsyncStorage} from '@react-native-async-storage/async-storage';
 
 const schema = Yup.object().shape({
   phoneOrEmail: Yup.string()
