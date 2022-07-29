@@ -3,28 +3,22 @@ import styled from 'styled-components/native';
 import {ModalProps} from 'react-native';
 import {SvgProps} from 'react-native-svg';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {useNavigation} from '@react-navigation/native';
 
 import Button from '@/components/Button';
 
 interface Props extends ModalProps {
   title?: string;
   icon?: React.FC<SvgProps>;
-  modalVisible: boolean;
-  setModalVisible: (visible: boolean) => void;
+  onPress?: () => void;
 }
 
-const Modal = ({
-  title,
-  modalVisible,
-  setModalVisible,
-  icon: Icon,
-  ...rest
-}: Props) => {
-  const refContent = useRef(null);
+const Modal = ({title, icon: Icon, onPress, ...rest}: Props) => {
+  const {goBack} = useNavigation();
 
   return (
     <GestureHandlerRootView>
-      <StyledModal visible={modalVisible} animationType="fade" transparent>
+      <StyledModal animationType="fade" transparent {...rest}>
         <StyledBackgroundModal>
           <StyledContent>
             {Icon && (
@@ -34,21 +28,26 @@ const Modal = ({
             )}
             {title && <StyledTitle>{title}</StyledTitle>}
 
-            <StyledContainerButtons>
-              <StyledCancelButton
-                buttonColor="text_only"
-                textColor="primary"
-                size="medium"
-                title="Cancelar"
-                onPress={() => setModalVisible(false)}
-              />
+            {onPress && (
+              <StyledContainerButtons>
+                <StyledCancelButton
+                  buttonColor="text_only"
+                  textColor="primary"
+                  size="medium"
+                  title="Cancelar"
+                  onPress={onPress}
+                />
 
-              <StyledConfirmButton
-                size="medium"
-                title="Confirmar"
-                onPress={() => setModalVisible(false)}
-              />
-            </StyledContainerButtons>
+                <StyledConfirmButton
+                  size="medium"
+                  title="Confirmar"
+                  onPress={() => {
+                    onPress();
+                    goBack();
+                  }}
+                />
+              </StyledContainerButtons>
+            )}
           </StyledContent>
         </StyledBackgroundModal>
       </StyledModal>
