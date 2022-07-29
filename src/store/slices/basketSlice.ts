@@ -15,14 +15,14 @@ export interface SignupProducerBasketRequest {
   basketID: string;
 }
 
-export interface BaskertStatus {
+export interface BasketStatus {
   isLoading: boolean;
   error: AxiosError | null;
   status: number | null;
   allBaskets: BasketResponse[];
 }
 
-const initialState: BaskertStatus = {
+const initialState: BasketStatus = {
   isLoading: false,
   error: null,
   status: null,
