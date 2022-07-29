@@ -21,7 +21,7 @@ import Modal from '@/components/Modal';
 import {SvgProps} from 'react-native-svg';
 
 interface SignupBasket {
-  myBasket: boolean;
+  myBasket: string[];
 }
 
 const schema = Yup.object().shape({
@@ -31,7 +31,7 @@ const schema = Yup.object().shape({
 });
 
 export const HomeMyBasketsProducer = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [isVisibleModal, setIsVisibleModal] = useState(false);
   const baskets = useReduxSelector(state => state.basket);
   const dispatch = useReduxDispatch();
 
@@ -43,8 +43,12 @@ export const HomeMyBasketsProducer = () => {
     resolver: yupResolver(schema),
   });
 
-  async function onSubmit(data: any) {
-    data.myBasket.forEach((selectedBasket: any) => {
+  function handleModal(event: boolean) {
+    setIsVisibleModal(event);
+  }
+
+  function signProducerBasket(data: SignupBasket) {
+    data.myBasket.forEach((selectedBasket: string) => {
       const translatedBasket = translateBasketToEnglish(selectedBasket);
 
       const basketID = baskets.allBaskets.find(
@@ -53,11 +57,12 @@ export const HomeMyBasketsProducer = () => {
 
       if (basketID) dispatch(SIGNUP_PRODUCER_BASKET({basketID}));
     });
-
-    setModalVisible(true);
   }
 
-  console.log(baskets.error);
+  async function onSubmit(data: SignupBasket) {
+    signProducerBasket(data);
+    handleModal(true);
+  }
 
   useEffect(() => {
     dispatch(GET_BASKET());
@@ -94,12 +99,13 @@ export const HomeMyBasketsProducer = () => {
           onPress={handleSubmit(onSubmit)}
         />
 
-        <Modal
-          modalVisible={modalVisible}
-          setModalVisible={setModalVisible}
-          title="Você adicionou as cestas à sua lista de produtos fornecidos."
-          icon={IconVegetable as React.FC<SvgProps>}
-        />
+        {isVisibleModal && (
+          <Modal
+            title="Você adicionou as cestas à sua lista de produtos fornecidos."
+            icon={IconVegetable as React.FC<SvgProps>}
+            onPress={() => handleModal(false)}
+          />
+        )}
       </StyledContent>
     </StyledContainerScroll>
   );
