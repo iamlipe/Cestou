@@ -28,8 +28,6 @@ describe('ButtonTabProducer', () => {
 
     const tabIconHome = buttonTab.getByTestId('icon-tab-home');
 
-    console.log(tabIconHome.props.style[0].color);
-
     expect(tabIconHome.props.style[0].color).toBe('#00A857');
   });
 
