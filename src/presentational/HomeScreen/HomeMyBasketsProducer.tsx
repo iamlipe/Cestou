@@ -95,6 +95,7 @@ export const HomeMyBasketsProducer = () => {
         />
 
         <StyledSubmitButton
+          testID="subimit-button"
           title="Confirmar seleção"
           loading={isLoading}
           onPress={handleSubmit(onSubmit)}
