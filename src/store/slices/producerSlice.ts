@@ -63,7 +63,7 @@ const producerSlice = createSlice({
   name: 'producer',
   initialState,
   reducers: {
-    GET_PRODUCER: state => ({
+    GET_PRODUCER: (state, _: PayloadAction<ProducerRequest>) => ({
       ...state,
       isLoading: true,
       error: null,
@@ -86,7 +86,7 @@ const producerSlice = createSlice({
       error,
     }),
 
-    GET_PRODUCER_BASKET: (state, _: PayloadAction<ProducerRequest>) => ({
+    GET_PRODUCER_BASKET: state => ({
       ...state,
       isLoading: true,
       error: null,

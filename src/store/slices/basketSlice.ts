@@ -2,7 +2,6 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {AxiosError} from 'axios';
 
 export interface BasketResponse {
-  name: string;
   id: string;
   size: string;
   daysPerDeliver: string;

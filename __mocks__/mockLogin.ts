@@ -10,7 +10,7 @@ export const loginInvalidPayload: LoginRequest = {
   password: 'passwordnotvalid',
 };
 
-export const apiReturnSuccessMock: {data: LoginResponse} = {
+export const apiReturnLoginSuccessMock: {data: LoginResponse} = {
   data: {
     id: '1',
     first_name: 'Bob',
@@ -28,18 +28,18 @@ export const apiReturnSuccessMock: {data: LoginResponse} = {
   },
 };
 
-export const apiReturnErrorMock = {
+export const apiReturnLoginErrorMock = {
   statusCode: 401,
   message: 'Unauthorized',
 };
 
 export const userMock: User = {
-  id: apiReturnSuccessMock.data.id,
-  firstName: apiReturnSuccessMock.data.first_name,
-  lastName: apiReturnSuccessMock.data.last_name,
-  email: apiReturnSuccessMock.data.email,
-  userType: apiReturnSuccessMock.data.user_type,
-  phone: apiReturnSuccessMock.data.phone,
-  token: apiReturnSuccessMock.data.token,
-  refreshToken: apiReturnSuccessMock.data.refresh_token,
+  id: apiReturnLoginSuccessMock.data.id,
+  firstName: apiReturnLoginSuccessMock.data.first_name,
+  lastName: apiReturnLoginSuccessMock.data.last_name,
+  email: apiReturnLoginSuccessMock.data.email,
+  userType: apiReturnLoginSuccessMock.data.user_type,
+  phone: apiReturnLoginSuccessMock.data.phone,
+  token: apiReturnLoginSuccessMock.data.token,
+  refreshToken: apiReturnLoginSuccessMock.data.refresh_token,
 };

@@ -15,8 +15,8 @@ import {
 } from '@/store/slices/userSlice';
 import {runSaga, Saga} from 'redux-saga';
 import {
-  apiReturnErrorMock,
-  apiReturnSuccessMock,
+  apiReturnLoginErrorMock,
+  apiReturnLoginSuccessMock,
   loginInvalidPayload,
   loginValidPayload,
   userMock,
@@ -34,7 +34,7 @@ describe('userSaga', () => {
   test('should make login with valid credentials', async () => {
     const post = api.post as jest.Mock;
 
-    post.mockResolvedValueOnce(apiReturnSuccessMock);
+    post.mockResolvedValueOnce(apiReturnLoginSuccessMock);
 
     await runSaga(
       {
@@ -58,7 +58,7 @@ describe('userSaga', () => {
   test('should not make login with invalid credentials', async () => {
     const post = api.post as jest.Mock;
 
-    post.mockRejectedValueOnce(apiReturnErrorMock);
+    post.mockRejectedValueOnce(apiReturnLoginErrorMock);
 
     await runSaga(
       {
@@ -72,7 +72,7 @@ describe('userSaga', () => {
     expect(api.post).toHaveBeenCalledWith('/auth/login', loginInvalidPayload);
 
     expect(dispatchedActions).toContainEqual(
-      LOGIN_FAILURE({error: apiReturnErrorMock}),
+      LOGIN_FAILURE({error: apiReturnLoginErrorMock}),
     );
   });
 

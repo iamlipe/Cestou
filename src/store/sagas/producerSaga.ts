@@ -12,12 +12,12 @@ import {
   GET_PRODUCER_BASKET_FAILURE,
   ProducerBasketResponse,
   ProducerBasket,
-  ProducerRequest,
   ProducerResponse,
   Producer,
+  ProducerRequest,
 } from '../slices/producerSlice';
 
-export function* getProducer({payload}: any) {
+export function* getProducer({payload}: PayloadAction<ProducerRequest>) {
   try {
     const {data, status}: AxiosResponse<ProducerResponse> = yield call(
       api.post,
