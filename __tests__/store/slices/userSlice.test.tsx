@@ -12,7 +12,7 @@ import reducer, {
 import {registerValidPayload} from '@__mocks__/mockRegister';
 import {
   loginValidPayload,
-  apiReturnSuccessMock,
+  apiReturnLoginSuccessMock,
   userMock,
 } from '../../../__mocks__/mockLogin';
 
@@ -44,12 +44,12 @@ describe('userSlice', () => {
   test('should handle LOGIN_SUCCESS', () => {
     const reducerLoginSuccess = reducer(
       undefined,
-      LOGIN_SUCCESS({...apiReturnSuccessMock, status: 200}),
+      LOGIN_SUCCESS({...apiReturnLoginSuccessMock, status: 200}),
     );
 
     expect(reducerLoginSuccess).toEqual({
       isLoading: false,
-      auth: apiReturnSuccessMock.data,
+      auth: apiReturnLoginSuccessMock.data,
       error: null,
       statusCode: 200,
     });

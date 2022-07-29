@@ -628,6 +628,19 @@ exports[`Register should matches snapshot 1`] = `
           </Text>
         </View>
       </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "alignSelf": "flex-end",
+              "color": "#781B1C",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "marginBottom": 3,
+            },
+          ]
+        }
+      />
     </View>
     <View
       accessibilityState={

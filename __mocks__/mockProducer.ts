@@ -1,4 +1,8 @@
-import {Producer, ProducerBasketResponse} from '@/store/slices/producerSlice';
+import {
+  Producer,
+  ProducerBasket,
+  ProducerBasketResponse,
+} from '@/store/slices/producerSlice';
 
 export const validProducerID = {
   id: '1',
@@ -69,4 +73,34 @@ export const producerMock: Producer = {
   phonePix: '+5511999999999',
   randomPix: 'jkln129123mkjj11',
   balance: 0,
+};
+
+export const producerBasketsMock: ProducerBasket = {
+  bigBasket: {
+    id: '1',
+    size: 'big',
+    daysPerDeliver: '7',
+    value: 200,
+    createdAt: '2022-07-29T19:24:46.516Z',
+    updatedAt: '2022-07-29T19:24:46.516Z',
+    deletedAt: null,
+  },
+  mediumBasket: {
+    id: '2',
+    size: 'medium',
+    daysPerDeliver: '7',
+    value: 160,
+    createdAt: '2022-07-29T19:24:46.516Z',
+    updatedAt: '2022-07-29T19:24:46.516Z',
+    deletedAt: null,
+  },
+  smallBasket: {
+    id: '3',
+    size: 'small',
+    daysPerDeliver: '7',
+    value: 90,
+    createdAt: '2022-07-29T19:24:46.516Z',
+    updatedAt: '2022-07-29T19:24:46.516Z',
+    deletedAt: null,
+  },
 };
