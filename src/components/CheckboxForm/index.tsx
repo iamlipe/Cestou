@@ -8,6 +8,7 @@ interface Props {
   control: any;
   options: string[];
   detailsOptions?: string[];
+  error?: string;
 }
 
 interface ContainerCheckedProps {
@@ -18,7 +19,7 @@ interface OptionTextProps {
   withDetails?: boolean;
 }
 
-const CheckBox = ({name, control, options, detailsOptions}: Props) => {
+const CheckBox = ({name, control, options, detailsOptions, error}: Props) => {
   const [checkeds, setCheckeds] = useState<string[]>([]);
   const theme = useTheme();
 
@@ -75,6 +76,7 @@ const CheckBox = ({name, control, options, detailsOptions}: Props) => {
       {options.map((option, index) => {
         return renderOptions(option, index);
       })}
+      <StyledTextError>{error}</StyledTextError>
     </>
   );
 };
@@ -110,6 +112,14 @@ const StyledDetailsText = styled(StyledOptionText)`
 const StyledColumn = styled.View`
   flex-direction: column;
   align-items: flex-start;
+`;
+
+const StyledTextError = styled.Text`
+  align-self: flex-end;
+  font-family: ${({theme}) => theme.fonts.REGULAR_SOURCESANSPRO};
+  font-size: ${({theme}) => theme.sizing.SMALLEST};
+  color: ${({theme}) => theme.colors.ERROR_800};
+  margin-bottom: 3px;
 `;
 
 export default memo(CheckBox);

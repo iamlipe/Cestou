@@ -21,7 +21,7 @@ import Modal from '@/components/Modal';
 import {SvgProps} from 'react-native-svg';
 
 interface SignupBasket {
-  myBasket: boolean;
+  myBasket: string[];
 }
 
 const schema = Yup.object().shape({
@@ -31,8 +31,8 @@ const schema = Yup.object().shape({
 });
 
 export const HomeMyBasketsProducer = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-  const baskets = useReduxSelector(state => state.basket);
+  const [isVisibleModal, setIsVisibleModal] = useState(false);
+  const {isLoading, allBaskets} = useReduxSelector(state => state.basket);
   const dispatch = useReduxDispatch();
 
   const {
@@ -43,18 +43,25 @@ export const HomeMyBasketsProducer = () => {
     resolver: yupResolver(schema),
   });
 
-  async function onSubmit(data: any) {
-    data.myBasket.forEach((selectedBasket: any) => {
+  function handleModal(event: boolean) {
+    setIsVisibleModal(event);
+  }
+
+  function signProducerBasket(data: SignupBasket) {
+    data.myBasket.forEach((selectedBasket: string) => {
       const translatedBasket = translateBasketToEnglish(selectedBasket);
 
-      const basketID = baskets.allBaskets.find(
+      const basketID = allBaskets.find(
         (basket: BasketResponse) => basket.size === translatedBasket,
       )?.id;
 
       if (basketID) dispatch(SIGNUP_PRODUCER_BASKET({basketID}));
     });
+  }
 
-    setModalVisible(true);
+  async function onSubmit(data: SignupBasket) {
+    signProducerBasket(data);
+    handleModal(true);
   }
 
   useEffect(() => {
@@ -84,20 +91,22 @@ export const HomeMyBasketsProducer = () => {
             '2 temperos, 3 legumes, 3 verduras, 3 frutas e 1 processado',
             '3 temperos, 4 legumes, 4 verduras, 4 frutas e 1 processado',
           ]}
+          error={isSubmitted ? errors.myBasket?.message : ''}
         />
 
         <StyledSubmitButton
           title="Confirmar seleção"
-          loading={baskets.isLoading}
+          loading={isLoading}
           onPress={handleSubmit(onSubmit)}
         />
 
-        <Modal
-          modalVisible={modalVisible}
-          setModalVisible={setModalVisible}
-          title="Você adicionou as cestas à sua lista de produtos fornecidos."
-          icon={IconVegetable as React.FC<SvgProps>}
-        />
+        {!isLoading && isVisibleModal && (
+          <Modal
+            title="Você adicionou as cestas à sua lista de produtos fornecidos."
+            icon={IconVegetable as React.FC<SvgProps>}
+            onPress={() => handleModal(false)}
+          />
+        )}
       </StyledContent>
     </StyledContainerScroll>
   );
