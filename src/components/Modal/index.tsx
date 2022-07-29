@@ -61,7 +61,7 @@ const StyledBackgroundModal = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: ${({theme}) => theme.colors.BACKGROUND_MODAL};
 `;
 
 const StyledContent = styled.View`
