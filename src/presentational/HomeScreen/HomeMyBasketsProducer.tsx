@@ -32,7 +32,7 @@ const schema = Yup.object().shape({
 
 export const HomeMyBasketsProducer = () => {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
-  const baskets = useReduxSelector(state => state.basket);
+  const {isLoading, allBaskets} = useReduxSelector(state => state.basket);
   const dispatch = useReduxDispatch();
 
   const {
@@ -51,7 +51,7 @@ export const HomeMyBasketsProducer = () => {
     data.myBasket.forEach((selectedBasket: string) => {
       const translatedBasket = translateBasketToEnglish(selectedBasket);
 
-      const basketID = baskets.allBaskets.find(
+      const basketID = allBaskets.find(
         (basket: BasketResponse) => basket.size === translatedBasket,
       )?.id;
 
@@ -91,15 +91,16 @@ export const HomeMyBasketsProducer = () => {
             '2 temperos, 3 legumes, 3 verduras, 3 frutas e 1 processado',
             '3 temperos, 4 legumes, 4 verduras, 4 frutas e 1 processado',
           ]}
+          error={isSubmitted ? errors.myBasket?.message : ''}
         />
 
         <StyledSubmitButton
           title="Confirmar seleção"
-          loading={baskets.isLoading}
+          loading={isLoading}
           onPress={handleSubmit(onSubmit)}
         />
 
-        {isVisibleModal && (
+        {!isLoading && isVisibleModal && (
           <Modal
             title="Você adicionou as cestas à sua lista de produtos fornecidos."
             icon={IconVegetable as React.FC<SvgProps>}
