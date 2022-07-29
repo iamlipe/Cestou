@@ -1,4 +1,7 @@
+import api from '@/config/services/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {PayloadAction} from '@reduxjs/toolkit';
+import {AxiosResponse} from 'axios';
 import {takeLatest, all, put, call} from 'redux-saga/effects';
 import {
   LOGIN,
@@ -15,9 +18,6 @@ import {
   LOGOUT_FAILURE,
   LOGOUT,
 } from '@/store/slices/userSlice';
-import {PayloadAction} from '@reduxjs/toolkit';
-import {AxiosResponse} from 'axios';
-import api from '@/config/services/api';
 
 export function* login({payload}: PayloadAction<LoginRequest>) {
   try {
