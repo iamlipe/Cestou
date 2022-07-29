@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal should matches snapshot 1`] = `
+<View>
+  <Modal
+    animationType="fade"
+    hardwareAccelerated={false}
+    style={
+      Array [
+        Object {},
+      ]
+    }
+    transparent={true}
+    visible={true}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#00000026",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
+              "borderRadius": 4,
+              "paddingBottom": 16,
+              "paddingLeft": 32,
+              "paddingRight": 32,
+              "paddingTop": 16,
+              "width": "80%",
+            },
+          ]
+        }
+      />
+    </View>
+  </Modal>
+</View>
+`;

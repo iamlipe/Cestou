@@ -23,7 +23,7 @@ const Modal = ({title, icon: Icon, onPress, ...rest}: Props) => {
           <StyledContent>
             {Icon && (
               <StyledCircle>
-                <Icon width={60} height={60} />
+                <Icon testID="icon-modal" width={60} height={60} />
               </StyledCircle>
             )}
             {title && <StyledTitle>{title}</StyledTitle>}
