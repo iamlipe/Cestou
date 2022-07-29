@@ -41,6 +41,21 @@ describe('CheckboxForm', () => {
     });
   });
 
+  test('should render error', () => {
+    const checkbox = renderWithThemeProvider(
+      <CheckboxForm
+        name="check"
+        control={jest.fn()}
+        options={options}
+        error="something went wrong"
+      />,
+    );
+
+    const error = checkbox.getByText(/something went wrong/i);
+
+    expect(error).toBeTruthy();
+  });
+
   test('should starting with no option selected', () => {
     const checkbox = renderWithThemeProvider(
       <CheckboxForm name="check" control={jest.fn()} options={options} />,
