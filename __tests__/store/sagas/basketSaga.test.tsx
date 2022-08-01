@@ -1,12 +1,19 @@
 import api from '@/config/services/api';
-import {getBaskets} from '@/store/sagas/basketSaga';
+import {getBaskets, signupProducerBasket} from '@/store/sagas/basketSaga';
 import {
   BasketResponse,
   GET_BASKET_FAILURE,
   GET_BASKET_SUCCESS,
+  SIGNUP_PRODUCER_BASKET_SUCCESS,
+  SIGNUP_PRODUCER_BASKET_FAILURE,
+  SignupProducerBasketRequest,
 } from '@/store/slices/basketSlice';
 import {PayloadAction} from '@reduxjs/toolkit';
-import {apiReturnBasketSuccessMock} from '@__mocks__/mockBasket';
+import {
+  apiReturnBasketSuccessMock,
+  invalidSignupBasketProducer,
+  validSignupBasketProducer,
+} from '@__mocks__/mockBasket';
 import {runSaga, Saga} from 'redux-saga';
 
 describe('basketSaga', () => {
@@ -55,6 +62,58 @@ describe('basketSaga', () => {
     expect(dispatchedAction).toContainEqual(
       GET_BASKET_FAILURE({
         error: {statusCode: 401, message: 'unauthorized'},
+      }),
+    );
+  });
+
+  test('should signup a basket to producer with a valid basket id', async () => {
+    const dispatchedAction: PayloadAction<SignupProducerBasketRequest>[] = [];
+
+    await runSaga(
+      {
+        dispatch: (action: PayloadAction<SignupProducerBasketRequest>) =>
+          dispatchedAction.push(action),
+      },
+      signupProducerBasket as unknown as Saga<
+        [{payload: SignupProducerBasketRequest}]
+      >,
+      {payload: validSignupBasketProducer},
+    ).toPromise();
+
+    expect(api.patch).toHaveBeenCalledWith(
+      '/baskets/assign-basket-to-producer',
+      validSignupBasketProducer,
+    );
+
+    expect(dispatchedAction).toContainEqual(SIGNUP_PRODUCER_BASKET_SUCCESS());
+  });
+
+  test('should not signup a basket to producer with a invalid basket id', async () => {
+    const notFound = {statusCode: 404, message: 'not found'};
+    const patch = api.patch as jest.Mock;
+    const dispatchedAction: PayloadAction<SignupProducerBasketRequest>[] = [];
+
+    patch.mockRejectedValueOnce(notFound);
+
+    await runSaga(
+      {
+        dispatch: (action: PayloadAction<SignupProducerBasketRequest>) =>
+          dispatchedAction.push(action),
+      },
+      signupProducerBasket as unknown as Saga<
+        [{payload: SignupProducerBasketRequest}]
+      >,
+      {payload: invalidSignupBasketProducer},
+    ).toPromise();
+
+    expect(api.patch).toHaveBeenCalledWith(
+      '/baskets/assign-basket-to-producer',
+      invalidSignupBasketProducer,
+    );
+
+    expect(dispatchedAction).toContainEqual(
+      SIGNUP_PRODUCER_BASKET_FAILURE({
+        error: notFound,
       }),
     );
   });

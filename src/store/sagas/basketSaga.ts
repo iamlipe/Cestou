@@ -33,10 +33,14 @@ export function* signupProducerBasket({
   payload,
 }: PayloadAction<SignupProducerBasketRequest>) {
   try {
-    yield call(api.post, '/producers/signup-producer-basket', payload);
+    yield call(api.patch, '/baskets/assign-basket-to-producer', payload);
+
+    console.log(payload);
 
     yield put(SIGNUP_PRODUCER_BASKET_SUCCESS());
   } catch (error) {
+    console.log(error);
+
     yield put(SIGNUP_PRODUCER_BASKET_FAILURE({error}));
   }
 }

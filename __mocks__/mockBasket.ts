@@ -1,4 +1,7 @@
-import {BasketResponse} from '@/store/slices/basketSlice';
+import {
+  BasketResponse,
+  SignupProducerBasketRequest,
+} from '@/store/slices/basketSlice';
 
 export const apiReturnBasketSuccessMock: {
   data: BasketResponse[];
@@ -34,4 +37,12 @@ export const apiReturnBasketSuccessMock: {
     },
   ],
   status: 200,
+};
+
+export const validSignupBasketProducer: SignupProducerBasketRequest = {
+  basketID: '1',
+};
+
+export const invalidSignupBasketProducer: SignupProducerBasketRequest = {
+  basketID: '-1',
 };
