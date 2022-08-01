@@ -5,7 +5,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import {useForm} from 'react-hook-form';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
-import {translateBasketToEnglish} from '@/helpers/translateBasket';
+import {translateBasketToEnglish} from '@/helpers/translate';
 import {
   GET_BASKET,
   SIGNUP_PRODUCER_BASKET,
