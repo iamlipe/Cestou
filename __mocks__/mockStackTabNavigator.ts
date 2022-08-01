@@ -42,7 +42,7 @@ export const mockStackTabNavigatorProducer = {
     },
     {
       key: '',
-      name: 'FinancialProducer',
+      name: 'FinancialProducerStack',
       params: undefined,
     },
     {
