@@ -365,7 +365,7 @@ exports[`Login should matches snapshot 1`] = `
                 Array [
                   Object {
                     "color": "#00843F",
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontFamily": "SourceSansPro-SemiBold",
                     "fontSize": 27,
                   },
                 ]
@@ -390,9 +390,19 @@ exports[`Login should matches snapshot 1`] = `
           style={
             Object {
               "alignItems": "center",
+              "borderColor": "black",
+              "borderRadius": 4,
+              "borderStyle": "solid",
+              "borderWidth": 0,
               "flexDirection": "row",
+              "height": "auto",
               "marginBottom": 10,
               "opacity": 1,
+              "paddingBottom": 0,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 0,
+              "width": "auto",
             }
           }
         >
@@ -402,7 +412,7 @@ exports[`Login should matches snapshot 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#00843F",
+                  "color": "#3A3A3A",
                   "fontSize": 24,
                 },
                 undefined,
@@ -418,21 +428,47 @@ exports[`Login should matches snapshot 1`] = `
           >
             
           </Text>
-          <Text
+          <View
             style={
               Array [
                 Object {
-                  "color": "#1A1A1A",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 27,
-                  "marginLeft": 5,
+                  "alignItems": "flex-start",
+                  "flexDirection": "column",
                 },
               ]
             }
           >
-            Lembrar minha senha
-          </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 27,
+                    "marginBottom": 0,
+                    "marginLeft": 5,
+                  },
+                ]
+              }
+              withDetails={false}
+            >
+              Lembrar minha senha
+            </Text>
+          </View>
         </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "alignSelf": "flex-end",
+                "color": "#781B1C",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 24,
+                "marginBottom": 3,
+              },
+            ]
+          }
+        />
       </View>
       <View
         accessibilityState={
@@ -471,7 +507,7 @@ exports[`Login should matches snapshot 1`] = `
             Array [
               Object {
                 "color": "#FFFFFF",
-                "fontFamily": "SourceSansPro-Regular",
+                "fontFamily": "SourceSansPro-SemiBold",
                 "fontSize": 27,
               },
             ]
@@ -545,7 +581,7 @@ exports[`Login should matches snapshot 1`] = `
               Array [
                 Object {
                   "color": "#00843F",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-SemiBold",
                   "fontSize": 27,
                 },
               ]
@@ -640,7 +676,7 @@ exports[`Login should matches snapshot 1`] = `
               Array [
                 Object {
                   "color": "#00843F",
-                  "fontFamily": "SourceSansPro-Regular",
+                  "fontFamily": "SourceSansPro-SemiBold",
                   "fontSize": 27,
                 },
               ]

@@ -96,7 +96,7 @@ exports[`ConfirmRegister should matches snapshot 1`] = `
           Array [
             Object {
               "color": "#FFFFFF",
-              "fontFamily": "SourceSansPro-Regular",
+              "fontFamily": "SourceSansPro-SemiBold",
               "fontSize": 27,
             },
           ]

@@ -46,6 +46,7 @@ export interface User {
   email?: string | null;
   phone?: string | null;
   token?: string;
+  cpf?: string | null;
   refreshToken?: string;
 }
 

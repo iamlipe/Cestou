@@ -33,11 +33,11 @@ export const mockStackTabNavigatorProducer = {
   history: [],
   index: 0,
   key: '',
-  routeNames: ['HomeProducer', 'FinancialProducer', 'ProfileProducer'],
+  routeNames: [],
   routes: [
     {
       key: '',
-      name: 'HomeProducer',
+      name: 'HomeProducerStack',
       params: undefined,
     },
     {

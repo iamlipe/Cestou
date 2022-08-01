@@ -1,0 +1,504 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeMyBasketsProducer should matches snapshot 1`] = `
+<RCTScrollView
+  showsVerticalScrollIndicator={false}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "minHeight": "100%",
+      },
+    ]
+  }
+>
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#6CCD91",
+            "flexDirection": "row",
+            "height": 64,
+            "paddingBottom": 0,
+            "paddingLeft": "5%",
+            "paddingRight": "5%",
+            "paddingTop": 0,
+            "width": "100%",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "overflow": "hidden",
+            },
+            Object {
+              "backgroundColor": "#6CCD91",
+              "borderRadius": 5,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+                "padding": 8,
+              },
+              Object {
+                "backgroundColor": "#6CCD91",
+                "borderRadius": 5,
+              },
+              Object {
+                "padding": 0,
+              },
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            selectable={false}
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontSize": 24,
+                },
+                Object {
+                  "marginRight": 10,
+                },
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-SemiBold",
+              "fontSize": 47,
+            },
+          ]
+        }
+      >
+        Minhas cestas
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "paddingBottom": 24,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 24,
+            "width": "90%",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 27,
+              "marginBottom": 16,
+            },
+          ]
+        }
+      >
+        Escolha abaixo qual o tamanho da cesta você deseja fornecer, e veja quantos e quais os tipos de alimentos em cada uma.Escolha abaixo qual o tamanho da cesta você deseja fornecer, e veja quantos e quais os tipos de alimentos em cada uma.
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "marginBottom": 16,
+            },
+          ]
+        }
+      >
+        Obs: Você pode selecionar mais de um tamanho
+      </Text>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "borderColor": "#00A857",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "height": 80,
+            "marginBottom": 10,
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 16,
+            "paddingRight": 8,
+            "paddingTop": 0,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            Array [
+              Object {
+                "color": "#3A3A3A",
+                "fontSize": 24,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+          testID="checkbox-icon-not-checked-0"
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "flexDirection": "column",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-SemiBold",
+                  "fontSize": 27,
+                  "marginBottom": 5,
+                  "marginLeft": 5,
+                },
+              ]
+            }
+            withDetails={true}
+          >
+            Pequena
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 27,
+                  "marginBottom": 0,
+                  "marginLeft": 5,
+                },
+              ]
+            }
+          >
+            1 tempero, 2 legumes, 2 verduras , 3 frutas
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "borderColor": "#00A857",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "height": 80,
+            "marginBottom": 10,
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 16,
+            "paddingRight": 8,
+            "paddingTop": 0,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            Array [
+              Object {
+                "color": "#3A3A3A",
+                "fontSize": 24,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+          testID="checkbox-icon-not-checked-1"
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "flexDirection": "column",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-SemiBold",
+                  "fontSize": 27,
+                  "marginBottom": 5,
+                  "marginLeft": 5,
+                },
+              ]
+            }
+            withDetails={true}
+          >
+            Média
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 27,
+                  "marginBottom": 0,
+                  "marginLeft": 5,
+                },
+              ]
+            }
+          >
+            2 temperos, 3 legumes, 3 verduras, 3 frutas e 1 processado
+          </Text>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "borderColor": "#00A857",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "height": 80,
+            "marginBottom": 10,
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 16,
+            "paddingRight": 8,
+            "paddingTop": 0,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            Array [
+              Object {
+                "color": "#3A3A3A",
+                "fontSize": 24,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+          testID="checkbox-icon-not-checked-2"
+        >
+          
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "flexDirection": "column",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-SemiBold",
+                  "fontSize": 27,
+                  "marginBottom": 5,
+                  "marginLeft": 5,
+                },
+              ]
+            }
+            withDetails={true}
+          >
+            Grande
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 27,
+                  "marginBottom": 0,
+                  "marginLeft": 5,
+                },
+              ]
+            }
+          >
+            3 temperos, 4 legumes, 4 verduras, 4 frutas e 1 processado
+          </Text>
+        </View>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "alignSelf": "flex-end",
+              "color": "#781B1C",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "marginBottom": 3,
+            },
+          ]
+        }
+      />
+      <View
+        accessibilityState={
+          Object {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "backgroundColor": "#00843F",
+            "borderRadius": 4,
+            "flexDirection": "row",
+            "height": 49,
+            "justifyContent": "center",
+            "marginBottom": 10,
+            "marginTop": 24,
+            "opacity": 1,
+            "width": 200,
+          }
+        }
+        testID="subimit-button"
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#FFFFFF",
+                "fontFamily": "SourceSansPro-SemiBold",
+                "fontSize": 27,
+              },
+            ]
+          }
+          textColor="white"
+        >
+          Confirmar seleção
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

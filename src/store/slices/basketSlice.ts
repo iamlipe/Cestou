@@ -2,7 +2,6 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {AxiosError} from 'axios';
 
 export interface BasketResponse {
-  name: string;
   id: string;
   size: string;
   daysPerDeliver: string;
@@ -16,14 +15,14 @@ export interface SignupProducerBasketRequest {
   basketID: string;
 }
 
-export interface BaskertStatus {
+export interface BasketStatus {
   isLoading: boolean;
   error: AxiosError | null;
   status: number | null;
   allBaskets: BasketResponse[];
 }
 
-const initialState: BaskertStatus = {
+const initialState: BasketStatus = {
   isLoading: false,
   error: null,
   status: null,

@@ -16,9 +16,19 @@ Array [
     style={
       Object {
         "alignItems": "center",
+        "borderColor": "black",
+        "borderRadius": 4,
+        "borderStyle": "solid",
+        "borderWidth": 0,
         "flexDirection": "row",
+        "height": "auto",
         "marginBottom": 10,
         "opacity": 1,
+        "paddingBottom": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingTop": 0,
+        "width": "auto",
       }
     }
   >
@@ -28,7 +38,7 @@ Array [
       style={
         Array [
           Object {
-            "color": "#00843F",
+            "color": "#3A3A3A",
             "fontSize": 24,
           },
           undefined,
@@ -44,20 +54,33 @@ Array [
     >
       
     </Text>
-    <Text
+    <View
       style={
         Array [
           Object {
-            "color": "#1A1A1A",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 27,
-            "marginLeft": 5,
+            "alignItems": "flex-start",
+            "flexDirection": "column",
           },
         ]
       }
     >
-      check-me
-    </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 27,
+              "marginBottom": 0,
+              "marginLeft": 5,
+            },
+          ]
+        }
+        withDetails={false}
+      >
+        check-me
+      </Text>
+    </View>
   </View>,
   <View
     accessible={true}
@@ -73,9 +96,19 @@ Array [
     style={
       Object {
         "alignItems": "center",
+        "borderColor": "black",
+        "borderRadius": 4,
+        "borderStyle": "solid",
+        "borderWidth": 0,
         "flexDirection": "row",
+        "height": "auto",
         "marginBottom": 10,
         "opacity": 1,
+        "paddingBottom": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
+        "paddingTop": 0,
+        "width": "auto",
       }
     }
   >
@@ -85,7 +118,7 @@ Array [
       style={
         Array [
           Object {
-            "color": "#00843F",
+            "color": "#3A3A3A",
             "fontSize": 24,
           },
           undefined,
@@ -101,20 +134,46 @@ Array [
     >
       
     </Text>
-    <Text
+    <View
       style={
         Array [
           Object {
-            "color": "#1A1A1A",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 27,
-            "marginLeft": 5,
+            "alignItems": "flex-start",
+            "flexDirection": "column",
           },
         ]
       }
     >
-      check-me-too
-    </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 27,
+              "marginBottom": 0,
+              "marginLeft": 5,
+            },
+          ]
+        }
+        withDetails={false}
+      >
+        check-me-too
+      </Text>
+    </View>
   </View>,
+  <Text
+    style={
+      Array [
+        Object {
+          "alignSelf": "flex-end",
+          "color": "#781B1C",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 24,
+          "marginBottom": 3,
+        },
+      ]
+    }
+  />,
 ]
 `;
