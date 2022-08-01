@@ -10,11 +10,15 @@ import {
   GET_PRODUCER_BASKET,
   GET_PRODUCER_BASKET_SUCCESS,
   GET_PRODUCER_BASKET_FAILURE,
+  REGISTER_PIX,
+  REGISTER_PIX_SUCCESS,
+  REGISTER_PIX_FAILURE,
   ProducerBasketResponse,
   ProducerBasket,
   ProducerResponse,
   Producer,
   ProducerRequest,
+  RegisterPixRequest,
 } from '../slices/producerSlice';
 
 export function* getProducer({payload}: PayloadAction<ProducerRequest>) {
@@ -57,9 +61,20 @@ export function* getProducerBaskets() {
   }
 }
 
+export function* registerPix({payload}: PayloadAction<RegisterPixRequest>) {
+  try {
+    yield call(api.post, '/producers/pix/set-pix', {...payload});
+
+    yield put(REGISTER_PIX_SUCCESS());
+  } catch (error) {
+    yield put(REGISTER_PIX_FAILURE({error}));
+  }
+}
+
 export default function* watcher() {
   yield all([
     takeLatest(GET_PRODUCER, getProducer),
     takeLatest(GET_PRODUCER_BASKET, getProducerBaskets),
+    takeLatest(REGISTER_PIX, registerPix),
   ]);
 }
