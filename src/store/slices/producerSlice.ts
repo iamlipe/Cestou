@@ -42,6 +42,11 @@ export interface ProducerBasket {
   smallBasket: BasketResponse | undefined;
 }
 
+export interface RegisterPixRequest {
+  pixType: 'email' | 'phone' | 'cpf' | 'random';
+  pixValue: string;
+}
+
 interface ProducerState {
   isLoading: boolean;
   error: AxiosError | null;
@@ -110,6 +115,24 @@ const producerSlice = createSlice({
       isLoading: false,
       error,
     }),
+
+    REGISTER_PIX: (state, _: PayloadAction<RegisterPixRequest>) => ({
+      ...state,
+      isLoading: true,
+      error: null,
+    }),
+
+    REGISTER_PIX_SUCCESS: state => ({
+      ...state,
+      isLoading: false,
+      error: null,
+    }),
+
+    REGISTER_PIX_FAILURE: (state, {payload: {error}}) => ({
+      ...state,
+      isLoading: false,
+      error,
+    }),
   },
 });
 
@@ -124,5 +147,8 @@ export const {
   GET_PRODUCER_BASKET,
   GET_PRODUCER_BASKET_SUCCESS,
   GET_PRODUCER_BASKET_FAILURE,
+  REGISTER_PIX,
+  REGISTER_PIX_SUCCESS,
+  REGISTER_PIX_FAILURE,
 } = actions;
 export default reducer;
