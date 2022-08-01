@@ -20,7 +20,7 @@ import {
 
 type NavPropsProducer = NativeStackNavigationProp<
   LoggedProducerStackParamList,
-  'HomeProducerStack' | 'FinancialProducer' | 'ProfileProducer'
+  'HomeProducerStack' | 'FinancialProducerStack' | 'ProfileProducer'
 >;
 
 interface Props {
@@ -62,7 +62,7 @@ export const ButtonTabProducer: React.FC<Props> = ({state}) => {
         {renderTab(
           'attach-money',
           'Financeiro',
-          'FinancialProducer',
+          'FinancialProducerStack',
           'icon-tab-financial',
         )}
         {renderTab('person', 'Perfil', 'ProfileProducer', 'icon-tab-profile')}
