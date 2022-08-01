@@ -21,12 +21,7 @@ export function* getProducer({payload}: PayloadAction<ProducerRequest>) {
   try {
     const {data, status}: AxiosResponse<ProducerResponse> = yield call(
       api.post,
-      '/producers/',
-      {
-        params: {
-          id: payload.id,
-        },
-      },
+      `/producers/${payload.id}/`,
     );
 
     const producer: Producer = {

@@ -8,12 +8,12 @@ import {ButtonTabProducer} from '../BottomTab/BottomTabProducer';
 
 // import {HomeProducerTopTab} from '../topTabs/HomeProducerTopTab';
 import {HomeProducerStack} from '../stacks/HomeProducerStack';
-import {FinancialProducer} from '@/presentational/FinancialScreen/FinancialProducer';
+import {HomeFinancialProducer} from '@/presentational/FinancialScreen/HomeFinancialProducer';
 import {Profile} from '@/presentational/ProfileScreen/Profile';
 
 export type LoggedProducerStackParamList = {
   HomeProducerStack: undefined;
-  FinancialProducer: undefined;
+  FinancialProducerStack: undefined;
   ProfileProducer: undefined;
 };
 const TabBar = (props: BottomTabBarProps) => (
@@ -32,8 +32,8 @@ export const LoggedProducerStack = () => (
       component={HomeProducerStack}
     />
     <LoggedProducer.Screen
-      name="FinancialProducer"
-      component={FinancialProducer}
+      name="FinancialProducerStack"
+      component={HomeFinancialProducer}
     />
     <LoggedProducer.Screen name="ProfileProducer" component={Profile} />
   </LoggedProducer.Navigator>
