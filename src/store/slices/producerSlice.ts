@@ -102,7 +102,7 @@ const producerSlice = createSlice({
     ) => ({
       ...state,
       isLoading: false,
-      statusCode: status,
+      status,
       producerBasket: baskets,
     }),
     GET_PRODUCER_BASKET_FAILURE: (state, {payload: {error}}) => ({
