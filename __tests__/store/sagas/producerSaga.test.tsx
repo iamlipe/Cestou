@@ -35,9 +35,7 @@ describe('producerSaga', () => {
       {payload: validProducerID},
     ).toPromise();
 
-    expect(api.post).toHaveBeenCalledWith('/producers/', {
-      params: validProducerID,
-    });
+    expect(api.post).toHaveBeenCalledWith(`/producers/${validProducerID.id}/`);
 
     expect(dispatchedAction).toContainEqual(
       GET_PRODUCER_SUCCESS({producer: producerMock, status: 200}),
@@ -59,9 +57,9 @@ describe('producerSaga', () => {
       {payload: invalidProducerID},
     ).toPromise();
 
-    expect(api.post).toHaveBeenCalledWith('/producers/', {
-      params: invalidProducerID,
-    });
+    expect(api.post).toHaveBeenCalledWith(
+      `/producers/${invalidProducerID.id}/`,
+    );
 
     expect(dispatchedAction).toContainEqual(
       GET_PRODUCER_FAILURE({error: apiReturnProducerErrorMock}),

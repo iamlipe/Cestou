@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import styled, {useTheme} from 'styled-components/native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import IconMaterials from 'react-native-vector-icons/MaterialIcons';
+import IconFeather from 'react-native-vector-icons/Feather';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {GET_PRODUCER} from '@/store/slices/producerSlice';
@@ -23,17 +24,26 @@ export const HomeFinancialProducer = () => {
   }, [auth?.id, dispatch]);
 
   const renderPix = (key: string, iconName: string) => {
-    <>
-      <Icon name={iconName} size={20} color={theme.colors.PRIMARY_800} />
+    <StyledContainerPix>
+      <IconMaterials
+        name={iconName}
+        size={20}
+        color={theme.colors.PRIMARY_800}
+      />
       <StyledText>{key}</StyledText>
-    </>;
+      <IconFeather.Button
+        name="trash-2"
+        size={20}
+        color={theme.colors.GRAY_900}
+      />
+    </StyledContainerPix>;
   };
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
       <Header title="Financeiro" welcome={false} />
       <StyledContent>
-        <StyledPiggyBank />
+        <StyledPiggyBank testID="icon-piggy-bank" />
         <StyledTitleBalance>Saldo disponível</StyledTitleBalance>
         {producer?.balance ? (
           <StyledTextBalance>
@@ -107,6 +117,19 @@ const StyledLine = styled.View`
   margin-bottom: 16px;
 `;
 
-const StyledTitlePix = styled.Text``;
+const StyledContainerPix = styled.View`
+  width: 100%;
+  margin-bottom: 10px;
+`;
 
-const StyledText = styled.Text``;
+const StyledTitlePix = styled.Text`
+  font-style: ${({theme}) => theme.fonts.SEMIBOLD_SOURCESANSPRO};
+  font-size: ${({theme}) => theme.sizing.SMALLER};
+  color: ${({theme}) => theme.colors.GRAY_900};
+`;
+
+const StyledText = styled(StyledTitlePix)`
+  font-style: ${({theme}) => theme.fonts.REGULAR_SOURCESANSPRO};
+
+  margin-left: 10px;
+`;

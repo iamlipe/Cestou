@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonRedirect shoudl matches snapshot 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#C1E9CF",
+      "borderColor": "#6CCD91",
+      "borderRadius": 4,
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "height": 49,
+      "justifyContent": "space-between",
+      "marginBottom": 16,
+      "opacity": 1,
+      "paddingBottom": 0,
+      "paddingLeft": 16,
+      "paddingRight": 16,
+      "paddingTop": 0,
+      "width": "100%",
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#1A1A1A",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 27,
+        },
+      ]
+    }
+  >
+    press me
+  </Text>
+  <Text
+    allowFontScaling={false}
+    selectable={false}
+    style={
+      Array [
+        Object {
+          "color": "#1A1A1A",
+          "fontSize": 24,
+        },
+        undefined,
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;

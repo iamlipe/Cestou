@@ -1,0 +1,298 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeFinancialProducer should matches snapshot 1`] = `
+<RCTScrollView
+  showsVerticalScrollIndicator={false}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "minHeight": "100%",
+      },
+    ]
+  }
+>
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#6CCD91",
+            "flexDirection": "row",
+            "height": 64,
+            "paddingBottom": 0,
+            "paddingLeft": "5%",
+            "paddingRight": "5%",
+            "paddingTop": 0,
+            "width": "100%",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "overflow": "hidden",
+            },
+            Object {
+              "backgroundColor": "#6CCD91",
+              "borderRadius": 5,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+                "padding": 8,
+              },
+              Object {
+                "backgroundColor": "#6CCD91",
+                "borderRadius": 5,
+              },
+              Object {
+                "padding": 0,
+              },
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            selectable={false}
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontSize": 24,
+                },
+                Object {
+                  "marginRight": 10,
+                },
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-SemiBold",
+              "fontSize": 47,
+            },
+          ]
+        }
+      >
+        Financeiro
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "paddingBottom": 24,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 24,
+            "width": "90%",
+          },
+        ]
+      }
+    >
+      <SvgMock
+        style={
+          Array [
+            Object {
+              "alignSelf": "center",
+            },
+          ]
+        }
+        testID="icon-piggy-bank"
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-SemiBold",
+              "fontSize": 43,
+              "marginTop": 16,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Saldo disponível
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        Carregando...
+      </Text>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#C1E9CF",
+            "borderColor": "#6CCD91",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "height": 49,
+            "justifyContent": "space-between",
+            "marginBottom": 16,
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 0,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#1A1A1A",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 27,
+              },
+            ]
+          }
+        >
+          Configurar chave pix
+        </Text>
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            Array [
+              Object {
+                "color": "#1A1A1A",
+                "fontSize": 24,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#C1E9CF",
+            "borderColor": "#6CCD91",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "height": 49,
+            "justifyContent": "space-between",
+            "marginBottom": 16,
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 0,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#1A1A1A",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 27,
+              },
+            ]
+          }
+        >
+          Ver extrato
+        </Text>
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            Array [
+              Object {
+                "color": "#1A1A1A",
+                "fontSize": 24,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
