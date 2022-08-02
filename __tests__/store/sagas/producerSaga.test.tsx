@@ -1,21 +1,32 @@
 import api from '@/config/services/api';
-import {getProducer, getProducerBaskets} from '@/store/sagas/producerSaga';
+import {
+  getProducer,
+  getProducerBaskets,
+  registerPix,
+} from '@/store/sagas/producerSaga';
 import {
   GET_PRODUCER_BASKET_FAILURE,
   GET_PRODUCER_BASKET_SUCCESS,
   GET_PRODUCER_FAILURE,
   GET_PRODUCER_SUCCESS,
+  REGISTER_PIX_SUCCESS,
+  REGISTER_PIX_FAILURE,
+  RegisterPixRequest,
   Producer,
   ProducerRequest,
 } from '@/store/slices/producerSlice';
 import {PayloadAction} from '@reduxjs/toolkit';
 import {
+  apiReturnBasketErrorMock,
   apiReturnProducerErrorMock,
   apiReturnProducerSuccessMock,
+  apiReturnRegisterPixErrorMock,
   invalidProducerID,
+  invalidRegisterPix,
   producerBasketsMock,
   producerMock,
   validProducerID,
+  validRegisterPix,
 } from '@__mocks__/mockProducer';
 import {runSaga, Saga} from 'redux-saga';
 
@@ -92,7 +103,7 @@ describe('producerSaga', () => {
     const get = api.get as jest.Mock;
     const dispatchedAction: PayloadAction<Producer>[] = [];
 
-    get.mockRejectedValueOnce({statusCode: 401, message: 'unauthorized'});
+    get.mockRejectedValueOnce(apiReturnBasketErrorMock);
 
     await runSaga(
       {
@@ -106,9 +117,48 @@ describe('producerSaga', () => {
     expect(api.get).toHaveBeenCalledWith('/producers/get-producer-baskets');
 
     expect(dispatchedAction).toContainEqual(
-      GET_PRODUCER_BASKET_FAILURE({
-        error: {statusCode: 401, message: 'unauthorized'},
-      }),
+      GET_PRODUCER_BASKET_FAILURE({error: apiReturnBasketErrorMock}),
+    );
+  });
+
+  test('should register pix key with a valid credentials', async () => {
+    const dispatchedActions: any[] = [];
+
+    await runSaga(
+      {
+        dispatch: action => dispatchedActions.push(action),
+      },
+      registerPix as unknown as Saga<[{payload: RegisterPixRequest}]>,
+      {payload: validRegisterPix},
+    ).toPromise();
+
+    expect(api.post).toHaveBeenCalledWith(
+      '/producers/pix/set-pix',
+      validRegisterPix,
+    );
+    expect(dispatchedActions).toContainEqual(REGISTER_PIX_SUCCESS());
+  });
+
+  test('should not register with a invalid credentials', async () => {
+    const post = api.post as jest.Mock;
+    const dispatchedActions: any[] = [];
+
+    post.mockRejectedValueOnce(apiReturnRegisterPixErrorMock);
+
+    await runSaga(
+      {
+        dispatch: action => dispatchedActions.push(action),
+      },
+      registerPix as unknown as Saga<[{payload: RegisterPixRequest}]>,
+      {payload: invalidRegisterPix},
+    ).toPromise();
+
+    expect(api.post).toHaveBeenCalledWith(
+      '/producers/pix/set-pix',
+      invalidRegisterPix,
+    );
+    expect(dispatchedActions).toContainEqual(
+      REGISTER_PIX_FAILURE({error: apiReturnRegisterPixErrorMock}),
     );
   });
 });
