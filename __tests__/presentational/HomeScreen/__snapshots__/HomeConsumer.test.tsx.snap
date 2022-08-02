@@ -1,0 +1,309 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeConsumer should matches snapshot 1`] = `
+<RCTScrollView
+  showsVerticalScrollIndicator={false}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "minHeight": "100%",
+      },
+    ]
+  }
+>
+  <View>
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#6CCD91",
+              "flexDirection": "row",
+              "height": 64,
+              "paddingBottom": 0,
+              "paddingLeft": "5%",
+              "paddingRight": "5%",
+              "paddingTop": 0,
+              "width": "100%",
+            },
+          ]
+        }
+        type="normal"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "height": 64,
+                "justifyContent": "space-between",
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-SemiBold",
+                  "fontSize": 47,
+                  "marginLeft": 10,
+                },
+              ]
+            }
+          >
+            Olá undefined!
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityIgnoresInvertColors={true}
+      style={
+        Array [
+          Object {
+            "alignItems": "flex-end",
+            "height": 198,
+            "paddingBottom": 16,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 16,
+            "width": "100%",
+          },
+        ]
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../src/assets/images/presentation_1.png",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            Object {
+              "height": 198,
+              "width": "100%",
+            },
+            undefined,
+          ]
+        }
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#00843F",
+              "fontSize": 47,
+              "fontStyle": "SourceSansPro-SemiBold",
+              "marginBottom": 16,
+              "textAlign": "right",
+            },
+          ]
+        }
+      >
+        Faça sua
+        
+
+         assinatura!
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontSize": 27,
+              "fontStyle": "SourceSansPro-SemiBold",
+              "lineHeight": 22,
+              "marginBottom": 16,
+              "textAlign": "right",
+            },
+          ]
+        }
+      >
+        Produtos fresquinhos de
+        
+
+         produtores locais toda
+        
+
+         semana na sua mesa
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "paddingBottom": 24,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 24,
+            "width": "90%",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-SemiBold",
+              "fontSize": 31,
+              "marginBottom": 16,
+            },
+          ]
+        }
+        title={true}
+      >
+        Ajude no combate a fome
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 27,
+              "marginBottom": 16,
+            },
+          ]
+        }
+      >
+        Veja abaixo as instituições e projetos cadastrados na nossa rede e ajude-nos a atingir a meta do mês doando suas moedas que serão convertidas em alimentos.
+      </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "opacity": 1,
+              "width": "48%",
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../src/assets/images/ong_1.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "borderRadius": 4,
+                  "height": 130,
+                  "marginBottom": 5,
+                  "width": "100%",
+                },
+              ]
+            }
+            testID="card-ong-image"
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-SemiBold",
+                  "fontSize": 27,
+                },
+              ]
+            }
+          >
+            ONG Comida na mesa
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "opacity": 1,
+              "width": "48%",
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "testUri": "../../../src/assets/images/ong_2.png",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "borderRadius": 4,
+                  "height": 130,
+                  "marginBottom": 5,
+                  "width": "100%",
+                },
+              ]
+            }
+            testID="card-ong-image"
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-SemiBold",
+                  "fontSize": 27,
+                },
+              ]
+            }
+          >
+            ONG Criança sem fome
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
