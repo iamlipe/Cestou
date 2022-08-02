@@ -2,6 +2,7 @@ import {
   Producer,
   ProducerBasket,
   ProducerBasketResponse,
+  RegisterPixRequest,
 } from '@/store/slices/producerSlice';
 
 export const validProducerID = {
@@ -103,4 +104,24 @@ export const producerBasketsMock: ProducerBasket = {
     updatedAt: '2022-07-29T19:24:46.516Z',
     deletedAt: null,
   },
+};
+
+export const validRegisterPix: RegisterPixRequest = {
+  pixType: 'email',
+  pixValue: 'boblee@email.com',
+};
+
+export const invalidRegisterPix: RegisterPixRequest = {
+  pixType: 'email',
+  pixValue: 'invalidemail@email.com',
+};
+
+export const apiReturnRegisterPixErrorMock = {
+  statusCode: 400,
+  message: 'bad request',
+};
+
+export const apiReturnBasketErrorMock = {
+  status: 404,
+  message: 'not found',
 };
