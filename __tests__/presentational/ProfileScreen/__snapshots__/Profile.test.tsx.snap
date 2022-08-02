@@ -1,0 +1,369 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile should matches snapshot 1`] = `
+<RCTScrollView
+  showsVerticalScrollIndicator={false}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "minHeight": "100%",
+      },
+    ]
+  }
+>
+  <View>
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#6CCD91",
+              "borderBottomLeftRadius": 50,
+              "borderBottomRightRadius": 50,
+              "flexDirection": "row",
+              "height": 162,
+              "paddingBottom": 0,
+              "paddingLeft": "5%",
+              "paddingRight": "5%",
+              "paddingTop": 0,
+              "width": "100%",
+            },
+          ]
+        }
+        type="profile"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "height": 64,
+                "justifyContent": "space-between",
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                selectable={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#1A1A1A",
+                      "fontSize": 24,
+                    },
+                    undefined,
+                    Object {
+                      "fontFamily": "Material Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontFamily": "SourceSansPro-SemiBold",
+                    "fontSize": 47,
+                    "marginLeft": 10,
+                  },
+                ]
+              }
+            >
+              Perfil
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              selectable={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontSize": 24,
+                  },
+                  Object {
+                    "alignSelf": "flex-end",
+                  },
+                  Object {
+                    "fontFamily": "Material Icons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+              testID="icon-settings"
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "paddingBottom": 24,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 24,
+            "width": "90%",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#C1E9CF",
+            "borderColor": "#6CCD91",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "height": 49,
+            "justifyContent": "space-between",
+            "marginBottom": 16,
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 0,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#1A1A1A",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 27,
+              },
+            ]
+          }
+        >
+          Meus dados
+        </Text>
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            Array [
+              Object {
+                "color": "#1A1A1A",
+                "fontSize": 24,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#C1E9CF",
+            "borderColor": "#6CCD91",
+            "borderRadius": 4,
+            "borderStyle": "solid",
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "height": 49,
+            "justifyContent": "space-between",
+            "marginBottom": 16,
+            "opacity": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+            "paddingTop": 0,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#1A1A1A",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 27,
+              },
+            ]
+          }
+        >
+          Minhas cestas
+        </Text>
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            Array [
+              Object {
+                "color": "#1A1A1A",
+                "fontSize": 24,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginTop": 100,
+            "opacity": 1,
+            "width": 120,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "marginRight": 10,
+              },
+            ]
+          }
+        >
+          Sair da conta
+        </Text>
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            Array [
+              Object {
+                "color": "#1A1A1A",
+                "fontSize": 20,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
