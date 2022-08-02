@@ -16,41 +16,26 @@ exports[`HomeMyBasketsProducer should matches snapshot 1`] = `
     <View
       style={
         Array [
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#6CCD91",
-            "flexDirection": "row",
-            "height": 64,
-            "paddingBottom": 0,
-            "paddingLeft": "5%",
-            "paddingRight": "5%",
-            "paddingTop": 0,
-            "width": "100%",
-          },
+          Object {},
         ]
       }
     >
       <View
-        accessible={true}
-        focusable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
           Array [
             Object {
-              "overflow": "hidden",
-            },
-            Object {
               "backgroundColor": "#6CCD91",
-              "borderRadius": 5,
+              "flexDirection": "row",
+              "height": 64,
+              "paddingBottom": 0,
+              "paddingLeft": "5%",
+              "paddingRight": "5%",
+              "paddingTop": 0,
+              "width": "100%",
             },
           ]
         }
+        type="normal"
       >
         <View
           style={
@@ -58,57 +43,79 @@ exports[`HomeMyBasketsProducer should matches snapshot 1`] = `
               Object {
                 "alignItems": "center",
                 "flexDirection": "row",
-                "justifyContent": "flex-start",
-                "padding": 8,
-              },
-              Object {
-                "backgroundColor": "#6CCD91",
-                "borderRadius": 5,
-              },
-              Object {
-                "padding": 0,
+                "height": 64,
+                "justifyContent": "space-between",
+                "width": "100%",
               },
             ]
           }
         >
-          <Text
-            allowFontScaling={false}
-            selectable={false}
+          <View
             style={
               Array [
                 Object {
-                  "color": "#1A1A1A",
-                  "fontSize": 24,
+                  "alignItems": "center",
+                  "flexDirection": "row",
                 },
-                Object {
-                  "marginRight": 10,
-                },
-                Object {
-                  "fontFamily": "Material Icons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                Object {},
               ]
             }
           >
-            
-          </Text>
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                selectable={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#1A1A1A",
+                      "fontSize": 24,
+                    },
+                    undefined,
+                    Object {
+                      "fontFamily": "Material Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontFamily": "SourceSansPro-SemiBold",
+                    "fontSize": 47,
+                    "marginLeft": 10,
+                  },
+                ]
+              }
+            >
+              Minhas cestas
+            </Text>
+          </View>
         </View>
       </View>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#1A1A1A",
-              "fontFamily": "SourceSansPro-SemiBold",
-              "fontSize": 47,
-            },
-          ]
-        }
-      >
-        Minhas cestas
-      </Text>
     </View>
     <View
       style={
