@@ -6,9 +6,8 @@ import {
 
 import {ButtonTabProducer} from '../BottomTab/BottomTabProducer';
 
-// import {HomeProducerTopTab} from '../topTabs/HomeProducerTopTab';
 import {HomeProducerStack} from '../stacks/HomeProducerStack';
-import {HomeFinancialProducer} from '@/presentational/FinancialScreen/HomeFinancialProducer';
+import {FinancialProducerStack} from './FinancialProducerStack';
 import {Profile} from '@/presentational/ProfileScreen/Profile';
 
 export type LoggedProducerStackParamList = {
@@ -33,7 +32,7 @@ export const LoggedProducerStack = () => (
     />
     <LoggedProducer.Screen
       name="FinancialProducerStack"
-      component={HomeFinancialProducer}
+      component={FinancialProducerStack}
     />
     <LoggedProducer.Screen name="ProfileProducer" component={Profile} />
   </LoggedProducer.Navigator>

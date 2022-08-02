@@ -5,11 +5,15 @@ import reducer, {
   GET_PRODUCER_BASKET,
   GET_PRODUCER_BASKET_SUCCESS,
   GET_PRODUCER_BASKET_FAILURE,
+  REGISTER_PIX,
+  REGISTER_PIX_SUCCESS,
+  REGISTER_PIX_FAILURE,
 } from '@/store/slices/producerSlice';
 import {
   producerBasketsMock,
   producerMock,
   validProducerID,
+  validRegisterPix,
 } from '@__mocks__/mockProducer';
 
 describe('producerSlice', () => {
@@ -104,6 +108,48 @@ describe('producerSlice', () => {
     );
 
     expect(reducerGetProducerBasketFailure).toEqual({
+      isLoading: false,
+      error: 'something went wrong',
+      status: null,
+      producer: null,
+      producerBasket: null,
+    });
+  });
+
+  test('shoudld handle REGISTER_PIX', () => {
+    const reducerGetProducerBasket = reducer(
+      undefined,
+      REGISTER_PIX(validRegisterPix),
+    );
+
+    expect(reducerGetProducerBasket).toEqual({
+      isLoading: true,
+      error: null,
+      status: null,
+      producer: null,
+      producerBasket: null,
+    });
+  });
+
+  test('shoudld handle REGISTER_PIX_SUCCESS', () => {
+    const reducerGetProducerBasket = reducer(undefined, REGISTER_PIX_SUCCESS());
+
+    expect(reducerGetProducerBasket).toEqual({
+      isLoading: false,
+      error: null,
+      status: null,
+      producer: null,
+      producerBasket: null,
+    });
+  });
+
+  test('shoudld handle REGISTER_PIX_FAILURE', () => {
+    const reducerGetProducerBasket = reducer(
+      undefined,
+      REGISTER_PIX_FAILURE({error: 'something went wrong'}),
+    );
+
+    expect(reducerGetProducerBasket).toEqual({
       isLoading: false,
       error: 'something went wrong',
       status: null,

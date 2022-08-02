@@ -23,3 +23,20 @@ export const translateBasketToEnglish = (basket: string): string => {
       return basket;
   }
 };
+
+export const translatePixType = (
+  type: string,
+): 'cpf' | 'email' | 'phone' | 'random' | undefined => {
+  switch (type) {
+    case 'CPF':
+      return 'cpf';
+    case 'E-mail':
+      return 'email';
+    case 'Celular':
+      return 'phone';
+    case 'Chave aleatória':
+      return 'random';
+    default:
+      return undefined;
+  }
+};

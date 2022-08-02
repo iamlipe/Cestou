@@ -1,0 +1,630 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegisterPixFinancialProducer should matches snapshot 1`] = `
+<RCTScrollView
+  showsVerticalScrollIndicator={false}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "minHeight": "100%",
+      },
+    ]
+  }
+>
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#6CCD91",
+            "flexDirection": "row",
+            "height": 64,
+            "paddingBottom": 0,
+            "paddingLeft": "5%",
+            "paddingRight": "5%",
+            "paddingTop": 0,
+            "width": "100%",
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Array [
+            Object {
+              "overflow": "hidden",
+            },
+            Object {
+              "backgroundColor": "#6CCD91",
+              "borderRadius": 5,
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+                "padding": 8,
+              },
+              Object {
+                "backgroundColor": "#6CCD91",
+                "borderRadius": 5,
+              },
+              Object {
+                "padding": 0,
+              },
+            ]
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            selectable={false}
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontSize": 24,
+                },
+                Object {
+                  "marginRight": 10,
+                },
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-SemiBold",
+              "fontSize": 47,
+            },
+          ]
+        }
+      >
+        Chaves pix
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "paddingBottom": 24,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 24,
+            "width": "90%",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "marginBottom": 16,
+            },
+          ]
+        }
+      >
+        Informe qual tipo de chave pix deseja cadastrar para receber suas vendas:
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 10,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            selectable={false}
+            style={
+              Array [
+                Object {
+                  "color": "#3A3A3A",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+            testID="radio-icon-not-checked-0"
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 27,
+                  "marginLeft": 5,
+                },
+              ]
+            }
+          >
+            CPF
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignSelf": "center",
+                "backgroundColor": "#F2F2F8",
+                "height": 1,
+                "marginBottom": 16,
+                "marginTop": -4,
+                "width": "100%",
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 10,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            selectable={false}
+            style={
+              Array [
+                Object {
+                  "color": "#3A3A3A",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+            testID="radio-icon-not-checked-1"
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 27,
+                  "marginLeft": 5,
+                },
+              ]
+            }
+          >
+            Celular
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignSelf": "center",
+                "backgroundColor": "#F2F2F8",
+                "height": 1,
+                "marginBottom": 16,
+                "marginTop": -4,
+                "width": "100%",
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 10,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            selectable={false}
+            style={
+              Array [
+                Object {
+                  "color": "#3A3A3A",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+            testID="radio-icon-not-checked-2"
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 27,
+                  "marginLeft": 5,
+                },
+              ]
+            }
+          >
+            E-mail
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignSelf": "center",
+                "backgroundColor": "#F2F2F8",
+                "height": 1,
+                "marginBottom": 16,
+                "marginTop": -4,
+                "width": "100%",
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 10,
+              "opacity": 1,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            selectable={false}
+            style={
+              Array [
+                Object {
+                  "color": "#3A3A3A",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+            testID="radio-icon-not-checked-3"
+          >
+            
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 27,
+                  "marginLeft": 5,
+                },
+              ]
+            }
+          >
+            Chave aleatória
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignSelf": "center",
+                "backgroundColor": "#F2F2F8",
+                "height": 1,
+                "marginBottom": 16,
+                "marginTop": -4,
+                "width": "100%",
+              },
+            ]
+          }
+        />
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "alignSelf": "flex-end",
+              "color": "#781B1C",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "marginBottom": 16,
+              "marginLeft": 0,
+              "marginRight": 0,
+              "marginTop": -8,
+            },
+          ]
+        }
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "marginBottom": 16,
+            },
+          ]
+        }
+      >
+        Informe no campo abaixo a chave pix a ser registrada:
+      </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "marginBottom": 10,
+            },
+          ]
+        }
+      >
+        <View
+          error={false}
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#f3fbf5",
+                "borderBottomWidth": 1,
+                "borderColor": "#3A3A3A",
+                "flexDirection": "row",
+                "height": 56,
+                "paddingBottom": 0,
+                "paddingLeft": 16,
+                "paddingRight": 16,
+                "paddingTop": 0,
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <Text
+            animatedStyle={
+              Object {
+                "value": Object {
+                  "fontSize": 14,
+                  "opacity": 1,
+                  "transform": Array [
+                    Object {
+                      "translateY": 0,
+                    },
+                  ],
+                },
+              }
+            }
+            collapsable={false}
+            style={
+              Object {
+                "color": "#1A1A1A",
+                "fontSize": 14,
+                "opacity": 1,
+                "paddingLeft": 16,
+                "position": "absolute",
+                "transform": Array [
+                  Object {
+                    "translateY": 0,
+                  },
+                ],
+              }
+            }
+          >
+            Informe a chave pix
+          </Text>
+          <TextInput
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            secureTextEntry={false}
+            style={
+              Array [
+                Object {
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "fontSize": 27,
+                  "marginTop": 15,
+                },
+              ]
+            }
+            testID="input-text-pixValue"
+          />
+        </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "alignSelf": "flex-end",
+                "color": "#781B1C",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 24,
+                "marginBottom": 3,
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        accessibilityState={
+          Object {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "backgroundColor": "#00843F",
+            "borderRadius": 4,
+            "flexDirection": "row",
+            "height": 49,
+            "justifyContent": "center",
+            "marginBottom": 10,
+            "opacity": 1,
+            "width": 200,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#FFFFFF",
+                "fontFamily": "SourceSansPro-SemiBold",
+                "fontSize": 27,
+              },
+            ]
+          }
+          textColor="white"
+        >
+          Registrar chave
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

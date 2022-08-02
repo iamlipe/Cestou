@@ -5,15 +5,24 @@ import IconFeather from 'react-native-vector-icons/Feather';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {GET_PRODUCER} from '@/store/slices/producerSlice';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {FinancialProducerStackParamList} from '@/routes/stacks/FinancialProducerStack';
+import {useNavigation} from '@react-navigation/native';
 
 import IconPiggyBank from '@/assets/svgs/piggy-bank.svg';
 
 import Header from '@/components/Header';
 import ButtonRedirect from '@/components/ButtonRedirect';
 
+type NavProps = NativeStackNavigationProp<
+  FinancialProducerStackParamList,
+  'RegisterPixFinancialProducer'
+>;
+
 export const HomeFinancialProducer = () => {
   const {auth} = useReduxSelector(state => state.user);
   const {producer} = useReduxSelector(state => state.producer);
+  const {navigate} = useNavigation<NavProps>();
   const theme = useTheme();
   const dispatch = useReduxDispatch();
 
@@ -23,21 +32,24 @@ export const HomeFinancialProducer = () => {
     }
   }, [auth?.id, dispatch]);
 
-  const renderPix = (key: string, iconName: string) => {
+  const renderPix = (key: string, iconName: string) => (
     <StyledContainerPix>
-      <IconMaterials
-        name={iconName}
-        size={20}
-        color={theme.colors.PRIMARY_800}
-      />
-      <StyledText>{key}</StyledText>
+      <StyledContainerInfoPix>
+        <IconMaterials
+          name={iconName}
+          size={20}
+          color={theme.colors.PRIMARY_800}
+        />
+        <StyledText>{key}</StyledText>
+      </StyledContainerInfoPix>
       <IconFeather.Button
         name="trash-2"
         size={20}
         color={theme.colors.GRAY_900}
+        backgroundColor="transparent"
       />
-    </StyledContainerPix>;
-  };
+    </StyledContainerPix>
+  );
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
@@ -55,7 +67,10 @@ export const HomeFinancialProducer = () => {
         ) : (
           <StyledTextLoadingBalance>Carregando...</StyledTextLoadingBalance>
         )}
-        <ButtonRedirect title="Configurar chave pix" onPress={() => null} />
+        <ButtonRedirect
+          title="Configurar chave pix"
+          onPress={() => navigate('RegisterPixFinancialProducer')}
+        />
         <ButtonRedirect title="Ver extrato" onPress={() => null} />
 
         {(producer?.cpfPix ||
@@ -117,8 +132,15 @@ const StyledLine = styled.View`
   margin-bottom: 16px;
 `;
 
+const StyledContainerInfoPix = styled.View`
+  flex-direction: row;
+`;
+
 const StyledContainerPix = styled.View`
   width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 10px;
 `;
 
@@ -126,10 +148,12 @@ const StyledTitlePix = styled.Text`
   font-style: ${({theme}) => theme.fonts.SEMIBOLD_SOURCESANSPRO};
   font-size: ${({theme}) => theme.sizing.SMALLER};
   color: ${({theme}) => theme.colors.GRAY_900};
+
+  margin-bottom: 16px;
 `;
 
 const StyledText = styled(StyledTitlePix)`
   font-style: ${({theme}) => theme.fonts.REGULAR_SOURCESANSPRO};
 
-  margin-left: 10px;
+  margin: 0 0 0 10px;
 `;
