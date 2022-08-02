@@ -16,7 +16,7 @@ const CardOng = ({title, image, link, onPress}: Props) => {
         if (link) Linking.openURL(link);
         if (onPress) onPress();
       }}>
-      <StyledImage source={image} />
+      <StyledImage testID="card-ong-image" source={image} />
       <StyledTitle>{title}</StyledTitle>
     </StyledContainer>
   );
