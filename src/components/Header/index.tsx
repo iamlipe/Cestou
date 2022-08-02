@@ -54,9 +54,10 @@ const Header = ({welcome = true, type = 'normal', photo, title}: Props) => {
               {type === 'profile' && (
                 <StyledBaseButton onPress={() => null}>
                   <Icon
+                    testID="icon-settings"
                     name="settings"
                     size={24}
-                    color="#000"
+                    color={theme.colors.GRAY_900}
                     style={{alignSelf: 'flex-end'}}
                   />
                 </StyledBaseButton>
@@ -73,9 +74,9 @@ const Header = ({welcome = true, type = 'normal', photo, title}: Props) => {
               <Icon name="mode-edit" size={20} color={theme.colors.GRAY_900} />
             </StyledChangePhotoButton>
             {photo ? (
-              <StyledPhoto source={{uri: photo}} />
+              <StyledPhoto testID="user-photo" source={{uri: photo}} />
             ) : (
-              <StyledFirstLetter>
+              <StyledFirstLetter testID="user-photo">
                 {auth?.firstName[0].toUpperCase()}
               </StyledFirstLetter>
             )}
