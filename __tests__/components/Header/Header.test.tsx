@@ -30,8 +30,25 @@ describe('Header', () => {
       user: {auth: {firstName: 'Mason'}},
     });
 
-    const welcome = header.getByText(/olá mason!/i);
+    const welcome = header.queryByText(/olá mason!/i);
 
     expect(welcome).toBeTruthy();
+  });
+
+  test('should render type profile', () => {
+    const header = renderWithThemeProvider(
+      <Header title="Profile" type="profile" welcome={false} />,
+      {
+        user: {auth: {firstName: 'Mason'}},
+      },
+    );
+
+    const userName = header.queryByText(/mason/i);
+    const userPhoto = header.queryByTestId('user-photo');
+    const buttonSettings = header.queryByTestId('icon-settings');
+
+    expect(userName).toBeTruthy();
+    expect(userPhoto).toBeTruthy();
+    expect(buttonSettings).toBeTruthy();
   });
 });

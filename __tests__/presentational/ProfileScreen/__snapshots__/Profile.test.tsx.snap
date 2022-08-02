@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HomeFinancialProducer should matches snapshot 1`] = `
+exports[`Profile should matches snapshot 1`] = `
 <RCTScrollView
   showsVerticalScrollIndicator={false}
   style={
@@ -25,8 +25,10 @@ exports[`HomeFinancialProducer should matches snapshot 1`] = `
           Array [
             Object {
               "backgroundColor": "#6CCD91",
+              "borderBottomLeftRadius": 50,
+              "borderBottomRightRadius": 50,
               "flexDirection": "row",
-              "height": 64,
+              "height": 162,
               "paddingBottom": 0,
               "paddingLeft": "5%",
               "paddingRight": "5%",
@@ -35,7 +37,7 @@ exports[`HomeFinancialProducer should matches snapshot 1`] = `
             },
           ]
         }
-        type="normal"
+        type="profile"
       >
         <View
           style={
@@ -111,7 +113,49 @@ exports[`HomeFinancialProducer should matches snapshot 1`] = `
                 ]
               }
             >
-              Financeiro
+              Perfil
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              selectable={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontSize": 24,
+                  },
+                  Object {
+                    "alignSelf": "flex-end",
+                  },
+                  Object {
+                    "fontFamily": "Material Icons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+              testID="icon-settings"
+            >
+              
             </Text>
           </View>
         </View>
@@ -131,40 +175,6 @@ exports[`HomeFinancialProducer should matches snapshot 1`] = `
         ]
       }
     >
-      <SvgMock
-        style={
-          Array [
-            Object {
-              "alignSelf": "center",
-            },
-          ]
-        }
-        testID="icon-piggy-bank"
-      />
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#1A1A1A",
-              "fontFamily": "SourceSansPro-SemiBold",
-              "fontSize": 43,
-              "marginTop": 16,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-        Saldo disponível
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {},
-          ]
-        }
-      >
-        Carregando...
-      </Text>
       <View
         accessible={true}
         collapsable={false}
@@ -208,7 +218,7 @@ exports[`HomeFinancialProducer should matches snapshot 1`] = `
             ]
           }
         >
-          Configurar chave pix
+          Meus dados
         </Text>
         <Text
           allowFontScaling={false}
@@ -275,7 +285,7 @@ exports[`HomeFinancialProducer should matches snapshot 1`] = `
             ]
           }
         >
-          Ver extrato
+          Minhas cestas
         </Text>
         <Text
           allowFontScaling={false}
@@ -297,6 +307,60 @@ exports[`HomeFinancialProducer should matches snapshot 1`] = `
           }
         >
           
+        </Text>
+      </View>
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginTop": 100,
+            "opacity": 1,
+            "width": 120,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "marginRight": 10,
+              },
+            ]
+          }
+        >
+          Sair da conta
+        </Text>
+        <Text
+          allowFontScaling={false}
+          selectable={false}
+          style={
+            Array [
+              Object {
+                "color": "#1A1A1A",
+                "fontSize": 20,
+              },
+              undefined,
+              Object {
+                "fontFamily": "Material Icons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
         </Text>
       </View>
     </View>
