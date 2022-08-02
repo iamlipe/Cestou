@@ -3,118 +3,150 @@
 exports[`RadioForm should matches snapshot 1`] = `
 Array [
   <View
-    accessible={true}
-    collapsable={false}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
-      Object {
-        "alignItems": "center",
-        "flexDirection": "row",
-        "marginBottom": 10,
-        "opacity": 1,
-      }
+      Array [
+        Object {},
+      ]
     }
   >
-    <Text
-      allowFontScaling={false}
-      selectable={false}
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {
-            "color": "#3A3A3A",
-            "fontSize": 24,
-          },
-          undefined,
-          Object {
-            "fontFamily": "Material Icons",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-      testID="radio-icon-not-checked-0"
-    >
-      
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#1A1A1A",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 27,
-            "marginLeft": 5,
-          },
-        ]
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "marginBottom": 10,
+          "opacity": 1,
+        }
       }
     >
-      radio-me
-    </Text>
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          Array [
+            Object {
+              "color": "#3A3A3A",
+              "fontSize": 24,
+            },
+            undefined,
+            Object {
+              "fontFamily": "Material Icons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+        testID="radio-icon-not-checked-0"
+      >
+        
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 27,
+              "marginLeft": 5,
+            },
+          ]
+        }
+      >
+        radio-me
+      </Text>
+    </View>
   </View>,
   <View
-    accessible={true}
-    collapsable={false}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
-      Object {
-        "alignItems": "center",
-        "flexDirection": "row",
-        "marginBottom": 10,
-        "opacity": 1,
-      }
+      Array [
+        Object {},
+      ]
     }
   >
-    <Text
-      allowFontScaling={false}
-      selectable={false}
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {
-            "color": "#3A3A3A",
-            "fontSize": 24,
-          },
-          undefined,
-          Object {
-            "fontFamily": "Material Icons",
-            "fontStyle": "normal",
-            "fontWeight": "normal",
-          },
-          Object {},
-        ]
-      }
-      testID="radio-icon-not-checked-1"
-    >
-      
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#1A1A1A",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 27,
-            "marginLeft": 5,
-          },
-        ]
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "marginBottom": 10,
+          "opacity": 1,
+        }
       }
     >
-      radio-me-too
-    </Text>
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          Array [
+            Object {
+              "color": "#3A3A3A",
+              "fontSize": 24,
+            },
+            undefined,
+            Object {
+              "fontFamily": "Material Icons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+        testID="radio-icon-not-checked-1"
+      >
+        
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 27,
+              "marginLeft": 5,
+            },
+          ]
+        }
+      >
+        radio-me-too
+      </Text>
+    </View>
   </View>,
+  <Text
+    style={
+      Array [
+        Object {
+          "alignSelf": "flex-end",
+          "color": "#781B1C",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 24,
+          "marginBottom": 16,
+          "marginLeft": 0,
+          "marginRight": 0,
+          "marginTop": -8,
+        },
+      ]
+    }
+  />,
 ]
 `;
