@@ -1,28 +1,26 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components/native';
 import * as Yup from 'yup';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
-import {useReduxSelector} from '@/hooks/useReduxSelector';
-import {useReduxDispatch} from '@/hooks/useReduxDispatch';
-import {GET_BASKET} from '@/store/slices/basketSlice';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {BasketConsumerStackParamList} from '@/routes/stacks/BasketConsumerStack';
+import {
+  BasketProducerRequest,
+  GET_BASKET_PRODUCER,
+} from '@/store/slices/basketSlice';
 
 import Header from '@/components/Header';
 import RadioForm from '@/components/RadioForm';
 import Button from '@/components/Button';
+import {useReduxDispatch} from '@/hooks/useReduxDispatch';
+import {useReduxSelector} from '@/hooks/useReduxSelector';
 
 const schema = Yup.object().shape({
   daysPerDeliver: Yup.string().required('Preenchimento obrigatório'),
   size: Yup.string().required('Preenchimento obrigatório'),
 });
-
-interface SubmitForm {
-  daysPerDeliver: string;
-  size: string;
-}
 
 type NavProps = NativeStackNavigationProp<
   BasketConsumerStackParamList,
@@ -30,21 +28,32 @@ type NavProps = NativeStackNavigationProp<
 >;
 
 export const BasketSignupPlanConsumer = () => {
+  const [canGoNext, setCanGoNext] = useState(false);
+  const {isLoading} = useReduxSelector(state => state.basket);
   const {navigate} = useNavigation<NavProps>();
+  const dispatch = useReduxDispatch();
 
   const {
     control,
     handleSubmit,
     formState: {errors, isSubmitted},
-  } = useForm<SubmitForm>({resolver: yupResolver(schema)});
+  } = useForm<BasketProducerRequest>({resolver: yupResolver(schema)});
 
-  function handleNavigate(data: SubmitForm) {
-    navigate('BasketSignupFoodConsumer', {...data});
+  function getBasketProducer(data: BasketProducerRequest) {
+    dispatch(GET_BASKET_PRODUCER(data));
   }
 
-  async function onSubmit(data: SubmitForm) {
-    handleNavigate(data);
+  async function onSubmit(data: BasketProducerRequest) {
+    getBasketProducer(data);
+    setCanGoNext(true);
   }
+
+  useEffect(() => {
+    if (!isLoading && canGoNext) {
+      navigate('BasketSignupFoodConsumer');
+      setCanGoNext(false);
+    }
+  }, [isLoading, canGoNext, navigate]);
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
@@ -88,18 +97,22 @@ export const BasketSignupPlanConsumer = () => {
           escolhida.
         </StyledText>
 
-        <StyledSubmitButton title="Próximo" onPress={handleSubmit(onSubmit)} />
+        <StyledSubmitButton
+          title="Próximo"
+          onPress={handleSubmit(onSubmit)}
+          loading={isLoading}
+        />
       </StyledContent>
     </StyledContainerScroll>
   );
 };
 
-const StyledContainerScroll = styled.ScrollView`
+export const StyledContainerScroll = styled.ScrollView`
   min-height: 100%;
   background-color: ${({theme}) => theme.colors.BACKGROUND};
 `;
 
-const StyledContent = styled.View`
+export const StyledContent = styled.View`
   width: 90%;
   align-self: center;
   padding: 24px 0;
@@ -120,7 +133,7 @@ const StyledLabel = styled.Text`
   margin-bottom: 16px;
 `;
 
-const StyledText = styled(StyledLabel)``;
+export const StyledText = styled(StyledLabel)``;
 
 const StyledLine = styled.View`
   width: 100%;
