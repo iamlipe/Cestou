@@ -64,6 +64,8 @@ export const HomeMyBasketsProducer = () => {
     handleModal(true);
   }
 
+  console.log(allBaskets);
+
   useEffect(() => {
     dispatch(GET_BASKET());
   }, [dispatch]);

@@ -69,7 +69,7 @@ export const RegisterPixFinancialProducer = () => {
           control={control}
           options={['CPF', 'Celular', 'E-mail', 'Chave aleatória']}
           error={isSubmitted ? errors.pixType?.message : ''}
-          withLine
+          type="withLine"
         />
         <StyledText>
           Informe no campo abaixo a chave pix a ser registrada:
