@@ -3,6 +3,8 @@ import {PayloadAction} from '@reduxjs/toolkit';
 import {AxiosResponse} from 'axios';
 import {takeLatest, all, put, call} from 'redux-saga/effects';
 
+import {getDefaulSize, getDefaultDeliver} from '@/helpers/getDefaulParams';
+
 import {
   GET_BASKET,
   GET_BASKET_FAILURE,
@@ -15,6 +17,11 @@ import {
   BasketResponse,
   SignupConsumerBasketRequest,
   SignupProducerBasketRequest,
+  BasketProducerRequest,
+  GET_BASKET_PRODUCER_SUCCESS,
+  GET_BASKET_PRODUCER_FAILURE,
+  BasketProducerResponse,
+  GET_BASKET_PRODUCER,
 } from '../slices/basketSlice';
 
 export function* getBaskets() {
@@ -56,10 +63,34 @@ export function* signupConsumerBasket({
   }
 }
 
+export function* getBasketProducer({
+  payload,
+}: PayloadAction<BasketProducerRequest>) {
+  try {
+    const {data, status}: AxiosResponse<BasketProducerResponse[]> = yield call(
+      api.get,
+      `/baskets/producers-baskets/`,
+      {
+        params: {
+          daysPerDeliver: getDefaultDeliver(payload.daysPerDeliver),
+          size: getDefaulSize(payload.size),
+        },
+      },
+    );
+
+    const basketProducer = data[Math.floor(Math.random() * data.length)];
+
+    yield put(GET_BASKET_PRODUCER_SUCCESS({data: basketProducer, status}));
+  } catch (error) {
+    yield put(GET_BASKET_PRODUCER_FAILURE({error}));
+  }
+}
+
 export default function* watcher() {
   yield all([
     takeLatest(GET_BASKET, getBaskets),
     takeLatest(SIGNUP_PRODUCER_BASKET, signupProducerBasket),
     takeLatest(SIGNUP_PRODUCER_BASKET, signupConsumerBasket),
+    takeLatest(GET_BASKET_PRODUCER, getBasketProducer),
   ]);
 }
