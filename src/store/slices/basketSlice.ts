@@ -15,6 +15,11 @@ export interface SignupProducerBasketRequest {
   basketID: string;
 }
 
+export interface SignupConsumerBasketRequest {
+  basketID: 'string';
+  producerID: 'string';
+}
+
 export interface BasketStatus {
   isLoading: boolean;
   error: AxiosError | null;
@@ -71,6 +76,25 @@ const basketSlice = createSlice({
       error: null,
     }),
     SIGNUP_PRODUCER_BASKET_FAILURE: (state, {payload: {error}}) => ({
+      ...state,
+      isLoading: false,
+      error,
+    }),
+
+    SIGNUP_CONSUMER_BASKET: (
+      state,
+      _: PayloadAction<SignupConsumerBasketRequest>,
+    ) => ({
+      ...state,
+      isLoading: true,
+      error: null,
+    }),
+    SIGNUP_CONSUMER_BASKET_SUCCESS: state => ({
+      ...state,
+      isLoading: false,
+      error: null,
+    }),
+    SIGNUP_CONSUMER_BASKET_FAILURE: (state, {payload: {error}}) => ({
       ...state,
       isLoading: false,
       error,
