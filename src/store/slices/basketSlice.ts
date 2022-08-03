@@ -16,8 +16,8 @@ export interface SignupProducerBasketRequest {
 }
 
 export interface SignupConsumerBasketRequest {
-  basketID: 'string';
-  producerID: 'string';
+  basketID: string;
+  producerID: string;
 }
 
 export interface BasketStatus {
@@ -113,6 +113,9 @@ export const {
   SIGNUP_PRODUCER_BASKET,
   SIGNUP_PRODUCER_BASKET_FAILURE,
   SIGNUP_PRODUCER_BASKET_SUCCESS,
+  SIGNUP_CONSUMER_BASKET,
+  SIGNUP_CONSUMER_BASKET_SUCCESS,
+  SIGNUP_CONSUMER_BASKET_FAILURE,
 } = actions;
 
 export default reducer;
