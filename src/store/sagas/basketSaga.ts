@@ -8,6 +8,7 @@ import {
   GET_BASKET,
   GET_BASKET_FAILURE,
   GET_BASKET_SUCCESS,
+  SignupConsumerBasketRequest,
   SignupProducerBasketRequest,
   SIGNUP_PRODUCER_BASKET,
   SIGNUP_PRODUCER_BASKET_FAILURE,
@@ -37,8 +38,18 @@ export function* signupProducerBasket({
 
     yield put(SIGNUP_PRODUCER_BASKET_SUCCESS());
   } catch (error) {
-    console.log(error);
+    yield put(SIGNUP_PRODUCER_BASKET_FAILURE({error}));
+  }
+}
 
+export function* signupConsumerBasket({
+  payload,
+}: PayloadAction<SignupConsumerBasketRequest>) {
+  try {
+    yield call(api.patch, '/baskets/assign-basket-to-consumer', payload);
+
+    yield put(SIGNUP_PRODUCER_BASKET_SUCCESS());
+  } catch (error) {
     yield put(SIGNUP_PRODUCER_BASKET_FAILURE({error}));
   }
 }
@@ -47,5 +58,6 @@ export default function* watcher() {
   yield all([
     takeLatest(GET_BASKET, getBaskets),
     takeLatest(SIGNUP_PRODUCER_BASKET, signupProducerBasket),
+    takeLatest(SIGNUP_PRODUCER_BASKET, signupConsumerBasket),
   ]);
 }
