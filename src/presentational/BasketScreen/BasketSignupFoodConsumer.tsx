@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components/native';
 import {useForm} from 'react-hook-form';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
@@ -7,10 +7,14 @@ import {GET_FOODS_BASKET} from '@/store/slices/foodSlice';
 import {useNavigation} from '@react-navigation/native';
 import {BasketConsumerStackParamList} from '@/routes/stacks/BasketConsumerStack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {SvgProps} from 'react-native-svg';
+
+import IconVegetable from '@/assets/svgs/vegetable.svg';
 
 import Header from '@/components/Header';
 import CardFood from '@/components/CardFood';
 import Button from '@/components/Button';
+import Modal from '@/components/Modal';
 
 import {
   StyledContainerScroll,
@@ -24,6 +28,7 @@ type NavProps = NativeStackNavigationProp<
 >;
 
 export const BasketSignupFoodConsumer = () => {
+  const [isVisibleModal, setIsVisibleModal] = useState(false);
   const {basketProducer} = useReduxSelector(state => state.basket);
   const {foodsBasket} = useReduxSelector(state => state.food);
   const {navigate} = useNavigation<NavProps>();
@@ -31,12 +36,17 @@ export const BasketSignupFoodConsumer = () => {
 
   const {control, handleSubmit} = useForm();
 
-  function handleNavigate() {
+  function handleModal(event: boolean) {
+    setIsVisibleModal(event);
+  }
+
+  function handleNavigateNext() {
     navigate('BasketSignupPaymentConsumer');
+    handleModal(false);
   }
 
   async function onSubmit() {
-    handleNavigate();
+    handleModal(true);
   }
 
   useEffect(() => {
@@ -74,6 +84,15 @@ export const BasketSignupFoodConsumer = () => {
         ))}
 
         <StyledSubmitButton title="Próximo" onPress={handleSubmit(onSubmit)} />
+
+        {isVisibleModal && (
+          <Modal
+            title="Você retirou 1 item da sua cesta!"
+            subTitle="Este item será convertido na moeda Horticoin, e você poderá doá-la para uma instituição parceira que atua no combate a fome."
+            icon={IconVegetable as React.FC<SvgProps>}
+            onPress={() => handleNavigateNext()}
+          />
+        )}
       </StyledContent>
     </StyledContainerScroll>
   );
