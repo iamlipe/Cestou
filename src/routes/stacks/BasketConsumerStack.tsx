@@ -7,7 +7,7 @@ import {BasketSignupPaymentConsumer} from '@/presentational/BasketScreen/BasketS
 
 export type BasketConsumerStackParamList = {
   BasketSignupPlanConsumer: undefined;
-  BasketSignupFoodConsumer: {daysPerDeliver: string; size: string};
+  BasketSignupFoodConsumer: undefined;
   BasketSignupPaymentConsumer: undefined;
 };
 
