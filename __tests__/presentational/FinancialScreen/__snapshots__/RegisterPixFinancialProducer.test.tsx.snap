@@ -166,9 +166,15 @@ exports[`RegisterPixFinancialProducer should matches snapshot 1`] = `
           style={
             Object {
               "alignItems": "center",
+              "borderBottomColor": "#F2F2F8",
+              "borderBottomWidth": 1,
               "flexDirection": "row",
               "marginBottom": 10,
               "opacity": 1,
+              "paddingBottom": 6,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 12,
             }
           }
         >
@@ -194,35 +200,33 @@ exports[`RegisterPixFinancialProducer should matches snapshot 1`] = `
           >
             
           </Text>
-          <Text
+          <View
             style={
               Array [
                 Object {
-                  "color": "#1A1A1A",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 27,
-                  "marginLeft": 5,
+                  "alignItems": "flex-start",
+                  "flexDirection": "column",
                 },
               ]
             }
           >
-            CPF
-          </Text>
+            <Text
+              detailsOptions={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 27,
+                    "marginLeft": 8,
+                  },
+                ]
+              }
+            >
+              CPF
+            </Text>
+          </View>
         </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignSelf": "center",
-                "backgroundColor": "#F2F2F8",
-                "height": 1,
-                "marginBottom": 16,
-                "marginTop": -4,
-                "width": "100%",
-              },
-            ]
-          }
-        />
       </View>
       <View
         style={
@@ -245,9 +249,15 @@ exports[`RegisterPixFinancialProducer should matches snapshot 1`] = `
           style={
             Object {
               "alignItems": "center",
+              "borderBottomColor": "#F2F2F8",
+              "borderBottomWidth": 1,
               "flexDirection": "row",
               "marginBottom": 10,
               "opacity": 1,
+              "paddingBottom": 6,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 12,
             }
           }
         >
@@ -273,35 +283,33 @@ exports[`RegisterPixFinancialProducer should matches snapshot 1`] = `
           >
             
           </Text>
-          <Text
+          <View
             style={
               Array [
                 Object {
-                  "color": "#1A1A1A",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 27,
-                  "marginLeft": 5,
+                  "alignItems": "flex-start",
+                  "flexDirection": "column",
                 },
               ]
             }
           >
-            Celular
-          </Text>
+            <Text
+              detailsOptions={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 27,
+                    "marginLeft": 8,
+                  },
+                ]
+              }
+            >
+              Celular
+            </Text>
+          </View>
         </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignSelf": "center",
-                "backgroundColor": "#F2F2F8",
-                "height": 1,
-                "marginBottom": 16,
-                "marginTop": -4,
-                "width": "100%",
-              },
-            ]
-          }
-        />
       </View>
       <View
         style={
@@ -324,9 +332,15 @@ exports[`RegisterPixFinancialProducer should matches snapshot 1`] = `
           style={
             Object {
               "alignItems": "center",
+              "borderBottomColor": "#F2F2F8",
+              "borderBottomWidth": 1,
               "flexDirection": "row",
               "marginBottom": 10,
               "opacity": 1,
+              "paddingBottom": 6,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 12,
             }
           }
         >
@@ -352,35 +366,33 @@ exports[`RegisterPixFinancialProducer should matches snapshot 1`] = `
           >
             
           </Text>
-          <Text
+          <View
             style={
               Array [
                 Object {
-                  "color": "#1A1A1A",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 27,
-                  "marginLeft": 5,
+                  "alignItems": "flex-start",
+                  "flexDirection": "column",
                 },
               ]
             }
           >
-            E-mail
-          </Text>
+            <Text
+              detailsOptions={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 27,
+                    "marginLeft": 8,
+                  },
+                ]
+              }
+            >
+              E-mail
+            </Text>
+          </View>
         </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignSelf": "center",
-                "backgroundColor": "#F2F2F8",
-                "height": 1,
-                "marginBottom": 16,
-                "marginTop": -4,
-                "width": "100%",
-              },
-            ]
-          }
-        />
       </View>
       <View
         style={
@@ -403,9 +415,15 @@ exports[`RegisterPixFinancialProducer should matches snapshot 1`] = `
           style={
             Object {
               "alignItems": "center",
+              "borderBottomColor": "#F2F2F8",
+              "borderBottomWidth": 1,
               "flexDirection": "row",
               "marginBottom": 10,
               "opacity": 1,
+              "paddingBottom": 6,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 12,
             }
           }
         >
@@ -431,35 +449,33 @@ exports[`RegisterPixFinancialProducer should matches snapshot 1`] = `
           >
             
           </Text>
-          <Text
+          <View
             style={
               Array [
                 Object {
-                  "color": "#1A1A1A",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 27,
-                  "marginLeft": 5,
+                  "alignItems": "flex-start",
+                  "flexDirection": "column",
                 },
               ]
             }
           >
-            Chave aleatória
-          </Text>
+            <Text
+              detailsOptions={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 27,
+                    "marginLeft": 8,
+                  },
+                ]
+              }
+            >
+              Chave aleatória
+            </Text>
+          </View>
         </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignSelf": "center",
-                "backgroundColor": "#F2F2F8",
-                "height": 1,
-                "marginBottom": 16,
-                "marginTop": -4,
-                "width": "100%",
-              },
-            ]
-          }
-        />
       </View>
       <Text
         style={
