@@ -1,5 +1,6 @@
 import {
   BasketResponse,
+  SignupConsumerBasketRequest,
   SignupProducerBasketRequest,
 } from '@/store/slices/basketSlice';
 
@@ -45,4 +46,14 @@ export const validSignupBasketProducer: SignupProducerBasketRequest = {
 
 export const invalidSignupBasketProducer: SignupProducerBasketRequest = {
   basketID: '-1',
+};
+
+export const validSignupBasketConsumer: SignupConsumerBasketRequest = {
+  basketID: '1',
+  producerID: '1',
+};
+
+export const invalidSignupBasketConsumer: SignupConsumerBasketRequest = {
+  basketID: '-1',
+  producerID: '-1',
 };

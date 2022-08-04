@@ -1,21 +1,46 @@
 import React, {memo, useState} from 'react';
-import styled, {useTheme} from 'styled-components/native';
+import styled, {css, useTheme} from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useController} from 'react-hook-form';
+
+const typeRadio = {
+  normal: css``,
+  withLine: css`
+    border-bottom-width: 1px;
+    border-bottom-color: ${({theme}) => theme.colors.GRAY_100};
+    padding: 12px 0 6px 0;
+  `,
+  withBox: css`
+    max-height: 80px;
+    border: 1px solid ${({theme}) => theme.colors.PRIMARY_800};
+    border-radius: 4px;
+    padding: 16px 12px;
+  `,
+};
+
+interface ContainerProps {
+  type: keyof typeof typeRadio;
+}
+
+interface TextProps {
+  detailsOptions: boolean;
+}
 
 interface Props {
   name: string;
   control: any;
   options: string[];
-  withLine?: boolean;
+  detailsOptions?: string[];
   error?: string;
+  type?: keyof typeof typeRadio;
 }
 
 const RadioForm = ({
   name,
   control,
   options,
-  withLine = false,
+  type = 'normal',
+  detailsOptions,
   error,
 }: Props) => {
   const [checkeds, setCheckeds] = useState<string>('');
@@ -28,6 +53,7 @@ const RadioForm = ({
   const renderOptions = (option: string, index: number) => (
     <StyledContainerOption key={index}>
       <StyledContainerRadio
+        type={type}
         onPress={() => {
           setCheckeds(option);
           onChange(option);
@@ -50,9 +76,15 @@ const RadioForm = ({
           }
           size={24}
         />
-        <StyledTitle>{option}</StyledTitle>
+        <StyledColumn>
+          <StyledOptionText detailsOptions={!!detailsOptions}>
+            {option}
+          </StyledOptionText>
+          {detailsOptions && (
+            <StyledDetailsText>{detailsOptions[index]}</StyledDetailsText>
+          )}
+        </StyledColumn>
       </StyledContainerRadio>
-      {withLine && <StyledLine />}
     </StyledContainerOption>
   );
 
@@ -68,26 +100,36 @@ const RadioForm = ({
 
 const StyledContainerOption = styled.View``;
 
-const StyledContainerRadio = styled.TouchableOpacity`
+const StyledContainerRadio = styled.TouchableOpacity<ContainerProps>`
+  ${({type}) =>
+    css`
+      ${typeRadio[type]}
+    `}
+
   flex-direction: row;
   align-items: center;
   margin-bottom: 10px;
 `;
 
-const StyledTitle = styled.Text`
-  font-family: ${({theme}) => theme.fonts.REGULAR_SOURCESANSPRO};
-  font-size: ${({theme}) => theme.sizing.SMALLER};
+const StyledOptionText = styled.Text<TextProps>`
+  font-family: ${({detailsOptions, theme}) =>
+    detailsOptions
+      ? theme.fonts.SEMIBOLD_SOURCESANSPRO
+      : theme.fonts.REGULAR_SOURCESANSPRO};
+  font-size: ${({detailsOptions, theme}) =>
+    detailsOptions ? theme.sizing.SMALLER : theme.sizing.SMALLER};
   color: ${({theme}) => theme.colors.GRAY_900};
-  margin-left: 5px;
+  margin-left: 8px;
 `;
 
-const StyledLine = styled.View`
-  width: 100%;
-  height: 1px;
-  align-self: center;
-  background-color: ${({theme}) => theme.colors.GRAY_100};
-  margin-bottom: 16px;
-  margin-top: -4px;
+const StyledDetailsText = styled(StyledOptionText)`
+  font-family: ${({theme}) => theme.fonts.REGULAR_SOURCESANSPRO};
+  margin-top: 8px;
+`;
+
+const StyledColumn = styled.View`
+  flex-direction: column;
+  align-items: flex-start;
 `;
 
 const StyledTextError = styled.Text`

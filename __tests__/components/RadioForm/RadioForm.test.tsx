@@ -17,6 +17,7 @@ jest.mock('react-hook-form', () => ({
 
 describe('RadioForm', () => {
   const options = ['radio-me', 'radio-me-too'];
+  const detailsOptions = ['check-me-details', 'check-me-too-details'];
 
   test('should render correctly', () => {
     renderWithThemeProvider(
@@ -71,6 +72,21 @@ describe('RadioForm', () => {
       const radioIcon = radio.queryByTestId(`radio-icon-checked-${index}`);
 
       expect(radioIcon).toBeTruthy();
+    });
+  });
+
+  test('should render with all details options', () => {
+    const radio = renderWithThemeProvider(
+      <RadioForm
+        name="radio"
+        control={jest.fn()}
+        options={options}
+        detailsOptions={detailsOptions}
+      />,
+    );
+
+    detailsOptions.forEach(detail => {
+      expect(radio.getByText(detail)).toBeTruthy();
     });
   });
 });

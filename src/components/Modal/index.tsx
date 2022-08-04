@@ -10,10 +10,12 @@ import Button from '@/components/Button';
 
 interface PropsTitle {
   justMessage: boolean;
+  withSubtitle: boolean;
 }
 
 interface Props extends ModalProps {
   title?: string;
+  subTitle?: string;
   icon?: React.FC<SvgProps>;
   onPress?: () => void;
   justMessage?: boolean;
@@ -21,6 +23,7 @@ interface Props extends ModalProps {
 
 const Modal = ({
   title,
+  subTitle,
   icon: Icon,
   onPress,
   justMessage = false,
@@ -52,9 +55,14 @@ const Modal = ({
                 <Icon testID="icon-modal" width={60} height={60} />
               </StyledCircle>
             )}
+
             {title && (
-              <StyledTitle justMessage={justMessage}>{title}</StyledTitle>
+              <StyledTitle justMessage={justMessage} withSubtitle={!!subTitle}>
+                {title}
+              </StyledTitle>
             )}
+
+            {subTitle && <StyledSubTitle>{subTitle}</StyledSubTitle>}
 
             {!justMessage && onPress && (
               <StyledContainerButtons>
@@ -69,10 +77,7 @@ const Modal = ({
                 <StyledConfirmButton
                   size="medium"
                   title="Confirmar"
-                  onPress={() => {
-                    onPress();
-                    goBack();
-                  }}
+                  onPress={onPress}
                 />
               </StyledContainerButtons>
             )}
@@ -95,7 +100,7 @@ const StyledBackgroundModal = styled.View`
 const StyledContent = styled.View`
   width: 80%;
   align-items: flex-end;
-  padding: 16px 32px;
+  padding: 16px;
   border-radius: 4px;
   background-color: ${({theme: {colors}}) => colors.BACKGROUND};
 `;
@@ -103,18 +108,28 @@ const StyledContent = styled.View`
 const StyledTitle = styled.Text<PropsTitle>`
   font-family: ${({theme}) => theme.fonts.SEMIBOLD_SOURCESANSPRO};
   font-size: ${({theme}) => theme.sizing.SMALL};
-  color: ${({justMessage, theme}) =>
-    justMessage ? theme.colors.PRIMARY_800 : theme.colors.GRAY_900};
-  margin: ${({justMessage}) => (justMessage ? '16px 0 0 0' : '16px 0 24px 0')};
+  color: ${({justMessage, withSubtitle, theme}) =>
+    justMessage || withSubtitle
+      ? theme.colors.PRIMARY_800
+      : theme.colors.GRAY_900};
+  margin: ${({justMessage, withSubtitle}) =>
+    justMessage || withSubtitle ? '16px 0 0 0' : '16px 0 24px 0'};
   text-align: center;
   align-self: center;
   line-height: 26px;
+`;
+
+const StyledSubTitle = styled(StyledTitle)`
+  font-family: ${({theme}) => theme.fonts.REGULAR_SOURCESANSPRO};
+  font-size: ${({theme}) => theme.sizing.SMALLER};
+  color: ${({theme}) => theme.colors.GRAY_900};
 `;
 
 const StyledContainerButtons = styled.View`
   width: 80%;
   flex-direction: row;
   justify-content: space-between;
+  align-self: center;
 `;
 
 const StyledCircle = styled.View`

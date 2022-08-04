@@ -51,20 +51,32 @@ Array [
       >
         
       </Text>
-      <Text
+      <View
         style={
           Array [
             Object {
-              "color": "#1A1A1A",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 27,
-              "marginLeft": 5,
+              "alignItems": "flex-start",
+              "flexDirection": "column",
             },
           ]
         }
       >
-        radio-me
-      </Text>
+        <Text
+          detailsOptions={false}
+          style={
+            Array [
+              Object {
+                "color": "#1A1A1A",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 27,
+                "marginLeft": 8,
+              },
+            ]
+          }
+        >
+          radio-me
+        </Text>
+      </View>
     </View>
   </View>,
   <View
@@ -116,20 +128,32 @@ Array [
       >
         
       </Text>
-      <Text
+      <View
         style={
           Array [
             Object {
-              "color": "#1A1A1A",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 27,
-              "marginLeft": 5,
+              "alignItems": "flex-start",
+              "flexDirection": "column",
             },
           ]
         }
       >
-        radio-me-too
-      </Text>
+        <Text
+          detailsOptions={false}
+          style={
+            Array [
+              Object {
+                "color": "#1A1A1A",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 27,
+                "marginLeft": 8,
+              },
+            ]
+          }
+        >
+          radio-me-too
+        </Text>
+      </View>
     </View>
   </View>,
   <Text

@@ -13,7 +13,10 @@ import {LoggedConsumerStackParamList} from '../stacks/LoggedConsumerStack';
 
 type NavPropsProducer = NativeStackNavigationProp<
   LoggedConsumerStackParamList,
-  'HomeConsumer' | 'BasketConsumer' | 'DonationConsumer' | 'ProfileConsumer'
+  | 'HomeConsumer'
+  | 'BasketConsumerStack'
+  | 'DonationConsumer'
+  | 'ProfileConsumer'
 >;
 
 interface Props {
@@ -55,7 +58,7 @@ export const ButtonTabConsumer: React.FC<Props> = ({state}) => {
         {renderTab(
           'shopping-basket',
           'Minha cesta',
-          'BasketConsumer',
+          'BasketConsumerStack',
           'icon-tab-basket',
         )}
         {renderTab(

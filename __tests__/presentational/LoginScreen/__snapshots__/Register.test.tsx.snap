@@ -115,20 +115,32 @@ exports[`Register should matches snapshot 1`] = `
           >
             
           </Text>
-          <Text
+          <View
             style={
               Array [
                 Object {
-                  "color": "#1A1A1A",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 27,
-                  "marginLeft": 5,
+                  "alignItems": "flex-start",
+                  "flexDirection": "column",
                 },
               ]
             }
           >
-            Sou produtor
-          </Text>
+            <Text
+              detailsOptions={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 27,
+                    "marginLeft": 8,
+                  },
+                ]
+              }
+            >
+              Sou produtor
+            </Text>
+          </View>
         </View>
       </View>
       <View
@@ -180,20 +192,32 @@ exports[`Register should matches snapshot 1`] = `
           >
             
           </Text>
-          <Text
+          <View
             style={
               Array [
                 Object {
-                  "color": "#1A1A1A",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 27,
-                  "marginLeft": 5,
+                  "alignItems": "flex-start",
+                  "flexDirection": "column",
                 },
               ]
             }
           >
-            Sou consumidor
-          </Text>
+            <Text
+              detailsOptions={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 27,
+                    "marginLeft": 8,
+                  },
+                ]
+              }
+            >
+              Sou consumidor
+            </Text>
+          </View>
         </View>
       </View>
       <Text

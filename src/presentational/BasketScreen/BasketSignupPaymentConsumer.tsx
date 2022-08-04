@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-export const BasketConsumer = () => {
+export const BasketSignupPaymentConsumer = () => {
   return (
     <StyledContainer>
-      <StyledText>BasketConsumer</StyledText>
+      <StyledText>BasketSignupPaymentConsumer</StyledText>
     </StyledContainer>
   );
 };

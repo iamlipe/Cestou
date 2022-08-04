@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardOng should matches snapshot 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "opacity": 1,
+      "width": "48%",
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/assets/images/ong_1.png",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "borderRadius": 4,
+          "height": 130,
+          "marginBottom": 5,
+          "width": "100%",
+        },
+      ]
+    }
+    testID="card-ong-image"
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#1A1A1A",
+          "fontFamily": "SourceSansPro-SemiBold",
+          "fontSize": 27,
+        },
+      ]
+    }
+  >
+    ong
+  </Text>
+</View>
+`;

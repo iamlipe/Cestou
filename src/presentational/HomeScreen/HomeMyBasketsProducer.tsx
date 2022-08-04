@@ -11,6 +11,7 @@ import {
   SIGNUP_PRODUCER_BASKET,
   BasketResponse,
 } from '@/store/slices/basketSlice';
+import {useNavigation} from '@react-navigation/native';
 
 import IconVegetable from '@/assets/svgs/vegetable.svg';
 
@@ -33,6 +34,7 @@ const schema = Yup.object().shape({
 export const HomeMyBasketsProducer = () => {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const {isLoading, allBaskets} = useReduxSelector(state => state.basket);
+  const {goBack} = useNavigation();
   const dispatch = useReduxDispatch();
 
   const {
@@ -105,7 +107,10 @@ export const HomeMyBasketsProducer = () => {
           <Modal
             title="Você adicionou as cestas à sua lista de produtos fornecidos."
             icon={IconVegetable as React.FC<SvgProps>}
-            onPress={() => handleModal(false)}
+            onPress={() => {
+              handleModal(false);
+              goBack();
+            }}
           />
         )}
       </StyledContent>

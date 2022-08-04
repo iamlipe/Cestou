@@ -8,13 +8,13 @@ import {ButtonTabConsumer} from '../BottomTab/BottomTabConsumer';
 
 import {HomeConsumer} from '@/presentational/HomeScreen/HomeConsumer';
 import {DonationConsumer} from '@/presentational/DonationScreen/DonationConsumer';
-import {BasketConsumer} from '@/presentational/BasketScreen/BasketConsumer';
+import {BasketConsumerStack} from './BasketConsumerStack';
 import {Profile} from '@/presentational/ProfileScreen/Profile';
 
 export type LoggedConsumerStackParamList = {
   HomeConsumer: undefined;
   DonationConsumer: undefined;
-  BasketConsumer: undefined;
+  BasketConsumerStack: undefined;
   ProfileConsumer: undefined;
 };
 
@@ -35,6 +35,9 @@ export const LoggedConsumerStack = () => (
       component={DonationConsumer}
     />
     <LoggedConsumer.Screen name="ProfileConsumer" component={Profile} />
-    <LoggedConsumer.Screen name="BasketConsumer" component={BasketConsumer} />
+    <LoggedConsumer.Screen
+      name="BasketConsumerStack"
+      component={BasketConsumerStack}
+    />
   </LoggedConsumer.Navigator>
 );
