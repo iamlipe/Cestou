@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardFood should matches snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderColor": "#F2F2F8",
+        "borderRadius": 5,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "flexDirection": "row",
+        "height": 72,
+        "marginBottom": 16,
+      },
+    ]
+  }
+>
+  <Image
+    source={
+      Object {
+        "uri": "https://s3.filebase.com/ioasys-g5-fome-zero/foods/fruits-food.png",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "borderBottomLeftRadius": 4,
+          "borderTopLeftRadius": 4,
+          "height": "100%",
+          "width": "30%",
+        },
+      ]
+    }
+  />
+  <View
+    style={
+      Array [
+        Object {
+          "flexDirection": "column",
+          "height": "80%",
+          "justifyContent": "space-evenly",
+          "paddingLeft": 8,
+          "width": "40%",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#1A1A1A",
+            "fontFamily": "SourceSansPro-SemiBold",
+            "fontSize": 27,
+          },
+        ]
+      }
+    >
+      test
+    </Text>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#00843F",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "textDecorationColor": "black",
+              "textDecorationLine": "underline",
+              "textDecorationStyle": "solid",
+            },
+          ]
+        }
+      >
+        Ver exemplos
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#C1E9CF",
+          "borderColor": "#00B761",
+          "borderRadius": 16,
+          "borderStyle": "solid",
+          "borderWidth": 1,
+          "flexDirection": "row",
+          "height": 32,
+          "justifyContent": "space-between",
+          "paddingBottom": 0,
+          "paddingLeft": 10,
+          "paddingRight": 10,
+          "paddingTop": 0,
+          "width": 86,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        onPress={[Function]}
+        selectable={false}
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontSize": 14,
+            },
+            undefined,
+            Object {
+              "fontFamily": "Feather",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+        testID="decrement-button"
+      >
+        
+      </Text>
+    </View>
+    <TextInput
+      editable={false}
+      style={
+        Array [
+          Object {
+            "color": "#1A1A1A",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 27,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 0,
+            "width": 10,
+          },
+        ]
+      }
+      testID="counter-test"
+      value="3"
+    />
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        onPress={[Function]}
+        selectable={false}
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontSize": 14,
+            },
+            undefined,
+            Object {
+              "fontFamily": "Feather",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+        testID="increment-button"
+      >
+        
+      </Text>
+    </View>
+  </View>
+</View>
+`;
