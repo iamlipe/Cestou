@@ -28,6 +28,7 @@ const Counter = ({maxQuantity, name, control}: Props) => {
     <StyledContainer>
       <StyledButton>
         <Icon
+          testID="decrement-button"
           name="minus"
           color={theme.colors.GRAY_900}
           size={14}
@@ -39,9 +40,14 @@ const Counter = ({maxQuantity, name, control}: Props) => {
           }}
         />
       </StyledButton>
-      <StyledText>{counter}</StyledText>
+      <StyledInputCounter
+        testID={`counter-${name}`}
+        value={String(counter)}
+        editable={false}
+      />
       <StyledButton>
         <Icon
+          testID="increment-button"
           name="plus"
           color={theme.colors.GRAY_900}
           size={14}
@@ -77,10 +83,12 @@ const StyledContainer = styled.View`
   padding: 0px 10px;
 `;
 
-const StyledText = styled.Text`
+const StyledInputCounter = styled.TextInput`
+  width: 10px;
   font-family: ${({theme}) => theme.fonts.REGULAR_SOURCESANSPRO};
   font-size: ${({theme}) => theme.sizing.SMALLER};
   color: ${({theme}) => theme.colors.GRAY_900};
+  padding: 0;
 `;
 
 const StyledButton = styled.TouchableOpacity``;
