@@ -29,11 +29,11 @@ export interface ProducerBasketResponse {
 }
 
 export interface Producer {
-  cpfPix: string;
-  emailPix: string;
-  phonePix: string;
-  randomPix: string;
-  balance: number;
+  cpfPix: string | null;
+  emailPix: string | null;
+  phonePix: string | null;
+  randomPix: string | null;
+  balance: string;
 }
 
 export interface ProducerBasket {

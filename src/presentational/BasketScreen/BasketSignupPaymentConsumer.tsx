@@ -86,11 +86,13 @@ export const BasketSignupPaymentConsumer = () => {
           <StyledTitle>Subtotal</StyledTitle>
           <StyledRow>
             <StyledText>01 Cesta média - M</StyledText>
-            <StyledText>R$ 70,00</StyledText>
+            <StyledText>{`R$ ${consumerBasket?.basketID.value}`}</StyledText>
           </StyledRow>
           <StyledRow>
             <StyledText>Total</StyledText>
-            <StyledTextTotalPrice>R$ 70,00</StyledTextTotalPrice>
+            <StyledTextTotalPrice>
+              {`R$ ${consumerBasket?.basketID.value}`}
+            </StyledTextTotalPrice>
           </StyledRow>
         </StyledCheckoutBox>
 
