@@ -1,0 +1,535 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BasketSignupPaymentConsumer should matches snapshot 1`] = `
+<RCTScrollView
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "minHeight": "100%",
+      },
+    ]
+  }
+>
+  <View>
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#6CCD91",
+              "flexDirection": "row",
+              "height": 64,
+              "paddingBottom": 0,
+              "paddingLeft": "5%",
+              "paddingRight": "5%",
+              "paddingTop": 0,
+              "width": "100%",
+            },
+          ]
+        }
+        type="normal"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "height": 64,
+                "justifyContent": "space-between",
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                selectable={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#1A1A1A",
+                      "fontSize": 24,
+                    },
+                    undefined,
+                    Object {
+                      "fontFamily": "Material Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontFamily": "SourceSansPro-SemiBold",
+                    "fontSize": 47,
+                    "marginLeft": 10,
+                  },
+                ]
+              }
+            >
+              Assinatura
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "paddingBottom": 24,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 24,
+            "width": "90%",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-SemiBold",
+              "fontSize": 43,
+              "marginBottom": 16,
+            },
+          ]
+        }
+      >
+        Entrega
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 27,
+              "marginBottom": 16,
+            },
+          ]
+        }
+      >
+        Escolha se você prefere retirar sua cesta em um dos nossos pontos de coleta, ou receber em casa pagando uma taxa a mais
+      </Text>
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "borderBottomColor": "#F2F2F8",
+              "borderBottomWidth": 1,
+              "flexDirection": "row",
+              "marginBottom": 10,
+              "opacity": 1,
+              "paddingBottom": 6,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 12,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            selectable={false}
+            style={
+              Array [
+                Object {
+                  "color": "#3A3A3A",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+            testID="radio-icon-not-checked-0"
+          >
+            
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              detailsOptions={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 27,
+                    "marginLeft": 8,
+                  },
+                ]
+              }
+            >
+              Retirar no ponto de coleta - R$00,00
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "borderBottomColor": "#F2F2F8",
+              "borderBottomWidth": 1,
+              "flexDirection": "row",
+              "marginBottom": 10,
+              "opacity": 1,
+              "paddingBottom": 6,
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "paddingTop": 12,
+            }
+          }
+        >
+          <Text
+            allowFontScaling={false}
+            selectable={false}
+            style={
+              Array [
+                Object {
+                  "color": "#3A3A3A",
+                  "fontSize": 24,
+                },
+                undefined,
+                Object {
+                  "fontFamily": "Material Icons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+            testID="radio-icon-not-checked-1"
+          >
+            
+          </Text>
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              detailsOptions={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 27,
+                    "marginLeft": 8,
+                  },
+                ]
+              }
+            >
+              Entrega (à combinar com produtor)
+            </Text>
+          </View>
+        </View>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "alignSelf": "flex-end",
+              "color": "#781B1C",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "marginBottom": 16,
+              "marginLeft": 0,
+              "marginRight": 0,
+              "marginTop": -8,
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "borderColor": "#00843F",
+              "borderRadius": 4,
+              "borderStyle": "solid",
+              "borderWidth": 1,
+              "height": 146,
+              "justifyContent": "center",
+              "marginBottom": 16,
+              "paddingBottom": 16,
+              "paddingLeft": 16,
+              "paddingRight": 16,
+              "paddingTop": 16,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#1A1A1A",
+                "fontFamily": "SourceSansPro-SemiBold",
+                "fontSize": 43,
+                "marginBottom": 16,
+              },
+            ]
+          }
+        >
+          Subtotal
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 27,
+                  "marginBottom": 16,
+                },
+              ]
+            }
+          >
+            01 Cesta média - M
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 27,
+                  "marginBottom": 16,
+                },
+              ]
+            }
+          >
+            R$ 0.00
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 27,
+                  "marginBottom": 16,
+                },
+              ]
+            }
+          >
+            Total
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-SemiBold",
+                  "fontSize": 27,
+                  "marginBottom": 16,
+                },
+              ]
+            }
+          >
+            R$ 0.00
+          </Text>
+        </View>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-SemiBold",
+              "fontSize": 43,
+              "marginBottom": 16,
+            },
+          ]
+        }
+      >
+        Pagamento
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 27,
+              "marginBottom": 16,
+            },
+          ]
+        }
+      >
+        Realize o pagamento para a chave pix informada abaixo e em seguida envie o comprovante de pagamento para o produtor pelo whatsapp.
+      </Text>
+      <View
+        accessibilityState={
+          Object {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "backgroundColor": "#00843F",
+            "borderRadius": 4,
+            "flexDirection": "row",
+            "height": 49,
+            "justifyContent": "center",
+            "marginBottom": 10,
+            "marginTop": 24,
+            "opacity": 1,
+            "width": 200,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#FFFFFF",
+                "fontFamily": "SourceSansPro-SemiBold",
+                "fontSize": 27,
+              },
+            ]
+          }
+          textColor="white"
+        >
+          Concluir compra
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

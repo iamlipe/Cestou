@@ -10,7 +10,7 @@ export interface LoginRequest {
 export interface LoginResponse {
   id: string;
   first_name: string;
-  last_name: string;
+  last_name: string | null;
   user_type: string;
   email: string | null;
   phone: string | null;
@@ -41,13 +41,16 @@ export interface RegisterRequest {
 export interface User {
   id?: string;
   firstName?: string;
-  lastName?: string;
+  lastName?: string | null;
   userType?: string;
   email?: string | null;
   phone?: string | null;
   token?: string;
   cpf?: string | null;
   refreshToken?: string;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
 }
 
 interface UserState {

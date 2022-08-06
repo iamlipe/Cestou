@@ -5,7 +5,7 @@ export interface BasketResponse {
   id: string;
   size: string;
   daysPerDeliver: string;
-  value: number;
+  value: string;
   createdAt: string;
   updatedAt: string;
   deletedAt: string | null;

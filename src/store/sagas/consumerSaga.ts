@@ -16,8 +16,6 @@ export function* getConsumerBasket() {
       `/consumers/get-consumer-basket`,
     );
 
-    console.log(data);
-
     yield put(GET_CONSUMER_BASKET_SUCCESS({data, status}));
   } catch (error) {
     yield put(GET_CONSUMER_BASKET_FAILURE({error}));

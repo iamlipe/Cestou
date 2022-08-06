@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputClipBoard should matches snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "borderColor": "#00843F",
+        "borderRadius": 5,
+        "borderStyle": "solid",
+        "borderWidth": 1,
+        "justifyContent": "center",
+        "marginBottom": 16,
+        "marginLeft": 0,
+        "marginRight": 0,
+        "marginTop": 16,
+        "paddingBottom": 16,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 16,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      test
+    </Text>
+    <View
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        selectable={false}
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontSize": 20,
+            },
+            undefined,
+            Object {
+              "fontFamily": "Feather",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
+    </View>
+  </View>
+</View>
+`;
