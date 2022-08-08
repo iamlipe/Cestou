@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmDonations should matches snapshot 1`] = `
+<RCTScrollView
+  showsVerticalScrollIndicator={false}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "minHeight": "100%",
+      },
+    ]
+  }
+>
+  <View>
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#6CCD91",
+              "flexDirection": "row",
+              "height": 64,
+              "paddingBottom": 0,
+              "paddingLeft": "5%",
+              "paddingRight": "5%",
+              "paddingTop": 0,
+              "width": "100%",
+            },
+          ]
+        }
+        type="normal"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "height": 64,
+                "justifyContent": "space-between",
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                selectable={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "#1A1A1A",
+                      "fontSize": 24,
+                    },
+                    undefined,
+                    Object {
+                      "fontFamily": "Material Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontFamily": "SourceSansPro-SemiBold",
+                    "fontSize": 47,
+                    "marginLeft": 10,
+                  },
+                ]
+              }
+            >
+              Assinatura
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "paddingBottom": 24,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 24,
+            "width": "90%",
+          },
+        ]
+      }
+    >
+      <SvgMock
+        style={
+          Array [
+            Object {
+              "alignSelf": "center",
+              "marginBottom": 24,
+            },
+          ]
+        }
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#00843F",
+              "fontFamily": "SourceSansPro-SemiBold",
+              "fontSize": 43,
+              "marginBottom": 32,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Doação realizada com sucesso!
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#1A1A1A",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 27,
+              "marginBottom": 32,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Você acabou de ajudar uma instituição que atua no combate à fome, doando Horticoins que serão convertidos na compra de alimentos direto com nossos produtores locais parceiros.
+      </Text>
+      <View
+        accessibilityState={
+          Object {
+            "disabled": false,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "alignSelf": "center",
+            "backgroundColor": "#00843F",
+            "borderRadius": 4,
+            "flexDirection": "row",
+            "height": 49,
+            "justifyContent": "center",
+            "marginBottom": 10,
+            "opacity": 1,
+            "width": 200,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#FFFFFF",
+                "fontFamily": "SourceSansPro-SemiBold",
+                "fontSize": 27,
+              },
+            ]
+          }
+          textColor="white"
+        >
+          Doar novamente
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

@@ -25,7 +25,7 @@ const Info = () => {
 };
 
 const StyledContainerInfo = styled.View`
-  width: 100%;
+  width: 90%;
   align-self: center;
   justify-content: space-between;
   align-items: center;
