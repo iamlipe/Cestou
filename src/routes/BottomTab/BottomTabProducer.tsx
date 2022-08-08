@@ -1,7 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useTheme} from 'styled-components/native';
-import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import {
   ParamListBase,
   TabNavigationState,

@@ -1,12 +1,10 @@
 import React from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import {
   ParamListBase,
   TabNavigationState,
   useNavigation,
-  useNavigationState,
 } from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {LoggedConsumerStackParamList} from '../stacks/LoggedConsumerStack';
@@ -15,7 +13,7 @@ type NavPropsProducer = NativeStackNavigationProp<
   LoggedConsumerStackParamList,
   | 'HomeConsumer'
   | 'BasketConsumerStack'
-  | 'DonationConsumer'
+  | 'DonationConsumerStack'
   | 'ProfileConsumer'
 >;
 
@@ -64,7 +62,7 @@ export const ButtonTabConsumer: React.FC<Props> = ({state}) => {
         {renderTab(
           'attach-money',
           'Doações',
-          'DonationConsumer',
+          'DonationConsumerStack',
           'icon-tab-donation',
         )}
         {renderTab('person', 'Perfil', 'ProfileConsumer', 'icon-tab-profile')}

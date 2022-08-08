@@ -10,12 +10,12 @@ import {
   BasketProducerRequest,
   GET_BASKET_PRODUCER,
 } from '@/store/slices/basketSlice';
+import {useReduxDispatch} from '@/hooks/useReduxDispatch';
+import {useReduxSelector} from '@/hooks/useReduxSelector';
 
 import Header from '@/components/Header';
 import RadioForm from '@/components/RadioForm';
 import Button from '@/components/Button';
-import {useReduxDispatch} from '@/hooks/useReduxDispatch';
-import {useReduxSelector} from '@/hooks/useReduxSelector';
 
 const schema = Yup.object().shape({
   daysPerDeliver: Yup.string().required('Preenchimento obrigatório'),
@@ -63,6 +63,7 @@ export const BasketSignupPlanConsumer = () => {
         <StyledLabel>
           Escolha qual a frequência de recebimento ou retirada da sua cesta:
         </StyledLabel>
+
         <RadioForm
           name="daysPerDeliver"
           control={control}

@@ -88,16 +88,16 @@ const Modal = ({
   );
 };
 
-const StyledModal = styled.Modal``;
+export const StyledModal = styled.Modal``;
 
-const StyledBackgroundModal = styled.View`
+export const StyledBackgroundModal = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
   background-color: ${({theme}) => theme.colors.BACKGROUND_MODAL};
 `;
 
-const StyledContent = styled.View`
+export const StyledContent = styled.View`
   width: 80%;
   align-items: flex-end;
   padding: 16px;
@@ -105,7 +105,7 @@ const StyledContent = styled.View`
   background-color: ${({theme: {colors}}) => colors.BACKGROUND};
 `;
 
-const StyledTitle = styled.Text<PropsTitle>`
+export const StyledTitle = styled.Text<PropsTitle>`
   font-family: ${({theme}) => theme.fonts.SEMIBOLD_SOURCESANSPRO};
   font-size: ${({theme}) => theme.sizing.SMALL};
   color: ${({justMessage, withSubtitle, theme}) =>
@@ -119,13 +119,15 @@ const StyledTitle = styled.Text<PropsTitle>`
   line-height: 26px;
 `;
 
-const StyledSubTitle = styled(StyledTitle)`
+export const StyledSubTitle = styled(StyledTitle)`
   font-family: ${({theme}) => theme.fonts.REGULAR_SOURCESANSPRO};
   font-size: ${({theme}) => theme.sizing.SMALLER};
   color: ${({theme}) => theme.colors.GRAY_900};
 `;
 
-const StyledContainerButtons = styled.View`
+export const StyledText = styled.Text``;
+
+export const StyledContainerButtons = styled.View`
   width: 80%;
   flex-direction: row;
   justify-content: space-between;
@@ -142,13 +144,13 @@ const StyledCircle = styled.View`
   border-radius: 50px;
 `;
 
-const StyledCloseButton = styled(IconMaterial.Button)`
+export const StyledCloseButton = styled(IconMaterial.Button)`
   margin-right: -10px;
   padding: 0;
 `;
 
-const StyledCancelButton = styled(Button)``;
+export const StyledCancelButton = styled(Button)``;
 
-const StyledConfirmButton = styled(Button)``;
+export const StyledConfirmButton = styled(Button)``;
 
 export default Modal;
