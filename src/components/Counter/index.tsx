@@ -75,6 +75,7 @@ const StyledContainer = styled.View`
   height: 32px;
   width: 86px;
   flex-direction: row;
+  align-self: center;
   justify-content: space-between;
   align-items: center;
   background-color: ${({theme}) => theme.colors.PRIMARY_100};
