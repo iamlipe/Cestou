@@ -17,6 +17,7 @@ import Counter from '../Counter';
 interface Props {
   name: string;
   control: any;
+  error?: string;
   onConfirm: () => any;
   onCancel: () => any;
   onClose: () => any;
@@ -25,6 +26,7 @@ interface Props {
 const ModalDonation = ({
   name,
   control,
+  error,
   onConfirm,
   onCancel,
   onClose,
@@ -52,6 +54,7 @@ const ModalDonation = ({
             <StyledText>Quantas moedas deseja doar?</StyledText>
 
             <Counter name={name} control={control} />
+            {error && <StyledError>{error}</StyledError>}
 
             <StyledContainerButtons>
               <StyledCancelButton
@@ -96,6 +99,14 @@ const StyledSubTitle = styled(StyledText)`
 
 const StyledContainerButtons = styled(ContainerButtons)`
   margin-top: 24px;
+`;
+
+const StyledError = styled.Text`
+  align-self: center;
+  font-family: ${({theme}) => theme.fonts.REGULAR_SOURCESANSPRO};
+  font-size: ${({theme}) => theme.sizing.SMALLEST};
+  color: ${({theme}) => theme.colors.ERROR_800};
+  margin-top: 3px;
 `;
 
 export default memo(ModalDonation);

@@ -1,10 +1,14 @@
 import React, {useState} from 'react';
 import styled, {useTheme} from 'styled-components/native';
+import * as Yup from 'yup';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import {Linking} from 'react-native';
 import {useForm} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {DonationConsumerStackParamList} from '@/routes/stacks/DonationConsumerStack';
+import {OUR_SITE} from 'react-native-dotenv';
 
 import imgOngOne from '@/assets/images/ong_1.png';
 import imgOngTwo from '@/assets/images/ong_2.png';
@@ -19,10 +23,20 @@ interface DonationsOng {
   title: string;
 }
 
+interface DonationForm {
+  coins: number;
+}
+
 type NavProps = NativeStackNavigationProp<
   DonationConsumerStackParamList,
   'ConfirmDonations'
 >;
+
+const schema = Yup.object().shape({
+  coins: Yup.number()
+    .min(1, 'Mínimo de 1 moeda')
+    .required('Preenchimento obrigatório'),
+});
 
 const dataOngServices: DonationsOng[] = [
   {
@@ -37,9 +51,16 @@ const dataOngServices: DonationsOng[] = [
 
 export const HomeDonationConsumer = () => {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
-  const {control} = useForm();
   const {navigate} = useNavigation<NavProps>();
   const theme = useTheme();
+
+  const {
+    control,
+    handleSubmit,
+    formState: {errors, isSubmitted},
+  } = useForm<DonationForm>({
+    resolver: yupResolver(schema),
+  });
 
   function handleModal(event: boolean) {
     setIsVisibleModal(event);
@@ -48,6 +69,10 @@ export const HomeDonationConsumer = () => {
   function handleNavigateNext() {
     navigate('ConfirmDonations');
     setIsVisibleModal(false);
+  }
+
+  async function onSubmit(data: any) {
+    handleNavigateNext();
   }
 
   return (
@@ -92,7 +117,7 @@ export const HomeDonationConsumer = () => {
           </StyledTextInfo>
           <Button
             title="Ir para site"
-            onPress={() => null}
+            onPress={async () => Linking.openURL(OUR_SITE)}
             size="medium"
             buttonColor="transparent"
             textColor="primary"
@@ -103,9 +128,10 @@ export const HomeDonationConsumer = () => {
           <ModalDonation
             name="coins"
             control={control}
-            onConfirm={handleNavigateNext}
+            onConfirm={handleSubmit(onSubmit)}
             onCancel={() => handleModal(false)}
             onClose={() => handleModal(false)}
+            error={isSubmitted ? errors.coins?.message : ''}
           />
         )}
       </StyledContent>
