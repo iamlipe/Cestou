@@ -79,7 +79,7 @@ export const StyledBottonTabContainer = styled.SafeAreaView`
 `;
 
 export const StyledButtonTabRow = styled.View`
-  width: 85%;
+  width: 90%;
   flex-direction: row;
   justify-content: space-between;
   align-self: center;
