@@ -98,7 +98,7 @@ const basketSlice = createSlice({
       ...state,
       isLoading: false,
       error: null,
-      status: status,
+      status,
 
       allBaskets,
     }),
@@ -113,6 +113,7 @@ const basketSlice = createSlice({
       isLoading: true,
       error: null,
     }),
+
     GET_BASKET_PRODUCER_SUCCESS: (
       state,
       {
@@ -122,13 +123,14 @@ const basketSlice = createSlice({
       ...state,
       isLoading: false,
       error: null,
-      status: status,
+      status,
 
       canSignupBasketConsumer: true,
       canUpdateProducerBasket: false,
 
       basketProducer: data,
     }),
+
     GET_BASKET_PRODUCER_FAILURE: (state, {payload: {error}}) => ({
       ...state,
       isLoading: false,
@@ -143,11 +145,13 @@ const basketSlice = createSlice({
       isLoading: true,
       error: null,
     }),
+
     SIGNUP_PRODUCER_BASKET_SUCCESS: state => ({
       ...state,
       isLoading: false,
       error: null,
     }),
+
     SIGNUP_PRODUCER_BASKET_FAILURE: (state, {payload: {error}}) => ({
       ...state,
       isLoading: false,
@@ -158,10 +162,11 @@ const basketSlice = createSlice({
       ...state,
       isLoading: true,
       error: null,
-      statusCode: null,
+      status: null,
 
       basketConsumer: null,
     }),
+
     GET_CONSUMER_BASKET_SUCCESS: (
       state,
       {
@@ -170,11 +175,12 @@ const basketSlice = createSlice({
     ) => ({
       ...state,
       isLoading: false,
-      statusCode: status,
+      status,
 
       basketConsumer: data,
       canUpdateProducerBasket: false,
     }),
+
     GET_CONSUMER_BASKET_FAILURE: (state, {payload: {error}}) => ({
       ...state,
       isLoading: false,
@@ -191,6 +197,7 @@ const basketSlice = createSlice({
       isLoading: true,
       error: null,
     }),
+
     SIGNUP_CONSUMER_BASKET_SUCCESS: state => ({
       ...state,
       isLoading: false,
@@ -199,6 +206,7 @@ const basketSlice = createSlice({
       canSignupBasketConsumer: false,
       canUpdateProducerBasket: true,
     }),
+
     SIGNUP_CONSUMER_BASKET_FAILURE: (state, {payload: {error}}) => ({
       ...state,
       isLoading: false,
@@ -214,13 +222,13 @@ const basketSlice = createSlice({
     ) => ({
       ...state,
       isLoading: true,
-      statusCode: null,
+      status: null,
       error: null,
     }),
     REMOVE_FOOD_BASKET_SUCCESS: state => ({
       ...state,
       isLoading: false,
-      statusCode: null,
+      status: null,
     }),
     REMOVE_FOOD_BASKET_FAILURE: (state, {payload: {error}}) => ({
       ...state,

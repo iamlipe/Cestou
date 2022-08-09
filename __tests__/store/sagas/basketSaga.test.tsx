@@ -3,9 +3,14 @@ import {getDefaulSize, getDefaultDeliver} from '@/helpers/getDefaulParams';
 import {PayloadAction} from '@reduxjs/toolkit';
 
 import {runSaga, Saga} from 'redux-saga';
+
+import {FoodBasketResponse} from '@/store/slices/foodSlice';
+
 import {
+  getBasketConsumer,
   getBasketProducer,
   getBaskets,
+  removeFoodBasket,
   signupConsumerBasket,
   signupProducerBasket,
 } from '@/store/sagas/basketSaga';
@@ -23,18 +28,30 @@ import {
   BasketProducerRequest,
   GET_BASKET_PRODUCER_SUCCESS,
   GET_BASKET_PRODUCER_FAILURE,
+  GET_CONSUMER_BASKET_FAILURE,
+  GET_CONSUMER_BASKET_SUCCESS,
+  BasketFoodQuantity,
+  REMOVE_FOOD_BASKET_SUCCESS,
+  REMOVE_FOOD_BASKET_FAILURE,
 } from '@/store/slices/basketSlice';
 
 import {
   apiReturnBasketProducerSuccessMock,
   apiReturnBasketSuccessMock,
+  apiReturnConsumerBasketSuccessMock,
   invalidGetBasketProducer,
+  invalidRemovedFoodBasket,
+  invalidRemovedFoodsBasket,
   invalidSignupBasketConsumer,
   invalidSignupBasketProducer,
   validGetBasketProducer,
+  validRemovedFoodBasket,
+  validRemovedFoodsBasket,
   validSignupBasketConsumer,
   validSignupBasketProducer,
 } from '@__mocks__/mockBasket';
+
+import {foodSmallBasketMock} from '@__mocks__/mockFoodBasket';
 
 describe('basketSaga', () => {
   test('should return all baskets', async () => {
@@ -257,6 +274,151 @@ describe('basketSaga', () => {
     expect(dispatchedAction).toContainEqual(
       GET_BASKET_PRODUCER_FAILURE({
         error: notFound,
+      }),
+    );
+  });
+
+  test('should return basket consumer', async () => {
+    const get = api.get as jest.Mock;
+    const dispatchedAction: any[] = [];
+
+    get.mockResolvedValueOnce(apiReturnConsumerBasketSuccessMock);
+
+    await runSaga(
+      {
+        dispatch: action => dispatchedAction.push(action),
+      },
+      getBasketConsumer as unknown as Saga,
+      {
+        payload: undefined,
+      },
+    ).toPromise();
+
+    expect(api.get).toHaveBeenCalledWith(`/consumers/get-consumer-basket`);
+
+    expect(dispatchedAction).toContainEqual(
+      GET_CONSUMER_BASKET_SUCCESS({
+        data: apiReturnConsumerBasketSuccessMock.data,
+        status: apiReturnConsumerBasketSuccessMock.status,
+      }),
+    );
+  });
+
+  test('should not return basket consumer if consumer dont have signup one', async () => {
+    const notFound = {
+      statusCode: 400,
+      error: 'Basket not found',
+    };
+
+    const get = api.get as jest.Mock;
+    const dispatchedAction: any[] = [];
+
+    get.mockRejectedValueOnce(notFound);
+
+    await runSaga(
+      {
+        dispatch: action => dispatchedAction.push(action),
+      },
+      getBasketConsumer as unknown as Saga,
+      {
+        payload: undefined,
+      },
+    ).toPromise();
+
+    expect(dispatchedAction).toContainEqual(
+      GET_CONSUMER_BASKET_FAILURE({
+        error: notFound,
+      }),
+    );
+  });
+
+  test('should remove food on basket with valid quantities', async () => {
+    const dispatchedAction: PayloadAction<{
+      foodsBasket: FoodBasketResponse[];
+      foodsInMyBasket: BasketFoodQuantity;
+    }>[] = [];
+
+    await runSaga(
+      {
+        dispatch: (
+          action: PayloadAction<{
+            foodsBasket: FoodBasketResponse[];
+            foodsInMyBasket: BasketFoodQuantity;
+          }>,
+        ) => dispatchedAction.push(action),
+      },
+      removeFoodBasket as unknown as Saga<
+        [
+          {
+            payload: {
+              foodsBasket: FoodBasketResponse[];
+              foodsInMyBasket: BasketFoodQuantity;
+            };
+          },
+        ]
+      >,
+      {
+        payload: {
+          foodsBasket: foodSmallBasketMock,
+          foodsInMyBasket: validRemovedFoodsBasket,
+        },
+      },
+    ).toPromise();
+
+    expect(api.post).toHaveBeenCalledWith(
+      '/consumers/basket/set-removed-foods',
+      validRemovedFoodBasket,
+    );
+
+    expect(dispatchedAction).toContainEqual(REMOVE_FOOD_BASKET_SUCCESS());
+  });
+
+  test('should not remove food on basket with invalid quantities', async () => {
+    const badRequest = {statusCode: 409, message: 'bad request'};
+    const post = api.post as jest.Mock;
+
+    const dispatchedAction: PayloadAction<{
+      foodsBasket: FoodBasketResponse[];
+      foodsInMyBasket: BasketFoodQuantity;
+    }>[] = [];
+
+    post.mockRejectedValueOnce(badRequest);
+
+    await runSaga(
+      {
+        dispatch: (
+          action: PayloadAction<{
+            foodsBasket: FoodBasketResponse[];
+            foodsInMyBasket: BasketFoodQuantity;
+          }>,
+        ) => dispatchedAction.push(action),
+      },
+      removeFoodBasket as unknown as Saga<
+        [
+          {
+            payload: {
+              foodsBasket: FoodBasketResponse[];
+              foodsInMyBasket: BasketFoodQuantity;
+            };
+          },
+        ]
+      >,
+      {
+        payload: {
+          foodsBasket: foodSmallBasketMock,
+          foodsInMyBasket: invalidRemovedFoodsBasket,
+        },
+      },
+    ).toPromise();
+
+    expect(api.post).toHaveBeenCalledWith(
+      '/consumers/basket/set-removed-foods',
+      invalidRemovedFoodBasket,
+    );
+
+    expect(dispatchedAction).toContainEqual(
+      REMOVE_FOOD_BASKET_FAILURE({
+        error: badRequest,
       }),
     );
   });

@@ -118,14 +118,17 @@ export function* removeFoodBasket({
 }>) {
   try {
     const removedFoods = Object.entries(payload.foodsInMyBasket).map(
-      ([key, value]) => ({
-        foodID: payload.foodsBasket.find(food => food.foodID.name === key)
-          ?.foodID.id,
-        quantity: value,
-      }),
+      ([key, value]) => {
+        const food = payload.foodsBasket.find(food => food.foodID.name === key);
+
+        return {
+          foodID: food?.foodID.id,
+          quantity: food ? food.quantity - value : 0,
+        };
+      },
     );
 
-    yield call(api.post, 'consumers/basket/set-removed-foods', removedFoods);
+    yield call(api.post, '/consumers/basket/set-removed-foods', removedFoods);
 
     yield put(REMOVE_FOOD_BASKET_SUCCESS());
   } catch (error) {

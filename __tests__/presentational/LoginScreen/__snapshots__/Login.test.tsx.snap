@@ -621,7 +621,7 @@ exports[`Login should matches snapshot 1`] = `
               "paddingLeft": 8,
               "paddingRight": 8,
               "paddingTop": 8,
-              "width": "100%",
+              "width": "90%",
             },
           ]
         }

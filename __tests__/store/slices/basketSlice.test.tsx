@@ -11,14 +11,24 @@ import reducer, {
   GET_BASKET_PRODUCER_FAILURE,
   GET_BASKET_PRODUCER_SUCCESS,
   GET_BASKET_PRODUCER,
+  GET_CONSUMER_BASKET,
+  GET_CONSUMER_BASKET_SUCCESS,
+  GET_CONSUMER_BASKET_FAILURE,
+  REMOVE_FOOD_BASKET,
+  REMOVE_FOOD_BASKET_SUCCESS,
+  REMOVE_FOOD_BASKET_FAILURE,
 } from '@/store/slices/basketSlice';
+
 import {
   apiReturnBasketProducerSuccessMock,
   apiReturnBasketSuccessMock,
+  apiReturnConsumerBasketSuccessMock,
+  invalidRemovedFoodsBasket,
   validGetBasketProducer,
   validSignupBasketConsumer,
   validSignupBasketProducer,
 } from '@__mocks__/mockBasket';
+import {foodSmallBasketMock} from '@__mocks__/mockFoodBasket';
 
 describe('basketSlice', () => {
   test('should return the initial state', () => {
@@ -28,7 +38,13 @@ describe('basketSlice', () => {
       isLoading: false,
       error: null,
       status: null,
+
       allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
       basketProducer: null,
     });
   });
@@ -40,7 +56,13 @@ describe('basketSlice', () => {
       isLoading: true,
       error: null,
       status: null,
+
       allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
       basketProducer: null,
     });
   });
@@ -58,7 +80,13 @@ describe('basketSlice', () => {
       isLoading: false,
       error: null,
       status: 200,
+
       allBaskets: apiReturnBasketSuccessMock.data,
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
       basketProducer: null,
     });
   });
@@ -73,7 +101,13 @@ describe('basketSlice', () => {
       isLoading: false,
       error: 'something went wrong',
       status: null,
+
       allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
       basketProducer: null,
     });
   });
@@ -88,7 +122,13 @@ describe('basketSlice', () => {
       isLoading: true,
       error: null,
       status: null,
+
       allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
       basketProducer: null,
     });
   });
@@ -103,7 +143,13 @@ describe('basketSlice', () => {
       isLoading: false,
       error: null,
       status: null,
+
       allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
       basketProducer: null,
     });
   });
@@ -118,7 +164,13 @@ describe('basketSlice', () => {
       isLoading: false,
       error: 'something went wrong',
       status: null,
+
       allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
       basketProducer: null,
     });
   });
@@ -133,7 +185,13 @@ describe('basketSlice', () => {
       isLoading: true,
       error: null,
       status: null,
+
       allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
       basketProducer: null,
     });
   });
@@ -148,7 +206,13 @@ describe('basketSlice', () => {
       isLoading: false,
       error: null,
       status: null,
+
       allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: true,
       basketProducer: null,
     });
   });
@@ -163,7 +227,13 @@ describe('basketSlice', () => {
       isLoading: false,
       error: 'something went wrong',
       status: null,
+
       allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
       basketProducer: null,
     });
   });
@@ -178,7 +248,13 @@ describe('basketSlice', () => {
       isLoading: true,
       error: null,
       status: null,
+
       allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
       basketProducer: null,
     });
   });
@@ -198,6 +274,11 @@ describe('basketSlice', () => {
       status: apiReturnBasketProducerSuccessMock.status,
 
       allBaskets: [],
+
+      canSignupBasketConsumer: true,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
       basketProducer: apiReturnBasketProducerSuccessMock.data[0],
     });
   });
@@ -212,7 +293,142 @@ describe('basketSlice', () => {
       isLoading: false,
       error: 'something went wrong',
       status: null,
+
       allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
+      basketProducer: null,
+    });
+  });
+
+  test('should handle GET_CONSUMER_BASKET', () => {
+    const reducerGetConsumerBasket = reducer(undefined, GET_CONSUMER_BASKET());
+
+    expect(reducerGetConsumerBasket).toEqual({
+      isLoading: true,
+      error: null,
+      status: null,
+
+      allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
+      basketProducer: null,
+    });
+  });
+
+  test('should handle GET_CONSUMER_BASKET_SUCCESS', () => {
+    const reducerGetConsumerBasketSuccess = reducer(
+      undefined,
+      GET_CONSUMER_BASKET_SUCCESS({
+        data: apiReturnConsumerBasketSuccessMock.data,
+        status: apiReturnConsumerBasketSuccessMock.status,
+      }),
+    );
+
+    expect(reducerGetConsumerBasketSuccess).toEqual({
+      isLoading: false,
+      error: null,
+      status: apiReturnConsumerBasketSuccessMock.status,
+
+      allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: apiReturnConsumerBasketSuccessMock.data,
+
+      canUpdateProducerBasket: false,
+      basketProducer: null,
+    });
+  });
+
+  test('should handle GET_CONSUMER_BASKET_FAILURE', () => {
+    const reducerGetConsumerBasketFailure = reducer(
+      undefined,
+      GET_CONSUMER_BASKET_FAILURE({error: 'something went wrong'}),
+    );
+
+    expect(reducerGetConsumerBasketFailure).toEqual({
+      isLoading: false,
+      error: 'something went wrong',
+      status: null,
+
+      allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
+      basketProducer: null,
+    });
+  });
+
+  test('should handle REMOVE_FOOD_BASKET', () => {
+    const reducerRemoveFoodBasket = reducer(
+      undefined,
+      REMOVE_FOOD_BASKET({
+        foodsBasket: foodSmallBasketMock,
+        foodsInMyBasket: invalidRemovedFoodsBasket,
+      }),
+    );
+
+    expect(reducerRemoveFoodBasket).toEqual({
+      isLoading: true,
+      error: null,
+      status: null,
+
+      allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
+      basketProducer: null,
+    });
+  });
+
+  test('should handle REMOVE_FOOD_BASKET_SUCCESS', () => {
+    const reducerRemoveFoodBasketSuccess = reducer(
+      undefined,
+      REMOVE_FOOD_BASKET_SUCCESS(),
+    );
+
+    expect(reducerRemoveFoodBasketSuccess).toEqual({
+      isLoading: false,
+      error: null,
+      status: null,
+
+      allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
+      basketProducer: null,
+    });
+  });
+
+  test('should handle REMOVE_FOOD_BASKET_FAILURE', () => {
+    const reducerRemoveFoodBasketFailure = reducer(
+      undefined,
+      REMOVE_FOOD_BASKET_FAILURE({error: 'something went wrong'}),
+    );
+
+    expect(reducerRemoveFoodBasketFailure).toEqual({
+      isLoading: false,
+      error: 'something went wrong',
+      status: null,
+
+      allBaskets: [],
+
+      canSignupBasketConsumer: false,
+      basketConsumer: null,
+
+      canUpdateProducerBasket: false,
       basketProducer: null,
     });
   });

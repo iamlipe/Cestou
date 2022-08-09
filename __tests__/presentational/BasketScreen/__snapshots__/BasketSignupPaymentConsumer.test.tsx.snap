@@ -396,7 +396,7 @@ exports[`BasketSignupPaymentConsumer should matches snapshot 1`] = `
               ]
             }
           >
-            01 Cesta média - M
+            01 Cesta grande
           </Text>
           <Text
             style={
