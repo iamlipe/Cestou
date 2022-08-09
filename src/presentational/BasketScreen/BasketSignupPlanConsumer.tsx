@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
 import styled from 'styled-components/native';
 import * as Yup from 'yup';
 import {useForm} from 'react-hook-form';
@@ -9,6 +9,7 @@ import {BasketConsumerStackParamList} from '@/routes/stacks/BasketConsumerStack'
 import {
   BasketProducerRequest,
   GET_BASKET_PRODUCER,
+  SIGNUP_CONSUMER_BASKET,
 } from '@/store/slices/basketSlice';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
@@ -29,7 +30,9 @@ type NavProps = NativeStackNavigationProp<
 
 export const BasketSignupPlanConsumer = () => {
   const [canGoNext, setCanGoNext] = useState(false);
-  const {isLoading} = useReduxSelector(state => state.basket);
+  const {basketProducer, canSignupBasketConsumer, isLoading} = useReduxSelector(
+    state => state.basket,
+  );
   const {navigate} = useNavigation<NavProps>();
   const dispatch = useReduxDispatch();
 
@@ -45,8 +48,20 @@ export const BasketSignupPlanConsumer = () => {
 
   async function onSubmit(data: BasketProducerRequest) {
     getBasketProducer(data);
-    setCanGoNext(true);
   }
+
+  useEffect(() => {
+    if (canSignupBasketConsumer && basketProducer && !isLoading) {
+      dispatch(
+        SIGNUP_CONSUMER_BASKET({
+          basketID: basketProducer.basket_id,
+          producerID: basketProducer.user_id,
+        }),
+      );
+
+      setCanGoNext(true);
+    }
+  }, [basketProducer, canSignupBasketConsumer, dispatch, isLoading]);
 
   useEffect(() => {
     if (!isLoading && canGoNext) {
@@ -80,11 +95,7 @@ export const BasketSignupPlanConsumer = () => {
         <RadioForm
           name="size"
           control={control}
-          options={[
-            'Pequena - R$ 45,00',
-            'Média - R$ 70,00',
-            'Grande - R$90,00',
-          ]}
+          options={['Pequena', 'Média', 'Grande']}
           detailsOptions={[
             '1 tempero, 2 legumes, 2 verduras , 3 frutas',
             '2 temperos, 3 legumes, 3 verduras, 3 frutas e 1 processado',
