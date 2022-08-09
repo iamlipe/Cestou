@@ -60,13 +60,13 @@ const ModalDonation = ({
               <StyledCancelButton
                 buttonColor="text_only"
                 textColor="primary"
-                size="medium"
+                size="small"
                 title="Cancelar"
                 onPress={onCancel}
               />
 
               <StyledConfirmButton
-                size="medium"
+                size="small"
                 title="Confirmar"
                 onPress={onConfirm}
               />

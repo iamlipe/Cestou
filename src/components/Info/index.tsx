@@ -14,7 +14,7 @@ const Info = () => {
       </StyledText>
       <Button
         onPress={async () => Linking.openURL(OUR_SITE)}
-        size="medium"
+        size="small"
         buttonColor="text_only"
         textColor="primary"
         title="Ir para o site"

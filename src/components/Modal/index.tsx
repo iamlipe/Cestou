@@ -13,23 +13,38 @@ interface PropsTitle {
   withSubtitle: boolean;
 }
 
+interface PropsContainerButtons {
+  columnButtons: boolean;
+}
+
 interface Props extends ModalProps {
   title?: string;
   subTitle?: string;
   icon?: React.FC<SvgProps>;
-  onPress?: () => void;
   justMessage?: boolean;
+  isLoading?: boolean;
+  titleConfirmButton?: string;
+  titleCancelButton?: string;
+  columnButtons?: boolean;
+  onConfirm?: () => void;
+  onCancel?: () => void;
+  onClose?: () => void;
 }
 
 const Modal = ({
   title,
   subTitle,
   icon: Icon,
-  onPress,
   justMessage = false,
+  isLoading = false,
+  titleConfirmButton,
+  titleCancelButton,
+  columnButtons = false,
+  onConfirm,
+  onCancel,
+  onClose,
   ...rest
 }: Props) => {
-  const {goBack} = useNavigation();
   const theme = useTheme();
 
   return (
@@ -37,16 +52,13 @@ const Modal = ({
       <StyledModal animationType="fade" transparent {...rest}>
         <StyledBackgroundModal>
           <StyledContent>
-            {onPress && (
+            {onClose && (
               <StyledCloseButton
                 name="close"
                 size={20}
                 color={theme.colors.GRAY_900}
                 backgroundColor={theme.colors.BACKGROUND}
-                onPress={() => {
-                  onPress();
-                  goBack();
-                }}
+                onPress={onClose}
               />
             )}
 
@@ -64,20 +76,21 @@ const Modal = ({
 
             {subTitle && <StyledSubTitle>{subTitle}</StyledSubTitle>}
 
-            {!justMessage && onPress && (
-              <StyledContainerButtons>
+            {!justMessage && onCancel && onConfirm && (
+              <StyledContainerButtons columnButtons={columnButtons}>
                 <StyledCancelButton
-                  buttonColor="text_only"
+                  size={columnButtons ? 'medium' : 'small'}
+                  buttonColor={columnButtons ? 'transparent' : 'text_only'}
                   textColor="primary"
-                  size="medium"
-                  title="Cancelar"
-                  onPress={onPress}
+                  title={titleCancelButton || 'Cancelar'}
+                  onPress={onCancel}
                 />
 
                 <StyledConfirmButton
-                  size="medium"
-                  title="Confirmar"
-                  onPress={onPress}
+                  size={columnButtons ? 'medium' : 'small'}
+                  title={titleConfirmButton || 'Confirmar'}
+                  onPress={onConfirm}
+                  loading={isLoading}
                 />
               </StyledContainerButtons>
             )}
@@ -127,9 +140,10 @@ export const StyledSubTitle = styled(StyledTitle)`
 
 export const StyledText = styled.Text``;
 
-export const StyledContainerButtons = styled.View`
+export const StyledContainerButtons = styled.View<PropsContainerButtons>`
   width: 80%;
-  flex-direction: row;
+  flex-direction: ${({columnButtons}) =>
+    columnButtons ? 'column-reverse' : 'row'};
   justify-content: space-between;
   align-self: center;
 `;
