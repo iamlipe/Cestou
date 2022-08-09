@@ -107,10 +107,12 @@ export const HomeMyBasketsProducer = () => {
           <Modal
             title="Você adicionou as cestas à sua lista de produtos fornecidos."
             icon={IconVegetable as React.FC<SvgProps>}
-            onPress={() => {
+            onConfirm={() => {
               handleModal(false);
               goBack();
             }}
+            onCancel={() => handleModal(false)}
+            onClose={() => handleModal(false)}
           />
         )}
       </StyledContent>

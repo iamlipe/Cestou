@@ -11,14 +11,14 @@ import Header from '@/components/Header';
 import ButtonRedirect from '@/components/ButtonRedirect';
 
 export const Profile = () => {
-  const consumerBasket = useGetConsumerBasket();
+  const {basketConsumer} = useGetConsumerBasket();
   const {auth} = useReduxSelector(state => state.user);
   const dispatch = useReduxDispatch();
   const theme = useTheme();
 
   function WhatsAppLink() {
     Linking.openURL(
-      `https://wa.me/${consumerBasket?.basketProducerID.userID.phone}`,
+      `https://wa.me/${basketConsumer?.basketProducerID.userID.phone}`,
     );
   }
 
@@ -30,7 +30,7 @@ export const Profile = () => {
         <ButtonRedirect title="Minhas cestas" onPress={() => null} />
 
         {auth?.userType === 'consumer' &&
-          consumerBasket?.basketProducerID.userID.phone && (
+          basketConsumer?.basketProducerID.userID.phone && (
             <ButtonRedirect
               title="Contactar produtor"
               onPress={() => WhatsAppLink()}

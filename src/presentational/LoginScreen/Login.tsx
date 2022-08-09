@@ -99,7 +99,7 @@ export const Login = () => {
               buttonColor="text_only"
               textColor="primary"
               title="Recuperar senha"
-              size="medium"
+              size="small"
               noMargin
               onPress={() => null}
             />

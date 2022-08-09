@@ -69,7 +69,7 @@ export const Onboarding = () => {
   const renderDone = () => (
     <Button
       title="Finalizar"
-      size="medium"
+      size="small"
       loading={userReducer.isLoading}
       onPress={() => {
         dispatch(

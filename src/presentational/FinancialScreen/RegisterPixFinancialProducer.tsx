@@ -90,7 +90,7 @@ export const RegisterPixFinancialProducer = () => {
           <Modal
             title="Sua chave PIX foi registrada com sucesso!"
             icon={IconPiggy as React.FC<SvgProps>}
-            onPress={() => handleModal(false)}
+            onClose={() => handleModal(false)}
             justMessage
           />
         )}
