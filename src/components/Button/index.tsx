@@ -15,8 +15,12 @@ const buttonTextColor = {
 };
 
 const buttonSize = {
-  medium: css`
+  small: css`
     width: 90px;
+    height: 38px;
+  `,
+  medium: css`
+    width: 140px;
     height: 38px;
   `,
   large: css`
