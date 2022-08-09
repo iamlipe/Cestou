@@ -3,9 +3,9 @@ export const translateBasketToPortuguese = (basket: string): string => {
     case 'big':
       return 'grande';
     case 'medium':
-      return 'médio';
+      return 'média';
     case 'small':
-      return 'pequeno';
+      return 'pequena';
     default:
       return basket;
   }
