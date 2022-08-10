@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components/native';
 import * as Yup from 'yup';
 import {Keyboard} from 'react-native';
@@ -31,7 +31,7 @@ type NavProps = NativeStackNavigationProp<AuthStackParamList, 'Register'>;
 export const Login = () => {
   const userReducer = useReduxSelector(({user}) => user);
   const userStorage = useAsyncStorage('@user');
-  const {navigate} = useNavigation<NavProps>();
+  const {navigate, addListener} = useNavigation<NavProps>();
   const dispatch = useReduxDispatch();
 
   const {
@@ -62,6 +62,12 @@ export const Login = () => {
 
     if (user) dispatch(REMEMBER_USER(JSON.parse(user)));
   }
+
+  useEffect(() => {
+    addListener('beforeRemove', event => {
+      event.preventDefault();
+    });
+  });
 
   useEffect(() => {
     handleRemember();
