@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Splash should matches snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "flex-end",
+      },
+    ]
+  }
+>
+  <View
+    animatedStyle={
+      Object {
+        "value": Object {
+          "transform": Array [
+            Object {
+              "scale": 0,
+            },
+          ],
+        },
+      }
+    }
+    collapsable={false}
+    style={
+      Object {
+        "transform": Array [
+          Object {
+            "scale": 0,
+          },
+        ],
+      }
+    }
+  >
+    <SvgMock
+      style={
+        Array [
+          Object {
+            "left": 206.25000000000003,
+            "top": 1200.6000000000001,
+            "zIndex": 1,
+          },
+        ]
+      }
+    />
+    <SvgMock
+      style={
+        Array [
+          Object {
+            "left": 206.25000000000003,
+            "top": 1200.6000000000001,
+            "zIndex": 1,
+          },
+        ]
+      }
+    />
+  </View>
+  <View
+    animatedStyle={
+      Object {
+        "value": Object {
+          "transform": Array [
+            Object {
+              "translateY": 2250,
+            },
+            Object {
+              "translateX": -150,
+            },
+          ],
+        },
+      }
+    }
+    collapsable={false}
+    style={
+      Object {
+        "backgroundColor": "#00843F",
+        "borderRadius": 300,
+        "height": 600,
+        "transform": Array [
+          Object {
+            "translateY": 2250,
+          },
+          Object {
+            "translateX": -150,
+          },
+        ],
+        "width": 600,
+      }
+    }
+  />
+  <View
+    animatedStyle={
+      Object {
+        "value": Object {
+          "transform": Array [
+            Object {
+              "translateY": 1500,
+            },
+            Object {
+              "translateX": 150,
+            },
+          ],
+        },
+      }
+    }
+    collapsable={false}
+    style={
+      Object {
+        "backgroundColor": "#00B761",
+        "borderRadius": 600,
+        "height": 1200,
+        "transform": Array [
+          Object {
+            "translateY": 1500,
+          },
+          Object {
+            "translateX": 150,
+          },
+        ],
+        "width": 1200,
+      }
+    }
+  />
+</View>
+`;
