@@ -1,0 +1,401 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalDonation should matches snapshot 1`] = `
+<View>
+  <Modal
+    animationType="fade"
+    hardwareAccelerated={false}
+    style={
+      Array [
+        Object {},
+      ]
+    }
+    transparent={true}
+    visible={true}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#00000026",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "flex-end",
+              "backgroundColor": "#FFFFFF",
+              "borderRadius": 4,
+              "paddingBottom": 16,
+              "paddingLeft": 16,
+              "paddingRight": 16,
+              "paddingTop": 16,
+              "width": "80%",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              Object {
+                "overflow": "hidden",
+              },
+              Object {
+                "backgroundColor": "#FFFFFF",
+                "borderRadius": 5,
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "padding": 8,
+                },
+                Object {
+                  "backgroundColor": "#FFFFFF",
+                  "borderRadius": 5,
+                },
+                Array [
+                  Object {
+                    "marginRight": -10,
+                    "paddingBottom": 0,
+                    "paddingLeft": 0,
+                    "paddingRight": 0,
+                    "paddingTop": 0,
+                  },
+                ],
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              selectable={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontSize": 20,
+                  },
+                  Object {
+                    "marginRight": 10,
+                  },
+                  Object {
+                    "fontFamily": "Material Icons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#00843F",
+                "fontFamily": "SourceSansPro-SemiBold",
+                "fontSize": 31,
+                "marginBottom": 16,
+                "textAlign": "center",
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          Você escolheu doar para a ONG Criança sem fome!
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#1A1A1A",
+                "fontFamily": "SourceSansPro-SemiBold",
+                "fontSize": 27,
+                "marginBottom": 16,
+                "textAlign": "center",
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          Você tem 0 moedas
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#1A1A1A",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 27,
+                "marginBottom": 16,
+                "textAlign": "center",
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          Quantas moedas deseja doar?
+        </Text>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "alignSelf": "center",
+                "backgroundColor": "#C1E9CF",
+                "borderColor": "#00B761",
+                "borderRadius": 16,
+                "borderStyle": "solid",
+                "borderWidth": 1,
+                "flexDirection": "row",
+                "height": 32,
+                "justifyContent": "space-between",
+                "paddingBottom": 0,
+                "paddingLeft": 10,
+                "paddingRight": 10,
+                "paddingTop": 0,
+                "width": 86,
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={false}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              onPress={[Function]}
+              selectable={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontSize": 14,
+                  },
+                  undefined,
+                  Object {
+                    "fontFamily": "Feather",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+              testID="decrement-button"
+            >
+              
+            </Text>
+          </View>
+          <TextInput
+            editable={false}
+            style={
+              Array [
+                Object {
+                  "color": "#1A1A1A",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 27,
+                  "paddingBottom": 0,
+                  "paddingLeft": 0,
+                  "paddingRight": 0,
+                  "paddingTop": 0,
+                  "width": 10,
+                },
+              ]
+            }
+            testID="counter-test"
+            value="0"
+          />
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={false}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              onPress={[Function]}
+              selectable={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#1A1A1A",
+                    "fontSize": 14,
+                  },
+                  undefined,
+                  Object {
+                    "fontFamily": "Feather",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+              testID="increment-button"
+            >
+              
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignSelf": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "marginTop": 24,
+                "width": "80%",
+              },
+            ]
+          }
+        >
+          <View
+            accessibilityState={
+              Object {
+                "disabled": false,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "alignSelf": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 4,
+                "flexDirection": "row",
+                "height": 38,
+                "justifyContent": "center",
+                "marginBottom": 10,
+                "opacity": 1,
+                "width": 90,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#00843F",
+                    "fontFamily": "SourceSansPro-SemiBold",
+                    "fontSize": 27,
+                  },
+                ]
+              }
+              textColor="primary"
+            >
+              Cancelar
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              Object {
+                "disabled": false,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "alignSelf": "center",
+                "backgroundColor": "#00843F",
+                "borderRadius": 4,
+                "flexDirection": "row",
+                "height": 38,
+                "justifyContent": "center",
+                "marginBottom": 10,
+                "opacity": 1,
+                "width": 90,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontFamily": "SourceSansPro-SemiBold",
+                    "fontSize": 27,
+                  },
+                ]
+              }
+              textColor="white"
+            >
+              Confirmar
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
+</View>
+`;

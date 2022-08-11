@@ -1,13 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components/native';
 import {useForm} from 'react-hook-form';
-import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
-import {GET_FOODS_BASKET} from '@/store/slices/foodSlice';
+import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useNavigation} from '@react-navigation/native';
 import {BasketConsumerStackParamList} from '@/routes/stacks/BasketConsumerStack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {SvgProps} from 'react-native-svg';
+import {useGetFoodBasket} from '@/hooks/useGetFoodBasket';
+import {
+  BasketFoodQuantity,
+  REMOVE_FOOD_BASKET,
+} from '@/store/slices/basketSlice';
 
 import IconVegetable from '@/assets/svgs/vegetable.svg';
 
@@ -29,31 +33,59 @@ type NavProps = NativeStackNavigationProp<
 
 export const BasketSignupFoodConsumer = () => {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
-  const {basketProducer} = useReduxSelector(state => state.basket);
-  const {foodsBasket} = useReduxSelector(state => state.food);
+  const [canGoNext, setCanGoNext] = useState(false);
+  const [foodsInMyBasket, setfoodsInMyBasket] = useState<BasketFoodQuantity>(
+    {},
+  );
+  const [quantityFoodInMyBasket, setQuantityFoodInMyBasket] = useState(0);
+  const {foodsBasket} = useGetFoodBasket();
+  const {isLoading} = useReduxSelector(state => state.basket);
   const {navigate} = useNavigation<NavProps>();
   const dispatch = useReduxDispatch();
 
-  const {control, handleSubmit} = useForm();
+  const {control, handleSubmit} = useForm<BasketFoodQuantity>();
 
   function handleModal(event: boolean) {
     setIsVisibleModal(event);
   }
 
-  function handleNavigateNext() {
-    navigate('BasketSignupPaymentConsumer');
-    handleModal(false);
+  function removeFoodBasket() {
+    if (foodsBasket) {
+      dispatch(REMOVE_FOOD_BASKET({foodsBasket, foodsInMyBasket}));
+    }
   }
 
-  async function onSubmit() {
+  function sumQuntityFoods(data: number[]) {
+    const sum = data.reduce((acc, curr) => acc + curr, 0);
+
+    return sum;
+  }
+
+  function handleQuantityFoodRemoved(data: BasketFoodQuantity) {
+    if (foodsBasket) {
+      const totalFoods = sumQuntityFoods(
+        foodsBasket?.map(food => food.quantity),
+      );
+
+      const totalAfterRemove = sumQuntityFoods(Object.values(data));
+
+      setQuantityFoodInMyBasket(totalFoods - totalAfterRemove);
+    }
+  }
+
+  async function onSubmit(data: BasketFoodQuantity) {
+    handleQuantityFoodRemoved(data);
+    setfoodsInMyBasket(data);
     handleModal(true);
   }
 
   useEffect(() => {
-    if (basketProducer) {
-      dispatch(GET_FOODS_BASKET({id: basketProducer?.basket_id}));
+    if (!isLoading && canGoNext) {
+      navigate('BasketSignupPaymentConsumer');
+      handleModal(false);
+      setCanGoNext(false);
     }
-  }, [basketProducer, dispatch]);
+  }, [isLoading, canGoNext, navigate]);
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
@@ -87,10 +119,16 @@ export const BasketSignupFoodConsumer = () => {
 
         {isVisibleModal && (
           <Modal
-            title="Você retirou 1 item da sua cesta!"
+            title={`Você retirou ${quantityFoodInMyBasket} item da sua cesta!`}
             subTitle="Este item será convertido na moeda Horticoin, e você poderá doá-la para uma instituição parceira que atua no combate a fome."
             icon={IconVegetable as React.FC<SvgProps>}
-            onPress={() => handleNavigateNext()}
+            onConfirm={() => {
+              removeFoodBasket();
+              setCanGoNext(true);
+            }}
+            onCancel={() => handleModal(false)}
+            onClose={() => handleModal(false)}
+            isLoading={isLoading}
           />
         )}
       </StyledContent>

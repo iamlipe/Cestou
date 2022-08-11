@@ -6,6 +6,7 @@ exports[`Counter should matches snapshot 1`] = `
     Array [
       Object {
         "alignItems": "center",
+        "alignSelf": "center",
         "backgroundColor": "#C1E9CF",
         "borderColor": "#00B761",
         "borderRadius": 16,

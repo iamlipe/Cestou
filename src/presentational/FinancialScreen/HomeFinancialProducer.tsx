@@ -59,7 +59,7 @@ export const HomeFinancialProducer = () => {
         <StyledTitleBalance>Saldo disponível</StyledTitleBalance>
         {producer?.balance ? (
           <StyledTextBalance>
-            {`R$ ${producer?.balance.toLocaleString('pt-br', {
+            {`R$ ${Number(producer?.balance).toLocaleString('pt-br', {
               style: 'currency',
               currency: 'BRL',
             })}`}

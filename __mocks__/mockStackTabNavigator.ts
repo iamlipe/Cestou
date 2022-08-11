@@ -11,7 +11,7 @@ export const mockStackTabNavigatorConsumer = {
     },
     {
       key: '',
-      name: 'DonationConsumer',
+      name: 'DonationConsumerStack',
       params: undefined,
     },
     {

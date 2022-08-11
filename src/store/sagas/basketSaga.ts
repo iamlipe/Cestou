@@ -6,23 +6,34 @@ import {takeLatest, all, put, call} from 'redux-saga/effects';
 import {getDefaulSize, getDefaultDeliver} from '@/helpers/getDefaulParams';
 
 import {
-  GET_BASKET,
-  GET_BASKET_FAILURE,
-  GET_BASKET_SUCCESS,
-  SIGNUP_CONSUMER_BASKET_FAILURE,
-  SIGNUP_CONSUMER_BASKET_SUCCESS,
-  SIGNUP_PRODUCER_BASKET,
-  SIGNUP_PRODUCER_BASKET_FAILURE,
-  SIGNUP_PRODUCER_BASKET_SUCCESS,
   BasketResponse,
+  BasketFoodQuantity,
   SignupConsumerBasketRequest,
   SignupProducerBasketRequest,
   BasketProducerRequest,
+  BasketProducerResponse,
+  BasketConsumerResponse,
+  GET_BASKET,
+  GET_BASKET_FAILURE,
+  GET_BASKET_SUCCESS,
+  GET_BASKET_PRODUCER,
   GET_BASKET_PRODUCER_SUCCESS,
   GET_BASKET_PRODUCER_FAILURE,
-  BasketProducerResponse,
-  GET_BASKET_PRODUCER,
+  SIGNUP_PRODUCER_BASKET,
+  SIGNUP_PRODUCER_BASKET_FAILURE,
+  SIGNUP_PRODUCER_BASKET_SUCCESS,
+  GET_CONSUMER_BASKET,
+  GET_CONSUMER_BASKET_SUCCESS,
+  GET_CONSUMER_BASKET_FAILURE,
+  SIGNUP_CONSUMER_BASKET,
+  SIGNUP_CONSUMER_BASKET_FAILURE,
+  SIGNUP_CONSUMER_BASKET_SUCCESS,
+  REMOVE_FOOD_BASKET,
+  REMOVE_FOOD_BASKET_SUCCESS,
+  REMOVE_FOOD_BASKET_FAILURE,
 } from '../slices/basketSlice';
+
+import {FoodBasketResponse} from '../slices/foodSlice';
 
 export function* getBaskets() {
   try {
@@ -86,11 +97,52 @@ export function* getBasketProducer({
   }
 }
 
+export function* getBasketConsumer() {
+  try {
+    const {data, status}: AxiosResponse<BasketConsumerResponse> = yield call(
+      api.get,
+      `/consumers/get-consumer-basket`,
+    );
+
+    yield put(GET_CONSUMER_BASKET_SUCCESS({data, status}));
+  } catch (error) {
+    yield put(GET_CONSUMER_BASKET_FAILURE({error}));
+  }
+}
+
+export function* removeFoodBasket({
+  payload,
+}: PayloadAction<{
+  foodsBasket: FoodBasketResponse[];
+  foodsInMyBasket: BasketFoodQuantity;
+}>) {
+  try {
+    const removedFoods = Object.entries(payload.foodsInMyBasket).map(
+      ([key, value]) => {
+        const food = payload.foodsBasket.find(food => food.foodID.name === key);
+
+        return {
+          foodID: food?.foodID.id,
+          quantity: food ? food.quantity - value : 0,
+        };
+      },
+    );
+
+    yield call(api.post, '/consumers/basket/set-removed-foods', removedFoods);
+
+    yield put(REMOVE_FOOD_BASKET_SUCCESS());
+  } catch (error) {
+    yield put(REMOVE_FOOD_BASKET_FAILURE({error}));
+  }
+}
+
 export default function* watcher() {
   yield all([
     takeLatest(GET_BASKET, getBaskets),
     takeLatest(SIGNUP_PRODUCER_BASKET, signupProducerBasket),
-    takeLatest(SIGNUP_PRODUCER_BASKET, signupConsumerBasket),
+    takeLatest(SIGNUP_CONSUMER_BASKET, signupConsumerBasket),
     takeLatest(GET_BASKET_PRODUCER, getBasketProducer),
+    takeLatest(GET_CONSUMER_BASKET, getBasketConsumer),
+    takeLatest(REMOVE_FOOD_BASKET, removeFoodBasket),
   ]);
 }

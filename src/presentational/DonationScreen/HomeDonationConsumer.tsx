@@ -118,7 +118,7 @@ export const HomeDonationConsumer = () => {
           <Button
             title="Ir para site"
             onPress={async () => Linking.openURL(OUR_SITE)}
-            size="medium"
+            size="small"
             buttonColor="transparent"
             textColor="primary"
           />

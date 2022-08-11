@@ -14,7 +14,7 @@ const Info = () => {
       </StyledText>
       <Button
         onPress={async () => Linking.openURL(OUR_SITE)}
-        size="medium"
+        size="small"
         buttonColor="text_only"
         textColor="primary"
         title="Ir para o site"
@@ -25,7 +25,7 @@ const Info = () => {
 };
 
 const StyledContainerInfo = styled.View`
-  width: 100%;
+  width: 90%;
   align-self: center;
   justify-content: space-between;
   align-items: center;

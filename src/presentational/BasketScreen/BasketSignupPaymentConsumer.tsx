@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import * as Yup from 'yup';
 import {useForm} from 'react-hook-form';
@@ -9,6 +9,7 @@ import {SvgProps} from 'react-native-svg';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {LoggedConsumerStackParamList} from '@/routes/stacks/LoggedConsumerStack';
 import {useNavigation} from '@react-navigation/native';
+import {translateBasketToPortuguese} from '@/helpers/translate';
 
 import BasketVegetable from '@/assets/svgs/vegetable-basket.svg';
 
@@ -34,13 +35,13 @@ const schema = Yup.object().shape({
 
 type NavProps = NativeStackNavigationProp<
   LoggedConsumerStackParamList,
-  'HomeConsumer'
+  'ProfileConsumer' | 'DonationConsumerStack'
 >;
 
 export const BasketSignupPaymentConsumer = () => {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const {navigate} = useNavigation<NavProps>();
-  const consumerBasket = useGetConsumerBasket();
+  const {basketConsumer} = useGetConsumerBasket();
 
   const {
     control,
@@ -52,9 +53,14 @@ export const BasketSignupPaymentConsumer = () => {
     setIsVisibleModal(event);
   }
 
-  function handleNavigateToInit() {
+  function handleNavigateToProfile() {
     handleModal(false);
-    navigate('HomeConsumer');
+    navigate('ProfileConsumer');
+  }
+
+  function handleNavigateToDonations() {
+    handleModal(false);
+    navigate('DonationConsumerStack');
   }
 
   async function onSubmit() {
@@ -85,13 +91,18 @@ export const BasketSignupPaymentConsumer = () => {
         <StyledCheckoutBox>
           <StyledTitle>Subtotal</StyledTitle>
           <StyledRow>
-            <StyledText>01 Cesta média - M</StyledText>
-            <StyledText>{`R$ ${consumerBasket?.basketID.value}`}</StyledText>
+            {basketConsumer?.basketID.size && (
+              <StyledText>{`01 Cesta ${translateBasketToPortuguese(
+                basketConsumer?.basketID.size,
+              )}`}</StyledText>
+            )}
+
+            <StyledText>{`R$ ${basketConsumer?.basketID.value}`}</StyledText>
           </StyledRow>
           <StyledRow>
             <StyledText>Total</StyledText>
             <StyledTextTotalPrice>
-              {`R$ ${consumerBasket?.basketID.value}`}
+              {`R$ ${basketConsumer?.basketID.value}`}
             </StyledTextTotalPrice>
           </StyledRow>
         </StyledCheckoutBox>
@@ -103,13 +114,13 @@ export const BasketSignupPaymentConsumer = () => {
           envie o comprovante de pagamento para o produtor pelo whatsapp.
         </StyledText>
 
-        {consumerBasket &&
-          (consumerBasket?.basketProducerID.randomPix ||
-            consumerBasket?.basketProducerID.phonePix ||
-            consumerBasket?.basketProducerID.emailPix ||
-            consumerBasket?.basketProducerID.cpfPix) && (
+        {basketConsumer &&
+          (basketConsumer?.basketProducerID.randomPix ||
+            basketConsumer?.basketProducerID.phonePix ||
+            basketConsumer?.basketProducerID.emailPix ||
+            basketConsumer?.basketProducerID.cpfPix) && (
             <InputClipboard
-              text={getPixProducer(consumerBasket?.basketProducerID)}
+              text={getPixProducer(basketConsumer?.basketProducerID)}
             />
           )}
 
@@ -123,7 +134,12 @@ export const BasketSignupPaymentConsumer = () => {
             title="Seu pedido foi confirmado e será preparado!"
             subTitle="Para alinhar a entrega ou coleta da cesta, vá para mensagens e combine todos os detalhes diretamente com o produtor."
             icon={BasketVegetable as React.FC<SvgProps>}
-            onPress={() => handleNavigateToInit()}
+            titleConfirmButton="Ir para mensagens"
+            titleCancelButton="Ir para doações"
+            columnButtons
+            onConfirm={handleNavigateToProfile}
+            onCancel={handleNavigateToDonations}
+            onClose={() => handleModal(false)}
           />
         )}
       </StyledContent>
@@ -135,7 +151,6 @@ const StyledTitle = styled.Text`
   font-family: ${({theme}) => theme.fonts.SEMIBOLD_SOURCESANSPRO};
   font-size: ${({theme}) => theme.sizing.LARGER};
   color: ${({theme}) => theme.colors.GRAY_900};
-
   margin-bottom: 16px;
 `;
 
