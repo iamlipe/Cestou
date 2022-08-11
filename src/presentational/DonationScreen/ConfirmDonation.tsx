@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 
 import Coins from '@/assets/svgs/coins.svg';
 import Button from '@/components/Button';
@@ -10,21 +11,18 @@ import {StyledContainerScroll, StyledContent} from './HomeDonationConsumer';
 import Header from '@/components/Header';
 
 export const ConfirmDonations = () => {
+  const {t} = useTranslation();
   const {goBack} = useNavigation();
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
-      <Header title="Assinatura" welcome={false} />
+      <Header title={t('Text.ConfirmDonation.HeaderTitle')} welcome={false} />
       <StyledContent>
         <StyledIconCoins />
-        <StyledTitle>Doação realizada com sucesso!</StyledTitle>
-        <StyledText>
-          Você acabou de ajudar uma instituição que atua no combate à fome,
-          doando Horticoins que serão convertidos na compra de alimentos direto
-          com nossos produtores locais parceiros.
-        </StyledText>
+        <StyledTitle>{t('Text.ConfirmDonation.Title')}</StyledTitle>
+        <StyledText>{t('Text.ConfirmDonation.Message')}</StyledText>
 
-        <StyledConfirmButton title="Doar novamente" onPress={goBack} />
+        <StyledConfirmButton title={t('Button.DonateAgain')} onPress={goBack} />
       </StyledContent>
     </StyledContainerScroll>
   );
