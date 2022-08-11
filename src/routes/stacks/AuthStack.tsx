@@ -12,7 +12,7 @@ export type AuthStackParamList = {
   ConfirmRegister: {
     phoneOrEmail: string;
     password: string;
-    userType: 'producer' | 'consumer';
+    userType: string;
   };
   Onboarding: {
     phoneOrEmail: string;
