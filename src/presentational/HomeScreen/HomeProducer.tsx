@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 import {useNavigation} from '@react-navigation/native';
 import {HomeProducerStackParamList} from '@/routes/stacks/HomeProducerStack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useTranslation} from 'react-i18next';
 
 import Header from '@/components/Header';
 import Button from '@/components/Button';
@@ -14,6 +15,7 @@ type NavProps = NativeStackNavigationProp<
 
 export const HomeProducer = () => {
   const {navigate} = useNavigation<NavProps>();
+  const {t} = useTranslation();
 
   const renderLargeButton = (title: string) => (
     <StyledContainerLargeButton>
@@ -24,22 +26,21 @@ export const HomeProducer = () => {
   return (
     <StyledContainer showsVerticalScrollIndicator={false}>
       <Header />
-      <StyledTitle>Minhas cestas</StyledTitle>
+      <StyledTitle>{t('Text.ScreenHomeProducer.TitleSectionOne')}</StyledTitle>
       <StyledContainerAboutMyBasket>
         <StyledTitleAboutMyBasket>
-          Configure quais os tipos e tamanhos de cesta de alimentos você deseja
-          fornecer.
+          {t('Text.ScreenHomeProducer.Note')}
         </StyledTitleAboutMyBasket>
 
         <ButtonAboutMyBasket
-          title="Minhas cestas"
+          title={t('Button.MyBaskets')}
           onPress={() => navigate('HomeMyBasketsProducer')}
         />
       </StyledContainerAboutMyBasket>
 
-      <StyledTitle>Minhas finanças</StyledTitle>
-      {renderLargeButton('Ver meus rendimentos')}
-      {renderLargeButton('Cadastrar chave Pix')}
+      <StyledTitle>{t('Text.ScreenHomeProducer.TitleSectionTwo')}</StyledTitle>
+      {renderLargeButton(t('Button.MyEarnings'))}
+      {renderLargeButton(t('Button.RegisterPix'))}
     </StyledContainer>
   );
 };
