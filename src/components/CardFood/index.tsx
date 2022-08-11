@@ -1,5 +1,6 @@
 import React, {memo} from 'react';
 import styled from 'styled-components/native';
+import {useTranslation} from 'react-i18next';
 
 import {translateFoodToPortuguese} from '@/helpers/translate';
 
@@ -12,14 +13,18 @@ interface Props {
   image: string;
 }
 const CardFood = ({name, image, control, maxQuantity}: Props) => {
+  const {t, i18n} = useTranslation();
+
   return (
     <StyledContainer>
       <StyledImage source={{uri: image}} />
 
       <StyledContainerInfo>
-        <StyledTitleCard>{translateFoodToPortuguese(name)}</StyledTitleCard>
+        <StyledTitleCard>
+          {i18n.language === 'pt' ? translateFoodToPortuguese(name) : name}
+        </StyledTitleCard>
         <StyledButton>
-          <StyledTextLink>Ver exemplos</StyledTextLink>
+          <StyledTextLink>{t('Text.ComponentCardFood.SeeMore')}</StyledTextLink>
         </StyledButton>
       </StyledContainerInfo>
       <Counter name={name} control={control} maxQuantity={maxQuantity} />
