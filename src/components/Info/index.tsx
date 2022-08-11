@@ -2,22 +2,22 @@ import React, {memo} from 'react';
 import styled from 'styled-components/native';
 import {Linking} from 'react-native';
 import {OUR_SITE} from 'react-native-dotenv';
+import {useTranslation} from 'react-i18next';
 
 import Button from '@/components/Button';
 
 const Info = () => {
+  const {t} = useTranslation();
+
   return (
     <StyledContainerInfo>
-      <StyledText>
-        Se você é uma instituição que atua no combate a fome e deseja solicitar
-        seu cadastro, visite nosso site e saiba mais.
-      </StyledText>
+      <StyledText>{t('Text.ComponentInfo.Title')}</StyledText>
       <Button
         onPress={async () => Linking.openURL(OUR_SITE)}
         size="small"
         buttonColor="text_only"
         textColor="primary"
-        title="Ir para o site"
+        title={t('Button.GoToSite')}
         noMargin
       />
     </StyledContainerInfo>
