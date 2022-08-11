@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
+import i18next, {t} from 'i18next';
 import * as Yup from 'yup';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useGetConsumerBasket} from '@/hooks/useGetConsumerBasket';
+import {useTranslation} from 'react-i18next';
 import {getPixProducer} from '@/helpers/getPixProducer';
 import {SvgProps} from 'react-native-svg';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -30,7 +32,7 @@ interface Form {
 }
 
 const schema = Yup.object().shape({
-  typeDeleviry: Yup.string().required('Preenchimento obrigatório'),
+  typeDeleviry: Yup.string().required(i18next.t('Error.Required')),
 });
 
 type NavProps = NativeStackNavigationProp<
@@ -41,6 +43,7 @@ type NavProps = NativeStackNavigationProp<
 export const BasketSignupPaymentConsumer = () => {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const {navigate} = useNavigation<NavProps>();
+  const {t, i18n} = useTranslation();
   const {basketConsumer} = useGetConsumerBasket();
 
   const {
@@ -69,49 +72,74 @@ export const BasketSignupPaymentConsumer = () => {
 
   return (
     <StyledContainerScroll>
-      <Header title="Assinatura" welcome={false} />
+      <Header
+        title={t('Text.BasketSignupPaymentConsumer.HeaderTitle')}
+        welcome={false}
+      />
       <StyledContent>
-        <StyledTitle>Entrega</StyledTitle>
+        <StyledTitle>
+          {t('Text.BasketSignupPaymentConsumer.TitleSectionOne')}
+        </StyledTitle>
         <StyledText>
-          Escolha se você prefere retirar sua cesta em um dos nossos pontos de
-          coleta, ou receber em casa pagando uma taxa a mais
+          {t('Text.BasketSignupPaymentConsumer.InstructionSectionOne')}
         </StyledText>
 
         <RadioForm
           name="typeDeleviry"
           control={control}
           options={[
-            'Retirar no ponto de coleta - R$00,00',
-            'Entrega (à combinar com produtor)',
+            t('Option.DaysPerDeliverWeekly'),
+            t('Option.DaysPerDeliverFortnightly'),
           ]}
           type="withLine"
           error={isSubmitted ? errors.typeDeleviry?.message : ''}
         />
 
         <StyledCheckoutBox>
-          <StyledTitle>Subtotal</StyledTitle>
+          <StyledTitle>
+            {t('Text.BasketSignupPaymentConsumer.CheckoutTitle')}
+          </StyledTitle>
           <StyledRow>
             {basketConsumer?.basketID.size && (
-              <StyledText>{`01 Cesta ${translateBasketToPortuguese(
-                basketConsumer?.basketID.size,
-              )}`}</StyledText>
+              <StyledText>
+                {t(
+                  'Text.BasketSignupPaymentConsumer.CheckoutDescriptionBasket',
+                  {
+                    size:
+                      i18n.language !== 'en'
+                        ? translateBasketToPortuguese(
+                            basketConsumer?.basketID.size,
+                          )
+                        : basketConsumer?.basketID.size,
+                  },
+                )}
+              </StyledText>
             )}
 
-            <StyledText>{`R$ ${basketConsumer?.basketID.value}`}</StyledText>
+            <StyledText>
+              {t('Text.BasketSignupPaymentConsumer.CheckoutPriceBasket', {
+                price: basketConsumer?.basketID.value,
+              })}
+            </StyledText>
           </StyledRow>
           <StyledRow>
-            <StyledText>Total</StyledText>
+            <StyledText>
+              {t('Text.BasketSignupPaymentConsumer.CheckoutTotal')}
+            </StyledText>
             <StyledTextTotalPrice>
-              {`R$ ${basketConsumer?.basketID.value}`}
+              {t('Text.BasketSignupPaymentConsumer.CheckoutTotalPriceBasket', {
+                price: basketConsumer?.basketID.value,
+              })}
             </StyledTextTotalPrice>
           </StyledRow>
         </StyledCheckoutBox>
 
-        <StyledTitle>Pagamento</StyledTitle>
+        <StyledTitle>
+          {t('Text.BasketSignupPaymentConsumer.TitleSectionTwo')}
+        </StyledTitle>
 
         <StyledText>
-          Realize o pagamento para a chave pix informada abaixo e em seguida
-          envie o comprovante de pagamento para o produtor pelo whatsapp.
+          {t('Text.BasketSignupPaymentConsumer.InstructionSectionTwo')}
         </StyledText>
 
         {basketConsumer &&
@@ -125,17 +153,17 @@ export const BasketSignupPaymentConsumer = () => {
           )}
 
         <StyledSubmitButton
-          title="Concluir compra"
+          title={t('Button.CompletePurchase')}
           onPress={handleSubmit(onSubmit)}
         />
 
         {isVisibleModal && (
           <Modal
-            title="Seu pedido foi confirmado e será preparado!"
-            subTitle="Para alinhar a entrega ou coleta da cesta, vá para mensagens e combine todos os detalhes diretamente com o produtor."
+            title={t('Modal.TitleCompletePurchase')}
+            subTitle={t('Modal.SubTileCompletePurchase')}
             icon={BasketVegetable as React.FC<SvgProps>}
-            titleConfirmButton="Ir para mensagens"
-            titleCancelButton="Ir para doações"
+            titleConfirmButton={t('Button.GoToMessages')}
+            titleCancelButton={t('Button.GoToDonations')}
             columnButtons
             onConfirm={handleNavigateToProfile}
             onCancel={handleNavigateToDonations}
