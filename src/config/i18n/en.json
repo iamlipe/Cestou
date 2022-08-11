@@ -1,0 +1,210 @@
+{
+  "translation": {
+    "Label": {
+      "Email": "Email",
+      "Password": "Password",
+      "Name": "Full name",
+      "PixValue": "Enter the pix key"
+    },
+
+    "Option": {
+      "IProducer": "Sou produtor",
+      "IConsumer": "Sou consumidor",
+      "RememberMe": "Lembrar minha senha",
+      "Terms": "Concordo com a Política de Privacidade e Termos de uso",
+      "SmallBasket": "Small",
+      "MediumBasket": "Medium",
+      "LargeBasket": "Large",
+      "TypePixCPF": "CPF",
+      "TypePixPhone": "Phone",
+      "TypePixEmail": "E-mail",
+      "TypePixRandom": "Random key",
+      "DaysPerDeliverWeekly": "Weekly",
+      "DaysPerDeliverFortnightly": "Fortnightly",
+      "TypeDeliveryCollectPoint": "Pick up at the collection point - BRL 00.00",
+      "TypeDeliveryHome": "Delivery (to be arranged with producer)"
+    },
+
+    "DetailsOption": {
+      "SmallBasket": "1 spice, 2 vegetables, 2 leaves, 3 fruits",
+      "MediumBasket": "2 spices, 3 vegetables, 3 leaves, 3 fruits\nand 1 processed",
+      "LargeBasket": "3 spices, 4 vegetables, 4 leaves, 4 fruits\nand 1 processed"
+    },
+
+    "Button": {
+      "Login": "Login",
+      "RecoveryPassword": "Recovery password",
+      "GoToSite": "Go to site",
+      "SignUp": "Sign up",
+      "SignIn": "Sign In",
+      "Register": "Register",
+      "Start": "Start",
+      "Done": "Done",
+      "Prev": "Previous",
+      "Skip": "Skip",
+      "Next": "Next",
+      "Confirm": "Confirm",
+      "MyBaskets": "My Baskets",
+      "MyEarnings": "See my earnings",
+      "RegisterPix": "Register pix key",
+      "ConfigPix": "Configure pix key",
+      "Extract": "See extract",
+      "MyInfo": "My Info",
+      "ContactProducer": "Contact producer",
+      "Logout": "Logout",
+      "DonateAgain": "Donate Again",
+      "CompletePurchase": "Complete purchase",
+      "GoToMessages": "Go to messages",
+      "GoToDonations": "Go to donations",
+      "Cancel": "Cancel"
+    },
+
+    "Error": {
+      "Login": "Incorrect email or password",
+      "Required": "Field required",
+      "ValidEmail": "Enter a valid email",
+      "ValidPassword": "The password must contain at least 6 digits",
+      "Terms": "You need to accept the terms of use",
+      "MinProduct": "Please select at least one product",
+      "MinCoins": "Minimum of 1 coin"
+    },
+
+    "Modal": {
+      "TitleConfirmProducerBasket": "You have added the baskets to your list of supplied products.",
+      "TitleRegisterPix": "Your PIX key has been successfully registered!",
+      "TitleInfoAboutBasket": "You removed {{counter, number}} item from your basket!",
+      "SubTitleInfoAboutBasket": "This item will be converted into Horticoin currency, and you will be able to donate it to a partner institution that works in the fight against hunger.",
+      "TitleCompletePurchase": "Your order has been confirmed and will be prepared!",
+      "SubTileCompletePurchase": "To line up basket delivery or collection, go to messages and arrange all details directly with the producer."
+    },
+
+    "CardOng": {
+      "One": "NGO Comida na mesa",
+      "Two": "NGO Criança sem fome"
+    },
+
+    "Loading": "Loading...",
+
+    "Text": {
+      "ComponentInfo": {
+        "Title": "If you are an institution that works in the fight against hunger and want to request your registration, visit our website and learn more."
+      },
+  
+      "ComponentCardFood": {
+        "SeeMore": "See More"
+      },
+  
+      "ComponentHeader": {
+        "Welcome": "Welcome {{name}}!"
+      },
+  
+      "ComponentModalDonation": {
+        "TitleModalDonation": "You chose to donate to the NGO Criança sem fome!",
+        "SubTitleModalDonation": "You have 0 coins",
+        "TextModalDonation": "How many coins do you want to donate?"
+      },
+
+      "ScreenLogin": {
+        "DoNotHaveAnAccount?": "Do not have an account ?",
+        "ForgotYourPassword?": "Forgot your password ?"
+      },
+  
+      "ScreenRegister": {
+        "CreateAnAccount": "Create an account",
+        "EnterYourDetails": "Enter your details to create a new account:",
+        "AlreadyHaveAnAccount?": "Already have an account?"
+      },
+  
+      "ScreenConfirmRegister": {
+        "RegistrationSuccessfully": "Registration successfully completed!",
+        "ValidateYourRegistration": "Validate your registration and enjoy the entire experience of Cestar and help fight hunger."
+      },
+  
+      "ScreenOnboarding": {
+        "TitleOnboardingOne": "Take hunger out of the way",
+        "TextOnboardingOne": "Food is a basic right and its sharing is essential for those who are hungry. Through the monthly subscription, you guarantee healthy democratized food for your family and also allow the same consumption for a family in vulnerability.",
+        "TitleOnboardingTwo": "Present family farming",
+        "TextOnboardingTwo": "Connect with family farmers in your region. You strengthen the production of small local producers and receive fresh food grown with great care and care.",
+        "TitleOnboardingThree": "Healthy eating at your fingertips Healthy eating at your fingertips",
+        "TextOnboardingThree": "Here you will find food totally free of pesticides and close to you!"
+      },
+
+      "ScreenHomeConsumer": {
+        "TitleBanner": "Make your\n subscription!",
+        "SubTitleBanner": "Fresh products from\n local producers every\n week on your table",
+        "Title": "Help us fight hunger",
+        "SubTitle": "See below the institutions and projects registered in our network and help us reach the goal of the month by donating your coins that will be converted into food."
+      },
+
+      "ScreenHomeProducer": {
+        "TitleSectionOne": "My Baskets",
+        "Note": "Configure what types and sizes of food baskets you want to provide.",
+        "TitleSectionTwo": "My finances"
+      },
+
+      "ScreenHomeMyBasketsProducer": {
+        "TitleHeader": "My Baskets",
+        "Instructions": "Choose below what size basket you want to provide, and see what types of food are in each.",
+        "Note": "Note: You can select more than one size"
+      },
+
+      "ScreenHomeFinancialProducer": {
+        "HeaderTitle": "Financial",
+        "BalanceTitle": "Balance available",
+        "SectionTitle": "Registered pix keys"
+      },
+
+      "ScreenRegisterPixFinancialProducer": {
+        "HeaderTitle": "Pix keys",
+        "InstructionOne": "Inform which type of pix key you want to register to receive your sales:",
+        "InstructionTwo": "Enter the pix key to be registered in the field below:"
+      },
+
+      "ScreenProfile": {
+        "HeaderTitle": "Profile"
+      },
+
+      "HomeDonationConsumer": {
+        "HeaderTitle": "Donations",
+        "TitleCoins": "Balance of Horticoins coins generated from your basket",
+        "TitleSection": "Help fight hunger",
+        "InfoSection": "See below the institutions and projects registered in our network and help us reach the goal of the month by donating your Horticoins that will be converted into food.",
+        "Info": "To learn more about the projects and institutions we are helping, visit our website."
+      },
+
+      "ConfirmDonation": {
+        "HeaderTitle": "Subscription",
+        "Title": "Donation made successfully!",
+        "Message": "You have just helped an institution that works in the fight against hunger, donating Horticoins that will be converted into the purchase of food directly with our local partner producers."
+      },
+
+      "BasketSignupPlanConsumer": {
+        "HeaderTitle": "Subscription",
+        "Title": "Let's set up your plan",
+        "InstructionOne": "Choose how often you receive or withdraw your basket:",
+        "InstructionTwo": "Choose which size you want for your food basket:",
+        "Note": "Note: The amount informed above is charged according to the chosen frequency."
+      },
+
+      "BasketSignupFoodConsumer": {
+        "HeaderTitle": "Subscription",
+        "InfoBasket": "You have chosen the {{size}} size basket ({{quantity}} items), select how many servings of each category you want to receive.",
+        "Warning": "Important!",
+        "WarningText": "Each unit of food taken from your basket is converted into Horticoins, our virtual currency that is used by partner institutions to purchase food and help fight hunger!"
+      },
+
+      "BasketSignupPaymentConsumer": {
+        "HeaderTitle": "Subscription",
+        "TitleSectionOne": "Delivery",
+        "InstructionSectionOne": "Choose whether you prefer to pick up your basket at one of our collection points, or receive it at home for an extra fee.",
+        "CheckoutTitle": "Subtotal",
+        "CheckoutTotal": "Total",
+        "CheckoutDescriptionBasket": "01 basket {{size}}",
+        "CheckoutPriceBasket": "R$ {{price}}",
+        "CheckoutTotalPriceBasket": "R$ {{price}}",
+        "TitleSectionTwo": "Payment",
+        "InstructionSectionTwo": "Make the payment to the pix key informed below and then send the proof of payment to the producer via whatsapp."
+      }
+    }
+  }
+}
