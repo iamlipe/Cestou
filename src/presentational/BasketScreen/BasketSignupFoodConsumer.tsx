@@ -4,6 +4,7 @@ import {useForm} from 'react-hook-form';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 import {BasketConsumerStackParamList} from '@/routes/stacks/BasketConsumerStack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {SvgProps} from 'react-native-svg';
@@ -39,8 +40,9 @@ export const BasketSignupFoodConsumer = () => {
   );
   const [quantityFoodInMyBasket, setQuantityFoodInMyBasket] = useState(0);
   const {foodsBasket} = useGetFoodBasket();
-  const {isLoading} = useReduxSelector(state => state.basket);
+  const {basketProducer, isLoading} = useReduxSelector(state => state.basket);
   const {navigate} = useNavigation<NavProps>();
+  const {t} = useTranslation();
   const dispatch = useReduxDispatch();
 
   const {control, handleSubmit} = useForm<BasketFoodQuantity>();
@@ -55,10 +57,14 @@ export const BasketSignupFoodConsumer = () => {
     }
   }
 
-  function sumQuntityFoods(data: number[]) {
-    const sum = data.reduce((acc, curr) => acc + curr, 0);
+  function sumQuntityFoods(data: number[] | undefined) {
+    if (data) {
+      const sum = data.reduce((acc, curr) => acc + curr, 0);
 
-    return sum;
+      return sum;
+    }
+
+    return 0;
   }
 
   function handleQuantityFoodRemoved(data: BasketFoodQuantity) {
@@ -89,19 +95,24 @@ export const BasketSignupFoodConsumer = () => {
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
-      <Header title="Assinatura" welcome={false} />
+      <Header
+        title={t('Text.BasketSignupFoodConsumer.HeaderTitle')}
+        welcome={false}
+      />
       <StyledContent>
         <StyledText>
-          Você escolheu a cesta de tamanho médio (12 itens), selecione quantas
-          porções de cada categoria deseja receber.
+          {t('Text.BasketSignupFoodConsumer.InfoBasket', {
+            size: basketProducer?.basket_size,
+            quantity: sumQuntityFoods(foodsBasket?.map(food => food.quantity)),
+          })}
         </StyledText>
 
         <StyledWarningBox>
-          <StyledWarningBoxTitle>Importante!</StyledWarningBoxTitle>
+          <StyledWarningBoxTitle>
+            {t('Text.BasketSignupFoodConsumer.Warning')}
+          </StyledWarningBoxTitle>
           <StyledWarningBoxText>
-            Cada unidade de alimento retirada da sua cesta, é convertida em
-            Horticoins, nossa moeda virtual que é utilizada por instituições
-            parceiras para adquirir alimentos e ajudar no combate a fome!
+            {t('Text.BasketSignupFoodConsumer.WarningText')}
           </StyledWarningBoxText>
         </StyledWarningBox>
 
@@ -115,12 +126,17 @@ export const BasketSignupFoodConsumer = () => {
           />
         ))}
 
-        <StyledSubmitButton title="Próximo" onPress={handleSubmit(onSubmit)} />
+        <StyledSubmitButton
+          title={t('Button.Next')}
+          onPress={handleSubmit(onSubmit)}
+        />
 
         {isVisibleModal && (
           <Modal
-            title={`Você retirou ${quantityFoodInMyBasket} item da sua cesta!`}
-            subTitle="Este item será convertido na moeda Horticoin, e você poderá doá-la para uma instituição parceira que atua no combate a fome."
+            title={t('Modal.TitleInfoAboutBasket', {
+              counter: quantityFoodInMyBasket,
+            })}
+            subTitle={t('Modal.SubTitleInfoAboutBasket')}
             icon={IconVegetable as React.FC<SvgProps>}
             onConfirm={() => {
               removeFoodBasket();
