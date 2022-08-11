@@ -3,6 +3,7 @@ import styled, {css, useTheme} from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 
 const typeHeader = {
   normal: css`
@@ -29,6 +30,7 @@ interface Props {
 const Header = ({welcome = true, type = 'normal', photo, title}: Props) => {
   const {auth} = useReduxSelector(state => state.user);
   const {goBack} = useNavigation();
+  const {t} = useTranslation();
   const theme = useTheme();
 
   return (
@@ -36,7 +38,9 @@ const Header = ({welcome = true, type = 'normal', photo, title}: Props) => {
       <StyledContainerInfo type={type}>
         <StyledContent>
           {welcome ? (
-            <StyledTitle>{`Olá ${auth?.firstName}!`}</StyledTitle>
+            <StyledTitle>
+              {t('Text.ComponentHeader.Welcome', {name: auth?.firstName})}
+            </StyledTitle>
           ) : (
             <>
               <StyledRow>
