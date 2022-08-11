@@ -8,6 +8,7 @@ import {GET_PRODUCER} from '@/store/slices/producerSlice';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {FinancialProducerStackParamList} from '@/routes/stacks/FinancialProducerStack';
 import {useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 
 import IconPiggyBank from '@/assets/svgs/piggy-bank.svg';
 
@@ -23,6 +24,7 @@ export const HomeFinancialProducer = () => {
   const {auth} = useReduxSelector(state => state.user);
   const {producer} = useReduxSelector(state => state.producer);
   const {navigate} = useNavigation<NavProps>();
+  const {t} = useTranslation();
   const theme = useTheme();
   const dispatch = useReduxDispatch();
 
@@ -53,10 +55,15 @@ export const HomeFinancialProducer = () => {
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
-      <Header title="Financeiro" welcome={false} />
+      <Header
+        title={t('Text.ScreenHomeFinancialProducer.HeaderTitle')}
+        welcome={false}
+      />
       <StyledContent>
         <StyledPiggyBank testID="icon-piggy-bank" />
-        <StyledTitleBalance>Saldo disponível</StyledTitleBalance>
+        <StyledTitleBalance>
+          {t('Text.ScreenHomeFinancialProducer.BalanceTitle')}
+        </StyledTitleBalance>
         {producer?.balance ? (
           <StyledTextBalance>
             {`R$ ${Number(producer?.balance).toLocaleString('pt-br', {
@@ -65,13 +72,13 @@ export const HomeFinancialProducer = () => {
             })}`}
           </StyledTextBalance>
         ) : (
-          <StyledTextLoadingBalance>Carregando...</StyledTextLoadingBalance>
+          <StyledTextLoadingBalance>{t('Loading')}</StyledTextLoadingBalance>
         )}
         <ButtonRedirect
-          title="Configurar chave pix"
+          title={t('Button.ConfigPix')}
           onPress={() => navigate('RegisterPixFinancialProducer')}
         />
-        <ButtonRedirect title="Ver extrato" onPress={() => null} />
+        <ButtonRedirect title={t('Button.Extract')} onPress={() => null} />
 
         {(producer?.cpfPix ||
           producer?.emailPix ||
@@ -79,7 +86,9 @@ export const HomeFinancialProducer = () => {
           producer?.randomPix) && (
           <>
             <StyledLine />
-            <StyledTitlePix>Chaves cadastradas</StyledTitlePix>
+            <StyledTitlePix>
+              {t('Text.ScreenHomeFinancialProducer.SectionTitle')}
+            </StyledTitlePix>
             {producer?.cpfPix && renderPix(producer?.cpfPix, 'person')}
             {producer?.emailPix &&
               renderPix(producer?.emailPix, 'mail-outline')}
@@ -122,7 +131,9 @@ const StyledTextBalance = styled(StyledTitleBalance)`
   margin-bottom: 16px;
 `;
 
-const StyledTextLoadingBalance = styled.Text``;
+const StyledTextLoadingBalance = styled.Text`
+  text-align: center;
+`;
 
 const StyledLine = styled.View`
   width: 100%;
