@@ -1,6 +1,7 @@
 import React, {memo} from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {useTranslation} from 'react-i18next';
 
 import {
   StyledModal,
@@ -33,6 +34,7 @@ const ModalDonation = ({
   ...rest
 }: Props) => {
   const theme = useTheme();
+  const {t} = useTranslation();
 
   return (
     <GestureHandlerRootView>
@@ -48,10 +50,14 @@ const ModalDonation = ({
             />
 
             <StyledTitle>
-              Você escolheu doar para a ONG Criança sem fome!
+              {t('Text.ComponentModalDonation.TitleModalDonation')}
             </StyledTitle>
-            <StyledSubTitle>Você tem 0 moedas</StyledSubTitle>
-            <StyledText>Quantas moedas deseja doar?</StyledText>
+            <StyledSubTitle>
+              {t('Text.ComponentModalDonation.SubTitleModalDonation')}
+            </StyledSubTitle>
+            <StyledText>
+              {t('Text.ComponentModalDonation.TextModalDonation')}
+            </StyledText>
 
             <Counter name={name} control={control} />
             {error && <StyledError>{error}</StyledError>}
