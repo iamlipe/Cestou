@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import i18next from 'i18next';
+import {useTranslation} from 'react-i18next';
 
 import imgBanner from '@/assets/images/presentation_1.png';
 import imgOngOne from '@/assets/images/ong_1.png';
@@ -21,34 +23,33 @@ interface DataOng {
 const dataOngServices: DataOng[] = [
   {
     image: imgOngOne,
-    title: 'ONG Comida na mesa',
+    title: i18next.t('CardOng.One'),
     link: 'https://cestou.netlify.app/sobre',
   },
   {
     image: imgOngTwo,
-    title: 'ONG Criança sem fome',
+    title: i18next.t('CardOng.Two'),
     link: 'https://cestou.netlify.app/sobre',
   },
 ];
 
 export const HomeConsumer = () => {
+  const {t} = useTranslation();
+
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
       <Header />
       <StyledBanner source={imgBanner}>
-        <StyledTitleBanner>Faça sua{'\n'} assinatura!</StyledTitleBanner>
+        <StyledTitleBanner>
+          {t('Text.ScreenHomeConsumer.TitleBanner')}
+        </StyledTitleBanner>
         <StyledSubtitleBanner>
-          Produtos fresquinhos de{'\n'} produtores locais toda{'\n'} semana na
-          sua mesa
+          {t('Text.ScreenHomeConsumer.SubTitleBanner')}
         </StyledSubtitleBanner>
       </StyledBanner>
       <StyledContent>
-        <StyledText title>Ajude no combate a fome</StyledText>
-        <StyledText>
-          Veja abaixo as instituições e projetos cadastrados na nossa rede e
-          ajude-nos a atingir a meta do mês doando suas moedas que serão
-          convertidas em alimentos.
-        </StyledText>
+        <StyledText title>{t('Text.ScreenHomeConsumer.Title')}</StyledText>
+        <StyledText>{t('Text.ScreenHomeConsumer.SubTitle')}</StyledText>
 
         <StyledContainerServices>
           {dataOngServices.map((ong: DataOng, index: number) => (
