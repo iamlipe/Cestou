@@ -32,9 +32,9 @@ export const translatePixType = (
       return 'cpf';
     case 'E-mail':
       return 'email';
-    case 'Celular':
+    case 'Celular' || 'Phone':
       return 'phone';
-    case 'Chave aleatória':
+    case 'Chave aleatória' || 'Random key':
       return 'random';
     default:
       return undefined;
