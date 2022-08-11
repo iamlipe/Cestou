@@ -6,6 +6,7 @@ import {LOGOUT} from '@/store/slices/userSlice';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useGetConsumerBasket} from '@/hooks/useGetConsumerBasket';
+import {useTranslation} from 'react-i18next';
 
 import Header from '@/components/Header';
 import ButtonRedirect from '@/components/ButtonRedirect';
@@ -13,6 +14,7 @@ import ButtonRedirect from '@/components/ButtonRedirect';
 export const Profile = () => {
   const {basketConsumer} = useGetConsumerBasket();
   const {auth} = useReduxSelector(state => state.user);
+  const {t} = useTranslation();
   const dispatch = useReduxDispatch();
   const theme = useTheme();
 
@@ -24,21 +26,27 @@ export const Profile = () => {
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
-      <Header title="Perfil" type="profile" welcome={false} />
+      <Header
+        title={t('Text.ScreenProfile.HeaderTitle')}
+        type="profile"
+        welcome={false}
+      />
       <StyledContent>
-        <ButtonRedirect title="Meus dados" onPress={() => null} />
-        <ButtonRedirect title="Minhas cestas" onPress={() => null} />
+        <ButtonRedirect title={t('Button.MyInfo')} onPress={() => null} />
+        <ButtonRedirect title={t('Button.MyBaskets')} onPress={() => null} />
 
         {auth?.userType === 'consumer' &&
           basketConsumer?.basketProducerID.userID.phone && (
             <ButtonRedirect
-              title="Contactar produtor"
+              title={t('Button.ContactProducer')}
               onPress={() => WhatsAppLink()}
             />
           )}
 
         <StyledLogoutButton onPress={() => dispatch(LOGOUT())}>
-          <StyledTitleLogoutButton>Sair da conta</StyledTitleLogoutButton>
+          <StyledTitleLogoutButton>
+            {t('Button.Logout')}
+          </StyledTitleLogoutButton>
 
           <Icon name="logout" size={20} color={theme.colors.GRAY_900} />
         </StyledLogoutButton>
