@@ -1,11 +1,10 @@
 import React, {useEffect, useState, useCallback} from 'react';
 import styled from 'styled-components/native';
-import i18next from 'i18next';
 import * as Yup from 'yup';
+import {t} from 'i18next';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useNavigation} from '@react-navigation/native';
-import {useTranslation} from 'react-i18next';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -21,8 +20,8 @@ import RadioForm from '@/components/RadioForm';
 import Button from '@/components/Button';
 
 const schema = Yup.object().shape({
-  daysPerDeliver: Yup.string().required(i18next.t('Error.Required')),
-  size: Yup.string().required(i18next.t('Error.Required')),
+  daysPerDeliver: Yup.string().required(t('error.required')),
+  size: Yup.string().required(t('error.required')),
 });
 
 type NavProps = NativeStackNavigationProp<
@@ -36,7 +35,6 @@ export const BasketSignupPlanConsumer = () => {
     state => state.basket,
   );
   const {navigate} = useNavigation<NavProps>();
-  const {t} = useTranslation();
   const dispatch = useReduxDispatch();
 
   const {
@@ -76,28 +74,28 @@ export const BasketSignupPlanConsumer = () => {
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
       <Header
-        title={t('Text.BasketSignupPlanConsumer.HeaderTitle')}
+        title={t('text.basketSignupPlanConsumer.headerTitle')}
         welcome={false}
       />
       <StyledContent>
-        <StyledTitle>{t('Text.BasketSignupPlanConsumer.Title')}</StyledTitle>
+        <StyledTitle>{t('text.basketSignupPlanConsumer.title')}</StyledTitle>
         <StyledLabel>
-          {t('Text.BasketSignupPlanConsumer.InstructionOne')}
+          {t('text.basketSignupPlanConsumer.instructionOne')}
         </StyledLabel>
 
         <RadioForm
           name="daysPerDeliver"
           control={control}
           options={[
-            t('Option.DaysPerDeliverWeekly'),
-            t('Option.DaysPerDeliverFortnightly'),
+            t('option.daysPerDeliverWeekly'),
+            t('option.daysPerDeliverFortnightly'),
           ]}
           type="withBox"
           error={isSubmitted ? errors.daysPerDeliver?.message : ''}
         />
 
         <StyledLabel>
-          {t('Text.BasketSignupPlanConsumer.InstructionTwo')}
+          {t('text.basketSignupPlanConsumer.instructionTwo')}
         </StyledLabel>
 
         <StyledLine />
@@ -105,22 +103,22 @@ export const BasketSignupPlanConsumer = () => {
           name="size"
           control={control}
           options={[
-            t('Option.SmallBasket'),
-            t('Option.MediumBasket'),
-            t('Option.LargeBasket'),
+            t('option.smallBasket'),
+            t('option.mediumBasket'),
+            t('option.largeBasket'),
           ]}
           detailsOptions={[
-            t('DetailsOption.SmallBasket'),
-            t('DetailsOption.MediumBasket'),
-            t('DetailsOption.LargeBasket'),
+            t('detailsOption.smallBasket'),
+            t('detailsOption.mediumBasket'),
+            t('detailsOption.largeBasket'),
           ]}
           type="withBox"
           error={isSubmitted ? errors.size?.message : ''}
         />
-        <StyledText>{t('Text.BasketSignupPlanConsumer.Note')}</StyledText>
+        <StyledText>{t('text.basketSignupPlanConsumer.note')}</StyledText>
 
         <StyledSubmitButton
-          title={t('Button.Next')}
+          title={t('button.next')}
           onPress={handleSubmit(onSubmit)}
           loading={isLoading}
         />

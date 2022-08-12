@@ -1,7 +1,7 @@
 import React, {memo} from 'react';
 import styled, {useTheme} from 'styled-components/native';
+import {t} from 'i18next';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {useTranslation} from 'react-i18next';
 
 import {
   StyledModal,
@@ -34,7 +34,6 @@ const ModalDonation = ({
   ...rest
 }: Props) => {
   const theme = useTheme();
-  const {t} = useTranslation();
 
   return (
     <GestureHandlerRootView>
@@ -50,13 +49,13 @@ const ModalDonation = ({
             />
 
             <StyledTitle>
-              {t('Text.ComponentModalDonation.TitleModalDonation')}
+              {t('text.componentModalDonation.titleModalDonation')}
             </StyledTitle>
             <StyledSubTitle>
-              {t('Text.ComponentModalDonation.SubTitleModalDonation')}
+              {t('text.componentModalDonation.subTitleModalDonation')}
             </StyledSubTitle>
             <StyledText>
-              {t('Text.ComponentModalDonation.TextModalDonation')}
+              {t('text.componentModalDonation.textModalDonation')}
             </StyledText>
 
             <Counter name={name} control={control} />
@@ -67,13 +66,13 @@ const ModalDonation = ({
                 buttonColor="text_only"
                 textColor="primary"
                 size="small"
-                title="Cancelar"
+                title={t('button.cancel')}
                 onPress={onCancel}
               />
 
               <StyledConfirmButton
                 size="small"
-                title="Confirmar"
+                title={t('button.confirm')}
                 onPress={onConfirm}
               />
             </StyledContainerButtons>

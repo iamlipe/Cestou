@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components/native';
+import {t} from 'i18next';
 import {useForm} from 'react-hook-form';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useNavigation} from '@react-navigation/native';
-import {useTranslation} from 'react-i18next';
 import {BasketConsumerStackParamList} from '@/routes/stacks/BasketConsumerStack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {SvgProps} from 'react-native-svg';
@@ -42,7 +42,6 @@ export const BasketSignupFoodConsumer = () => {
   const {foodsBasket} = useGetFoodBasket();
   const {basketProducer, isLoading} = useReduxSelector(state => state.basket);
   const {navigate} = useNavigation<NavProps>();
-  const {t} = useTranslation();
   const dispatch = useReduxDispatch();
 
   const {control, handleSubmit} = useForm<BasketFoodQuantity>();
@@ -96,12 +95,12 @@ export const BasketSignupFoodConsumer = () => {
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
       <Header
-        title={t('Text.BasketSignupFoodConsumer.HeaderTitle')}
+        title={t('text.basketSignupFoodConsumer.headerTitle')}
         welcome={false}
       />
       <StyledContent>
         <StyledText>
-          {t('Text.BasketSignupFoodConsumer.InfoBasket', {
+          {t('text.basketSignupFoodConsumer.infoBasket', {
             size: basketProducer?.basket_size,
             quantity: sumQuntityFoods(foodsBasket?.map(food => food.quantity)),
           })}
@@ -109,10 +108,10 @@ export const BasketSignupFoodConsumer = () => {
 
         <StyledWarningBox>
           <StyledWarningBoxTitle>
-            {t('Text.BasketSignupFoodConsumer.Warning')}
+            {t('text.basketSignupFoodConsumer.warning')}
           </StyledWarningBoxTitle>
           <StyledWarningBoxText>
-            {t('Text.BasketSignupFoodConsumer.WarningText')}
+            {t('text.basketSignupFoodConsumer.warningText')}
           </StyledWarningBoxText>
         </StyledWarningBox>
 
@@ -127,16 +126,16 @@ export const BasketSignupFoodConsumer = () => {
         ))}
 
         <StyledSubmitButton
-          title={t('Button.Next')}
+          title={t('button.next')}
           onPress={handleSubmit(onSubmit)}
         />
 
         {isVisibleModal && (
           <Modal
-            title={t('Modal.TitleInfoAboutBasket', {
+            title={t('modal.titleInfoAboutBasket', {
               counter: quantityFoodInMyBasket,
             })}
-            subTitle={t('Modal.SubTitleInfoAboutBasket')}
+            subTitle={t('modal.subTitleInfoAboutBasket')}
             icon={IconVegetable as React.FC<SvgProps>}
             onConfirm={() => {
               removeFoodBasket();

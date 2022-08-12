@@ -1,5 +1,6 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import {t} from 'i18next';
 import {useTheme} from 'styled-components/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {LoggedProducerStackParamList} from '../stacks/LoggedProducerStack';
@@ -29,7 +30,6 @@ interface Props {
 
 export const ButtonTabProducer: React.FC<Props> = ({state}) => {
   const {navigate} = useNavigation<NavPropsProducer>();
-  const {t} = useTranslation();
   const activeTab = state.routes[state.index].name;
   const theme = useTheme();
 
@@ -61,19 +61,19 @@ export const ButtonTabProducer: React.FC<Props> = ({state}) => {
       <StyledButtonTabRow>
         {renderTab(
           'home',
-          t('BottomTab.Home'),
+          t('bottomTab.home'),
           'HomeProducerStack',
           'icon-tab-home',
         )}
         {renderTab(
           'attach-money',
-          t('BottomTab.Financial'),
+          t('bottomTab.financial'),
           'FinancialProducerStack',
           'icon-tab-financial',
         )}
         {renderTab(
           'person',
-          t('BottomTab.Profile'),
+          t('bottomTab.profile'),
           'ProfileProducer',
           'icon-tab-profile',
         )}

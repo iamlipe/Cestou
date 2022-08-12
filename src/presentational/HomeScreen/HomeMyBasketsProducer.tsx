@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components/native';
-import i18next from 'i18next';
 import * as Yup from 'yup';
+import {t} from 'i18next';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {SvgProps} from 'react-native-svg';
 import {useForm} from 'react-hook-form';
@@ -30,15 +30,14 @@ interface SignupBasket {
 
 const schema = Yup.object().shape({
   myBasket: Yup.array()
-    .min(1, i18next.t('Error.MinProduct'))
-    .required(i18next.t('Error.Required')),
+    .min(1, t('error.minProduct'))
+    .required(t('error.required')),
 });
 
 export const HomeMyBasketsProducer = () => {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const {isLoading, allBaskets} = useReduxSelector(state => state.basket);
   const {goBack} = useNavigation();
-  const {t} = useTranslation();
   const dispatch = useReduxDispatch();
 
   const {
@@ -77,43 +76,43 @@ export const HomeMyBasketsProducer = () => {
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
       <Header
-        title={t('Text.ScreenHomeMyBasketsProducer.TitleHeader')}
+        title={t('text.screenHomeMyBasketsProducer.titleHeader')}
         welcome={false}
       />
       <StyledContent>
         <StyledText>
-          {t('Text.ScreenHomeMyBasketsProducer.Instructions')}
+          {t('text.screenHomeMyBasketsProducer.instructions')}
         </StyledText>
         <StyledObservationText>
-          {t('Text.ScreenHomeMyBasketsProducer.Note')}
+          {t('text.screenHomeMyBasketsProducer.note')}
         </StyledObservationText>
 
         <Checkbox
           name="myBasket"
           control={control}
           options={[
-            t('Option.SmallBasket'),
-            t('Option.MediumBasket'),
-            t('Option.LargeBasket'),
+            t('option.smallBasket'),
+            t('option.mediumBasket'),
+            t('option.largeBasket'),
           ]}
           detailsOptions={[
-            t('DetailsOption.SmallBasket'),
-            t('DetailsOption.MediumBasket'),
-            t('DetailsOption.LargeBasket'),
+            t('detailsOption.smallBasket'),
+            t('detailsOption.mediumBasket'),
+            t('detailsOption.largeBasket'),
           ]}
           error={isSubmitted ? errors.myBasket?.message : ''}
         />
 
         <StyledSubmitButton
           testID="subimit-button"
-          title={t('Button.Confirm')}
+          title={t('button.confirm')}
           loading={isLoading}
           onPress={handleSubmit(onSubmit)}
         />
 
         {!isLoading && isVisibleModal && (
           <Modal
-            title={t('Modal.TitleConfirmProducerBasket')}
+            title={t('modal.titleConfirmProducerBasket')}
             icon={IconVegetable as React.FC<SvgProps>}
             onConfirm={() => {
               handleModal(false);

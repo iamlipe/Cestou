@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components/native';
-import i18next from 'i18next';
 import * as Yup from 'yup';
+import {t} from 'i18next';
 import {SubmitHandler, useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {REGISTER, RegisterForm} from '@/store/slices/userSlice';
@@ -24,15 +24,15 @@ type NavProps = NativeStackNavigationProp<
 >;
 
 const schema = Yup.object().shape({
-  userType: Yup.string().required(i18next.t('Error.Required')),
-  name: Yup.string().required(i18next.t('Error.Required')),
+  userType: Yup.string().required(t('error.required')),
+  name: Yup.string().required(t('error.required')),
   email: Yup.string()
-    .min(10, i18next.t('Error.ValidEmail'))
-    .required(i18next.t('Error.Required')),
+    .min(10, t('error.validEmail'))
+    .required(t('error.required')),
   password: Yup.string()
-    .min(6, i18next.t('Error.ValidPassword'))
-    .required(i18next.t('Error.Required')),
-  terms: Yup.array().min(1, i18next.t('Error.Terms')).required(),
+    .min(6, t('error.validPassword'))
+    .required(t('error.required')),
+  terms: Yup.array().min(1, t('error.terms')).required(),
 });
 
 export const Register = () => {
@@ -44,7 +44,6 @@ export const Register = () => {
   });
   const {goBack, navigate} = useNavigation<NavProps>();
   const {isLoading} = useReduxSelector(state => state.user);
-  const {t} = useTranslation();
   const dispatch = useReduxDispatch();
 
   const {
@@ -59,7 +58,7 @@ export const Register = () => {
     const firstName = data.name.split(' ')[0];
     const lastName = data.name.split(' ')[1];
     const userType =
-      data.userType === t('Option.IConsumer') ? 'consumer' : 'producer';
+      data.userType === t('option.iConsumer') ? 'consumer' : 'producer';
 
     dispatch(
       REGISTER({
@@ -92,62 +91,62 @@ export const Register = () => {
   return (
     <StyledContainer>
       <StyledRowTitle>
-        <StyledTitle>{t('Text.ScreenRegister.CreateAnAccount')}</StyledTitle>
+        <StyledTitle>{t('text.screenRegister.createAnAccount')}</StyledTitle>
         <StyledSubtitle>
-          {t('Text.ScreenRegister.EnterYourDetails')}
+          {t('text.screenRegister.enterYourDetails')}
         </StyledSubtitle>
       </StyledRowTitle>
       <StyledContainerForm>
         <RadioForm
           name="userType"
           control={control}
-          options={[t('Option.IProducer'), t('Option.IConsumer')]}
+          options={[t('option.iProducer'), t('option.iConsumer')]}
         />
 
         <InputForm
           name="name"
-          label={t('Label.Name')}
+          label={t('label.name')}
           error={isSubmitted ? errors.name?.message : ''}
           control={control}
         />
         <InputForm
           name="email"
-          label={t('Label.Email')}
+          label={t('label.email')}
           error={isSubmitted ? errors.email?.message : ''}
           control={control}
         />
         <InputForm
           name="password"
-          label={t('Label.Password')}
+          label={t('label.password')}
           error={isSubmitted ? errors.password?.message : ''}
           secureTextEntry
           control={control}
         />
         <StyledTextWarningPassowrd>
-          {t('Error.ValidPassword')}
+          {t('error.validPassword')}
         </StyledTextWarningPassowrd>
 
         <CheckboxForm
           name="terms"
           control={control}
-          options={[t('Option.Terms')]}
+          options={[t('option.terms')]}
         />
       </StyledContainerForm>
 
       <Button
-        title={t('Button.Register')}
+        title={t('button.register')}
         loading={isLoading}
         onPress={handleSubmit(onSubmit)}
       />
 
       <StyledRowLogin>
         <StyledText>
-          {t('Text.ScreenRegister.AlreadyHaveAnAccount?')}
+          {t('text.screenRegister.alreadyHaveAnAccount?')}
         </StyledText>
         <StyledLink
           buttonColor="text_only"
           textColor="primary"
-          title={t('Button.SignIn')}
+          title={t('button.signIn')}
           noMargin
           onPress={() => goBack()}
         />

@@ -2,13 +2,13 @@ import React, {useEffect} from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import IconMaterials from 'react-native-vector-icons/MaterialIcons';
 import IconFeather from 'react-native-vector-icons/Feather';
+import {t} from 'i18next';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {GET_PRODUCER} from '@/store/slices/producerSlice';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {FinancialProducerStackParamList} from '@/routes/stacks/FinancialProducerStack';
 import {useNavigation} from '@react-navigation/native';
-import {useTranslation} from 'react-i18next';
 
 import IconPiggyBank from '@/assets/svgs/piggy-bank.svg';
 
@@ -24,7 +24,6 @@ export const HomeFinancialProducer = () => {
   const {auth} = useReduxSelector(state => state.user);
   const {producer} = useReduxSelector(state => state.producer);
   const {navigate} = useNavigation<NavProps>();
-  const {t} = useTranslation();
   const theme = useTheme();
   const dispatch = useReduxDispatch();
 
@@ -56,13 +55,13 @@ export const HomeFinancialProducer = () => {
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
       <Header
-        title={t('Text.ScreenHomeFinancialProducer.HeaderTitle')}
+        title={t('text.screenHomeFinancialProducer.headerTitle')}
         welcome={false}
       />
       <StyledContent>
         <StyledPiggyBank testID="icon-piggy-bank" />
         <StyledTitleBalance>
-          {t('Text.ScreenHomeFinancialProducer.BalanceTitle')}
+          {t('text.screenHomeFinancialProducer.balanceTitle')}
         </StyledTitleBalance>
         {producer?.balance ? (
           <StyledTextBalance>
@@ -72,13 +71,13 @@ export const HomeFinancialProducer = () => {
             })}`}
           </StyledTextBalance>
         ) : (
-          <StyledTextLoadingBalance>{t('Loading')}</StyledTextLoadingBalance>
+          <StyledTextLoadingBalance>{t('loading')}</StyledTextLoadingBalance>
         )}
         <ButtonRedirect
-          title={t('Button.ConfigPix')}
+          title={t('button.configPix')}
           onPress={() => navigate('RegisterPixFinancialProducer')}
         />
-        <ButtonRedirect title={t('Button.Extract')} onPress={() => null} />
+        <ButtonRedirect title={t('button.extract')} onPress={() => null} />
 
         {(producer?.cpfPix ||
           producer?.emailPix ||
@@ -87,7 +86,7 @@ export const HomeFinancialProducer = () => {
           <>
             <StyledLine />
             <StyledTitlePix>
-              {t('Text.ScreenHomeFinancialProducer.SectionTitle')}
+              {t('text.screenHomeFinancialProducer.sectionTitle')}
             </StyledTitlePix>
             {producer?.cpfPix && renderPix(producer?.cpfPix, 'person')}
             {producer?.emailPix &&

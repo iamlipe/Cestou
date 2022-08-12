@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import i18next from 'i18next';
+import {t} from 'i18next';
 import {useTranslation} from 'react-i18next';
 
 import imgBanner from '@/assets/images/presentation_1.png';
@@ -23,33 +23,31 @@ interface DataOng {
 const dataOngServices: DataOng[] = [
   {
     image: imgOngOne,
-    title: i18next.t('CardOng.One'),
+    title: t('cardOng.one'),
     link: 'https://cestou.netlify.app/sobre',
   },
   {
     image: imgOngTwo,
-    title: i18next.t('CardOng.Two'),
+    title: t('cardOng.two'),
     link: 'https://cestou.netlify.app/sobre',
   },
 ];
 
 export const HomeConsumer = () => {
-  const {t} = useTranslation();
-
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
       <Header />
       <StyledBanner source={imgBanner}>
         <StyledTitleBanner>
-          {t('Text.ScreenHomeConsumer.TitleBanner')}
+          {t('text.screenHomeConsumer.titleBanner')}
         </StyledTitleBanner>
         <StyledSubtitleBanner>
-          {t('Text.ScreenHomeConsumer.SubTitleBanner')}
+          {t('text.screenHomeConsumer.subTitleBanner')}
         </StyledSubtitleBanner>
       </StyledBanner>
       <StyledContent>
-        <StyledText title>{t('Text.ScreenHomeConsumer.Title')}</StyledText>
-        <StyledText>{t('Text.ScreenHomeConsumer.SubTitle')}</StyledText>
+        <StyledText title>{t('text.screenHomeConsumer.title')}</StyledText>
+        <StyledText>{t('text.screenHomeConsumer.subTitle')}</StyledText>
 
         <StyledContainerServices>
           {dataOngServices.map((ong: DataOng, index: number) => (

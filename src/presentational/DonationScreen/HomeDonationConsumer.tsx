@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import i18next from 'i18next';
 import * as Yup from 'yup';
+import {t} from 'i18next';
 import {Linking} from 'react-native';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useNavigation} from '@react-navigation/native';
-import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {DonationConsumerStackParamList} from '@/routes/stacks/DonationConsumerStack';
 import {OUR_SITE} from 'react-native-dotenv';
@@ -35,26 +34,23 @@ type NavProps = NativeStackNavigationProp<
 >;
 
 const schema = Yup.object().shape({
-  coins: Yup.number()
-    .min(1, i18next.t('Error.MinCoins'))
-    .required(i18next.t('Error.Required')),
+  coins: Yup.number().min(1, t('error.minCoins')).required(t('error.required')),
 });
 
 const dataOngServices: DonationsOng[] = [
   {
     image: imgOngOne,
-    title: i18next.t('CardOng.One'),
+    title: t('cardOng.one'),
   },
   {
     image: imgOngTwo,
-    title: i18next.t('CardOng.Two'),
+    title: t('cardOng.two'),
   },
 ];
 
 export const HomeDonationConsumer = () => {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const {navigate} = useNavigation<NavProps>();
-  const {t} = useTranslation();
   const theme = useTheme();
 
   const {
@@ -74,20 +70,20 @@ export const HomeDonationConsumer = () => {
     setIsVisibleModal(false);
   }
 
-  async function onSubmit(data: any) {
+  async function onSubmit() {
     handleNavigateNext();
   }
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
       <Header
-        title={t('Text.HomeDonationConsumer.HeaderTitle')}
+        title={t('text.homeDonationConsumer.headerTitle')}
         welcome={false}
       />
       <StyledContent>
         <StyledBoxShowCoins>
           <StyledTextCoin>
-            {t('Text.HomeDonationConsumer.TitleCoins')}
+            {t('text.homeDonationConsumer.titleCoins')}
           </StyledTextCoin>
 
           <StyledTextQuantityCoins>0</StyledTextQuantityCoins>
@@ -97,8 +93,8 @@ export const HomeDonationConsumer = () => {
             size={24}
           />
         </StyledBoxShowCoins>
-        <StyledTitle>{t('Text.HomeDonationConsumer.TitleSection')}</StyledTitle>
-        <StyledText>{t('Text.HomeDonationConsumer.InfoSection')}</StyledText>
+        <StyledTitle>{t('text.homeDonationConsumer.titleSection')}</StyledTitle>
+        <StyledText>{t('text.homeDonationConsumer.infoSection')}</StyledText>
 
         <StyledRow>
           {dataOngServices.map((ong: DonationsOng, index: number) => (
@@ -113,9 +109,9 @@ export const HomeDonationConsumer = () => {
         </StyledRow>
 
         <StyledContainerInfo style={{elevation: 4}}>
-          <StyledTextInfo>{t('Text.HomeDonationConsumer.Info')}</StyledTextInfo>
+          <StyledTextInfo>{t('text.homeDonationConsumer.info')}</StyledTextInfo>
           <Button
-            title={t('Button.GoToSite')}
+            title={t('button.goToSite')}
             onPress={async () => Linking.openURL(OUR_SITE)}
             size="small"
             buttonColor="transparent"

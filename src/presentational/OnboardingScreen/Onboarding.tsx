@@ -1,12 +1,12 @@
 import React from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import AppIntroSlider from 'react-native-app-intro-slider';
+import {t} from 'i18next';
 import {ImageSourcePropType} from 'react-native';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {LOGIN} from '@/store/slices/userSlice';
-import {useTranslation} from 'react-i18next';
 
 import imgOnboardinOne from '@/assets/images/onboarding-1.png';
 import imgOnboardinTwo from '@/assets/images/onboarding-2.png';
@@ -30,7 +30,6 @@ type ParamList = {
 
 export const Onboarding = () => {
   const {isLoading} = useReduxSelector(state => state.user);
-  const {t} = useTranslation();
   const theme = useTheme();
   const dispatch = useReduxDispatch();
   const route = useRoute<RouteProp<ParamList, 'params'>>();
@@ -38,20 +37,20 @@ export const Onboarding = () => {
   const slides: SlideProps[] = [
     {
       key: 'one',
-      title: t('Text.ScreenOnboarding.TitleOnboardingOne'),
-      text: t('Text.ScreenOnboarding.TextOnboardingOne'),
+      title: t('text.screenOnboarding.titleOnboardingOne'),
+      text: t('text.screenOnboarding.textOnboardingOne'),
       image: imgOnboardinOne,
     },
     {
       key: 'two',
-      title: t('Text.ScreenOnboarding.TitleOnboardingTwo'),
-      text: t('Text.ScreenOnboarding.TextOnboardingTwo'),
+      title: t('text.screenOnboarding.titleOnboardingTwo'),
+      text: t('text.screenOnboarding.textOnboardingTwo'),
       image: imgOnboardinTwo,
     },
     {
       key: 'three',
-      title: t('Text.ScreenOnboarding.TitleOnboardingThree'),
-      text: t('Text.ScreenOnboarding.TextOnboardingThree'),
+      title: t('text.screenOnboarding.titleOnboardingThree'),
+      text: t('text.screenOnboarding.textOnboardingThree'),
       image: imgOnboardinThree,
     },
   ];
@@ -70,7 +69,7 @@ export const Onboarding = () => {
 
   const renderDone = () => (
     <Button
-      title={t('Button.Done')}
+      title={t('button.done')}
       size="small"
       loading={isLoading}
       onPress={() => {
@@ -87,19 +86,19 @@ export const Onboarding = () => {
 
   const renderNext = () => (
     <StyledButtonNext>
-      <StyledButtonTextNext>{t('Button.Next')}</StyledButtonTextNext>
+      <StyledButtonTextNext>{t('button.next')}</StyledButtonTextNext>
     </StyledButtonNext>
   );
 
   const renderSkip = () => (
     <StyledButtonSkip>
-      <StyledButtonTextSkip>{t('Button.Skip')}</StyledButtonTextSkip>
+      <StyledButtonTextSkip>{t('button.skip')}</StyledButtonTextSkip>
     </StyledButtonSkip>
   );
 
   const renderPrev = () => (
     <StyledButtonPrev>
-      <StyledButtonTextPrev>{t('Button.Prev')}</StyledButtonTextPrev>
+      <StyledButtonTextPrev>{t('button.prev')}</StyledButtonTextPrev>
     </StyledButtonPrev>
   );
 

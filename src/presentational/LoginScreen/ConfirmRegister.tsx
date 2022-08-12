@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import styled from 'styled-components/native';
+import {t} from 'i18next';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '@/routes/stacks/AuthStack';
-import {useTranslation} from 'react-i18next';
 
 import Producer from '@/assets/svgs/welcome-producer.svg';
 import Consumer from '@/assets/svgs/welcome-consumer.svg';
@@ -22,7 +22,6 @@ type ParamList = {
 
 export const ConfirmRegister = () => {
   const {navigate, addListener} = useNavigation<NavProps>();
-  const {t} = useTranslation();
   const route = useRoute<RouteProp<ParamList, 'params'>>();
 
   useEffect(() => {
@@ -41,14 +40,14 @@ export const ConfirmRegister = () => {
         <StyledConsumer testID="welcome-consumer" />
       )}
       <StyledTitle>
-        {t('Text.ScreenConfirmRegister.RegistrationSuccessfully')}
+        {t('text.screenConfirmRegister.registrationSuccessfully')}
       </StyledTitle>
       <StyledSubtitle>
-        {t('Text.ScreenConfirmRegister.ValidateYourRegistration')}
+        {t('text.screenConfirmRegister.validateYourRegistration')}
       </StyledSubtitle>
       <StyledConfirmButton
         testID="confirm-button"
-        title={t('Button.Start')}
+        title={t('button.start')}
         onPress={() =>
           navigate('Onboarding', {
             phoneOrEmail: route.params.phoneOrEmail,

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
-import i18next, {t} from 'i18next';
 import * as Yup from 'yup';
+import {t} from 'i18next';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useGetConsumerBasket} from '@/hooks/useGetConsumerBasket';
@@ -32,7 +32,7 @@ interface Form {
 }
 
 const schema = Yup.object().shape({
-  typeDeleviry: Yup.string().required(i18next.t('Error.Required')),
+  typeDeleviry: Yup.string().required(t('error.required')),
 });
 
 type NavProps = NativeStackNavigationProp<
@@ -43,7 +43,7 @@ type NavProps = NativeStackNavigationProp<
 export const BasketSignupPaymentConsumer = () => {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const {navigate} = useNavigation<NavProps>();
-  const {t, i18n} = useTranslation();
+  const {i18n} = useTranslation();
   const {basketConsumer} = useGetConsumerBasket();
 
   const {
@@ -73,23 +73,23 @@ export const BasketSignupPaymentConsumer = () => {
   return (
     <StyledContainerScroll>
       <Header
-        title={t('Text.BasketSignupPaymentConsumer.HeaderTitle')}
+        title={t('text.basketSignupPaymentConsumer.headerTitle')}
         welcome={false}
       />
       <StyledContent>
         <StyledTitle>
-          {t('Text.BasketSignupPaymentConsumer.TitleSectionOne')}
+          {t('text.basketSignupPaymentConsumer.titleSectionOne')}
         </StyledTitle>
         <StyledText>
-          {t('Text.BasketSignupPaymentConsumer.InstructionSectionOne')}
+          {t('text.basketSignupPaymentConsumer.instructionSectionOne')}
         </StyledText>
 
         <RadioForm
           name="typeDeleviry"
           control={control}
           options={[
-            t('Option.DaysPerDeliverWeekly'),
-            t('Option.DaysPerDeliverFortnightly'),
+            t('option.daysPerDeliverWeekly'),
+            t('option.daysPerDeliverFortnightly'),
           ]}
           type="withLine"
           error={isSubmitted ? errors.typeDeleviry?.message : ''}
@@ -97,16 +97,16 @@ export const BasketSignupPaymentConsumer = () => {
 
         <StyledCheckoutBox>
           <StyledTitle>
-            {t('Text.BasketSignupPaymentConsumer.CheckoutTitle')}
+            {t('text.basketSignupPaymentConsumer.checkoutTitle')}
           </StyledTitle>
           <StyledRow>
             {basketConsumer?.basketID.size && (
               <StyledText>
                 {t(
-                  'Text.BasketSignupPaymentConsumer.CheckoutDescriptionBasket',
+                  'text.basketSignupPaymentConsumer.checkoutDescriptionBasket',
                   {
                     size:
-                      i18n.language !== 'en'
+                      i18n.language === 'pt'
                         ? translateBasketToPortuguese(
                             basketConsumer?.basketID.size,
                           )
@@ -117,17 +117,17 @@ export const BasketSignupPaymentConsumer = () => {
             )}
 
             <StyledText>
-              {t('Text.BasketSignupPaymentConsumer.CheckoutPriceBasket', {
+              {t('text.basketSignupPaymentConsumer.checkoutPriceBasket', {
                 price: basketConsumer?.basketID.value,
               })}
             </StyledText>
           </StyledRow>
           <StyledRow>
             <StyledText>
-              {t('Text.BasketSignupPaymentConsumer.CheckoutTotal')}
+              {t('text.basketSignupPaymentConsumer.checkoutTotal')}
             </StyledText>
             <StyledTextTotalPrice>
-              {t('Text.BasketSignupPaymentConsumer.CheckoutTotalPriceBasket', {
+              {t('text.basketSignupPaymentConsumer.checkoutTotalPriceBasket', {
                 price: basketConsumer?.basketID.value,
               })}
             </StyledTextTotalPrice>
@@ -135,11 +135,11 @@ export const BasketSignupPaymentConsumer = () => {
         </StyledCheckoutBox>
 
         <StyledTitle>
-          {t('Text.BasketSignupPaymentConsumer.TitleSectionTwo')}
+          {t('text.basketSignupPaymentConsumer.titleSectionTwo')}
         </StyledTitle>
 
         <StyledText>
-          {t('Text.BasketSignupPaymentConsumer.InstructionSectionTwo')}
+          {t('text.basketSignupPaymentConsumer.instructionSectionTwo')}
         </StyledText>
 
         {basketConsumer &&
@@ -153,17 +153,17 @@ export const BasketSignupPaymentConsumer = () => {
           )}
 
         <StyledSubmitButton
-          title={t('Button.CompletePurchase')}
+          title={t('button.completePurchase')}
           onPress={handleSubmit(onSubmit)}
         />
 
         {isVisibleModal && (
           <Modal
-            title={t('Modal.TitleCompletePurchase')}
-            subTitle={t('Modal.SubTileCompletePurchase')}
+            title={t('modal.titleCompletePurchase')}
+            subTitle={t('modal.subTileCompletePurchase')}
             icon={BasketVegetable as React.FC<SvgProps>}
-            titleConfirmButton={t('Button.GoToMessages')}
-            titleCancelButton={t('Button.GoToDonations')}
+            titleConfirmButton={t('button.goToMessages')}
+            titleCancelButton={t('button.goToDonations')}
             columnButtons
             onConfirm={handleNavigateToProfile}
             onCancel={handleNavigateToDonations}

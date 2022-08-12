@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import * as Yup from 'yup';
+import {t} from 'i18next';
 import {useForm} from 'react-hook-form';
 import {
   GET_PRODUCER,
@@ -10,7 +11,6 @@ import {
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
-import {useTranslation} from 'react-i18next';
 import {translatePixType} from '@/helpers/translate';
 import {SvgProps} from 'react-native-svg';
 
@@ -23,15 +23,14 @@ import Button from '@/components/Button';
 import Modal from '@/components/Modal';
 
 const schema = Yup.object().shape({
-  pixType: Yup.string().required('Preenchimento obrigatório'),
-  pixValue: Yup.string().required('Preenchimento obrigatório'),
+  pixType: Yup.string().required(t('error.required')),
+  pixValue: Yup.string().required(t('error.required')),
 });
 
 export const RegisterPixFinancialProducer = () => {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const {auth} = useReduxSelector(state => state.user);
   const {isLoading} = useReduxSelector(state => state.producer);
-  const {t} = useTranslation();
   const dispatch = useReduxDispatch();
 
   const {
@@ -63,33 +62,33 @@ export const RegisterPixFinancialProducer = () => {
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
       <Header
-        title={t('Text.ScreenRegisterPixFinancialProducer.HeaderTitle')}
+        title={t('text.screenRegisterPixFinancialProducer.headerTitle')}
         welcome={false}
       />
       <StyledContent>
         <StyledText>
-          {t('Text.ScreenRegisterPixFinancialProducer.InstructionOne')}
+          {t('text.screenRegisterPixFinancialProducer.instructionOne')}
         </StyledText>
         <RadioForm
           name="pixType"
           control={control}
           options={[
-            t('Option.TypePixCPF'),
-            t('Option.TypePixPhone'),
-            t('Option.TypePixEmail'),
-            t('Option.TypePixRandom'),
+            t('option.typePixCPF'),
+            t('option.typePixPhone'),
+            t('option.typePixEmail'),
+            t('option.typePixRandom'),
           ]}
           error={isSubmitted ? errors.pixType?.message : ''}
           type="withLine"
         />
         <StyledText>
-          {t('Text.ScreenRegisterPixFinancialProducer.InstructionTwo')}
+          {t('text.screenRegisterPixFinancialProducer.instructionTwo')}
         </StyledText>
         <InputForm
           name="pixValue"
           control={control}
           error={isSubmitted ? errors.pixValue?.message : ''}
-          label={t('Label.PixValue')}
+          label={t('label.pixValue')}
         />
         <Button
           title={t('Button.RegisterPix')}
@@ -99,7 +98,7 @@ export const RegisterPixFinancialProducer = () => {
 
         {!isLoading && isVisibleModal && (
           <Modal
-            title={t('Modal.TitleRegisterPix')}
+            title={t('modal.titleRegisterPix')}
             icon={IconPiggy as React.FC<SvgProps>}
             onClose={() => handleModal(false)}
             justMessage

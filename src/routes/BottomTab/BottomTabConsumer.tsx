@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import {t} from 'i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {LoggedConsumerStackParamList} from '../stacks/LoggedConsumerStack';
 import {useTranslation} from 'react-i18next';
@@ -24,7 +25,6 @@ interface Props {
 
 export const ButtonTabConsumer: React.FC<Props> = ({state}) => {
   const {navigate} = useNavigation<NavPropsProducer>();
-  const {t} = useTranslation();
   const activeTab = state.routes[state.index].name;
   const theme = useTheme();
 
@@ -56,25 +56,25 @@ export const ButtonTabConsumer: React.FC<Props> = ({state}) => {
       <StyledButtonTabRow>
         {renderTab(
           'home',
-          t('BottomTab.Home'),
+          t('bottomTab.home'),
           'HomeConsumer',
           'icon-tab-home',
         )}
         {renderTab(
           'shopping-basket',
-          t('BottomTab.MyBaskets'),
+          t('bottomTab.myBaskets'),
           'BasketConsumerStack',
           'icon-tab-basket',
         )}
         {renderTab(
           'attach-money',
-          t('BottomTab.Donations'),
+          t('bottomTab.donations'),
           'DonationConsumerStack',
           'icon-tab-donation',
         )}
         {renderTab(
           'person',
-          t('BottomTab.Profile'),
+          t('bottomTab.profile'),
           'ProfileConsumer',
           'icon-tab-profile',
         )}

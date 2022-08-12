@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import styled from 'styled-components/native';
-import i18next from 'i18next';
 import * as Yup from 'yup';
+import {t} from 'i18next';
 import {Keyboard} from 'react-native';
 import {useForm} from 'react-hook-form';
 import {LOGIN, LoginRequest, REMEMBER_USER} from '@/store/slices/userSlice';
@@ -23,9 +23,9 @@ import Info from '@/components/Info';
 
 const schema = Yup.object().shape({
   phoneOrEmail: Yup.string()
-    .email(i18next.t('Error.ValidEmail'))
-    .required(i18next.t('Error.Required')),
-  password: Yup.string().required(i18next.t('Error.Required')),
+    .email(t('error.validEmail'))
+    .required(t('error.required')),
+  password: Yup.string().required(t('error.required')),
 });
 
 type NavProps = NativeStackNavigationProp<AuthStackParamList, 'Register'>;
@@ -85,29 +85,29 @@ export const Login = () => {
           <InputForm
             control={control}
             name="phoneOrEmail"
-            label={t('Label.Email')}
+            label={t('label.email')}
             error={
               (isSubmitted && errors.phoneOrEmail?.message) ||
-              (userReducer.error?.response && t('Error.Login'))
+              (userReducer.error?.response && t('error.login'))
             }
           />
           <InputForm
             control={control}
             name="password"
-            label={t('Label.Password')}
+            label={t('label.password')}
             secureTextEntry
             error={
               (isSubmitted && errors.password?.message) ||
-              (userReducer.error?.response && t('Error.Login'))
+              (userReducer.error?.response && t('error.login'))
             }
           />
 
           <StyledRowRecoverPassword>
-            <StyledText>{t('Text.ScreenLogin.ForgotYourPassword?')}</StyledText>
+            <StyledText>{t('text.screenLogin.forgotYourPassword?')}</StyledText>
             <StyledLink
               buttonColor="text_only"
               textColor="primary"
-              title={t('Button.RecoveryPassword')}
+              title={t('button.recoveryPassword')}
               size="small"
               noMargin
               onPress={() => null}
@@ -117,22 +117,22 @@ export const Login = () => {
           <CheckboxForm
             control={control}
             name="remember"
-            options={[`${t('Option.RememberMe')}`]}
+            options={[`${t('option.rememberMe')}`]}
           />
         </StyledContainerForm>
         <StyledButtonSubmit
           onPress={handleSubmit(onSubmit)}
           loading={userReducer.isLoading}
-          title={t('Button.Login')}
+          title={t('button.login')}
           noMargin
         />
 
         <StyledRowRegister>
-          <StyledText>{t('Text.ScreenLogin.DoNotHaveAnAccount?')}</StyledText>
+          <StyledText>{t('text.screenLogin.doNotHaveAnAccount?')}</StyledText>
           <StyledLink
             buttonColor="text_only"
             textColor="primary"
-            title={t('Button.SignUp')}
+            title={t('button.signUp')}
             noMargin
             onPress={() => navigate('Register')}
           />
