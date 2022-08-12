@@ -84,6 +84,14 @@
 
     "Loading": "Carregando...",
 
+    "BottomTab": {
+      "Home": "Início",
+      "MyBaskets": "Minhas cestas",
+      "Donations": "Doações",
+      "Profile": "Perfil",
+      "Financial": "Financeiro"
+    },
+
     "Text": {
       "ComponentInfo": {
         "Title": "Se você é uma instituição que atua no combate a fome e deseja solicitar seu cadastro, visite nosso site e saiba mais."

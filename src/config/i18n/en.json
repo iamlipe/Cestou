@@ -85,6 +85,14 @@
 
     "Loading": "Loading...",
 
+    "BottomTab": {
+      "Home": "Home",
+      "MyBaskets": "My Baskets",
+      "Donations": "Donations",
+      "Profile": "Profile",
+      "Financial": "Financial"
+    },
+
     "Text": {
       "ComponentInfo": {
         "Title": "If you are an institution that works in the fight against hunger and want to request your registration, visit our website and learn more."

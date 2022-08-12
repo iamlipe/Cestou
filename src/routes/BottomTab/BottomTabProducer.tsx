@@ -1,13 +1,14 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useTheme} from 'styled-components/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {LoggedProducerStackParamList} from '../stacks/LoggedProducerStack';
+import {useTranslation} from 'react-i18next';
 import {
   ParamListBase,
   TabNavigationState,
   useNavigation,
 } from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {LoggedProducerStackParamList} from '../stacks/LoggedProducerStack';
 
 import {
   StyledBottonTabContainer,
@@ -28,6 +29,7 @@ interface Props {
 
 export const ButtonTabProducer: React.FC<Props> = ({state}) => {
   const {navigate} = useNavigation<NavPropsProducer>();
+  const {t} = useTranslation();
   const activeTab = state.routes[state.index].name;
   const theme = useTheme();
 
@@ -57,14 +59,24 @@ export const ButtonTabProducer: React.FC<Props> = ({state}) => {
   return (
     <StyledBottonTabContainer>
       <StyledButtonTabRow>
-        {renderTab('home', 'Início', 'HomeProducerStack', 'icon-tab-home')}
+        {renderTab(
+          'home',
+          t('BottomTab.Home'),
+          'HomeProducerStack',
+          'icon-tab-home',
+        )}
         {renderTab(
           'attach-money',
-          'Financeiro',
+          t('BottomTab.Financial'),
           'FinancialProducerStack',
           'icon-tab-financial',
         )}
-        {renderTab('person', 'Perfil', 'ProfileProducer', 'icon-tab-profile')}
+        {renderTab(
+          'person',
+          t('BottomTab.Profile'),
+          'ProfileProducer',
+          'icon-tab-profile',
+        )}
       </StyledButtonTabRow>
     </StyledBottonTabContainer>
   );

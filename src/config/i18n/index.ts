@@ -7,7 +7,7 @@ import en from './en.json';
 i18next.use(initReactI18next).init({
   compatibilityJSON: 'v3',
   resources: {pt, en},
-  lng: 'pt',
+  lng: 'en',
   react: {useSuspense: false},
   interpolation: {escapeValue: false},
 });
