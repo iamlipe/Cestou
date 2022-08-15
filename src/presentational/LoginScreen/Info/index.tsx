@@ -3,7 +3,6 @@ import styled from 'styled-components/native';
 import {t} from 'i18next';
 import {Linking} from 'react-native';
 import {OUR_SITE} from 'react-native-dotenv';
-import {useTranslation} from 'react-i18next';
 
 import Button from '@/components/Button';
 
