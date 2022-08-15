@@ -11,9 +11,9 @@ import {
   StyledConfirmButton,
   StyledCancelButton,
   StyledCloseButton,
-} from '../Modal';
+} from '@/components/Modal';
 
-import Counter from '../Counter';
+import Counter from '@/components/Counter';
 
 interface Props {
   name: string;

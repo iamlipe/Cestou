@@ -16,7 +16,7 @@ import imgOngTwo from '@/assets/images/ong_2.png';
 
 import Header from '@/components/Header';
 import CardOng from '@/components/CardOng';
-import ModalDonation from '@/components/ModalDonation';
+import ModalDonation from './ModalDonation';
 import Button from '@/components/Button';
 
 interface DonationsOng {
