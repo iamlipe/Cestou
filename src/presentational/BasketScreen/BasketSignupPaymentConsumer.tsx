@@ -18,7 +18,7 @@ import BasketVegetable from '@/assets/svgs/vegetable-basket.svg';
 import Header from '@/components/Header';
 import RadioForm from '@/components/RadioForm';
 import Button from '@/components/Button';
-import InputClipboard from '@/components/InputClipboard';
+import InputClipboard from '@/presentational/BasketScreen/InputClipboard';
 import Modal from '@/components/Modal';
 
 import {

@@ -19,7 +19,7 @@ import Logo from '@/assets/svgs/logo.svg';
 import InputForm from '@/components/InputForm/index';
 import Button from '@/components/Button';
 import CheckboxForm from '@/components/CheckboxForm';
-import Info from '@/components/Info';
+import Info from './Info';
 
 const schema = Yup.object().shape({
   phoneOrEmail: Yup.string()
@@ -31,7 +31,7 @@ const schema = Yup.object().shape({
 type NavProps = NativeStackNavigationProp<AuthStackParamList, 'Register'>;
 
 export const Login = () => {
-  const userReducer = useReduxSelector(({user}) => user);
+  const {error, isLoading} = useReduxSelector(state => state.user);
   const userStorage = useAsyncStorage('@user');
   const {navigate, addListener} = useNavigation<NavProps>();
   const {t} = useTranslation();
@@ -88,7 +88,7 @@ export const Login = () => {
             label={t('label.email')}
             error={
               (isSubmitted && errors.phoneOrEmail?.message) ||
-              (userReducer.error?.response && t('error.login'))
+              (error?.response && t('error.login'))
             }
           />
           <InputForm
@@ -98,7 +98,7 @@ export const Login = () => {
             secureTextEntry
             error={
               (isSubmitted && errors.password?.message) ||
-              (userReducer.error?.response && t('error.login'))
+              (error?.response && t('error.login'))
             }
           />
 
@@ -122,7 +122,7 @@ export const Login = () => {
         </StyledContainerForm>
         <StyledButtonSubmit
           onPress={handleSubmit(onSubmit)}
-          loading={userReducer.isLoading}
+          loading={isLoading}
           title={t('button.login')}
           noMargin
         />
