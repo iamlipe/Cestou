@@ -42,4 +42,7 @@ export const userMock: User = {
   phone: apiReturnLoginSuccessMock.data.phone,
   token: apiReturnLoginSuccessMock.data.token,
   refreshToken: apiReturnLoginSuccessMock.data.refresh_token,
+  created_at: apiReturnLoginSuccessMock.data.created_at,
+  updated_at: apiReturnLoginSuccessMock.data.updated_at,
+  deleted_at: apiReturnLoginSuccessMock.data.deleted_at,
 };

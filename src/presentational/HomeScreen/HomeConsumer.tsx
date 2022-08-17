@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {t} from 'i18next';
 import {useTranslation} from 'react-i18next';
 
 import imgBanner from '@/assets/images/presentation_1.png';
@@ -20,20 +19,22 @@ interface DataOng {
   link: string;
 }
 
-const dataOngServices: DataOng[] = [
-  {
-    image: imgOngOne,
-    title: t('cardOng.one'),
-    link: 'https://cestou.netlify.app/sobre',
-  },
-  {
-    image: imgOngTwo,
-    title: t('cardOng.two'),
-    link: 'https://cestou.netlify.app/sobre',
-  },
-];
-
 export const HomeConsumer = () => {
+  const {t} = useTranslation();
+
+  const dataOngServices: DataOng[] = [
+    {
+      image: imgOngOne,
+      title: t('cardOng.one'),
+      link: 'https://cestou.netlify.app/sobre',
+    },
+    {
+      image: imgOngTwo,
+      title: t('cardOng.two'),
+      link: 'https://cestou.netlify.app/sobre',
+    },
+  ];
+
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
       <Header />

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import * as Yup from 'yup';
-import {t} from 'i18next';
 import {useForm} from 'react-hook-form';
 import {
   GET_PRODUCER,
@@ -11,6 +10,7 @@ import {
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
+import {useTranslation} from 'react-i18next';
 import {translatePixType} from '@/helpers/translate';
 import {SvgProps} from 'react-native-svg';
 
@@ -22,16 +22,17 @@ import InputForm from '@/components/InputForm';
 import Button from '@/components/Button';
 import Modal from '@/components/Modal';
 
-const schema = Yup.object().shape({
-  pixType: Yup.string().required(t('error.required')),
-  pixValue: Yup.string().required(t('error.required')),
-});
-
 export const RegisterPixFinancialProducer = () => {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const {auth} = useReduxSelector(state => state.user);
   const {isLoading} = useReduxSelector(state => state.producer);
+  const {t} = useTranslation();
   const dispatch = useReduxDispatch();
+
+  const schema = Yup.object().shape({
+    pixType: Yup.string().required(t('error.required')),
+    pixValue: Yup.string().required(t('error.required')),
+  });
 
   const {
     control,
@@ -91,7 +92,7 @@ export const RegisterPixFinancialProducer = () => {
           label={t('label.pixValue')}
         />
         <Button
-          title={t('Button.RegisterPix')}
+          title={t('button.registerPix')}
           loading={isLoading}
           onPress={handleSubmit(onSubmit)}
         />

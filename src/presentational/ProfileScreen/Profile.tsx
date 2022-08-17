@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {t} from 'i18next';
 import {Linking} from 'react-native';
 import {LOGOUT} from '@/store/slices/userSlice';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
@@ -15,6 +14,7 @@ import ButtonRedirect from '@/components/ButtonRedirect';
 export const Profile = () => {
   const {basketConsumer} = useGetConsumerBasket();
   const {auth} = useReduxSelector(state => state.user);
+  const {t} = useTranslation();
   const dispatch = useReduxDispatch();
   const theme = useTheme();
 

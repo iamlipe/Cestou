@@ -602,7 +602,7 @@ exports[`Register should matches snapshot 1`] = `
           ]
         }
       >
-        A senha deve conter pelo menos 6 caracteres.
+        A senha deve conter pelo menos 6 dígitos
       </Text>
       <View
         accessible={true}
@@ -815,7 +815,7 @@ exports[`Register should matches snapshot 1`] = `
           }
           textColor="primary"
         >
-          Faça Login
+          Faça login
         </Text>
       </View>
     </View>

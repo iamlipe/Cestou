@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components/native';
 import * as Yup from 'yup';
-import {t} from 'i18next';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {SvgProps} from 'react-native-svg';
 import {useForm} from 'react-hook-form';
@@ -28,17 +27,18 @@ interface SignupBasket {
   myBasket: string[];
 }
 
-const schema = Yup.object().shape({
-  myBasket: Yup.array()
-    .min(1, t('error.minProduct'))
-    .required(t('error.required')),
-});
-
 export const HomeMyBasketsProducer = () => {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const {isLoading, allBaskets} = useReduxSelector(state => state.basket);
   const {goBack} = useNavigation();
+  const {t} = useTranslation();
   const dispatch = useReduxDispatch();
+
+  const schema = Yup.object().shape({
+    myBasket: Yup.array()
+      .min(1, t('error.minProduct'))
+      .required(t('error.required')),
+  });
 
   const {
     control,

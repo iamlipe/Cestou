@@ -1,5 +1,5 @@
-import mockAsyncStorage from '@react-native-async-storage/async-storage/jest/async-storage-mock';
 import 'react-native-gesture-handler/jestSetup';
+import mockAsyncStorage from '@react-native-async-storage/async-storage/jest/async-storage-mock';
 import {mockUseParams} from '@__mocks__/mockUseRoute';
 import {mockValueBasket} from '@__mocks__/mockUseGetConsumerBasket';
 
@@ -10,6 +10,12 @@ global.window = global;
 global.ReanimatedDataMock = {
   now: () => 0,
 };
+
+jest.mock('react-native-localize', () => {
+  return {
+    findBestAvailableLanguage: jest.fn(() => ({languageTag: 'pt'})),
+  };
+});
 
 jest.mock('@/hooks/useGetConsumerBasket', () => ({
   useGetConsumerBasket: () => ({

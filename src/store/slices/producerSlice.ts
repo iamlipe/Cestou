@@ -33,7 +33,7 @@ export interface Producer {
   emailPix: string | null;
   phonePix: string | null;
   randomPix: string | null;
-  balance: string;
+  balance: number;
 }
 
 export interface ProducerBasket {

@@ -1,12 +1,12 @@
 import React, {useEffect, useState, useCallback} from 'react';
 import styled from 'styled-components/native';
 import * as Yup from 'yup';
-import {t} from 'i18next';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useNavigation} from '@react-navigation/native';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
+import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {BasketConsumerStackParamList} from '@/routes/stacks/BasketConsumerStack';
 import {
@@ -19,11 +19,6 @@ import Header from '@/components/Header';
 import RadioForm from '@/components/RadioForm';
 import Button from '@/components/Button';
 
-const schema = Yup.object().shape({
-  daysPerDeliver: Yup.string().required(t('error.required')),
-  size: Yup.string().required(t('error.required')),
-});
-
 type NavProps = NativeStackNavigationProp<
   BasketConsumerStackParamList,
   'BasketSignupFoodConsumer'
@@ -35,7 +30,13 @@ export const BasketSignupPlanConsumer = () => {
     state => state.basket,
   );
   const {navigate} = useNavigation<NavProps>();
+  const {t} = useTranslation();
   const dispatch = useReduxDispatch();
+
+  const schema = Yup.object().shape({
+    daysPerDeliver: Yup.string().required(t('error.required')),
+    size: Yup.string().required(t('error.required')),
+  });
 
   const {
     control,

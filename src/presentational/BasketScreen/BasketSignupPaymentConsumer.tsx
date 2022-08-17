@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import * as Yup from 'yup';
-import {t} from 'i18next';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useGetConsumerBasket} from '@/hooks/useGetConsumerBasket';
@@ -31,10 +30,6 @@ interface Form {
   typeDeleviry: string;
 }
 
-const schema = Yup.object().shape({
-  typeDeleviry: Yup.string().required(t('error.required')),
-});
-
 type NavProps = NativeStackNavigationProp<
   LoggedConsumerStackParamList,
   'ProfileConsumer' | 'DonationConsumerStack'
@@ -43,8 +38,12 @@ type NavProps = NativeStackNavigationProp<
 export const BasketSignupPaymentConsumer = () => {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const {navigate} = useNavigation<NavProps>();
-  const {i18n} = useTranslation();
+  const {t, i18n} = useTranslation();
   const {basketConsumer} = useGetConsumerBasket();
+
+  const schema = Yup.object().shape({
+    typeDeleviry: Yup.string().required(t('error.required')),
+  });
 
   const {
     control,

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {t} from 'i18next';
 import {useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 import {HomeProducerStackParamList} from '@/routes/stacks/HomeProducerStack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
@@ -15,6 +15,7 @@ type NavProps = NativeStackNavigationProp<
 
 export const HomeProducer = () => {
   const {navigate} = useNavigation<NavProps>();
+  const {t} = useTranslation();
 
   const renderLargeButton = (title: string) => (
     <StyledContainerLargeButton>

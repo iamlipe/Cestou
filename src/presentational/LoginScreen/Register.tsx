@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components/native';
 import * as Yup from 'yup';
-import {t} from 'i18next';
 import {SubmitHandler, useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {REGISTER, RegisterForm} from '@/store/slices/userSlice';
@@ -23,18 +22,6 @@ type NavProps = NativeStackNavigationProp<
   'ConfirmRegister'
 >;
 
-const schema = Yup.object().shape({
-  userType: Yup.string().required(t('error.required')),
-  name: Yup.string().required(t('error.required')),
-  email: Yup.string()
-    .min(10, t('error.validEmail'))
-    .required(t('error.required')),
-  password: Yup.string()
-    .min(6, t('error.validPassword'))
-    .required(t('error.required')),
-  terms: Yup.array().min(1, t('error.terms')).required(),
-});
-
 export const Register = () => {
   const [canGoNext, setCanGoNext] = useState(false);
   const [registerData, setRegisterData] = useState({
@@ -44,7 +31,20 @@ export const Register = () => {
   });
   const {goBack, navigate} = useNavigation<NavProps>();
   const {isLoading} = useReduxSelector(state => state.user);
+  const {t} = useTranslation();
   const dispatch = useReduxDispatch();
+
+  const schema = Yup.object().shape({
+    userType: Yup.string().required(t('error.required')),
+    name: Yup.string().required(t('error.required')),
+    email: Yup.string()
+      .min(10, t('error.validEmail'))
+      .required(t('error.required')),
+    password: Yup.string()
+      .min(6, t('error.validPassword'))
+      .required(t('error.required')),
+    terms: Yup.array().min(1, t('error.terms')).required(),
+  });
 
   const {
     control,

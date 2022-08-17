@@ -343,7 +343,9 @@ exports[`ModalDonation should matches snapshot 1`] = `
                 ]
               }
               textColor="primary"
-            />
+            >
+              Cancelar
+            </Text>
           </View>
           <View
             accessibilityState={
@@ -387,7 +389,9 @@ exports[`ModalDonation should matches snapshot 1`] = `
                 ]
               }
               textColor="white"
-            />
+            >
+              Confirmar seleção
+            </Text>
           </View>
         </View>
       </View>

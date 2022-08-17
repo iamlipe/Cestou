@@ -50,7 +50,7 @@ exports[`Header should matches snapshot 1`] = `
           ]
         }
       >
-        Olá undefined!
+        Olá !
       </Text>
     </View>
   </View>

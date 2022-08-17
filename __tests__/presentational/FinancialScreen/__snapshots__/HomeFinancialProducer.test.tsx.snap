@@ -159,7 +159,9 @@ exports[`HomeFinancialProducer should matches snapshot 1`] = `
       <Text
         style={
           Array [
-            Object {},
+            Object {
+              "textAlign": "center",
+            },
           ]
         }
       >

@@ -1,12 +1,12 @@
 import React from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import {t} from 'i18next';
 import {ImageSourcePropType} from 'react-native';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {LOGIN} from '@/store/slices/userSlice';
+import {useTranslation} from 'react-i18next';
 
 import imgOnboardinOne from '@/assets/images/onboarding-1.png';
 import imgOnboardinTwo from '@/assets/images/onboarding-2.png';
@@ -30,9 +30,12 @@ type ParamList = {
 
 export const Onboarding = () => {
   const {isLoading} = useReduxSelector(state => state.user);
+  const {t} = useTranslation();
   const theme = useTheme();
   const dispatch = useReduxDispatch();
   const route = useRoute<RouteProp<ParamList, 'params'>>();
+
+  console.log(t('text.screenOnboarding.titleOnboardingOne'));
 
   const slides: SlideProps[] = [
     {

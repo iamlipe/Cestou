@@ -104,7 +104,7 @@ exports[`Login should matches snapshot 1`] = `
                 }
               }
             >
-              E-mail
+              Email
             </Text>
             <TextInput
               onBlur={[Function]}
@@ -324,7 +324,7 @@ exports[`Login should matches snapshot 1`] = `
               ]
             }
           >
-            Esqueceu a senha?
+            Esqueceu sua senha?
           </Text>
           <View
             accessibilityState={
