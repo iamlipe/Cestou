@@ -21,7 +21,7 @@
       "typePixRandom": "Random key",
       "daysPerDeliverWeekly": "Weekly",
       "daysPerDeliverFortnightly": "Fortnightly",
-      "typeDeliveryCollectPoint": "Pick up at the collection point - BRL 00.00",
+      "typeDeliveryCollectPoint": "Pick up at the collection point",
       "typeDeliveryHome": "Delivery (to be arranged with producer)"
     },
 

@@ -87,8 +87,8 @@ export const BasketSignupPaymentConsumer = () => {
           name="typeDeleviry"
           control={control}
           options={[
-            t('option.daysPerDeliverWeekly'),
-            t('option.daysPerDeliverFortnightly'),
+            t('option.typeDeliveryCollectPoint'),
+            t('option.typeDeliveryHome'),
           ]}
           type="withLine"
           error={isSubmitted ? errors.typeDeleviry?.message : ''}

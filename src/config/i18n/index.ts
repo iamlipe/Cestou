@@ -8,7 +8,7 @@ import en from './en.json';
 i18next.use(initReactI18next).init({
   compatibilityJSON: 'v3',
 
-  lng: RNLocalize.findBestAvailableLanguage(['en', 'pt'])?.languageTag,
+  lng: 'pt',
   fallbackLng: 'pt',
 
   ns: ['translation'],

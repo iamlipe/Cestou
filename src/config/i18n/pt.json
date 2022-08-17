@@ -21,7 +21,7 @@
       "typePixRandom": "Chave aleatória",
       "daysPerDeliverWeekly": "Semanal",
       "daysPerDeliverFortnightly": "Quinzenal",
-      "typeDeliveryCollectPoint": "Retirar no ponto de coleta - R$00,00",
+      "typeDeliveryCollectPoint": "Retirar no ponto de coleta",
       "typeDeliveryHome": "Entrega (à combinar com produtor)"
     },
 
@@ -43,7 +43,7 @@
       "prev": "Voltar",
       "skip": "Pular",
       "next": "Próximo",
-      "confirm": "Confirmar seleção",
+      "confirm": "Confirmar",
       "myBaskets": "Minhas cestas",
       "myEarnings": "Ver meus rendimentos",
       "registerPix": "Registrar chave",
