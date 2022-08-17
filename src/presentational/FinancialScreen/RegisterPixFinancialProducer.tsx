@@ -45,8 +45,6 @@ export const RegisterPixFinancialProducer = () => {
   function registerPix(data: RegisterPixRequest) {
     const pixType = translatePixType(data.pixType);
 
-    console.log(pixType);
-
     if (pixType) dispatch(REGISTER_PIX({pixType, pixValue: data.pixValue}));
     if (auth?.id) dispatch(GET_PRODUCER({id: auth?.id}));
   }

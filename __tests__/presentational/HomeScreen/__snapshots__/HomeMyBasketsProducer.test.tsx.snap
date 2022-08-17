@@ -504,7 +504,7 @@ e 1 processado
           }
           textColor="white"
         >
-          Confirmar seleção
+          Confirmar
         </Text>
       </View>
     </View>
