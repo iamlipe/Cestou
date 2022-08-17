@@ -4,7 +4,7 @@ import {
   matchSnapshotWithProvider,
 } from '@/config/functions/Testing';
 
-import InputClipBoard from '@/components/InputClipboard';
+import InputClipBoard from '@/presentational/BasketScreen/InputClipboard';
 
 describe('InputClipBoard', () => {
   test('should render correctly', () => {

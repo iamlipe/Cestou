@@ -1,0 +1,218 @@
+{
+  "translation": {
+    "label": {
+      "email": "Email",
+      "password": "Senha",
+      "name": "Nome completo",
+      "pixValue": "Informe a chave pix"
+    },
+    
+    "option": {
+      "iProducer": "Sou produtor",
+      "iConsumer": "Sou consumidor",
+      "rememberMe": "Lembrar minha senha",
+      "terms": "Concordo com a Política de Privacidade e Termos de uso",
+      "smallBasket": "Pequena",
+      "mediumBasket": "Média",
+      "largeBasket": "Grande",
+      "typePixCPF": "CPF",
+      "typePixPhone": "Celular",
+      "typePixEmail": "E-mail",
+      "typePixRandom": "Chave aleatória",
+      "daysPerDeliverWeekly": "Semanal",
+      "daysPerDeliverFortnightly": "Quinzenal",
+      "typeDeliveryCollectPoint": "Retirar no ponto de coleta - R$00,00",
+      "typeDeliveryHome": "Entrega (à combinar com produtor)"
+    },
+
+    "detailsOption": {
+      "smallBasket": "1 tempero, 2 legumes, 2 verduras , 3 frutas",
+      "mediumBasket": "2 temperos, 3 legumes, 3 verduras, 3 frutas\ne 1 processado",
+      "largeBasket": "3 temperos, 4 legumes, 4 verduras, 4 frutas\ne 1 processado"
+    },
+
+    "button": {
+      "login": "Entrar",
+      "recoveryPassword": "Recuperar senha",
+      "goToSite": "Ir para o site",
+      "signUp": "Cadastre-se",
+      "signIn": "Faça login",
+      "register": "Finalizar cadastro",
+      "start": "Começar",
+      "done": "Finalizar",
+      "prev": "Voltar",
+      "skip": "Pular",
+      "next": "Próximo",
+      "confirm": "Confirmar seleção",
+      "myBaskets": "Minhas cestas",
+      "myEarnings": "Ver meus rendimentos",
+      "registerPix": "Cadastrar chave pix",
+      "configPix": "Configurar chave pix",
+      "extract": "Ver extrato",
+      "myInfo": "Meus dados",
+      "contactProducer": "Contactar produtor",
+      "logout": "Sair da conta",
+      "donateAgain": "Doar novamente",
+      "completePurchase": "Concluir compra",
+      "goToMessages": "Ir para mensagens",
+      "goToDonations": "Ir para doações",
+      "cancel": "Cancelar"
+    },
+
+    "error": {
+      "login": "email ou senha incorretos",
+      "required": "Preenchimento obrigatório",
+      "validEmail": "Insira um email válido",
+      "validPassword": "A senha deve conter pelo menos 6 dígitos",
+      "terms": "Você precisa aceitar os termos de uso",
+      "minProduct": "Selecione ao menos um produto",
+      "minCoins": "Mínimo de 1 moeda"
+    },
+
+    "modal": {
+      "titleConfirmProducerBasket": "Você adicionou as cestas à sua lista de produtos fornecidos.",
+      "titleRegisterPix": "Sua chave PIX foi registrada com sucesso!",
+      "titleInfoAboutBasket": "Você retirou {{counter, number}} item da sua cesta!",
+      "subTitleInfoAboutBasket": "Este item será convertido na moeda Horticoin, e você poderá doá-la para uma instituição parceira que atua no combate a fome.",
+      "titleCompletePurchase": "Seu pedido foi confirmado e será preparado!",
+      "subTileCompletePurchase": "Para alinhar a entrega ou coleta da cesta, vá para mensagens e combine todos os detalhes diretamente com o produtor."
+    },
+
+    "cardOng": {
+      "one": "ONG Comida na mesa",
+      "two": "ONG Criança sem fome"
+    },
+
+    "loading": "Carregando...",
+
+    "bottomTab": {
+      "home": "Início",
+      "myBaskets": "Minhas cestas",
+      "donations": "Doações",
+      "profile": "Perfil",
+      "financial": "Financeiro"
+    },
+
+    "text": {
+      "componentInfo": {
+        "title": "Se você é uma instituição que atua no combate a fome e deseja solicitar seu cadastro, visite nosso site e saiba mais."
+      },
+  
+      "componentCardFood": {
+        "seeMore": "Ver exemplos"
+      },
+  
+      "componentHeader": {
+        "welcome": "Olá {{name}}!"
+      },
+  
+      "componentModalDonation": {
+        "titleModalDonation": "Você escolheu doar para a ONG Criança sem fome!",
+        "subTitleModalDonation": "Você tem 0 moedas",
+        "textModalDonation": "Quantas moedas deseja doar?"
+      },
+  
+      "screenLogin": {
+        "doNotHaveAnAccount?": "Ainda não tem conta?",
+        "forgotYourPassword?": "Esqueceu sua senha?"
+      },
+  
+      "screenRegister": {
+        "createAnAccount": "Criar conta",
+        "enterYourDetails": "Informe seus dados para criar uma nova conta:",
+        "alreadyHaveAnAccount?": "Já tem uma conta?"
+      },
+  
+      "screenConfirmRegister": {
+        "registrationSuccessfully": "Cadastro realizado com sucesso!",
+        "validateYourRegistration": "Valide seu cadastro e aproveite toda a experiência de Cestar e ajudar no combate a fome."
+      },
+  
+      "screenOnboarding": {
+        "titleOnboardingOne": "Tire a fome do caminho",
+        "textOnboardingOne": "Alimentação é direito básico e a sua partilha é fundamental à quem tem fome. Através da assinatura mensal, você garante alimentação saudável democratizada pra sua família e ainda possibilita o mesmo consumo pra uma família em vulnerabilidade.",
+        "titleOnboardingTwo": "Agricultura familiar presente",
+        "textOnboardingTwo": "Conecte-se com produtores familiares da sua região. Você fortalece a produção de pequenos produtores locais e recebe alimentos frescos e cultivados com muito carinho e cuidado.",
+        "titleOnboardingThree": "Alimentação saudável ao seu alcance",
+        "textOnboardingThree": "Aqui você encontra alimentos totalmente livres de agrotóxicos e perto de você!"
+      },
+
+      "screenHomeConsumer": {
+        "titleBanner": "Faça sua\n assinatura!",
+        "subTitleBanner": "Produtos fresquinhos de\n produtores locais toda\n semana na sua mesa",
+        "title": "Ajude no combate a fome",
+        "subTitle": "Veja abaixo as instituições e projetos cadastrados na nossa rede e ajude-nos a atingir a meta do mês doando suas moedas que serão convertidas em alimentos."
+      },
+
+      "screenHomeProducer": {
+        "titleSectionOne": "Minhas cestas",
+        "note": "Configure quais os tipos e tamanhos de cesta de alimentos você deseja fornecer.",
+        "titleSectionTwo": "Minhas finanças"
+      },
+
+      "screenHomeMyBasketsProducer": {
+        "titleHeader": "Minhas cestas",
+        "instructions": "Escolha abaixo qual o tamanho da cesta você deseja fornecer, e veja quantos e quais os tipos de alimentos em cada uma.Escolha abaixo qual o tamanho da cesta você deseja fornecer, e veja quantos e quais os tipos de alimentos em cada uma.",
+        "note": "Obs: Você pode selecionar mais de um tamanho"
+      },
+
+      "screenHomeFinancialProducer": {
+        "headerTitle": "Financeiro",
+        "balanceTitle": "Saldo disponível",
+        "sectionTitle": "Chaves cadastradas"
+      },
+
+      "screenRegisterPixFinancialProducer": {
+        "headerTitle": "Chaves pix",
+        "instructionOne": "Informe qual tipo de chave pix deseja cadastrar para receber suas vendas:",
+        "instructionTwo": "Informe no campo abaixo a chave pix a ser registrada:"
+      },
+
+      "screenProfile": {
+        "headerTitle": "Perfil"
+      },
+
+      "homeDonationConsumer": {
+        "headerTitle": "Doações",
+        "titleCoins": "Saldo de moedas Horticoins gerados da sua cesta",
+        "titleSection": "Ajude no combate a fome",
+        "infoSection": "Veja abaixo as instituições e projetos cadastrados na nossa rede e ajude-nos a atingir a meta do mês doando suas Horticoins que serão convertidas em alimentos.",
+        "info": "Para saber mais sobre os projetos e instituições que estamos ajudando, acesse o nosso site."
+      },
+
+      "confirmDonation": {
+        "headerTitle": "Assinatura",
+        "title": "Doação realizada com sucesso!",
+        "message": "Você acabou de ajudar uma instituição que atua no combate à fome, doando Horticoins que serão convertidos na compra de alimentos direto com nossos produtores locais parceiros."
+      },
+
+      "basketSignupPlanConsumer": {
+        "headerTitle": "Assinatura",
+        "title": "Vamos configurar seu plano",
+        "instructionOne": "Escolha qual a frequência de recebimento ou retirada da sua cesta:",
+        "instructionTwo": "Escolha qual o tamanho deseja para sua cesta de alimentos:",
+        "note": "Obs: O valor informado acima é cobrado de acordo com a frequência escolhida."
+      },
+
+      "basketSignupFoodConsumer": {
+        "headerTitle": "Assinatura",
+        "infoBasket": "Você escolheu a cesta de tamanho médio (12 itens), selecione quantas porções de cada categoria deseja receber.",
+        "warning": "Importante!",
+        "warningText": "Cada unidade de alimento retirada da sua cesta, é convertida em Horticoins, nossa moeda virtual que é utilizada por instituições parceiras para adquirir alimentos e ajudar no combate a fome!"
+      },
+
+      "basketSignupPaymentConsumer": {
+        "headerTitle": "Assinatura",
+        "titleSectionOne": "Entrega",
+        "instructionSectionOne": "Escolha se você prefere retirar sua cesta em um dos nossos pontos de coleta, ou receber em casa pagando uma taxa a mais",
+        "checkoutTitle": "Subtotal",
+        "checkoutTotal": "Total",
+        "checkoutDescriptionBasket": "01 cesta {{size}}",
+        "checkoutPriceBasket": "R$ {{price}}",
+        "checkoutTotalPriceBasket": "R$ {{price}}",
+        "titleSectionTwo": "Pagamento",
+        "instructionSectionTwo": "Realize o pagamento para a chave pix informada abaixo e em seguida envie o comprovante de pagamento para o produtor pelo whatsapp."
+      }
+    }
+  }
+}

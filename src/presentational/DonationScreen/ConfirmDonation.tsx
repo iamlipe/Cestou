@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import {t} from 'i18next';
 import {useNavigation} from '@react-navigation/native';
 
 import Coins from '@/assets/svgs/coins.svg';
@@ -14,17 +15,12 @@ export const ConfirmDonations = () => {
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
-      <Header title="Assinatura" welcome={false} />
+      <Header title={t('text.confirmDonation.headerTitle')} welcome={false} />
       <StyledContent>
         <StyledIconCoins />
-        <StyledTitle>Doação realizada com sucesso!</StyledTitle>
-        <StyledText>
-          Você acabou de ajudar uma instituição que atua no combate à fome,
-          doando Horticoins que serão convertidos na compra de alimentos direto
-          com nossos produtores locais parceiros.
-        </StyledText>
-
-        <StyledConfirmButton title="Doar novamente" onPress={goBack} />
+        <StyledTitle>{t('text.confirmDonation.title')}</StyledTitle>
+        <StyledText>{t('text.confirmDonation.message')}</StyledText>
+        <StyledConfirmButton title={t('button.donateAgain')} onPress={goBack} />
       </StyledContent>
     </StyledContainerScroll>
   );

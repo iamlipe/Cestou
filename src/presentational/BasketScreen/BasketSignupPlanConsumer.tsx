@@ -1,9 +1,12 @@
 import React, {useEffect, useState, useCallback} from 'react';
 import styled from 'styled-components/native';
 import * as Yup from 'yup';
+import {t} from 'i18next';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useNavigation} from '@react-navigation/native';
+import {useReduxDispatch} from '@/hooks/useReduxDispatch';
+import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {BasketConsumerStackParamList} from '@/routes/stacks/BasketConsumerStack';
 import {
@@ -11,16 +14,14 @@ import {
   GET_BASKET_PRODUCER,
   SIGNUP_CONSUMER_BASKET,
 } from '@/store/slices/basketSlice';
-import {useReduxDispatch} from '@/hooks/useReduxDispatch';
-import {useReduxSelector} from '@/hooks/useReduxSelector';
 
 import Header from '@/components/Header';
 import RadioForm from '@/components/RadioForm';
 import Button from '@/components/Button';
 
 const schema = Yup.object().shape({
-  daysPerDeliver: Yup.string().required('Preenchimento obrigatório'),
-  size: Yup.string().required('Preenchimento obrigatório'),
+  daysPerDeliver: Yup.string().required(t('error.required')),
+  size: Yup.string().required(t('error.required')),
 });
 
 type NavProps = NativeStackNavigationProp<
@@ -72,45 +73,52 @@ export const BasketSignupPlanConsumer = () => {
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
-      <Header title="Assinatura" welcome={false} />
+      <Header
+        title={t('text.basketSignupPlanConsumer.headerTitle')}
+        welcome={false}
+      />
       <StyledContent>
-        <StyledTitle>Vamos configurar seu plano</StyledTitle>
+        <StyledTitle>{t('text.basketSignupPlanConsumer.title')}</StyledTitle>
         <StyledLabel>
-          Escolha qual a frequência de recebimento ou retirada da sua cesta:
+          {t('text.basketSignupPlanConsumer.instructionOne')}
         </StyledLabel>
 
         <RadioForm
           name="daysPerDeliver"
           control={control}
-          options={['Semanal', 'Quinzenal']}
+          options={[
+            t('option.daysPerDeliverWeekly'),
+            t('option.daysPerDeliverFortnightly'),
+          ]}
           type="withBox"
           error={isSubmitted ? errors.daysPerDeliver?.message : ''}
         />
 
         <StyledLabel>
-          Escolha qual o tamanho deseja para sua cesta de alimentos:
+          {t('text.basketSignupPlanConsumer.instructionTwo')}
         </StyledLabel>
 
         <StyledLine />
         <RadioForm
           name="size"
           control={control}
-          options={['Pequena', 'Média', 'Grande']}
+          options={[
+            t('option.smallBasket'),
+            t('option.mediumBasket'),
+            t('option.largeBasket'),
+          ]}
           detailsOptions={[
-            '1 tempero, 2 legumes, 2 verduras , 3 frutas',
-            '2 temperos, 3 legumes, 3 verduras, 3 frutas e 1 processado',
-            '3 temperos, 4 legumes, 4 verduras, 4 frutas e 1 processado',
+            t('detailsOption.smallBasket'),
+            t('detailsOption.mediumBasket'),
+            t('detailsOption.largeBasket'),
           ]}
           type="withBox"
           error={isSubmitted ? errors.size?.message : ''}
         />
-        <StyledText>
-          Obs: O valor informado acima é cobrado de acordo com a frequência
-          escolhida.
-        </StyledText>
+        <StyledText>{t('text.basketSignupPlanConsumer.note')}</StyledText>
 
         <StyledSubmitButton
-          title="Próximo"
+          title={t('button.next')}
           onPress={handleSubmit(onSubmit)}
           loading={isLoading}
         />

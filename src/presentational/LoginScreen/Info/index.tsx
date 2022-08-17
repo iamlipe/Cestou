@@ -1,5 +1,6 @@
 import React, {memo} from 'react';
 import styled from 'styled-components/native';
+import {t} from 'i18next';
 import {Linking} from 'react-native';
 import {OUR_SITE} from 'react-native-dotenv';
 
@@ -8,16 +9,13 @@ import Button from '@/components/Button';
 const Info = () => {
   return (
     <StyledContainerInfo>
-      <StyledText>
-        Se você é uma instituição que atua no combate a fome e deseja solicitar
-        seu cadastro, visite nosso site e saiba mais.
-      </StyledText>
+      <StyledText>{t('text.componentInfo.title')}</StyledText>
       <Button
         onPress={async () => Linking.openURL(OUR_SITE)}
         size="small"
         buttonColor="text_only"
         textColor="primary"
-        title="Ir para o site"
+        title={t('button.goToSite')}
         noMargin
       />
     </StyledContainerInfo>

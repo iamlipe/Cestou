@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components/native';
 import * as Yup from 'yup';
+import {t} from 'i18next';
 import {useForm} from 'react-hook-form';
 import {
   GET_PRODUCER,
@@ -22,8 +23,8 @@ import Button from '@/components/Button';
 import Modal from '@/components/Modal';
 
 const schema = Yup.object().shape({
-  pixType: Yup.string().required('Preenchimento obrigatório'),
-  pixValue: Yup.string().required('Preenchimento obrigatório'),
+  pixType: Yup.string().required(t('error.required')),
+  pixValue: Yup.string().required(t('error.required')),
 });
 
 export const RegisterPixFinancialProducer = () => {
@@ -43,6 +44,8 @@ export const RegisterPixFinancialProducer = () => {
   function registerPix(data: RegisterPixRequest) {
     const pixType = translatePixType(data.pixType);
 
+    console.log(pixType);
+
     if (pixType) dispatch(REGISTER_PIX({pixType, pixValue: data.pixValue}));
     if (auth?.id) dispatch(GET_PRODUCER({id: auth?.id}));
   }
@@ -58,37 +61,44 @@ export const RegisterPixFinancialProducer = () => {
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
-      <Header title="Chaves pix" welcome={false} />
+      <Header
+        title={t('text.screenRegisterPixFinancialProducer.headerTitle')}
+        welcome={false}
+      />
       <StyledContent>
         <StyledText>
-          Informe qual tipo de chave pix deseja cadastrar para receber suas
-          vendas:
+          {t('text.screenRegisterPixFinancialProducer.instructionOne')}
         </StyledText>
         <RadioForm
           name="pixType"
           control={control}
-          options={['CPF', 'Celular', 'E-mail', 'Chave aleatória']}
+          options={[
+            t('option.typePixCPF'),
+            t('option.typePixPhone'),
+            t('option.typePixEmail'),
+            t('option.typePixRandom'),
+          ]}
           error={isSubmitted ? errors.pixType?.message : ''}
           type="withLine"
         />
         <StyledText>
-          Informe no campo abaixo a chave pix a ser registrada:
+          {t('text.screenRegisterPixFinancialProducer.instructionTwo')}
         </StyledText>
         <InputForm
           name="pixValue"
           control={control}
           error={isSubmitted ? errors.pixValue?.message : ''}
-          label="Informe a chave pix"
+          label={t('label.pixValue')}
         />
         <Button
-          title="Registrar chave"
+          title={t('Button.RegisterPix')}
           loading={isLoading}
           onPress={handleSubmit(onSubmit)}
         />
 
         {!isLoading && isVisibleModal && (
           <Modal
-            title="Sua chave PIX foi registrada com sucesso!"
+            title={t('modal.titleRegisterPix')}
             icon={IconPiggy as React.FC<SvgProps>}
             onClose={() => handleModal(false)}
             justMessage

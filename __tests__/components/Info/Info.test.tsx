@@ -4,7 +4,7 @@ import {
   matchSnapshotWithProvider,
 } from '@/config/functions/testing';
 
-import Info from '@/components/Info';
+import Info from '@/presentational/LoginScreen/Info';
 
 describe('Info', () => {
   test('should render correctly', () => {

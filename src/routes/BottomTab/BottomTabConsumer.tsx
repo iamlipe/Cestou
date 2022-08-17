@@ -1,13 +1,15 @@
 import React from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import {t} from 'i18next';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {LoggedConsumerStackParamList} from '../stacks/LoggedConsumerStack';
+import {useTranslation} from 'react-i18next';
 import {
   ParamListBase,
   TabNavigationState,
   useNavigation,
 } from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {LoggedConsumerStackParamList} from '../stacks/LoggedConsumerStack';
 
 type NavPropsProducer = NativeStackNavigationProp<
   LoggedConsumerStackParamList,
@@ -52,20 +54,30 @@ export const ButtonTabConsumer: React.FC<Props> = ({state}) => {
   return (
     <StyledBottonTabContainer>
       <StyledButtonTabRow>
-        {renderTab('home', 'Início', 'HomeConsumer', 'icon-tab-home')}
+        {renderTab(
+          'home',
+          t('bottomTab.home'),
+          'HomeConsumer',
+          'icon-tab-home',
+        )}
         {renderTab(
           'shopping-basket',
-          'Minha cesta',
+          t('bottomTab.myBaskets'),
           'BasketConsumerStack',
           'icon-tab-basket',
         )}
         {renderTab(
           'attach-money',
-          'Doações',
+          t('bottomTab.donations'),
           'DonationConsumerStack',
           'icon-tab-donation',
         )}
-        {renderTab('person', 'Perfil', 'ProfileConsumer', 'icon-tab-profile')}
+        {renderTab(
+          'person',
+          t('bottomTab.profile'),
+          'ProfileConsumer',
+          'icon-tab-profile',
+        )}
       </StyledButtonTabRow>
     </StyledBottonTabContainer>
   );

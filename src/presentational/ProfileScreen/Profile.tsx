@@ -1,11 +1,13 @@
 import React from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import {t} from 'i18next';
 import {Linking} from 'react-native';
 import {LOGOUT} from '@/store/slices/userSlice';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useGetConsumerBasket} from '@/hooks/useGetConsumerBasket';
+import {useTranslation} from 'react-i18next';
 
 import Header from '@/components/Header';
 import ButtonRedirect from '@/components/ButtonRedirect';
@@ -24,21 +26,27 @@ export const Profile = () => {
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
-      <Header title="Perfil" type="profile" welcome={false} />
+      <Header
+        title={t('text.screenProfile.headerTitle')}
+        type="profile"
+        welcome={false}
+      />
       <StyledContent>
-        <ButtonRedirect title="Meus dados" onPress={() => null} />
-        <ButtonRedirect title="Minhas cestas" onPress={() => null} />
+        <ButtonRedirect title={t('button.myInfo')} onPress={() => null} />
+        <ButtonRedirect title={t('button.myBaskets')} onPress={() => null} />
 
         {auth?.userType === 'consumer' &&
           basketConsumer?.basketProducerID.userID.phone && (
             <ButtonRedirect
-              title="Contactar produtor"
+              title={t('button.contactProducer')}
               onPress={() => WhatsAppLink()}
             />
           )}
 
         <StyledLogoutButton onPress={() => dispatch(LOGOUT())}>
-          <StyledTitleLogoutButton>Sair da conta</StyledTitleLogoutButton>
+          <StyledTitleLogoutButton>
+            {t('button.logout')}
+          </StyledTitleLogoutButton>
 
           <Icon name="logout" size={20} color={theme.colors.GRAY_900} />
         </StyledLogoutButton>

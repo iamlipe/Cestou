@@ -1,5 +1,6 @@
 import React, {memo} from 'react';
 import styled, {useTheme} from 'styled-components/native';
+import {t} from 'i18next';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 import {
@@ -10,9 +11,9 @@ import {
   StyledConfirmButton,
   StyledCancelButton,
   StyledCloseButton,
-} from '../Modal';
+} from '@/components/Modal';
 
-import Counter from '../Counter';
+import Counter from '@/components/Counter';
 
 interface Props {
   name: string;
@@ -48,10 +49,14 @@ const ModalDonation = ({
             />
 
             <StyledTitle>
-              Você escolheu doar para a ONG Criança sem fome!
+              {t('text.componentModalDonation.titleModalDonation')}
             </StyledTitle>
-            <StyledSubTitle>Você tem 0 moedas</StyledSubTitle>
-            <StyledText>Quantas moedas deseja doar?</StyledText>
+            <StyledSubTitle>
+              {t('text.componentModalDonation.subTitleModalDonation')}
+            </StyledSubTitle>
+            <StyledText>
+              {t('text.componentModalDonation.textModalDonation')}
+            </StyledText>
 
             <Counter name={name} control={control} />
             {error && <StyledError>{error}</StyledError>}
@@ -61,13 +66,13 @@ const ModalDonation = ({
                 buttonColor="text_only"
                 textColor="primary"
                 size="small"
-                title="Cancelar"
+                title={t('button.cancel')}
                 onPress={onCancel}
               />
 
               <StyledConfirmButton
                 size="small"
-                title="Confirmar"
+                title={t('button.confirm')}
                 onPress={onConfirm}
               />
             </StyledContainerButtons>

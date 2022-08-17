@@ -129,7 +129,7 @@ exports[`ModalDonation should matches snapshot 1`] = `
             ]
           }
         >
-          Você escolheu doar para a ONG Criança sem fome!
+          title
         </Text>
         <Text
           style={
@@ -145,7 +145,7 @@ exports[`ModalDonation should matches snapshot 1`] = `
             ]
           }
         >
-          Você tem 0 moedas
+          subtitle
         </Text>
         <Text
           style={
@@ -161,7 +161,7 @@ exports[`ModalDonation should matches snapshot 1`] = `
             ]
           }
         >
-          Quantas moedas deseja doar?
+          text
         </Text>
         <View
           style={
@@ -343,9 +343,7 @@ exports[`ModalDonation should matches snapshot 1`] = `
                 ]
               }
               textColor="primary"
-            >
-              Cancelar
-            </Text>
+            />
           </View>
           <View
             accessibilityState={
@@ -389,9 +387,7 @@ exports[`ModalDonation should matches snapshot 1`] = `
                 ]
               }
               textColor="white"
-            >
-              Confirmar
-            </Text>
+            />
           </View>
         </View>
       </View>

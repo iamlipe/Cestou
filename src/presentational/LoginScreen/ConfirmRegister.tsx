@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components/native';
+import {t} from 'i18next';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '@/routes/stacks/AuthStack';
@@ -20,8 +21,14 @@ type ParamList = {
 };
 
 export const ConfirmRegister = () => {
-  const {navigate} = useNavigation<NavProps>();
+  const {navigate, addListener} = useNavigation<NavProps>();
   const route = useRoute<RouteProp<ParamList, 'params'>>();
+
+  useEffect(() => {
+    addListener('beforeRemove', event => {
+      event.preventDefault();
+    });
+  });
 
   return (
     <StyledContainerScroll
@@ -32,14 +39,15 @@ export const ConfirmRegister = () => {
       ) : (
         <StyledConsumer testID="welcome-consumer" />
       )}
-      <StyledTitle>Cadastro realizado com sucesso!</StyledTitle>
+      <StyledTitle>
+        {t('text.screenConfirmRegister.registrationSuccessfully')}
+      </StyledTitle>
       <StyledSubtitle>
-        Valide seu cadastro e aproveite toda a experiência de Cestar e ajudar no
-        combate a fome.
+        {t('text.screenConfirmRegister.validateYourRegistration')}
       </StyledSubtitle>
       <StyledConfirmButton
         testID="confirm-button"
-        title="Começar"
+        title={t('button.start')}
         onPress={() =>
           navigate('Onboarding', {
             phoneOrEmail: route.params.phoneOrEmail,

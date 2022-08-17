@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import IconMaterials from 'react-native-vector-icons/MaterialIcons';
 import IconFeather from 'react-native-vector-icons/Feather';
+import {t} from 'i18next';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {GET_PRODUCER} from '@/store/slices/producerSlice';
@@ -53,10 +54,15 @@ export const HomeFinancialProducer = () => {
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
-      <Header title="Financeiro" welcome={false} />
+      <Header
+        title={t('text.screenHomeFinancialProducer.headerTitle')}
+        welcome={false}
+      />
       <StyledContent>
         <StyledPiggyBank testID="icon-piggy-bank" />
-        <StyledTitleBalance>Saldo disponível</StyledTitleBalance>
+        <StyledTitleBalance>
+          {t('text.screenHomeFinancialProducer.balanceTitle')}
+        </StyledTitleBalance>
         {producer?.balance ? (
           <StyledTextBalance>
             {`R$ ${Number(producer?.balance).toLocaleString('pt-br', {
@@ -65,13 +71,13 @@ export const HomeFinancialProducer = () => {
             })}`}
           </StyledTextBalance>
         ) : (
-          <StyledTextLoadingBalance>Carregando...</StyledTextLoadingBalance>
+          <StyledTextLoadingBalance>{t('loading')}</StyledTextLoadingBalance>
         )}
         <ButtonRedirect
-          title="Configurar chave pix"
+          title={t('button.configPix')}
           onPress={() => navigate('RegisterPixFinancialProducer')}
         />
-        <ButtonRedirect title="Ver extrato" onPress={() => null} />
+        <ButtonRedirect title={t('button.extract')} onPress={() => null} />
 
         {(producer?.cpfPix ||
           producer?.emailPix ||
@@ -79,7 +85,9 @@ export const HomeFinancialProducer = () => {
           producer?.randomPix) && (
           <>
             <StyledLine />
-            <StyledTitlePix>Chaves cadastradas</StyledTitlePix>
+            <StyledTitlePix>
+              {t('text.screenHomeFinancialProducer.sectionTitle')}
+            </StyledTitlePix>
             {producer?.cpfPix && renderPix(producer?.cpfPix, 'person')}
             {producer?.emailPix &&
               renderPix(producer?.emailPix, 'mail-outline')}
@@ -122,7 +130,9 @@ const StyledTextBalance = styled(StyledTitleBalance)`
   margin-bottom: 16px;
 `;
 
-const StyledTextLoadingBalance = styled.Text``;
+const StyledTextLoadingBalance = styled.Text`
+  text-align: center;
+`;
 
 const StyledLine = styled.View`
   width: 100%;

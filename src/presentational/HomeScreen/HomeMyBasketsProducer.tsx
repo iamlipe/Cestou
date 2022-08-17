@@ -1,17 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components/native';
 import * as Yup from 'yup';
+import {t} from 'i18next';
 import {yupResolver} from '@hookform/resolvers/yup';
+import {SvgProps} from 'react-native-svg';
 import {useForm} from 'react-hook-form';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
-import {translateBasketToEnglish} from '@/helpers/translate';
+import {useTranslation} from 'react-i18next';
+import {useNavigation} from '@react-navigation/native';
 import {
   GET_BASKET,
   SIGNUP_PRODUCER_BASKET,
   BasketResponse,
 } from '@/store/slices/basketSlice';
-import {useNavigation} from '@react-navigation/native';
+
+import {translateBasketToEnglish} from '@/helpers/translate';
 
 import IconVegetable from '@/assets/svgs/vegetable.svg';
 
@@ -19,7 +23,6 @@ import Header from '@/components/Header';
 import Checkbox from '@/components/CheckboxForm';
 import Button from '@/components/Button';
 import Modal from '@/components/Modal';
-import {SvgProps} from 'react-native-svg';
 
 interface SignupBasket {
   myBasket: string[];
@@ -27,8 +30,8 @@ interface SignupBasket {
 
 const schema = Yup.object().shape({
   myBasket: Yup.array()
-    .min(1, 'Selecione ao menos um produto')
-    .required('Preenchimento obrigatório'),
+    .min(1, t('error.minProduct'))
+    .required(t('error.required')),
 });
 
 export const HomeMyBasketsProducer = () => {
@@ -72,40 +75,44 @@ export const HomeMyBasketsProducer = () => {
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
-      <Header title="Minhas cestas" welcome={false} />
+      <Header
+        title={t('text.screenHomeMyBasketsProducer.titleHeader')}
+        welcome={false}
+      />
       <StyledContent>
         <StyledText>
-          Escolha abaixo qual o tamanho da cesta você deseja fornecer, e veja
-          quantos e quais os tipos de alimentos em cada uma.Escolha abaixo qual
-          o tamanho da cesta você deseja fornecer, e veja quantos e quais os
-          tipos de alimentos em cada uma.
+          {t('text.screenHomeMyBasketsProducer.instructions')}
         </StyledText>
         <StyledObservationText>
-          Obs: Você pode selecionar mais de um tamanho
+          {t('text.screenHomeMyBasketsProducer.note')}
         </StyledObservationText>
 
         <Checkbox
           name="myBasket"
           control={control}
-          options={['Pequena', 'Média', 'Grande']}
+          options={[
+            t('option.smallBasket'),
+            t('option.mediumBasket'),
+            t('option.largeBasket'),
+          ]}
           detailsOptions={[
-            '1 tempero, 2 legumes, 2 verduras , 3 frutas',
-            '2 temperos, 3 legumes, 3 verduras, 3 frutas e 1 processado',
-            '3 temperos, 4 legumes, 4 verduras, 4 frutas e 1 processado',
+            t('detailsOption.smallBasket'),
+            t('detailsOption.mediumBasket'),
+            t('detailsOption.largeBasket'),
           ]}
           error={isSubmitted ? errors.myBasket?.message : ''}
         />
 
         <StyledSubmitButton
           testID="subimit-button"
-          title="Confirmar seleção"
+          title={t('button.confirm')}
           loading={isLoading}
           onPress={handleSubmit(onSubmit)}
         />
 
         {!isLoading && isVisibleModal && (
           <Modal
-            title="Você adicionou as cestas à sua lista de produtos fornecidos."
+            title={t('modal.titleConfirmProducerBasket')}
             icon={IconVegetable as React.FC<SvgProps>}
             onConfirm={() => {
               handleModal(false);

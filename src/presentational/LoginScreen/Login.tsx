@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import styled from 'styled-components/native';
 import * as Yup from 'yup';
+import {t} from 'i18next';
 import {Keyboard} from 'react-native';
 import {useForm} from 'react-hook-form';
 import {LOGIN, LoginRequest, REMEMBER_USER} from '@/store/slices/userSlice';
@@ -11,27 +12,29 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '@/routes/stacks/AuthStack';
 import {useAsyncStorage} from '@react-native-async-storage/async-storage';
+import {useTranslation} from 'react-i18next';
 
 import Logo from '@/assets/svgs/logo.svg';
 
 import InputForm from '@/components/InputForm/index';
 import Button from '@/components/Button';
 import CheckboxForm from '@/components/CheckboxForm';
-import Info from '@/components/Info';
+import Info from './Info';
 
 const schema = Yup.object().shape({
   phoneOrEmail: Yup.string()
-    .email('Informe um email válido')
-    .required('Preenchimento obrigatório'),
-  password: Yup.string().required('Preenchimento obrigatório'),
+    .email(t('error.validEmail'))
+    .required(t('error.required')),
+  password: Yup.string().required(t('error.required')),
 });
 
 type NavProps = NativeStackNavigationProp<AuthStackParamList, 'Register'>;
 
 export const Login = () => {
-  const userReducer = useReduxSelector(({user}) => user);
+  const {error, isLoading} = useReduxSelector(state => state.user);
   const userStorage = useAsyncStorage('@user');
   const {navigate, addListener} = useNavigation<NavProps>();
+  const {t} = useTranslation();
   const dispatch = useReduxDispatch();
 
   const {
@@ -82,29 +85,29 @@ export const Login = () => {
           <InputForm
             control={control}
             name="phoneOrEmail"
-            label="E-mail"
+            label={t('label.email')}
             error={
               (isSubmitted && errors.phoneOrEmail?.message) ||
-              (userReducer.error?.response && 'telefone ou senha incorretos')
+              (error?.response && t('error.login'))
             }
           />
           <InputForm
             control={control}
             name="password"
-            label="Senha"
+            label={t('label.password')}
             secureTextEntry
             error={
               (isSubmitted && errors.password?.message) ||
-              (userReducer.error?.response && 'telefone ou senha incorretos')
+              (error?.response && t('error.login'))
             }
           />
 
           <StyledRowRecoverPassword>
-            <StyledText>Esqueceu a senha?</StyledText>
+            <StyledText>{t('text.screenLogin.forgotYourPassword?')}</StyledText>
             <StyledLink
               buttonColor="text_only"
               textColor="primary"
-              title="Recuperar senha"
+              title={t('button.recoveryPassword')}
               size="small"
               noMargin
               onPress={() => null}
@@ -114,22 +117,22 @@ export const Login = () => {
           <CheckboxForm
             control={control}
             name="remember"
-            options={['Lembrar minha senha']}
+            options={[`${t('option.rememberMe')}`]}
           />
         </StyledContainerForm>
         <StyledButtonSubmit
           onPress={handleSubmit(onSubmit)}
-          loading={userReducer.isLoading}
-          title="Entrar"
+          loading={isLoading}
+          title={t('button.login')}
           noMargin
         />
 
         <StyledRowRegister>
-          <StyledText>Ainda não tem conta?</StyledText>
+          <StyledText>{t('text.screenLogin.doNotHaveAnAccount?')}</StyledText>
           <StyledLink
             buttonColor="text_only"
             textColor="primary"
-            title="Cadastre-se"
+            title={t('button.signUp')}
             noMargin
             onPress={() => navigate('Register')}
           />

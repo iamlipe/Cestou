@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import styled, {useTheme} from 'styled-components/native';
-import * as Yup from 'yup';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import * as Yup from 'yup';
+import {t} from 'i18next';
 import {Linking} from 'react-native';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
@@ -15,7 +16,7 @@ import imgOngTwo from '@/assets/images/ong_2.png';
 
 import Header from '@/components/Header';
 import CardOng from '@/components/CardOng';
-import ModalDonation from '@/components/ModalDonation';
+import ModalDonation from './ModalDonation';
 import Button from '@/components/Button';
 
 interface DonationsOng {
@@ -33,19 +34,17 @@ type NavProps = NativeStackNavigationProp<
 >;
 
 const schema = Yup.object().shape({
-  coins: Yup.number()
-    .min(1, 'Mínimo de 1 moeda')
-    .required('Preenchimento obrigatório'),
+  coins: Yup.number().min(1, t('error.minCoins')).required(t('error.required')),
 });
 
 const dataOngServices: DonationsOng[] = [
   {
     image: imgOngOne,
-    title: 'ONG Comida na mesa',
+    title: t('cardOng.one'),
   },
   {
     image: imgOngTwo,
-    title: 'ONG Criança sem fome',
+    title: t('cardOng.two'),
   },
 ];
 
@@ -71,17 +70,20 @@ export const HomeDonationConsumer = () => {
     setIsVisibleModal(false);
   }
 
-  async function onSubmit(data: any) {
+  async function onSubmit() {
     handleNavigateNext();
   }
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>
-      <Header title="Doações" welcome={false} />
+      <Header
+        title={t('text.homeDonationConsumer.headerTitle')}
+        welcome={false}
+      />
       <StyledContent>
         <StyledBoxShowCoins>
           <StyledTextCoin>
-            Saldo de moedas Horticoins gerados da sua cesta
+            {t('text.homeDonationConsumer.titleCoins')}
           </StyledTextCoin>
 
           <StyledTextQuantityCoins>0</StyledTextQuantityCoins>
@@ -91,12 +93,8 @@ export const HomeDonationConsumer = () => {
             size={24}
           />
         </StyledBoxShowCoins>
-        <StyledTitle>Ajude no combate a fome</StyledTitle>
-        <StyledText>
-          Veja abaixo as instituições e projetos cadastrados na nossa rede e
-          ajude-nos a atingir a meta do mês doando suas Horticoins que serão
-          convertidas em alimentos.
-        </StyledText>
+        <StyledTitle>{t('text.homeDonationConsumer.titleSection')}</StyledTitle>
+        <StyledText>{t('text.homeDonationConsumer.infoSection')}</StyledText>
 
         <StyledRow>
           {dataOngServices.map((ong: DonationsOng, index: number) => (
@@ -111,12 +109,9 @@ export const HomeDonationConsumer = () => {
         </StyledRow>
 
         <StyledContainerInfo style={{elevation: 4}}>
-          <StyledTextInfo>
-            Para saber mais sobre os projetos e instituições que estamos
-            ajudando, acesse o nosso site.
-          </StyledTextInfo>
+          <StyledTextInfo>{t('text.homeDonationConsumer.info')}</StyledTextInfo>
           <Button
-            title="Ir para site"
+            title={t('button.goToSite')}
             onPress={async () => Linking.openURL(OUR_SITE)}
             size="small"
             buttonColor="transparent"

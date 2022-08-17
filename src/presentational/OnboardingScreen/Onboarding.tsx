@@ -1,17 +1,18 @@
 import React from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import AppIntroSlider from 'react-native-app-intro-slider';
+import {t} from 'i18next';
 import {ImageSourcePropType} from 'react-native';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {RouteProp, useRoute} from '@react-navigation/native';
+import {LOGIN} from '@/store/slices/userSlice';
 
 import imgOnboardinOne from '@/assets/images/onboarding-1.png';
 import imgOnboardinTwo from '@/assets/images/onboarding-2.png';
 import imgOnboardinThree from '@/assets/images/onboarding-3.png';
 
 import Button from '@/components/Button';
-import {LOGIN} from '@/store/slices/userSlice';
 
 interface SlideProps {
   key: string;
@@ -27,32 +28,32 @@ type ParamList = {
   };
 };
 
-const slides: SlideProps[] = [
-  {
-    key: 'one',
-    title: 'Tire a fome do caminho',
-    text: 'Alimentação é direito básico e a sua partilha é fundamental à quem tem fome. Através da assinatura mensal, você garante alimentação saudável democratizada pra sua família e ainda possibilita o mesmo consumo pra uma família em vulnerabilidade.',
-    image: imgOnboardinOne,
-  },
-  {
-    key: 'two',
-    title: 'Agricultura familiar presente',
-    text: 'Conecte-se com produtores familiares da sua região. Você fortalece a produção de pequenos produtores locais e recebe alimentos frescos e cultivados com muito carinho e cuidado.',
-    image: imgOnboardinTwo,
-  },
-  {
-    key: 'three',
-    title: 'Alimentação saudável ao seu alcance',
-    text: 'Aqui você encontra alimentos totalmente livres de agrotóxicos e perto de você!',
-    image: imgOnboardinThree,
-  },
-];
-
 export const Onboarding = () => {
-  const userReducer = useReduxSelector(({user}) => user);
+  const {isLoading} = useReduxSelector(state => state.user);
   const theme = useTheme();
   const dispatch = useReduxDispatch();
   const route = useRoute<RouteProp<ParamList, 'params'>>();
+
+  const slides: SlideProps[] = [
+    {
+      key: 'one',
+      title: t('text.screenOnboarding.titleOnboardingOne'),
+      text: t('text.screenOnboarding.textOnboardingOne'),
+      image: imgOnboardinOne,
+    },
+    {
+      key: 'two',
+      title: t('text.screenOnboarding.titleOnboardingTwo'),
+      text: t('text.screenOnboarding.textOnboardingTwo'),
+      image: imgOnboardinTwo,
+    },
+    {
+      key: 'three',
+      title: t('text.screenOnboarding.titleOnboardingThree'),
+      text: t('text.screenOnboarding.textOnboardingThree'),
+      image: imgOnboardinThree,
+    },
+  ];
 
   const renderSlide = ({item}: {item: SlideProps}) => (
     <StyledContainer key={item.key} showsVerticalScrollIndicator={false}>
@@ -68,9 +69,9 @@ export const Onboarding = () => {
 
   const renderDone = () => (
     <Button
-      title="Finalizar"
+      title={t('button.done')}
       size="small"
-      loading={userReducer.isLoading}
+      loading={isLoading}
       onPress={() => {
         dispatch(
           LOGIN({
@@ -85,19 +86,19 @@ export const Onboarding = () => {
 
   const renderNext = () => (
     <StyledButtonNext>
-      <StyledButtonTextNext>Próximo</StyledButtonTextNext>
+      <StyledButtonTextNext>{t('button.next')}</StyledButtonTextNext>
     </StyledButtonNext>
   );
 
   const renderSkip = () => (
     <StyledButtonSkip>
-      <StyledButtonTextSkip>Pular</StyledButtonTextSkip>
+      <StyledButtonTextSkip>{t('button.skip')}</StyledButtonTextSkip>
     </StyledButtonSkip>
   );
 
   const renderPrev = () => (
     <StyledButtonPrev>
-      <StyledButtonTextPrev>Voltar</StyledButtonTextPrev>
+      <StyledButtonTextPrev>{t('button.prev')}</StyledButtonTextPrev>
     </StyledButtonPrev>
   );
 

@@ -39,6 +39,9 @@ export function* login({payload}: PayloadAction<LoginRequest>) {
       phone: data.phone,
       token: data.token,
       refreshToken: data.refresh_token,
+      created_at: data.created_at,
+      updated_at: data.updated_at,
+      deleted_at: data.deleted_at,
     };
 
     if (payload.remember?.length) {

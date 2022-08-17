@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import {t} from 'i18next';
 import {useNavigation} from '@react-navigation/native';
 import {HomeProducerStackParamList} from '@/routes/stacks/HomeProducerStack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -24,22 +25,21 @@ export const HomeProducer = () => {
   return (
     <StyledContainer showsVerticalScrollIndicator={false}>
       <Header />
-      <StyledTitle>Minhas cestas</StyledTitle>
+      <StyledTitle>{t('text.screenHomeProducer.titleSectionOne')}</StyledTitle>
       <StyledContainerAboutMyBasket>
         <StyledTitleAboutMyBasket>
-          Configure quais os tipos e tamanhos de cesta de alimentos você deseja
-          fornecer.
+          {t('text.screenHomeProducer.note')}
         </StyledTitleAboutMyBasket>
 
         <ButtonAboutMyBasket
-          title="Minhas cestas"
+          title={t('button.myBaskets')}
           onPress={() => navigate('HomeMyBasketsProducer')}
         />
       </StyledContainerAboutMyBasket>
 
-      <StyledTitle>Minhas finanças</StyledTitle>
-      {renderLargeButton('Ver meus rendimentos')}
-      {renderLargeButton('Cadastrar chave Pix')}
+      <StyledTitle>{t('text.screenHomeProducer.titleSectionTwo')}</StyledTitle>
+      {renderLargeButton(t('button.myEarnings'))}
+      {renderLargeButton(t('button.registerPix'))}
     </StyledContainer>
   );
 };
