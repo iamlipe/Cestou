@@ -35,8 +35,6 @@ export const Onboarding = () => {
   const dispatch = useReduxDispatch();
   const route = useRoute<RouteProp<ParamList, 'params'>>();
 
-  console.log(t('text.screenOnboarding.titleOnboardingOne'));
-
   const slides: SlideProps[] = [
     {
       key: 'one',
