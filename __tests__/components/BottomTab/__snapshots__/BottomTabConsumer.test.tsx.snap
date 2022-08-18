@@ -148,7 +148,7 @@ exports[`ButtonTabConsumer should matches snapshot 1`] = `
           ]
         }
       >
-        Minha cesta
+        Minhas cestas
       </Text>
     </View>
     <View

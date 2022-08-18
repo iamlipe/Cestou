@@ -2,9 +2,9 @@ import React, {useEffect} from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import IconMaterials from 'react-native-vector-icons/MaterialIcons';
 import IconFeather from 'react-native-vector-icons/Feather';
-import {t} from 'i18next';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
+import {useTranslation} from 'react-i18next';
 import {GET_PRODUCER} from '@/store/slices/producerSlice';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {FinancialProducerStackParamList} from '@/routes/stacks/FinancialProducerStack';
@@ -24,6 +24,7 @@ export const HomeFinancialProducer = () => {
   const {auth} = useReduxSelector(state => state.user);
   const {producer} = useReduxSelector(state => state.producer);
   const {navigate} = useNavigation<NavProps>();
+  const {t} = useTranslation();
   const theme = useTheme();
   const dispatch = useReduxDispatch();
 

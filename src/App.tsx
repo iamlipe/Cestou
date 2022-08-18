@@ -7,6 +7,8 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {Routes} from '@/routes';
 import {store} from '@/store';
 import {theme} from '@/styles';
+import {I18nextProvider} from 'react-i18next';
+import i18n from './config/i18n';
 
 interface TextWithDefaultProps extends Text {
   defaultProps?: {allowFontScaling?: boolean};
@@ -35,12 +37,14 @@ const App = () => {
       <Provider store={store}>
         <SafeAreaProvider>
           <ThemeProvider theme={theme}>
-            <StatusBar
-              barStyle="dark-content"
-              animated={false}
-              backgroundColor="#6CCD91"
-            />
-            <Routes />
+            <I18nextProvider i18n={i18n}>
+              <StatusBar
+                barStyle="dark-content"
+                animated={false}
+                backgroundColor="#6CCD91"
+              />
+              <Routes />
+            </I18nextProvider>
           </ThemeProvider>
         </SafeAreaProvider>
       </Provider>

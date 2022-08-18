@@ -9,6 +9,7 @@
     "test": "jest -u",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
+
   "dependencies": {
     "@hookform/resolvers": "^2.9.6",
     "@react-native-async-storage/async-storage": "^1.17.7",
@@ -20,11 +21,11 @@
     "@reduxjs/toolkit": "^1.8.3",
     "@types/react-native-vector-icons": "^6.4.11",
     "axios": "^0.27.2",
-    "i18next": "^21.9.0",
+    "i18next": "^21.9.1",
     "jest-styled-components": "^7.0.8",
     "react": "18.0.0",
     "react-hook-form": "^7.33.1",
-    "react-i18next": "^11.18.3",
+    "react-i18next": "^11.18.4",
     "react-native": "0.69.1",
     "react-native-app-intro-slider": "^4.0.4",
     "react-native-dotenv": "^3.3.1",

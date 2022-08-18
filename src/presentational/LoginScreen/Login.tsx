@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import styled from 'styled-components/native';
 import * as Yup from 'yup';
-import {t} from 'i18next';
 import {Keyboard} from 'react-native';
 import {useForm} from 'react-hook-form';
 import {LOGIN, LoginRequest, REMEMBER_USER} from '@/store/slices/userSlice';
@@ -21,13 +20,6 @@ import Button from '@/components/Button';
 import CheckboxForm from '@/components/CheckboxForm';
 import Info from './Info';
 
-const schema = Yup.object().shape({
-  phoneOrEmail: Yup.string()
-    .email(t('error.validEmail'))
-    .required(t('error.required')),
-  password: Yup.string().required(t('error.required')),
-});
-
 type NavProps = NativeStackNavigationProp<AuthStackParamList, 'Register'>;
 
 export const Login = () => {
@@ -36,6 +28,13 @@ export const Login = () => {
   const {navigate, addListener} = useNavigation<NavProps>();
   const {t} = useTranslation();
   const dispatch = useReduxDispatch();
+
+  const schema = Yup.object().shape({
+    phoneOrEmail: Yup.string()
+      .email(t('error.validEmail'))
+      .required(t('error.required')),
+    password: Yup.string().required(t('error.required')),
+  });
 
   const {
     control,

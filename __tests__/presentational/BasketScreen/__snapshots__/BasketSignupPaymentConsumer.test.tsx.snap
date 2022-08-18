@@ -236,7 +236,7 @@ exports[`BasketSignupPaymentConsumer should matches snapshot 1`] = `
                 ]
               }
             >
-              Retirar no ponto de coleta - R$00,00
+              Semanal
             </Text>
           </View>
         </View>
@@ -319,7 +319,7 @@ exports[`BasketSignupPaymentConsumer should matches snapshot 1`] = `
                 ]
               }
             >
-              Entrega (à combinar com produtor)
+              Quinzenal
             </Text>
           </View>
         </View>
@@ -396,7 +396,7 @@ exports[`BasketSignupPaymentConsumer should matches snapshot 1`] = `
               ]
             }
           >
-            01 Cesta grande
+            01 cesta grande
           </Text>
           <Text
             style={

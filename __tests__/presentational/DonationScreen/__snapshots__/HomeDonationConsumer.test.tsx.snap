@@ -485,7 +485,7 @@ exports[`HomeDonationConsumer should matches snapshot 1`] = `
             }
             textColor="primary"
           >
-            Ir para site
+            Ir para o site
           </Text>
         </View>
       </View>

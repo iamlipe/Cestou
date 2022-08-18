@@ -62,7 +62,7 @@ exports[`HomeConsumer should matches snapshot 1`] = `
               ]
             }
           >
-            Olá undefined!
+            Olá !
           </Text>
         </View>
       </View>
@@ -120,9 +120,7 @@ exports[`HomeConsumer should matches snapshot 1`] = `
         }
       >
         Faça sua
-        
-
-         assinatura!
+ assinatura!
       </Text>
       <Text
         style={
@@ -139,12 +137,8 @@ exports[`HomeConsumer should matches snapshot 1`] = `
         }
       >
         Produtos fresquinhos de
-        
-
-         produtores locais toda
-        
-
-         semana na sua mesa
+ produtores locais toda
+ semana na sua mesa
       </Text>
     </View>
     <View

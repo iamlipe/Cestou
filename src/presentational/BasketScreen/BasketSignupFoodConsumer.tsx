@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components/native';
-import {t} from 'i18next';
 import {useForm} from 'react-hook-form';
 import {useReduxDispatch} from '@/hooks/useReduxDispatch';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 import {BasketConsumerStackParamList} from '@/routes/stacks/BasketConsumerStack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {SvgProps} from 'react-native-svg';
@@ -42,6 +42,7 @@ export const BasketSignupFoodConsumer = () => {
   const {foodsBasket} = useGetFoodBasket();
   const {basketProducer, isLoading} = useReduxSelector(state => state.basket);
   const {navigate} = useNavigation<NavProps>();
+  const {t} = useTranslation();
   const dispatch = useReduxDispatch();
 
   const {control, handleSubmit} = useForm<BasketFoodQuantity>();

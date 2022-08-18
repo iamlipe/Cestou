@@ -62,7 +62,7 @@ exports[`HomeProducer should matches snapshot 1`] = `
               ]
             }
           >
-            Olá undefined!
+            Olá !
           </Text>
         </View>
       </View>
@@ -265,7 +265,7 @@ exports[`HomeProducer should matches snapshot 1`] = `
           ]
         }
       >
-        Cadastrar chave Pix
+        Registrar chave
       </Text>
     </View>
   </View>

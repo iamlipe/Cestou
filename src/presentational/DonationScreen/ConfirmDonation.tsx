@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {t} from 'i18next';
 import {useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 
 import Coins from '@/assets/svgs/coins.svg';
 import Button from '@/components/Button';
@@ -12,6 +12,7 @@ import Header from '@/components/Header';
 
 export const ConfirmDonations = () => {
   const {goBack} = useNavigation();
+  const {t} = useTranslation();
 
   return (
     <StyledContainerScroll showsVerticalScrollIndicator={false}>

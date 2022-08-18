@@ -572,7 +572,8 @@ exports[`BasketSignupPlanConsumer should matches snapshot 1`] = `
                 ]
               }
             >
-              2 temperos, 3 legumes, 3 verduras, 3 frutas e 1 processado
+              2 temperos, 3 legumes, 3 verduras, 3 frutas
+e 1 processado
             </Text>
           </View>
         </View>
@@ -673,7 +674,8 @@ exports[`BasketSignupPlanConsumer should matches snapshot 1`] = `
                 ]
               }
             >
-              3 temperos, 4 legumes, 4 verduras, 4 frutas e 1 processado
+              3 temperos, 4 legumes, 4 verduras, 4 frutas
+e 1 processado
             </Text>
           </View>
         </View>

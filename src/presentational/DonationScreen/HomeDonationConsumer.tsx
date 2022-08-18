@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as Yup from 'yup';
-import {t} from 'i18next';
 import {Linking} from 'react-native';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useNavigation} from '@react-navigation/native';
+import {useTranslation} from 'react-i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {DonationConsumerStackParamList} from '@/routes/stacks/DonationConsumerStack';
 import {OUR_SITE} from 'react-native-dotenv';
@@ -33,25 +33,28 @@ type NavProps = NativeStackNavigationProp<
   'ConfirmDonations'
 >;
 
-const schema = Yup.object().shape({
-  coins: Yup.number().min(1, t('error.minCoins')).required(t('error.required')),
-});
-
-const dataOngServices: DonationsOng[] = [
-  {
-    image: imgOngOne,
-    title: t('cardOng.one'),
-  },
-  {
-    image: imgOngTwo,
-    title: t('cardOng.two'),
-  },
-];
-
 export const HomeDonationConsumer = () => {
   const [isVisibleModal, setIsVisibleModal] = useState(false);
   const {navigate} = useNavigation<NavProps>();
+  const {t} = useTranslation();
   const theme = useTheme();
+
+  const schema = Yup.object().shape({
+    coins: Yup.number()
+      .min(1, t('error.minCoins'))
+      .required(t('error.required')),
+  });
+
+  const dataOngServices: DonationsOng[] = [
+    {
+      image: imgOngOne,
+      title: t('cardOng.one'),
+    },
+    {
+      image: imgOngTwo,
+      title: t('cardOng.two'),
+    },
+  ];
 
   const {
     control,
@@ -123,6 +126,9 @@ export const HomeDonationConsumer = () => {
           <ModalDonation
             name="coins"
             control={control}
+            title={t('text.componentModalDonation.titleModalDonation')}
+            subtitle={t('text.componentModalDonation.subTitleModalDonation')}
+            text={t('text.componentModalDonation.textModalDonation')}
             onConfirm={handleSubmit(onSubmit)}
             onCancel={() => handleModal(false)}
             onClose={() => handleModal(false)}
