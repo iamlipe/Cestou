@@ -21,6 +21,7 @@ buildscript {
         google()
         mavenCentral()
     }
+
     dependencies {
         classpath("com.android.tools.build:gradle:7.1.1")
         classpath("com.facebook.react:react-native-gradle-plugin")
@@ -49,5 +50,10 @@ allprojects {
         }
         google()
         maven { url 'https://www.jitpack.io' }
+
+        maven {
+            // Artefados do Detox para o node_module
+            url("$rootDir/../node_modules/detox/Detox-android")
+        }
     }
 }
