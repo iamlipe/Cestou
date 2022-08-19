@@ -43,7 +43,9 @@ export const Profile = () => {
             />
           )}
 
-        <StyledLogoutButton onPress={() => dispatch(LOGOUT())}>
+        <StyledLogoutButton
+          testID="logout-button"
+          onPress={() => dispatch(LOGOUT())}>
           <StyledTitleLogoutButton>
             {t('button.logout')}
           </StyledTitleLogoutButton>

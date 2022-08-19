@@ -77,7 +77,7 @@ export const Login = () => {
   }, []);
 
   return (
-    <StyledContainer>
+    <StyledContainer testID="login-screen">
       <StyledContainerScroll showsVerticalScrollIndicator={false}>
         <StyledLogo testID="logo" />
         <StyledContainerForm>
