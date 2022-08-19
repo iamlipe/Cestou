@@ -1,17 +1,5 @@
 /* eslint-disable no-undef */
 
-const consumer = {
-  name: 'consumer',
-  email: 'consumertest@email.com',
-  password: 'Ab123456',
-};
-
-const producer = {
-  name: 'producer',
-  email: 'producertest@email.com',
-  password: 'Ab123456',
-};
-
 describe('LoginScreen', () => {
   beforeAll(async () => device.launchApp());
 
@@ -26,16 +14,16 @@ describe('LoginScreen', () => {
     await new Promise(resolve => setTimeout(resolve, 5000));
 
     await email.tap();
-    await email.typeText(consumer.email);
+    await email.typeText('consumertest@email.com');
 
     await password.tap();
-    await password.typeText(consumer.password);
+    await password.typeText('Ab123456');
 
     await logo.tap();
     await button.tap();
 
     await expect(element(by.id('home-consumer-screen'))).toBeVisible();
-    await expect(element(by.text(`Olá ${consumer.name}!`))).toBeVisible();
+    await expect(element(by.text(`Welcome consumer!`))).toBeVisible();
   });
 
   test('should to make a login with an account producer', async () => {
@@ -47,16 +35,16 @@ describe('LoginScreen', () => {
     await new Promise(resolve => setTimeout(resolve, 5000));
 
     await email.tap();
-    await email.typeText(producer.email);
+    await email.typeText('producertest@email.com');
 
     await password.tap();
-    await password.typeText(producer.password);
+    await password.typeText('Ab123456');
 
     await logo.tap();
     await button.tap();
 
     await expect(element(by.id('home-producer-screen'))).toBeVisible();
-    await expect(element(by.text(`Olá ${producer.name}!`))).toBeVisible();
+    await expect(element(by.text(`Welcome producer!`))).toBeVisible();
   });
 
   test('should go to the register screen', async () => {

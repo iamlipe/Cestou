@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {t} from 'i18next';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {LoggedConsumerStackParamList} from '../stacks/LoggedConsumerStack';
 import {useTranslation} from 'react-i18next';
@@ -25,6 +24,7 @@ interface Props {
 
 export const ButtonTabConsumer: React.FC<Props> = ({state}) => {
   const {navigate} = useNavigation<NavPropsProducer>();
+  const {t} = useTranslation();
   const activeTab = state.routes[state.index].name;
   const theme = useTheme();
 

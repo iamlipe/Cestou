@@ -36,6 +36,7 @@ export const HomeProducer = () => {
 
         <ButtonAboutMyBasket
           title={t('button.myBaskets')}
+          testID="my-basket-button"
           onPress={() => navigate('HomeMyBasketsProducer')}
         />
       </StyledContainerAboutMyBasket>

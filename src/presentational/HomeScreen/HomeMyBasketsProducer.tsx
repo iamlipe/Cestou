@@ -74,7 +74,9 @@ export const HomeMyBasketsProducer = () => {
   }, [dispatch]);
 
   return (
-    <StyledContainerScroll showsVerticalScrollIndicator={false}>
+    <StyledContainerScroll
+      showsVerticalScrollIndicator={false}
+      testID="my-basket-producer-screen">
       <Header
         title={t('text.screenHomeMyBasketsProducer.titleHeader')}
         welcome={false}
