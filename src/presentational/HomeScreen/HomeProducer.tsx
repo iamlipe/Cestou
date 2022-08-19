@@ -24,7 +24,9 @@ export const HomeProducer = () => {
   );
 
   return (
-    <StyledContainer showsVerticalScrollIndicator={false}>
+    <StyledContainer
+      showsVerticalScrollIndicator={false}
+      testID="home-producer-screen">
       <Header />
       <StyledTitle>{t('text.screenHomeProducer.titleSectionOne')}</StyledTitle>
       <StyledContainerAboutMyBasket>

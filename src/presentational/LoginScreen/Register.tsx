@@ -89,7 +89,7 @@ export const Register = () => {
   }, [isLoading, canGoNext, navigate, registerData]);
 
   return (
-    <StyledContainer>
+    <StyledContainer testID="register-screen">
       <StyledRowTitle>
         <StyledTitle>{t('text.screenRegister.createAnAccount')}</StyledTitle>
         <StyledSubtitle>

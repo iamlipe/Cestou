@@ -123,6 +123,7 @@ export const Login = () => {
           onPress={handleSubmit(onSubmit)}
           loading={isLoading}
           title={t('button.login')}
+          testID="submit-button"
           noMargin
         />
 
@@ -134,6 +135,7 @@ export const Login = () => {
             title={t('button.signUp')}
             noMargin
             onPress={() => navigate('Register')}
+            testID="register-button"
           />
         </StyledRowRegister>
         <StyledLine />

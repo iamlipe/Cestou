@@ -2,7 +2,7 @@
   "testRunner": "jest",
   "runnerConfig": "e2e/config.json",
   "configurations": {
-    "android": {
+    "android.emu.debug": {
       "type": "android.emulator",
       "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
       "build": "cd android && gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
@@ -10,5 +10,8 @@
         "avdName": "Pixel_3a_API_28"
       }
     }
+  },
+  "artifacts": {
+    "rootDir": "./e2e/artifacts"
   }
 }

@@ -36,7 +36,9 @@ export const HomeConsumer = () => {
   ];
 
   return (
-    <StyledContainerScroll showsVerticalScrollIndicator={false}>
+    <StyledContainerScroll
+      showsVerticalScrollIndicator={false}
+      testID="home-consumer-screen">
       <Header />
       <StyledBanner source={imgBanner}>
         <StyledTitleBanner>
