@@ -25,7 +25,9 @@ export const Profile = () => {
   }
 
   return (
-    <StyledContainerScroll showsVerticalScrollIndicator={false}>
+    <StyledContainerScroll
+      showsVerticalScrollIndicator={false}
+      testID="profile-screen">
       <Header
         title={t('text.screenProfile.headerTitle')}
         type="profile"

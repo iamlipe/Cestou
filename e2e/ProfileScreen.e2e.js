@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 
-describe('LoginScreen', () => {
+describe('ProfileScreen', () => {
   beforeAll(async () => device.launchApp());
 
   beforeEach(async () => {

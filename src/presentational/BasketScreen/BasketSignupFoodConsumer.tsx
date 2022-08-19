@@ -40,7 +40,9 @@ export const BasketSignupFoodConsumer = () => {
   );
   const [quantityFoodInMyBasket, setQuantityFoodInMyBasket] = useState(0);
   const {foodsBasket} = useGetFoodBasket();
-  const {basketProducer, isLoading} = useReduxSelector(state => state.basket);
+  const {basketProducer, isLoading, error} = useReduxSelector(
+    state => state.basket,
+  );
   const {navigate} = useNavigation<NavProps>();
   const {t} = useTranslation();
   const dispatch = useReduxDispatch();
@@ -94,7 +96,9 @@ export const BasketSignupFoodConsumer = () => {
   }, [isLoading, canGoNext, navigate]);
 
   return (
-    <StyledContainerScroll showsVerticalScrollIndicator={false}>
+    <StyledContainerScroll
+      showsVerticalScrollIndicator={false}
+      testID="basket-signup-food-consumer-screen">
       <Header
         title={t('text.basketSignupFoodConsumer.headerTitle')}
         welcome={false}
@@ -127,6 +131,7 @@ export const BasketSignupFoodConsumer = () => {
         ))}
 
         <StyledSubmitButton
+          testID="submit-button-food"
           title={t('button.next')}
           onPress={handleSubmit(onSubmit)}
         />
