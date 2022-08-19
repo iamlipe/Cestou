@@ -64,6 +64,7 @@ const ModalDonation = ({
 
             <StyledContainerButtons>
               <StyledCancelButton
+                testID="cancel-button"
                 buttonColor="text_only"
                 textColor="primary"
                 size="small"
@@ -72,6 +73,7 @@ const ModalDonation = ({
               />
 
               <StyledConfirmButton
+                testID="confirm-button"
                 size="small"
                 title={t('button.confirm')}
                 onPress={onConfirm}

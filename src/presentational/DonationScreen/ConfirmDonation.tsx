@@ -15,7 +15,9 @@ export const ConfirmDonations = () => {
   const {t} = useTranslation();
 
   return (
-    <StyledContainerScroll showsVerticalScrollIndicator={false}>
+    <StyledContainerScroll
+      showsVerticalScrollIndicator={false}
+      testID="confirm-donation-screen">
       <Header title={t('text.confirmDonation.headerTitle')} welcome={false} />
       <StyledContent>
         <StyledIconCoins />
