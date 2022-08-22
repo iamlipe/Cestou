@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, {useTheme} from 'styled-components/native';
 import IconMaterial from 'react-native-vector-icons/MaterialIcons';
-import {t} from 'i18next';
 import {ModalProps} from 'react-native';
 import {SvgProps} from 'react-native-svg';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
@@ -47,6 +46,7 @@ const Modal = ({
   ...rest
 }: Props) => {
   const theme = useTheme();
+  const {t} = useTranslation();
 
   return (
     <GestureHandlerRootView>
@@ -55,6 +55,7 @@ const Modal = ({
           <StyledContent>
             {onClose && (
               <StyledCloseButton
+                testID="close-button"
                 name="close"
                 size={20}
                 color={theme.colors.GRAY_900}
@@ -80,6 +81,7 @@ const Modal = ({
             {!justMessage && onCancel && onConfirm && (
               <StyledContainerButtons columnButtons={columnButtons}>
                 <StyledCancelButton
+                  testID="cancel-button"
                   size={columnButtons ? 'medium' : 'small'}
                   buttonColor={columnButtons ? 'transparent' : 'text_only'}
                   textColor="primary"
@@ -88,6 +90,7 @@ const Modal = ({
                 />
 
                 <StyledConfirmButton
+                  testID="confirm-button"
                   size={columnButtons ? 'medium' : 'small'}
                   title={titleConfirmButton || t('button.confirm')}
                   onPress={onConfirm}

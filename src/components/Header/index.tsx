@@ -1,7 +1,6 @@
 import React, {memo} from 'react';
 import styled, {css, useTheme} from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {t} from 'i18next';
 import {useReduxSelector} from '@/hooks/useReduxSelector';
 import {useNavigation} from '@react-navigation/native';
 import {useTranslation} from 'react-i18next';
@@ -31,6 +30,7 @@ interface Props {
 const Header = ({welcome = true, type = 'normal', photo, title}: Props) => {
   const {auth} = useReduxSelector(state => state.user);
   const {goBack} = useNavigation();
+  const {t} = useTranslation();
   const theme = useTheme();
 
   return (

@@ -70,7 +70,9 @@ export const BasketSignupPaymentConsumer = () => {
   }
 
   return (
-    <StyledContainerScroll>
+    <StyledContainerScroll
+      showsVerticalScrollIndicator={false}
+      testID="basket-signup-payment-consumer-screen">
       <Header
         title={t('text.basketSignupPaymentConsumer.headerTitle')}
         welcome={false}
@@ -152,6 +154,7 @@ export const BasketSignupPaymentConsumer = () => {
           )}
 
         <StyledSubmitButton
+          testID="submit-button-payment"
           title={t('button.completePurchase')}
           onPress={handleSubmit(onSubmit)}
         />

@@ -73,7 +73,9 @@ export const BasketSignupPlanConsumer = () => {
   }, [isLoading, canGoNext, navigate]);
 
   return (
-    <StyledContainerScroll showsVerticalScrollIndicator={false}>
+    <StyledContainerScroll
+      showsVerticalScrollIndicator={false}
+      testID="basket-signup-plan-consumer-screen">
       <Header
         title={t('text.basketSignupPlanConsumer.headerTitle')}
         welcome={false}
@@ -119,6 +121,7 @@ export const BasketSignupPlanConsumer = () => {
         <StyledText>{t('text.basketSignupPlanConsumer.note')}</StyledText>
 
         <StyledSubmitButton
+          testID="submit-button-plan"
           title={t('button.next')}
           onPress={handleSubmit(onSubmit)}
           loading={isLoading}

@@ -59,7 +59,9 @@ export const RegisterPixFinancialProducer = () => {
   }
 
   return (
-    <StyledContainerScroll showsVerticalScrollIndicator={false}>
+    <StyledContainerScroll
+      showsVerticalScrollIndicator={false}
+      testID="register-pix-producer-screen">
       <Header
         title={t('text.screenRegisterPixFinancialProducer.headerTitle')}
         welcome={false}
@@ -90,6 +92,7 @@ export const RegisterPixFinancialProducer = () => {
           label={t('label.pixValue')}
         />
         <Button
+          testID="submit-button"
           title={t('button.registerPix')}
           loading={isLoading}
           onPress={handleSubmit(onSubmit)}

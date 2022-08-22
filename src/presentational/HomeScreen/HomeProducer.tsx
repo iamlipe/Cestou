@@ -24,7 +24,9 @@ export const HomeProducer = () => {
   );
 
   return (
-    <StyledContainer showsVerticalScrollIndicator={false}>
+    <StyledContainer
+      showsVerticalScrollIndicator={false}
+      testID="home-producer-screen">
       <Header />
       <StyledTitle>{t('text.screenHomeProducer.titleSectionOne')}</StyledTitle>
       <StyledContainerAboutMyBasket>
@@ -34,6 +36,7 @@ export const HomeProducer = () => {
 
         <ButtonAboutMyBasket
           title={t('button.myBaskets')}
+          testID="my-basket-button"
           onPress={() => navigate('HomeMyBasketsProducer')}
         />
       </StyledContainerAboutMyBasket>
