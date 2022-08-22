@@ -236,7 +236,7 @@ exports[`BasketSignupPaymentConsumer should matches snapshot 1`] = `
                 ]
               }
             >
-              Semanal
+              Retirar no ponto de coleta
             </Text>
           </View>
         </View>
@@ -319,7 +319,7 @@ exports[`BasketSignupPaymentConsumer should matches snapshot 1`] = `
                 ]
               }
             >
-              Quinzenal
+              Entrega (à combinar com produtor)
             </Text>
           </View>
         </View>
