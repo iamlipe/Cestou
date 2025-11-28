@@ -8,7 +8,7 @@
 
 ## DESAFIO 🚀
 
-**Projeto proposto na 4° edição do CAMP Ioasys**, onde o problema inicial foi: desenvolver uma solução digital para ODS 2 (Objetivo de desenvolvimento sustentável) que tem como finalidade erradicar a fome, alcançar a segurança alimentar, melhorar a nutrição e promover a agricultura sustentável.
+**Projeto proposto na 4° edição do CAMP Ioasys**, onde o problema inicial foi: desenvolver uma solução digital para ODS 2 (Objetivo de desenvolvimento sustentável) que tem como finalidade erradicar a fome, alcançar a segurança alimentar, melhorar a nutrição e promover a agricultura sustentável.jnon on 
 
 
 ## SOBRE O PROJETO ✨
